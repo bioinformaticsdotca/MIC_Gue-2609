@@ -18,9 +18,7 @@ favicon: img/favicon.ico
 
 # Workshop Info
 
-Hello world
-
-Welcome to the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop webpage!  
+Welcome to the 2026 CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop webpage!  
 
 ## Pre-work
 
