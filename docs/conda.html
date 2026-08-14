@@ -202,10 +202,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#installing-a-package-in-a-conda-environment"><i class="fa fa-check"></i>Installing a package in a Conda environment</a></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#using-software-from-within-a-conda-environment"><i class="fa fa-check"></i>Using software from within a Conda environment</a></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#activity"><i class="fa fa-check"></i>Activity</a></li>
-<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-out-packages-installed-in-an-environment"><i class="fa fa-check"></i>How to find out packages installed in an environment</a></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-environments-that-exist-in-my-machine"><i class="fa fa-check"></i>How to find environments that exist in my machine</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-out-packages-installed-in-an-environment"><i class="fa fa-check"></i>How to find out packages installed in an environment</a></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-delete-an-environment"><i class="fa fa-check"></i>How to delete an environment</a></li>
-<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#key-points-1"><i class="fa fa-check"></i>Key Points</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#sharing-environments"><i class="fa fa-check"></i>Sharing environments</a>
 <ul>
@@ -438,17 +437,35 @@ SRR23100672.fastq  FASTQ   DNA     40,436  68,795,095       51  1,701.3  170,914
 <h3>Activity<a href="conda.html#activity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s try to execute the <strong><code>seqkit stats</code></strong> with the <strong><code>-a</code>,<code>-all</code></strong> flag to see what happens.</p>
 </div>
-<div id="how-to-find-out-packages-installed-in-an-environment" class="section level3 hasAnchor">
-<h3>How to find out packages installed in an environment<a href="conda.html#how-to-find-out-packages-installed-in-an-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
 <div id="how-to-find-environments-that-exist-in-my-machine" class="section level3 hasAnchor">
 <h3>How to find environments that exist in my machine<a href="conda.html#how-to-find-environments-that-exist-in-my-machine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can check all the environments that were created with <code>conda</code> in your machine. By default, environments live in the <code>envs/</code> directory of your <code>miniforge3</code> directory.</p>
+<ul>
+<li>First, go to your home directory</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="conda.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd /home/ubuntu</span></code></pre></div>
+<ul>
+<li>Then, you can <code>ls</code> into the <code>miniforge3/envs</code></li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="conda.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls miniforge3/envs</span></code></pre></div>
+<ul>
+<li>This will list the names of all your created environments.</li>
+</ul>
+</div>
+<div id="how-to-find-out-packages-installed-in-an-environment" class="section level3 hasAnchor">
+<h3>How to find out packages installed in an environment<a href="conda.html#how-to-find-out-packages-installed-in-an-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you ever forget what exactly has been installed in a particular Conda environment, you can run the <code>conda list</code> command. The `–name`` flag looks for the installed software in the listed environment.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="conda.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda list <span class="at">--name</span> myenv</span></code></pre></div>
 </div>
 <div id="how-to-delete-an-environment" class="section level3 hasAnchor">
 <h3>How to delete an environment<a href="conda.html#how-to-delete-an-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="key-points-1" class="section level3 hasAnchor">
-<h3>Key Points<a href="conda.html#key-points-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Occasionally, you will want to delete an entire environment. Perhaps, you were experimenting with <code>conda</code> commands and you created an environment you have no intention of using; perhaps, you no longer need an existing environment and just want to get rid of cruft on your machine. Whatever the reason, the command to delete an environment is:</p>
+<p>By default, the <code>conda remove</code> command will delete packages. You can either specify the name of the package to be deleted:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="conda.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">--name</span> myenv seqkit</span></code></pre></div>
+<p>If you add the flag <code>--all</code>, the entire environment is deleted.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="conda.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">--name</span> myenv <span class="at">--all</span></span></code></pre></div>
+<p>However, the environment needs to be deactivated first.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="conda.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda deactivate</span></code></pre></div>
 </div>
 </div>
 <div id="sharing-environments" class="section level2 hasAnchor">

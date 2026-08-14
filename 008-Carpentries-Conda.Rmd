@@ -217,10 +217,47 @@ Apart from the base execution of **``seqkit stats``**, there is an useful flag t
 Let's try to execute the **``seqkit stats``** with the **`-a`,`-all`** flag to see what happens.
 
 :::
-### How to find out packages installed in an environment
 ### How to find environments that exist in my machine
+
+You can check all the environments that were created with `conda` in your machine. By default, environments live in the `envs/` directory of your `miniforge3` directory.
+
+- First, go to your home directory
+```bash
+$ cd /home/ubuntu
+```
+- Then, you can `ls` into the `miniforge3/envs`
+```bash
+$ ls miniforge3/envs
+```
+- This will list the names of all your created environments.
+
+### How to find out packages installed in an environment
+
+If you ever forget what exactly has been installed in a particular Conda environment, you can run the `conda list` command. The `--name`` flag looks for the installed software in the listed environment.
+```bash
+$ conda list --name myenv
+```
+
 ### How to delete an environment
-### Key Points
+
+Occasionally, you will want to delete an entire environment. Perhaps, you were experimenting with `conda` commands and you created an environment you have no intention of using; perhaps, you no longer need an existing environment and just want to get rid of cruft on your machine. Whatever the reason, the command to delete an environment is:
+
+
+By default, the `conda remove` command will delete packages. You can either specify the name of the package to be deleted:
+```bash
+$ conda remove --name myenv seqkit
+```
+
+If you add the flag `--all`, the entire environment is deleted.
+```bash
+$ conda remove --name myenv --all
+```
+
+However, the environment needs to be deactivated first.
+```bash
+$ conda deactivate
+```
+
 ## Sharing environments
 ### Why should I share my environment with others?
 ### How do I share my enviroment with others?
