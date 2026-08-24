@@ -259,8 +259,41 @@ $ conda deactivate
 ```
 
 ## Sharing environments
-### Why should I share my environment with others?
+When working on a collaborative research project it is often the case that your operating system might differ from the operating systems used by your collaborators. Similarly, the operating system used on a remote cluster to which you have access will likely differ from the operating system that you use on your local machine. In these cases it is useful to create an operating system agnostic environment file which you can share with collaborators or use to re-create an environment on a remote cluster.
+
 ### How do I share my enviroment with others?
-## Conclusions
+In order to make sure that your environment is truly shareable, you need to make sure that that the contents of your environment are described in such a way that the resulting environment file can be used to re-create your environment on Linux, Mac OS, and Windows. Conda uses YAML (“YAML Ain’t Markup Language”) for writing its environment files. YAML is a human-readable data-serialization language that is commonly used for configuration files and that uses Python-style indentation to indicate nesting.
+
+Creating your project’s Conda environment from a single environment file is a Conda “best practice”. Not only do you have a file to share with collaborators but you also have a file that can be placed under version control which further enhancing the reproducibility of your research project and workflow.
+
+The structure of a ``.yml`` file is:
+
+```
+name: myenv
+dependencies:
+  - ipython=7.13
+  - matplotlib=3.1
+  - pandas=1.0
+  - pip=20.0
+  - python=3.6
+  - scikit-learn=0.22
+```
+
+
+Let's create a ``environment.yml`` based on the existing software we have installed in our environment:
+
+```bash
+$ conda env export --name myenv --file environment.yml
+```
+
+
+Now your entire environment is represented as ``environment.yml``. This does not mean this environment has already been created.
+
+To create an environment from a ``.yml`` file, you can:
+
+```
+$ conda env create --file environment.yml
+```
+
 
 

@@ -208,10 +208,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#sharing-environments"><i class="fa fa-check"></i>Sharing environments</a>
 <ul>
-<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#why-should-i-share-my-environment-with-others"><i class="fa fa-check"></i>Why should I share my environment with others?</a></li>
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-do-i-share-my-enviroment-with-others"><i class="fa fa-check"></i>How do I share my enviroment with others?</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#conclusions"><i class="fa fa-check"></i>Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i>R</a></li>
 <li class="part"><span><b>III Modules</b></span></li>
@@ -470,16 +468,27 @@ SRR23100672.fastq  FASTQ   DNA     40,436  68,795,095       51  1,701.3  170,914
 </div>
 <div id="sharing-environments" class="section level2 hasAnchor">
 <h2>Sharing environments<a href="conda.html#sharing-environments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="why-should-i-share-my-environment-with-others" class="section level3 hasAnchor">
-<h3>Why should I share my environment with others?<a href="conda.html#why-should-i-share-my-environment-with-others" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
+<p>When working on a collaborative research project it is often the case that your operating system might differ from the operating systems used by your collaborators. Similarly, the operating system used on a remote cluster to which you have access will likely differ from the operating system that you use on your local machine. In these cases it is useful to create an operating system agnostic environment file which you can share with collaborators or use to re-create an environment on a remote cluster.</p>
 <div id="how-do-i-share-my-enviroment-with-others" class="section level3 hasAnchor">
 <h3>How do I share my enviroment with others?<a href="conda.html#how-do-i-share-my-enviroment-with-others" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-</div>
-<div id="conclusions" class="section level2 hasAnchor">
-<h2>Conclusions<a href="conda.html#conclusions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In order to make sure that your environment is truly shareable, you need to make sure that that the contents of your environment are described in such a way that the resulting environment file can be used to re-create your environment on Linux, Mac OS, and Windows. Conda uses YAML (“YAML Ain’t Markup Language”) for writing its environment files. YAML is a human-readable data-serialization language that is commonly used for configuration files and that uses Python-style indentation to indicate nesting.</p>
+<p>Creating your project’s Conda environment from a single environment file is a Conda “best practice”. Not only do you have a file to share with collaborators but you also have a file that can be placed under version control which further enhancing the reproducibility of your research project and workflow.</p>
+<p>The structure of a <code>.yml</code> file is:</p>
+<pre><code>name: myenv
+dependencies:
+  - ipython=7.13
+  - matplotlib=3.1
+  - pandas=1.0
+  - pip=20.0
+  - python=3.6
+  - scikit-learn=0.22</code></pre>
+<p>Let’s create a <code>environment.yml</code> based on the existing software we have installed in our environment:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="conda.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda env export <span class="at">--name</span> myenv <span class="at">--file</span> environment.yml</span></code></pre></div>
+<p>Now your entire environment is represented as <code>environment.yml</code>. This does not mean this environment has already been created.</p>
+<p>To create an environment from a <code>.yml</code> file, you can:</p>
+<pre><code>$ conda env create --file environment.yml</code></pre>
 
+</div>
 </div>
 </div>
             </section>
