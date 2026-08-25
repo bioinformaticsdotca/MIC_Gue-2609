@@ -211,7 +211,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-do-i-share-my-enviroment-with-others"><i class="fa fa-check"></i>How do I share my enviroment with others?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i>R</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i>R</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#introduction-to-rrstudio"><i class="fa fa-check"></i>Introduction to R/RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#loging-in-to-rstudio-via-the-aws-instance"><i class="fa fa-check"></i>Loging in to RStudio via the AWS instance</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#rstudio-default-interface"><i class="fa fa-check"></i>RStudio default interface</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#using-r-as-a-calculator"><i class="fa fa-check"></i>Using R as a calculator</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#mathematical-functions"><i class="fa fa-check"></i>Mathematical functions</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#variables-and-assignment"><i class="fa fa-check"></i>Variables and assignment</a></li>
+</ul></li>
+</ul></li>
 <li class="part"><span><b>III Modules</b></span></li>
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
 <ul>
@@ -263,7 +273,115 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r" class="section level1 hasAnchor">
 <h1>R<a href="r.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>test commit (by Jimmy)</p>
+<div id="introduction-to-rrstudio" class="section level2 hasAnchor">
+<h2>Introduction to R/RStudio<a href="r.html#introduction-to-rrstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R and RStudio are closely related but serve distinct roles in statistical computing and data analysis. R is an open-source programming language and computational environment designed for statistical analysis, data manipulation, and visualization. It provides the underlying engine responsible for executing code and performing computations. RStudio, in contrast, is an integrated development environment (IDE) that provides a user-friendly interface for working with R. It brings together tools such as a code editor, R console, workspace manager, plotting interface, package management, and file browser within a single environment. In simple terms, R performs the computations, while RStudio provides an organized and convenient interface through which users can write, execute, and manage R code.</p>
+<div class="rmdnote">
+<ul>
+<li><strong>R:</strong> open-source programming language used for statistical computing, data analysis, and visualization.</li>
+<li><strong>RStudio:</strong> integrated development environment (IDE) for R that provides a user-friendly interface for writing, editing, and executing R scripts.</li>
+</ul>
+</div>
+<div id="loging-in-to-rstudio-via-the-aws-instance" class="section level3 hasAnchor">
+<h3>Loging in to RStudio via the AWS instance<a href="r.html#loging-in-to-rstudio-via-the-aws-instance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On your internet browser, please enter:</p>
+<p><code>http://##.uhn-hpc.ca:8080</code></p>
+<p><strong>Replace ## by your student number</strong>.</p>
+<p>You will be prompted to a login page on RStudio Server.</p>
+<ul>
+<li><strong>Username</strong>:</li>
+<li><strong>Password</strong>:</li>
+</ul>
+</div>
+<div id="rstudio-default-interface" class="section level3 hasAnchor">
+<h3>RStudio default interface<a href="r.html#rstudio-default-interface" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Source/Script Editor (top left)</strong>: In your session, you first need to click on the <strong>new file</strong> icon and select an R script.
+This is main area for <strong>writing and editing R scripts</strong>. Code written here can be saved as <code>.R</code> files and executed line by line, in selected sections, or an entire script. Multiple scripts can be opened using tabs.</li>
+<li><strong>Console (bottom left)</strong>: The area where <strong>R code is executed</strong>. Commands can be entered directly into the console, and code sent from the <strong>Source Panel</strong> is executed here. Results, messages, warnings, and errors are displayed in this panel.</li>
+<li><strong>Environment/History (top right)</strong>: Displays objects currently stored in the R session such as variables, data frames, lists, and functions. The <strong>History</strong> tab provides access to commands that were previously executed.</li>
+<li><strong>Files/Plots/Packages/Help (bottom right)</strong>: A multipurpose panel containing several useful tools. <strong>Files</strong> provides navigation through directories and files. <strong>Plots</strong> displays generated figures. <strong>Packages</strong> allows users to view and manage installed R packages. <strong>Help</strong> displays documentation for R functions and packages.</li>
+</ul>
+</div>
+<div id="using-r-as-a-calculator" class="section level3 hasAnchor">
+<h3>Using R as a calculator<a href="r.html#using-r-as-a-calculator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The simplest thing you could do with R is to do arithmetic:</p>
+<p><strong>Input</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">200</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r.html#cb25-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">201</span></span></code></pre></div>
+<p>R will print the answer with a preceding “[1]”. [1] is the first element of the line being printed in the console.</p>
+<p>If you type and incomplete command, R will wait for you to complete it. This behavior is similar with Unix.</p>
+<p><strong>Input</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span></span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span></span></code></pre></div>
+<p>If you are using R from the command line or from within RStudio’s console, you need to use <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel the command. This applies to Mac users as well.</p>
+<p>Cancelling a command is not only useful for killing incomplete commands: you can also use it to tell <strong>R</strong> to stop running code (for example, if it is taking much longer than you expect).</p>
+<p>When using <strong>R</strong> as a calculator, the order of operations is the same as you would have learned back in school.</p>
+<p>From highest to lowest priority:</p>
+<ul>
+<li>Parentheses: <code>(</code>, <code>)</code>.</li>
+<li>Exponents: <code>^</code> or <code>**</code>.</li>
+<li>Multiply: <code>*</code>.</li>
+<li>Divide: <code>/</code>.</li>
+<li>Add: <code>+</code>.</li>
+<li>Subtract: <code>-</code></li>
+</ul>
+</div>
+<div id="mathematical-functions" class="section level3 hasAnchor">
+<h3>Mathematical functions<a href="r.html#mathematical-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R has many built in mathematical functions. To call a function, we can type its name followed by open and closing parentheses. Functions take <strong>arguments as inputs</strong>, i.e., anything we type inside the parenthesis or a function is considered an argument. Depending on the function, the number of arguments can vary to none to multiple. The result of a function ** is an output**, this represents the mathematical processing that was done with the input argument(s).</p>
+<p><strong>Input (returns the working directory)</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<p><strong>Input (trigonometry)</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">1</span>)</span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r.html#cb30-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.841471</span></span></code></pre></div>
+<p><strong>Input (natural logarithm)</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
+<p><strong>Input (base-10 logarithm)</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>)</span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r.html#cb34-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<p>Don’t worry about trying to remember every function in R. You can look them up on Google, or if you can remember the start of the function’s name, use the tab completion in RStudio.</p>
+<p>This is one advantage that RStudio has over R on its own, it has auto-completion abilities that allow you to more easily look up functions, their arguments, and the values that they take.</p>
+</div>
+<div id="variables-and-assignment" class="section level3 hasAnchor">
+<h3>Variables and assignment<a href="r.html#variables-and-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can store values in variables using the assignment operator <code>&lt;-</code>:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r.html#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<p>Notice that this assignment does not print a value. Instead, we stored (for later usage) in something called a <strong>variable x</strong>. <code>x</code> now contains the value <code>0.025</code>.</p>
+<p>If you type the name of your variable and press <kbd>Enter</kbd>:</p>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r.html#cb36-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.025</span></span></code></pre></div>
+<p>If you explore the <strong>Environment tab</strong> in RStudio (top left panel), you will see that <code>x</code> and its value have appeared.</p>
+<p>We can use our variable instead of a number in any calculation that expects a number.</p>
+<p><strong>Input</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r.html#cb38-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">3.688879</span></span></code></pre></div>
+<p>Variables can also be reassigned:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r.html#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
+<p><code>x</code> used to contain the value 0.025. It now has the value 100.</p>
+<p>Assignment values can contain the variable being assigned to:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r.html#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="do">##notice how RStudio updates the value of x in the environment tab</span></span>
+<span id="cb40-2"><a href="r.html#cb40-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<p>Variable names can contain letters, numbers, underscores and periods, but no spaces. They must start with a letter or a period follow by a letter (they cannot start with a number or an underscore). Variables beginning with a period are hidden variables.</p>
+<p>Different people use different conventions for long variable names, these include:</p>
+<ul>
+<li>periods.between.words</li>
+<li>underscore_between_words</li>
+<li>camelCaseToSeparateWords</li>
+</ul>
+<p>What you use is up to you, but <strong>be consistent</strong>.</p>
+<p>It is also possible to use the <code>=</code> operator for assignment.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r.html#cb41-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 
+</div>
+</div>
 </div>
 
 
