@@ -22,8 +22,8 @@ On your internet browser, please enter:
 
 You will be prompted to a login page on RStudio Server. 
 
-- **Username**: 
-- **Password**:
+- **Username**: ``ubuntu``
+- **Password**: ``G5L6VurwXi``
 
 
 ### RStudio default interface
