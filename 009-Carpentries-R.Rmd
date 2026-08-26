@@ -326,13 +326,13 @@ Each help page is broken down into sections:
 Different functions/objects might have different sections, but these are
 the main ones you should be aware of.
 
-### Tip: Running Examples
+#### Tip: Running Examples
 
 From within the function help page, you can highlight code in the
 Examples and hit <kbd>Return</kbd> to run it in RStudio console. This
 gives you a quick way to get a feel for how a function works.
 
-### Tip: Reading Help Files
+#### Tip: Reading Help Files
 
 One of the most daunting aspects of R is the large number of functions
 available. It would be prohibitive, if not impossible to remember the
