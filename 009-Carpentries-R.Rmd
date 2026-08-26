@@ -10,6 +10,264 @@ This R tutorial was adapted from [Software Carpentry's Intro to R and
 RStudio
 Lessons](https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro.html)
 
+## Introduction to R/RStudio
+
+R and RStudio are closely related but serve distinct roles in statistical computing and data analysis. R is an open-source programming language and computational environment designed for statistical analysis, data manipulation, and visualization. It provides the underlying engine responsible for executing code and performing computations. RStudio, in contrast, is an integrated development environment (IDE) that provides a user-friendly interface for working with R. It brings together tools such as a code editor, R console, workspace manager, plotting interface, package management, and file browser within a single environment. In simple terms, R performs the computations, while RStudio provides an organized and convenient interface through which users can write, execute, and manage R code.
+
+::: {.rmdnote}
+
+- **R:** open-source programming language used for statistical computing, data analysis, and visualization.
+- **RStudio:** integrated development environment (IDE) for R that provides a user-friendly interface for writing, editing, and executing R scripts.
+
+:::
+
+### Loging in to RStudio via the AWS instance
+
+On your internet browser, please enter:
+
+``http://##.uhn-hpc.ca:8080``
+
+**Replace ## by your student number**.
+
+You will be prompted to a login page on RStudio Server. 
+
+- **Username**: ``ubuntu``
+- **Password**: ``G5L6VurwXi``
+
+
+### RStudio default interface
+
+- **Source/Script Editor (top left)**: In your session, you first need to click on the **new file** icon and select an R script.
+This is main area for **writing and editing R scripts**. Code written here can be saved as `.R` files and executed line by line, in selected sections, or an entire script. Multiple scripts can be opened using tabs.
+- **Console (bottom left)**: The area where **R code is executed**. Commands can be entered directly into the console, and code sent from the **Source Panel** is executed here. Results, messages, warnings, and errors are displayed in this panel.
+- **Environment/History (top right)**: Displays objects currently stored in the R session such as variables, data frames, lists, and functions. The **History** tab provides access to commands that were previously executed.
+- **Files/Plots/Packages/Help (bottom right)**: A multipurpose panel containing several useful tools. **Files** provides navigation through directories and files. **Plots** displays generated figures. **Packages** allows users to view and manage installed R packages. **Help** displays documentation for R functions and packages.
+
+### Using R as a calculator
+
+The simplest thing you could do with R is to do arithmetic:
+
+**Input**
+
+```r
+1+200
+```
+
+**Output**
+
+```r
+[1] 201
+```
+R will print the answer with a preceding "[1]". [1] is the first element of the line being printed in the console.
+
+If you type and incomplete command, R will wait for you to complete it. This behavior is similar with Unix.
+
+**Input**
+
+```r
+1+
+```
+
+**Output**
+
+```r
++
+```
+
+If you are using R from the command line or from within RStudio's console, you need to use <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel the command. This applies to Mac users as well. 
+
+Cancelling a command is not only useful for killing incomplete commands: you can also use it to tell **R** to stop running code (for example, if it is taking much longer than you expect).
+
+When using **R** as a calculator, the order of operations is the same as you would have learned back in school.
+
+From highest to lowest priority:
+
+- Parentheses: ``(``, ``)``.
+- Exponents: ``^`` or ``**``.
+- Multiply: ``*``.
+- Divide: ``/``.
+- Add: ``+``.
+- Subtract: ``-``
+
+
+
+### Mathematical functions
+
+R has many built in mathematical functions. To call a function, we can type its name followed by open and closing parentheses. Functions take **arguments as inputs**, i.e., anything we type inside the parenthesis or a function is considered an argument. Depending on the function, the number of arguments can vary to none to multiple. The result of a function ** is an output**, this represents the mathematical processing that was done with the input argument(s).
+
+**Input (returns the working directory)**
+
+```r
+getwd()
+```
+
+**Input (trigonometry)**
+
+```r
+sin(1)
+```
+
+**Output**
+
+```r
+[1] 0.841471
+```
+
+**Input (natural logarithm)**
+
+```r
+log(1)
+```
+
+**Output**
+
+```r
+[1] 0
+```
+
+**Input (base-10 logarithm)**
+
+```r
+log10(10)
+```
+
+**Output**
+
+```r
+[1] 1
+```
+
+Don’t worry about trying to remember every function in R. You can look them up on Google, or if you can remember the start of the function’s name, use the tab completion in RStudio.
+
+This is one advantage that RStudio has over R on its own, it has auto-completion abilities that allow you to more easily look up functions, their arguments, and the values that they take.
+
+
+
+
+### Variables and assignment
+
+We can store values in variables using the assignment operator ``<-``:
+
+```r
+x <- 1/40
+```
+
+Notice that this assignment does not print a value. Instead, we stored (for later usage) in something called a **variable x**. ``x`` now contains the value ``0.025``.
+
+If you type the name of your variable and press <kbd>Enter</kbd>:
+
+**Output**
+```r
+[1] 0.025
+```
+
+If you explore the **Environment tab** in RStudio (top left panel), you will see that ``x`` and its value have appeared.
+
+We can use our variable instead of a number in any calculation that expects a number.
+
+**Input**
+
+```r
+log(x)
+```
+
+**Output**
+
+```r
+[1] -3.688879
+```
+
+Variables can also be reassigned:
+
+```r
+x <- 100
+```
+
+``x`` used to contain the value 0.025. It now has the value 100.
+
+Assignment values can contain the variable being assigned to:
+
+```r
+x <- x + 1 ##notice how RStudio updates the value of x in the environment tab
+y <- x * 2
+```
+
+Variable names can contain letters, numbers, underscores and periods, but no spaces. They must start with a letter or a period follow by a letter (they cannot start with a number or an underscore). Variables beginning with a period are hidden variables.
+
+Different people use different conventions for long variable names, these include:
+
+- periods.between.words
+- underscore_between_words
+- camelCaseToSeparateWords
+
+What you use is up to you, but **be consistent**.
+
+It is also possible to use the ``=`` operator for assignment.
+
+```r
+x = 2^2
+```
+
+### R packages
+
+It is possible to add extra functions to R by using a package. 
+The functions we used so far `getwd()`, `sin()`, `log()`, `log10()` are all pre-installed in the **R Base Package**.
+
+As of August 2026, there are a total of **24,776** available R packages in the [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/index.html).
+If we wanted for all these packages to be loaded at the moment we launch RStudio, it would take a supercomputer to do so. This is the reason of why specialized packages need to be installed and loaded prior to their functions be accessible for us.
+
+Let's first create a variable that has a list of observations:
+
+```r
+my_list <- c(8.6, 7, 4.8, 9, 10, 8,3)
+```
+Let's assume we want to normalize the values in our list so that they fall within a specific range, such as 0 and 1. We could implement the logic ourselves and create an algorithm to perform this transformation. However, there is often a simpler solution. For many common tasks, it is likely that someone has already encountered the same problem and developed a reliable solution that we can use. 
+
+The function we want to use is **rescale()**. If you try to use it passing your list as an argument:
+
+**Input**
+
+```r
+rescale(my_list)
+```
+
+You will get an error message saying:
+
+**Output**
+
+```r
+Error in rescale(my_list) : could not find function "rescale"
+```
+
+This means that in our R Environment, there is no package that implements the **rescale()** function.
+
+For that, we need first to install the package that contains this function:
+
+```r
+install.packages("scales")
+```
+
+After it is downloaded, we need to load the package (remember that if every single package we have installed was pre-loaded, we would need lots of computational resources).
+To load a package:
+
+```r
+library(scales)
+```
+
+Now, if you try to use the function **rescale()** again, it should work:
+
+**Input**
+
+```r
+rescale(my_list)
+```
+
+**Output**
+
+```r
+[1] 0.00000000 0.03459638 0.08896211 1.00000000
+```
+
 ## Seeking Help with R
 
 ::: {.infobox}
@@ -658,3 +916,5 @@ ggsave(
 ```
 
 Assigning plots to objects is particularly useful when working with multiple plots because it allows us to modify, reuse, and save individual plots without having to recreate them.
+
+
