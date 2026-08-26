@@ -878,7 +878,7 @@ Once we are satisfied with our plot, we can save it to disk using the `ggsave()`
 
 By default, `ggsave()` saves the most recently generated plot.
 
-```{r}
+```{r, eval = F}
 ggsave(
   filename = "penguins_plot.png",
   width = 8,
@@ -906,7 +906,7 @@ p <- ggplot(
 
 We can then explicitly tell `ggsave()` which plot object we want to save using the plot argument.
 
-```{r}
+```{r, eval = F}
 ggsave(
   filename = "penguins_plot.png",
   p, # ggplot object
