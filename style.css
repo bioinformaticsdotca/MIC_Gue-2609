@@ -339,3 +339,10 @@ div.callout-plain {
 .callout-dropdown.callout-plain.callout-gray > .callout-dropdown-summary .callout-dropdown-caret {
     color: #757575 !important;
 }
+
+.infobox {
+  padding: 1em;
+  margin: 1em 0;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
