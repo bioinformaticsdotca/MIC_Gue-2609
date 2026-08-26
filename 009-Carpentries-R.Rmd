@@ -461,7 +461,7 @@ can be thought of as a collection of vectors arranged into columns. Each
 vector represents a single column, while each row typically represents
 an observation or record.
 
-::: infobox
+::: {.infobox}
 **What is a vector?**
 
 In R, a vector is a sequence of values that all have the same data type.
@@ -474,6 +474,9 @@ Some of the most common data types you will encounter in R include:
     10.5.
 -   `Integer`: Whole numbers, such as 1, 5, or 100.
 -   `Character`: Text values, such as "Hello" or "world".
+-   `Factor`: Categorical values that represent a predefined set of
+categories, such as "Control" and "Treatment" or "Low", "Medium", and
+"High".
 -   `Logical`: Boolean values that can be either TRUE or FALSE.
 :::
 
