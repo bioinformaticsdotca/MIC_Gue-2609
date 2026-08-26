@@ -1,5 +1,3 @@
-# (PART) Carpentries Pre-Session {-}
-
 # AWS/UNIX
 ## 1. Logging into AWS
 

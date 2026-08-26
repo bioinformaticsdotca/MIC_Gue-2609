@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Meet Your Faculty | NAME OF WORKSHOP YEAR</title>
-  <meta name="description" content="Workshop website for the YEAR WORKSHOP Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <title>Meet Your Faculty | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
+  <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Meet Your Faculty | NAME OF WORKSHOP YEAR" />
+  <meta property="og:title" content="Meet Your Faculty | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
-  <meta property="og:description" content="Workshop website for the YEAR WORKSHOP Canadian Bioinformatics Workshop" />
-  <meta name="github-repo" content="cbw-dev/bookdown-template" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/MIC_Gue-2609/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/MIC_Gue-2609" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Meet Your Faculty | NAME OF WORKSHOP YEAR" />
+  <meta name="twitter:title" content="Meet Your Faculty | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   
-  <meta name="twitter:description" content="Workshop website for the YEAR WORKSHOP Canadian Bioinformatics Workshop" />
-  <meta name="twitter:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+  <meta name="twitter:description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/MIC_Gue-2609/img/bioinformatics_logo.png" />
 
-<meta name="author" content="Faculty: INSTRUCTOR AND TA NAMES" />
+<meta name="author" content="Faculty: Morgan Langille, Robyn Wright, Jacob Nearing" />
 
 
 
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="meet-your-faculty.html"/>
-<link rel="next" href="module-1.html"/>
+<link rel="prev" href="data-and-compute-setup.html"/>
+<link rel="next" href="awsunix.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,11 +51,35 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON",
+  "description": "The complete set of tutorials, slides, and practical exercises for the (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026 Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/MIC_Gue-2609",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "https://bioinformatics.ca/workshops-all/cbw-cs-dcc-microbiome-analysis/"
+  }
+}
+</script>
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +89,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -139,48 +163,167 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://bioinformaticsdotca.github.io/">
  <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
  </a>
- <li><center><strong><a href="./"><br>YOUR WORKSHOP NAME<br><br></a></strong></center></li>
- <a href="./">
- <img src="img/MISSINGLOGO.PNG" width="70%" alt="WORKSHOP NAME logo" style="display:block; margin-left:auto; margin-right:auto; ">
+<li><center><strong><a href="./"><br>(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/logo.png" width="70%" alt="(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON logo" style="display:block; margin-left:auto; margin-right:auto; ">
  </a>
- <br>
+<br>
 
 <li class="divider"></li>
 <li class="part"><span><b>I Introduction</b></span></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule-unixaws-pre-session"><i class="fa fa-check"></i>Schedule: UNIX/AWS pre-session</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule-microbiome-analysis"><i class="fa fa-check"></i>Schedule: Microbiome Analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
+<li class="part"><span><b>II Carpentries Pre-Session</b></span></li>
 <li class="chapter" data-level="" data-path="meet-your-faculty-1.html"><a href="meet-your-faculty-1.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
-<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html"><i class="fa fa-check"></i>AWS/UNIX</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-aws"><i class="fa fa-check"></i>1. Logging into AWS</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-the-amazon-cloud-during-the-workshop"><i class="fa fa-check"></i>Logging into the Amazon Cloud During the Workshop</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-ssh-maclinux"><i class="fa fa-check"></i>Logging in with ssh (Mac/Linux)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-openssh-client-windows"><i class="fa fa-check"></i>Logging in with OpenSSH client (Windows)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#file-system-layout"><i class="fa fa-check"></i>File System Layout</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#jupyter-notebook"><i class="fa fa-check"></i>Jupyter Notebook</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#introduction-to-the-command-line"><i class="fa fa-check"></i>2. Introduction to the command line</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#exercise-exploring-the-filesystem"><i class="fa fa-check"></i>Exercise: Exploring the filesystem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#file-manipulation"><i class="fa fa-check"></i>3. File manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#exercise-reading-text-files"><i class="fa fa-check"></i>Exercise: Reading text files</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#exercise-editing-text-files"><i class="fa fa-check"></i>Exercise: Editing text files</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#reference-material"><i class="fa fa-check"></i>Reference material</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#searching-and-sorting-through-files"><i class="fa fa-check"></i>4. Searching and sorting through files</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#setup"><i class="fa fa-check"></i>Setup</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#data-exploration"><i class="fa fa-check"></i>Data Exploration</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#what-does-mean"><i class="fa fa-check"></i>What Does &gt;&gt; Mean?</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#running-commands-together"><i class="fa fa-check"></i>Running Commands Together</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#piping-commands-together"><i class="fa fa-check"></i>Piping Commands Together</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#pipe-reading-comprehension"><i class="fa fa-check"></i>Pipe Reading Comprehension</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#pipe-construction"><i class="fa fa-check"></i>Pipe Construction</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#which-pipe"><i class="fa fa-check"></i>Which Pipe?</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#checking-files"><i class="fa fa-check"></i>Checking Files</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#wildcard-expressions"><i class="fa fa-check"></i>Wildcard Expressions</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#key-points"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#putting-it-all-together"><i class="fa fa-check"></i>5. Putting it all together</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#writing-your-first-script"><i class="fa fa-check"></i>Writing your first script</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#awk"><i class="fa fa-check"></i>Awk</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#key-points-1"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html"><i class="fa fa-check"></i>Conda</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#getting-started-with-conda"><i class="fa fa-check"></i>Getting Started with Conda</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#packages-and-environment"><i class="fa fa-check"></i>Packages and Environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#modules-packages-libraries"><i class="fa fa-check"></i>Modules, packages, libraries</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#dependencies"><i class="fa fa-check"></i>Dependencies</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#environments"><i class="fa fa-check"></i>Environments</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#environment-management-systems-for-python"><i class="fa fa-check"></i>Environment management systems for Python</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#package-management"><i class="fa fa-check"></i>Package Management</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#conda-1"><i class="fa fa-check"></i>Conda</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#why-use-conda"><i class="fa fa-check"></i>Why use Conda?</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#key-points-2"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#working-with-environments"><i class="fa fa-check"></i>Working with Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#workspace-for-conda-environments"><i class="fa fa-check"></i>Workspace for Conda environments</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#creating-a-conda-environment"><i class="fa fa-check"></i>Creating a conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#activating-a-conda-environment"><i class="fa fa-check"></i>Activating a Conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#installing-a-package-in-a-conda-environment"><i class="fa fa-check"></i>Installing a package in a Conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#using-software-from-within-a-conda-environment"><i class="fa fa-check"></i>Using software from within a Conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#activity"><i class="fa fa-check"></i>Activity</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-environments-that-exist-in-my-machine"><i class="fa fa-check"></i>How to find environments that exist in my machine</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-out-packages-installed-in-an-environment"><i class="fa fa-check"></i>How to find out packages installed in an environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-delete-an-environment"><i class="fa fa-check"></i>How to delete an environment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#sharing-environments"><i class="fa fa-check"></i>Sharing environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-do-i-share-my-enviroment-with-others"><i class="fa fa-check"></i>How do I share my enviroment with others?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i>R</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#introduction-to-rrstudio"><i class="fa fa-check"></i>Introduction to R/RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#loging-in-to-rstudio-via-the-aws-instance"><i class="fa fa-check"></i>Loging in to RStudio via the AWS instance</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#rstudio-default-interface"><i class="fa fa-check"></i>RStudio default interface</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#using-r-as-a-calculator"><i class="fa fa-check"></i>Using R as a calculator</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#mathematical-functions"><i class="fa fa-check"></i>Mathematical functions</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#variables-and-assignment"><i class="fa fa-check"></i>Variables and assignment</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#r-packages"><i class="fa fa-check"></i>R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#seeking-help-with-r"><i class="fa fa-check"></i>Seeking Help with R</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#reading-help-files"><i class="fa fa-check"></i>Reading Help Files</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-objects"><i class="fa fa-check"></i>Data Objects</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#special-operators"><i class="fa fa-check"></i>Special Operators</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#getting-help-with-packages"><i class="fa fa-check"></i>Getting Help with Packages</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#when-you-remember-part-of-the-function-name"><i class="fa fa-check"></i>When You Remember Part of the Function Name</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i>When You Have No Idea Where to Begin</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#other-ways-to-get-help"><i class="fa fa-check"></i>Other Ways to Get Help</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-structures-data-types-and-data-frames"><i class="fa fa-check"></i>Data Structures, Data Types and Data frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-types"><i class="fa fa-check"></i>Data Types</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#manipulating-data-frames"><i class="fa fa-check"></i>Manipulating data frames</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#reading-and-writing-data-frames"><i class="fa fa-check"></i>Reading and Writing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#creating-plots-with-ggplot2"><i class="fa fa-check"></i>Creating Plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#building-a-ggplot"><i class="fa fa-check"></i>Building a ggplot</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#changing-point-aethetics"><i class="fa fa-check"></i>Changing point aethetics</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#mapping-aesthetics-to-variables"><i class="fa fa-check"></i>Mapping aesthetics to variables</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#adding-labels-and-themes"><i class="fa fa-check"></i>Adding labels and themes</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#saving-a-ggplot"><i class="fa fa-check"></i>Saving a ggplot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Modules</b></span></li>
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a>
-<ul>
-<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#downloads"><i class="fa fa-check"></i>Downloads</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lab"><i class="fa fa-check"></i>Lab</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i>Workflow</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html"><i class="fa fa-check"></i>Module 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html"><i class="fa fa-check"></i>Module 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-2"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html"><i class="fa fa-check"></i>Module 4</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lab-3"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
 <li class="divider"></li>
 <h1 id="sponsors">Sponsors</h1>
 <center>
 <a href="https://www.cihr-irsc.gc.ca"><img src="img/sponsors/cihr.png" width=90% style="padding-bottom: 20px" alt="Canadian Institutes of Health Research logo."></a>
 
-<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="70" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
-<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="70" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="55" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="55" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
 <br><br>
-<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
-<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
-<br><br>
-<a href="https://www.bioinformatics.ca"><img src="img/sponsors/YOUR-SPONSOR-HERE.SVG" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="ORGANIZATION logo."> <!--- replace the directory with your sponsor logo --->
-<a href="https://www.bioinformatics.ca"><img src="img/sponsors/YOUR-SPONSOR-HERE.SVG" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="ORGANIZATION logo."> <!--- replace the directory with your sponsor logo --->
-<br><br>
-<a href="https://www.bioinformatics.ca"><img src="img/sponsors/YOUR-SPONSOR-HERE.SVG" width=60% style="padding-bottom: 20px" alt="ORGANIZATION logo."> <!--- replace the directory with your sponsor logo --->
-
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li></center>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=35% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
 
 </ul>
 
@@ -191,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NAME OF WORKSHOP YEAR</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</a>
           </h1>
         </div>
 
@@ -201,56 +344,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="meet-your-faculty-1" class="section level1 hasAnchor">
 <h1>Meet Your Faculty<a href="meet-your-faculty-1.html#meet-your-faculty-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="name-1" class="section level4 hasAnchor">
-<h4>NAME<a href="meet-your-faculty-1.html#name-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="img/faculty/MISSINGHEADSHOT.png" width="200" alt="Photo of NAME"></p>
-<blockquote>
-<p>Job Title <br>
-Company/University/… <br>
-Location</p>
-<p>— contact information, if provided</p>
-</blockquote>
-<p>[BIO]</p>
-</div>
-<div id="michelle-brazas-phd-1" class="section level4 hasAnchor">
-<h4>Michelle Brazas, PhD<a href="meet-your-faculty-1.html#michelle-brazas-phd-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="img/faculty/michelle-brazas.jpg" width="200" alt="Photo of Michelle Brazas."></p>
-<blockquote>
-<p>Scientific Director <br>
-Canadian Bioinformatics Workshops (CBW) <br>
-Toronto, ON, CA</p>
-<p>— <a href="mailto:director@bioinformatics.ca" class="email">director@bioinformatics.ca</a></p>
-</blockquote>
-<p>Dr. Michelle Brazas is the Associate Director for Adaptive Oncology at the Ontario Institute for
-Cancer Research (OICR), and acting Scientific Director at Bioinformatics.ca. Previously, Dr.
-Brazas was the Program Manager for Bioinformatics.ca and a faculty member in
-Biotechnology at BCIT. Michelle co-founded and runs the Toronto Bioinformatics User Group
-(TorBUG) now in its 11th season, and plays an active role in the International Society of
-Computational Biology where she sits on the Board of Directors and Executive Board.</p>
-</div>
-<div id="nia-hughes-sheher-1" class="section level4 hasAnchor">
-<h4>Nia Hughes (she/her)<a href="meet-your-faculty-1.html#nia-hughes-sheher-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="img/faculty/nia-hughes.jpeg" width="200" alt="Photo of Nia Hughes."></p>
-<blockquote>
-<p>Platform Training Manager, Canadian Bioinformatics Hub<br>
-Ontario Institute for Cancer Research<br>
-Toronto, ON, Canada</p>
-<p>— <a href="mailto:training@bioinformatics.ca" class="email">training@bioinformatics.ca</a></p>
-</blockquote>
-<p>Nia is the Platform Training Manager for the Canadian Bioinformatics Hub, where she coordinates the Canadian Bioinformatics Workshop Series. Prior to starting at OICR, she completed her M.Sc. in Bioinformatics from the University of Guelph in 2020 before working there as a bioinformatician studying epigenetic and transcriptomic patterns across maize varieties.</p>
+<!--#### NAME
+
+<img src="img/faculty/MISSINGHEADSHOT.png" width="200" alt="Photo of NAME">
+
+>JOB TITLE <br>
+INSTITUTION <br>
+LOCATION
+>
+> --- CONTACT INFO, IF PROVIDED
+
+BIO GOES HERE-->
 
 </div>
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="meet-your-faculty.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="module-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-and-compute-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="awsunix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -264,42 +377,42 @@ Toronto, ON, Canada</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/cbw-dev/bookdown-template/blob/main/001-faculty.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/MIC_Gue-2609/blob/main/006-Carpentries-Faculty.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
