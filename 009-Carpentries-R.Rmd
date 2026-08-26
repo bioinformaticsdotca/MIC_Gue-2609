@@ -1,5 +1,4 @@
 # R
-test commit (by Jimmy)
 
 ## Introduction to R/RStudio
 
@@ -200,3 +199,65 @@ x = 2^2
 ```
 
 ### R packages
+
+It is possible to add extra functions to R by using a package. 
+The functions we used so far `getwd()`, `sin()`, `log()`, `log10()` are all pre-installed in the **R Base Package**.
+
+As of August 2026, there are a total of **24,776** available R packages in the [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/index.html).
+If we wanted for all these packages to be loaded at the moment we launch RStudio, it would take a supercomputer to do so. This is the reason of why specialized packages need to be installed and loaded prior to their functions be accessible for us.
+
+Let's first create a variable that has a list of observations:
+
+```r
+my_list <- c(8.6, 7, 4.8, 9, 10, 8,3)
+```
+Let's assume we want to normalize the values in our list so that they fall within a specific range, such as 0 and 1. We could implement the logic ourselves and create an algorithm to perform this transformation. However, there is often a simpler solution. For many common tasks, it is likely that someone has already encountered the same problem and developed a reliable solution that we can use. 
+
+The function we want to use is **rescale()**. If you try to use it passing your list as an argument:
+
+**Input**
+
+```r
+rescale(my_list)
+```
+
+You will get an error message saying:
+
+**Output**
+
+```r
+Error in rescale(my_list) : could not find function "rescale"
+```
+
+This means that in our R Environment, there is no package that implements the **rescale()** function.
+
+For that, we need first to install the package that contains this function:
+
+```r
+install.packages("scales")
+```
+
+After it is downloaded, we need to load the package (remember that if every single package we have installed was pre-loaded, we would need lots of computational resources).
+To load a package:
+
+```r
+library(scales)
+```
+
+Now, if you try to use the function **rescale()** again, it should work:
+
+**Input**
+
+```r
+rescale(my_list)
+```
+
+**Output**
+
+```r
+[1] 0.00000000 0.03459638 0.08896211 1.00000000
+```
+
+
+
+
