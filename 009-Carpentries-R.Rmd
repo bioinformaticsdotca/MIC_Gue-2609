@@ -6,85 +6,95 @@ editor_options:
 
 # R
 
-::: objectives
--   To be able to read R help files for functions and special operators.
+This R tutorial was adapted from
+[Software Carpentry's Intro to R and RStudio Lessons](https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro.html)
+
+## Seeking Help with R
+
+### Learning Objectives
+-   To be able to read R help files for functions, data objects and
+    special operators.
 -   To be able to use CRAN task views to identify packages to solve a
     problem.
--   To be able to seek help from your peers.
-:::
-
-::: questions
--   How can I get help in R?
-:::
 
 ```{r, include=FALSE}
 ```
 
-## Reading Help Files
+### Reading Help Files
 
-R, and every package, provide help files for functions. The general
-syntax to search for help on any function, "function_name", from a
-specific function that is in a package loaded into your namespace (your
-interactive R session) is:
+R, and every package, provide help files for functions or data objects.
+The general syntax to search for help on any function, "function_name",
+from a specific function that is in a package loaded into your R session
+is:
 
 ```{r, eval=FALSE}
 ?function_name
 help(function_name)
 ```
 
-For example take a look at the help file for `write.table()`, we will be
-using a similar function in an upcoming episode.
+For example take a look at the help file for `mean()`
 
 ```{r, eval=FALSE}
-?write.table()
+?mean()
 ```
 
-This will load up a help page in RStudio (or as plain text in R itself).
+This will load up a help page in RStudio.
 
 Each help page is broken down into sections:
 
--   Description: An extended description of what the function does.
--   Usage: The arguments of the function and their default values (which
-    can be changed).
--   Arguments: An explanation of the data each argument is expecting.
--   Details: Any important details to be aware of.
--   Value: The data the function returns.
--   See Also: Any related functions you might find useful.
--   Examples: Some examples for how to use the function.
+-   `Description`: A brief description of what a function does or what a
+    data object contains.
+-   `Usage`: For functions, shows how the function is called, including
+    its arguments and their default values. For data objects, shows the
+    name of the object and - sometimes how it is structured or loaded.
+-   `Arguments`: For functions, describes each argument and the type of
+    input it expects. This section is usually absent for data objects.
+-   `Format`: Common for data objects; describes the structure of the
+    object, such as the number of observations and variables, variable
+    names, data types, and what each variable represents.
+-   `Details`: Provides additional information about how the function
+    works or important background information about the data object.
+-   `Value`: For functions, describes what the function returns. This
+    section is usually absent for data objects.
+-   `Source`: Common for data objects; describes where the data came from
+    or provides a reference to the original source.
+-   `Examples`: Provides example code demonstrating how to use the
+    function or work with the data object.
 
-Different functions might have different sections, but these are the
-main ones you should be aware of.
+Different functions/objects might have different sections, but these are
+the main ones you should be aware of.
 
-Notice how related functions might call for the same help file:
-
-```{r, eval=FALSE}
-?write.table()
-?write.csv()
-```
-
-This is because these functions have very similar applicability and
-often share the same arguments as inputs to the function, so package
-authors often choose to document them together in a single help file.
-
-::: callout
-## Tip: Running Examples
+### Tip: Running Examples
 
 From within the function help page, you can highlight code in the
-Examples and hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> to run it in RStudio
-console. This gives you a quick way to get a feel for how a function
-works.
-:::
+Examples and hit <kbd>Return</kbd> to run it in RStudio console. This
+gives you a quick way to get a feel for how a function works.
 
-::: callout
-## Tip: Reading Help Files
+### Tip: Reading Help Files
 
 One of the most daunting aspects of R is the large number of functions
 available. It would be prohibitive, if not impossible to remember the
 correct usage for every function you use. Luckily, using the help files
 means you don't have to remember that!
-:::
 
-## Special Operators
+### Data Objects
+
+R by default comes with a collection of built-in data objects from the
+alphabets and months of the year to datasets collected about penguins
+and tooth growth in guinea pigs. These objects provide convenient
+examples for learning how to explore, manipulate, summarize, and
+visualize different types of data in R. Additionally, many R packages
+come with their own data objects, such as example datasets, reference
+databases, lookup tables, and precomputed results. Understanding what
+these data objects contain and how they are structured can be essential
+for using certain packages effectively.
+
+```{r, eval=FALSE}
+?iris()
+?LETTERS()
+```
+
+### Special Operators
 
 To seek help on special operators, use quotes or backticks:
 
@@ -93,7 +103,7 @@ To seek help on special operators, use quotes or backticks:
 ?`<-`
 ```
 
-## Getting Help with Packages
+### Getting Help with Packages
 
 Many packages come with "vignettes": tutorials and extended example
 documentation. Without any arguments, `vignette()` will list all
@@ -108,7 +118,7 @@ RStudio also has a set of excellent
 [cheatsheets](https://rstudio.com/resources/cheatsheets/) for many
 packages.
 
-## When You Remember Part of the Function Name
+### When You Remember Part of the Function Name
 
 If you're not sure what package a function is in or how it's
 specifically spelled, you can do a fuzzy search:
@@ -123,252 +133,287 @@ directory includes "set" in its name. You can do a fuzzy search to help
 you identify the function:
 
 ```{r, eval=FALSE}
-??set
+??standarddeviation
 ```
 
-## When You Have No Idea Where to Begin
+### When You Have No Idea Where to Begin
 
 If you don't know what function or package you need to use [CRAN Task
 Views](https://cran.at.r-project.org/web/views) is a specially
 maintained list of packages grouped into fields. This can be a good
 starting point.
 
-## Other ways to get help
+### Other Ways to Get Help
 
-There are several other ways that people often get help when they are
-stuck with their R code.
+R's built-in documentation is not always enough, especially when you are
+trying to solve a specific problem. Other useful sources of help
+include:
 
--   Search the internet: paste the last line of your error message or
-    “R” and a short description of what you want to do into your
-    favourite search engine and you will usually find several examples
-    where other people have encountered the same problem and came
-    looking for help.
-    -   StackOverflow can be particularly helpful for this: answers to
-        questions are presented as a ranked thread ordered according to
-        how useful other users found them to be. You can search using
-        the `[r]` tag.
-    -   **Take care**: copying and pasting code written by somebody else
-        is risky unless you understand exactly what it is doing!
--   Ask somebody “in the real world”. If you have a colleague or friend
-    with more expertise in R than you have, show them the problem you
-    are having and ask them for help.
--   Sometimes, the act of articulating your question can help you to
-    identify what is going wrong. This is known as [“rubber duck
-    debugging”](https://en.wikipedia.org/wiki/Rubber_duck_debugging)
-    among programmers.
+-   Package websites: Popular packages often have dedicated websites
+    containing documentation, tutorials, and examples.
+-   Stack Overflow: Searching for the error message or problem you are
+    encountering can often lead to solutions from other R users.
+-   R community forums: Communities such as Posit Community provide a
+    place to ask questions and discuss R-related problems.
+-   GitHub: Package repositories can be useful for checking known
+    issues, reporting bugs, and finding examples of how a package is
+    being developed or used.
+-   AI/LLMs: AI tools such as ChatGPT can help explain R concepts,
+    interpret error messages, suggest functions or packages, and
+    generate or troubleshoot code. However, AI-generated answers can be
+    incorrect or outdated, so you should verify important information
+    against official documentation and other reliable sources.
 
-### Formulating your question
-
-The StackOverflow page on [how to ask a good
-question](https://stackoverflow.com/help/how-to-ask) has tips on what
-information to include when posting a question on StackOverflow. Some of
-these are specific to StackOverflow but others are also relevant if
-you're asking a colleague or friend for help, or even if just
-articulating your question to yourself.
-
-R has a few useful functions to help you formulate your question:
-
-```{r, eval=FALSE}
-?dput
-```
-
-Will dump the data you're working with into a format that can be copied
-and pasted by others into their own R session.
-
-```{r}
-sessionInfo()
-```
-
-Will print out your current version of R, as well as any packages you
-have loaded. This can be useful for others to help reproduce and debug
-your issue.
-
-### Generative AI
-
-::: instructor
-### Choose how to teach this section
-
-The section on generative AI is intended to be concise but Instructors
-may choose to devote more time to the topic in a workshop.
-
-Depending on your own level of experience and comfort with talking about
-and using these tools, you could choose to do any of the following:
-
--   Explain how large language models work and are trained, and/or the
-    difference between generative AI, other forms of AI that currently
-    exist, and the limits of what LLMs can do (e.g., they can't
-    "reason").
-
--   Demonstrate how you recommend that learners use generative AI.
-
--   Discuss the ethical concerns listed below, as well as others that
-    you are aware of, to help learners make an informed choice about
-    whether or not to use generative AI tools.
-
-This is a fast-moving technology. If you are preparing to teach this
-section and you feel it has become outdated, please open an issue on the
-lesson repository to let the Maintainers know and/or a pull request to
-suggest updates and improvements.
-:::
-
-It is increasingly common for people to use *generative AI* chatbots
-such as ChatGPT to get help while coding. You will probably receive some
-useful guidance by presenting your error message to the chatbot and
-asking it what went wrong. However, the way this help is provided by the
-chatbot is different. Answers on StackOverflow have (probably) been
-given by a human as a direct response to the question asked. But
-generative AI chatbots, which are based on an advanced statistical
-model, respond by generating the *most likely* sequence of text that
-would follow the prompt they are given.
-
-While responses from generative AI tools can often be helpful, they are
-not always reliable. These tools sometimes generate plausible but
-incorrect or misleading information, so (just as with an answer found on
-the internet) it is essential to verify their accuracy. You need the
-knowledge and skills to be able to understand these responses, to judge
-whether or not they are accurate, and to fix any errors in the code it
-offers you.
-
-In addition to asking for help, programmers can use generative AI tools
-to generate code from scratch; extend, improve and reorganise existing
-code; translate code between programming languages; figure out what
-terms to use in a search of the internet; and more. However, there are
-drawbacks that you should be aware of.
-
-The models used by these tools have been “trained” on very large volumes
-of data, much of it taken from the internet, and the responses they
-produce reflect that training data, and may recapitulate its
-inaccuracies or biases. The environmental costs (energy and water use)
-of LLMs are a lot higher than other technologies, both during
-development (known as training) and when an individual user uses one
-(also called inference). For more information see the [AI Environmental
-Impact Primer](https://huggingface.co/blog/sasha/ai-environment-primer)
-developed by researchers at HuggingFace, an AI hosting platform.
-Concerns also exist about the way the data for this training was
-obtained, with questions raised about whether the people developing the
-LLMs had permission to use it. Other ethical concerns have also been
-raised, such as reports that workers were exploited during the training
-process.
-
-**We recommend that you avoid getting help from generative AI during the
-workshop** for several reasons:
-
-1.  For most problems you will encounter at this stage, help and answers
-    can be found among the first results returned by searching the
-    internet.
-2.  The foundational knowledge and skills you will learn in this lesson
-    by writing and fixing your own programs are essential to be able to
-    evaluate the correctness and safety of any code you receive from
-    online help or a generative AI chatbot. If you choose to use these
-    tools in the future, the expertise you gain from learning and
-    practising these fundamentals on your own will help you use them
-    more effectively.
-3.  As you start out with programming, the mistakes you make will be the
-    kinds that have also been made – and overcome! – by everybody else
-    who learned to program before you. Since these mistakes and the
-    questions you are likely to have at this stage are common, they are
-    also better represented than other, more specialised problems and
-    tasks in the data that was used to train generative AI tools. This
-    means that a generative AI chatbot is *more likely to produce
-    accurate responses* to questions that novices ask, which could give
-    you a false impression of how reliable they will be when you are
-    ready to do things that are more advanced.
-
-:::: challenge
-## Challenge 1
-
-Look at the help page for the `c` function. What kind of vector do you
-expect will be created if you evaluate the following:
-
-```{r, eval=FALSE}
-c(1, 2, 3)
-c('d', 'e', 'f')
-c(1, 2, 'f')
-```
-
-::: solution
-## Solution to Challenge 1
-
-The `c()` function creates a vector, in which all elements are of the
-same type. In the first case, the elements are numeric, in the second,
-they are characters, and in the third they are also characters: the
-numeric values are "coerced" to be characters.
-:::
-::::
-
-:::: challenge
-## Challenge 2
-
-Look at the help for the `paste` function. You will need to use it
-later. What's the difference between the `sep` and `collapse` arguments?
-
-::: solution
-## Solution to Challenge 2
-
-To look at the help for the `paste()` function, use:
-
-```{r, eval=FALSE}
-help("paste")
-?paste
-```
-
-The difference between `sep` and `collapse` is a little tricky. The
-`paste` function accepts any number of arguments, each of which can be a
-vector of any length. The `sep` argument specifies the string used
-between concatenated terms — by default, a space. The result is a vector
-as long as the longest argument supplied to `paste`. In contrast,
-`collapse` specifies that after concatenation the elements are
-*collapsed* together using the given separator, the result being a
-single string.
-
-It is important to call the arguments explicitly by typing out the
-argument name e.g `sep = ","` so the function understands to use the ","
-as a separator and not a term to concatenate. e.g.
-
-```{r}
-paste(c("a","b"), "c")
-paste(c("a","b"), "c", ",")
-paste(c("a","b"), "c", sep = ",")
-paste(c("a","b"), "c", collapse = "|")
-paste(c("a","b"), "c", sep = ",", collapse = "|")
-```
-
-(For more information, scroll to the bottom of the `?paste` help page
-and look at the examples, or try `example('paste')`.)
-:::
-::::
-
-:::: challenge
-## Challenge 3
-
-Use help to find a function (and its associated parameters) that you
-could use to load data from a tabular file in which columns are
-delimited with "\\t" (tab) and the decimal point is a "." (period). This
-check for decimal separator is important, especially if you are working
-with international colleagues, because different countries have
-different conventions for the decimal point (i.e. comma vs period).
-Hint: use `??"read table"` to look up functions related to reading in
-tabular data.
-
-::: solution
-## Solution to Challenge 3
-
-The standard R function for reading tab-delimited files with a period
-decimal separator is read.delim(). You can also do this with
-`read.table(file, sep="\t")` (the period is the *default* decimal
-separator for `read.table()`), although you may have to change the
-`comment.char` argument as well if your data file contains hash (\#)
-characters.
-:::
-::::
-
-## Resources
+### Resources
 
 -   [Quick R](https://www.statmethods.net/)
 -   [RStudio cheat
     sheets](https://www.rstudio.com/resources/cheatsheets/)
 -   [Cookbook for R](https://www.cookbook-r.com/)
 
-::: keypoints
--   Use `help()` to get online help in R.
+## Data Structures, Data Types and Data frames
+
+### Learning Objectives
+
+-   To be able to identify the 5 main data types.
+-   To begin exploring data frames, and understand how they are related
+    to vectors and lists.
+-   To be able to ask questions from R about the type, class, and
+    structure of an object.
+-   To understand the information of the attributes "names", "class",
+    and "dim".
+
+```{r, include=FALSE}
+options(stringsAsFactors = FALSE)
+```
+
+One of R's most powerful features is its ability to work with **tabular
+data**, such as data you might already have in a spreadsheet or CSV
+file. Tabular data in R is commonly stored as a **data frame**, which
+can be thought of as a collection of vectors arranged into columns. Each
+vector represents a single column, while each row typically represents
+an observation or record.
+
+::: infobox
+**What is a vector?**
+
+In R, a vector is a sequence of values that all have the same data type.
+Vectors are one of the fundamental data structures in R and form the
+individual columns of a data frame.
+
+Some of the most common data types you will encounter in R include:
+
+-   `Double`: Numeric values that can contain decimals, such as 3.14 or
+    10.5.
+-   `Integer`: Whole numbers, such as 1, 5, or 100.
+-   `Character`: Text values, such as "Hello" or "world".
+-   `Logical`: Boolean values that can be either TRUE or FALSE.
 :::
+
+Let's start by creating a toy data frame containing information about
+three different penguins.
+
+```{r}
+pg <- data.frame(
+  species = c("Adelie", "Chinstrap", "Gentoo"),
+  island = c("Torgersen", "Dream", "Biscoe"),
+  bill_len = c(39.1, 46.5, 46.1),
+  flipper_len = c(181, 192, 211),
+  is_male = c(TRUE, FALSE, FALSE)
+)
+pg
+```
+
+We can begin exploring our dataset right away. Individual columns can be accessed by specifying the name of the data frame followed by the $ operator and the name of the column:
+
+```{r, eval = F}
+pg$bill_len
+```
+
+
+This returns the bill_len column as a vector. Because it is a numeric vector, we can perform mathematical operations directly on its values:
+
+```{r, eval = F}
+pg$bill_len * 2
+```
+
+Notice the operation is applied to every value in the vector.
+
+### Data Types
+
+To know the data types each of the column in our toy dataset, there are several methods to do this:
+
+1. Use `str()` to examine the structure of the data frame
+
+```{r}
+str(pg)
+```
+
+`str()` provides a compact overview of the entire data frame, including its dimensions, column names, data types, and some example values. This is often one of the first functions you will use when exploring a new dataset.
+
+2. Use `summary()` to summarize each column
+```{r}
+summary(pg)
+```
+
+`summary()` provides a summary appropriate for the type of data in each column. For numeric columns, this includes statistics such as the minimum, median, mean, and maximum. For other data types, the information displayed will differ.
+
+3. Use `typeof()` to inspect the underlying type of a specific column
+
+```{r, collapse = T}
+typeof(pg$species)
+typeof(pg$bill_len)
+typeof(pg$flipper_len)
+typeof(pg$is_male)
+```
+
+Notice that `flipper_len` is also stored as a double, even though all of its values are whole numbers. In R, entering a number such as 181 creates a double by default. To explicitly create an integer, the number is followed by L, for example:
+
+```{r, collapse = T}
+typeof(181)
+typeof(181L)
+```
+
+For everyday data analysis, you will often use str() to quickly inspect an entire dataset and functions such as typeof() when you need to investigate a particular object in more detail.
+
+### Manipulating data frames
+
+Now that we know how to access parts of a data frame, let us try to manipulate the data stored within the data frame. There are many ways by which a data frame can be manipulated. For instance, we could append new columns, remove existing columns, add new observations or modify the values of an existing column.
+
+1. Multiply the flipper length by two and store the vector as a new column
+```{r}
+flip_length_x2 <- pg$flipper_len * 2
+pg$flip_length_x2 <- flip_length_x2
+pg
+```
+
+2. Remove the newly added column from the data frame
+```{r}
+pg[,1:5]
+```
+
+3. Keep specific observations
+```{r}
+pg[c(1,3),1:5]
+```
+
+3. Modify an existing column
+```{r}
+pg$flipper_len <- pg$flipper_len * 2
+pg
+```
+### Reading and Writing Data Frames
+
+```{r}
+write.table(
+  pg, # the data object to be written; usually a matrix or data frame
+  file = "penguins_dataset.csv", # file name
+  quote = FALSE, # whether to quote any character columns
+  sep = ",", # separator character e.g. , for CSV or \t for TSV
+  row.names = FALSE, # whether to include row names in the output
+  col.names = TRUE, # whether to include the column names in the output
+)
+```
+
+
+```{r}
+pg2 <- read.csv(
+  "penguins_dataset.csv",
+  header = TRUE
+)
+pg2
+```
+
+## Creating Plots with ggplot2
+
+### Learning Objectives
+
+- To be able to use ggplot2 to generate publication-quality graphics.
+- To apply geometry, aesthetic, and statistics layers to a ggplot plot.
+- To manipulate the aesthetics of a plot using different colors, shapes, and lines.
+- To improve data visualization through transforming scales and paneling by group.
+- To save a plot created with ggplot to disk.
+
+Plotting our data is one of the best ways to
+quickly explore it and the various relationships
+between variables.
+
+There are three main plotting systems in R,
+the [base plotting system][base], the [lattice]
+package, and the [ggplot2] package.
+
+Today we'll be learning about the ggplot2 package, because
+it is the most effective for creating publication-quality
+graphics.
+
+ggplot2 is built on the grammar of graphics, the idea that any plot can be
+built from the same set of components: a **data set**,
+**mapping aesthetics**, and graphical **layers**:
+
+- **Data sets** are the data that you, the user, provide.
+
+- **Mapping aesthetics** are what connect the data to the graphics.
+  They tell ggplot2 how to use your data to affect how the graph looks,
+  such as changing what is plotted on the X or Y axis, or the size or
+  color of different data points.
+
+- **Layers** are the actual graphical output from ggplot2. Layers
+  determine what kinds of plot are shown (scatterplot, histogram, etc.),
+  the coordinate system used (rectangular, polar, others), and other
+  important aspects of the plot. The idea of layers of graphics may
+  be familiar to you if you have used image editing programs
+  like Photoshop, Illustrator, or Inkscape.
+
+Let's start off building an example using the gapminder data from earlier.
+The most basic function is `ggplot`, which lets R know that we're
+creating a new plot. Any of the arguments we give the `ggplot`
+function are the *global* options for the plot: they apply to all
+layers on the plot.
+
+```{r blank-ggplot, message=FALSE, fig.alt="Blank plot, before adding any mapping aesthetics to ggplot()."}
+library("ggplot2")
+penguins
+```
+
+Here we called `ggplot` and told it what data we want to show on
+our figure. This is not enough information for `ggplot` to actually
+draw anything. It only creates a blank slate for other elements
+to be added to.
+
+Now we're going to add in the **mapping aesthetics** using the
+`aes` function. `aes` tells `ggplot` how variables in the **data**
+map to *aesthetic* properties of the figure, such as which columns
+of the data should be used for the **x** and **y** locations.
+
+```{r ggplot-with-aes, message=FALSE, fig.alt="Plotting area with axes for a scatter plot of life expectancy vs GDP, with no data points visible."}
+ggplot(data = penguins, mapping = aes(x = bill_len, y = flipper_len))
+```
+
+Here we told `ggplot` we want to plot the "gdpPercap" column of the
+gapminder data frame on the x-axis, and the "lifeExp" column on the
+y-axis. Notice that we didn't need to explicitly pass `aes` these
+columns (e.g. `x = gapminder[, "gdpPercap"]`), this is because
+`ggplot` is smart enough to know to look in the **data** for that column!
+
+The final part of making our plot is to tell `ggplot` how we want to
+visually represent the data. We do this by adding a new **layer**
+to the plot using one of the **geom** functions.
+
+```{r lifeExp-vs-gdpPercap-scatter, warning = F, message=FALSE, fig.alt="Scatter plot of life expectancy vs GDP per capita, now showing the data points."}
+ggplot(data = penguins, mapping = aes(x = bill_len, y = flipper_len)) +
+  geom_point()
+```
+
+Here we used `geom_point`, which tells `ggplot` we want to visually
+represent the relationship between **x** and **y** as a scatterplot of points.
+
+```{r lifeExp-vs-gdpPercap-scatter, warning = F, message=FALSE, fig.alt="Scatter plot of life expectancy vs GDP per capita, now showing the data points."}
+ggplot(data = penguins, mapping = aes(x = body_mass, y = flipper_len, color = species)) +
+  geom_point()
+```
+
+```{r lifeExp-vs-gdpPercap-scatter, warning = F, message=FALSE, fig.alt="Scatter plot of life expectancy vs GDP per capita, now showing the data points."}
+ggplot(data = penguins, mapping = aes(x = flipper_len, fill = species)) +
+  geom_histogram()
+```
+
