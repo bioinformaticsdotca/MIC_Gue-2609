@@ -641,7 +641,7 @@ p <- ggplot(
     x = "Body mass (g)",
     y = "Flipper length (mm)",
     title = "Heavier penguins have larger flippers",
-    caption = "Data was sourced from the [datasets] package in R",
+    caption = "Data source: datasets R package",
   ) +
   theme_bw(15) # to remove the grey background
 ```
