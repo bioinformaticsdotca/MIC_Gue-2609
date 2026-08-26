@@ -78,7 +78,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -88,7 +88,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -114,7 +114,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -127,7 +127,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -222,6 +222,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="r.html"><a href="r.html#variables-and-assignment"><i class="fa fa-check"></i>Variables and assignment</a></li>
 <li class="chapter" data-level="" data-path="r.html"><a href="r.html#r-packages"><i class="fa fa-check"></i>R packages</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#seeking-help-with-r"><i class="fa fa-check"></i>Seeking Help with R</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#reading-help-files"><i class="fa fa-check"></i>Reading Help Files</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-objects"><i class="fa fa-check"></i>Data Objects</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#special-operators"><i class="fa fa-check"></i>Special Operators</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#getting-help-with-packages"><i class="fa fa-check"></i>Getting Help with Packages</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#when-you-remember-part-of-the-function-name"><i class="fa fa-check"></i>When You Remember Part of the Function Name</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i>When You Have No Idea Where to Begin</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#other-ways-to-get-help"><i class="fa fa-check"></i>Other Ways to Get Help</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-structures-data-types-and-data-frames"><i class="fa fa-check"></i>Data Structures, Data Types and Data frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-types"><i class="fa fa-check"></i>Data Types</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#manipulating-data-frames"><i class="fa fa-check"></i>Manipulating data frames</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#reading-and-writing-data-frames"><i class="fa fa-check"></i>Reading and Writing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#creating-plots-with-ggplot2"><i class="fa fa-check"></i>Creating Plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#building-a-ggplot"><i class="fa fa-check"></i>Building a ggplot</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#changing-point-aethetics"><i class="fa fa-check"></i>Changing point aethetics</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#mapping-aesthetics-to-variables"><i class="fa fa-check"></i>Mapping aesthetics to variables</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#adding-labels-and-themes"><i class="fa fa-check"></i>Adding labels and themes</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#saving-a-ggplot"><i class="fa fa-check"></i>Saving a ggplot</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>III Modules</b></span></li>
 <li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
@@ -273,7 +298,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="r" class="section level1 hasAnchor">
 <h1>R<a href="r.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>test commit (by Jimmy)</p>
+<p>This R tutorial was adapted from <a href="https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro.html">Software Carpentry’s Intro to R and
+RStudio
+Lessons</a></p>
 <div id="introduction-to-rrstudio" class="section level2 hasAnchor">
 <h2>Introduction to R/RStudio<a href="r.html#introduction-to-rrstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R and RStudio are closely related but serve distinct roles in statistical computing and data analysis. R is an open-source programming language and computational environment designed for statistical analysis, data manipulation, and visualization. It provides the underlying engine responsible for executing code and performing computations. RStudio, in contrast, is an integrated development environment (IDE) that provides a user-friendly interface for working with R. It brings together tools such as a code editor, R console, workspace manager, plotting interface, package management, and file browser within a single environment. In simple terms, R performs the computations, while RStudio provides an organized and convenient interface through which users can write, execute, and manage R code.</p>
@@ -308,15 +335,15 @@ This is main area for <strong>writing and editing R scripts</strong>. Code writt
 <h3>Using R as a calculator<a href="r.html#using-r-as-a-calculator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The simplest thing you could do with R is to do arithmetic:</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">200</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r.html#cb24-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">200</span></span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r.html#cb25-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">201</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r.html#cb25-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">201</span></span></code></pre></div>
 <p>R will print the answer with a preceding “[1]”. [1] is the first element of the line being printed in the console.</p>
 <p>If you type and incomplete command, R will wait for you to complete it. This behavior is similar with Unix.</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r.html#cb26-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span></span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r.html#cb27-1" tabindex="-1"></a><span class="sc">+</span></span></code></pre></div>
 <p>If you are using R from the command line or from within RStudio’s console, you need to use <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel the command. This applies to Mac users as well.</p>
 <p>Cancelling a command is not only useful for killing incomplete commands: you can also use it to tell <strong>R</strong> to stop running code (for example, if it is taking much longer than you expect).</p>
 <p>When using <strong>R</strong> as a calculator, the order of operations is the same as you would have learned back in school.</p>
@@ -334,42 +361,42 @@ This is main area for <strong>writing and editing R scripts</strong>. Code writt
 <h3>Mathematical functions<a href="r.html#mathematical-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R has many built in mathematical functions. To call a function, we can type its name followed by open and closing parentheses. Functions take <strong>arguments as inputs</strong>, i.e., anything we type inside the parenthesis or a function is considered an argument. Depending on the function, the number of arguments can vary to none to multiple. The result of a function ** is an output**, this represents the mathematical processing that was done with the input argument(s).</p>
 <p><strong>Input (returns the working directory)</strong></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r.html#cb28-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <p><strong>Input (trigonometry)</strong></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r.html#cb29-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">1</span>)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r.html#cb30-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.841471</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r.html#cb30-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.841471</span></span></code></pre></div>
 <p><strong>Input (natural logarithm)</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r.html#cb31-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r.html#cb32-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
 <p><strong>Input (base-10 logarithm)</strong></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r.html#cb33-1" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r.html#cb34-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r.html#cb34-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 <p>Don’t worry about trying to remember every function in R. You can look them up on Google, or if you can remember the start of the function’s name, use the tab completion in RStudio.</p>
 <p>This is one advantage that RStudio has over R on its own, it has auto-completion abilities that allow you to more easily look up functions, their arguments, and the values that they take.</p>
 </div>
 <div id="variables-and-assignment" class="section level3 hasAnchor">
 <h3>Variables and assignment<a href="r.html#variables-and-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can store values in variables using the assignment operator <code>&lt;-</code>:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r.html#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r.html#cb35-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
 <p>Notice that this assignment does not print a value. Instead, we stored (for later usage) in something called a <strong>variable x</strong>. <code>x</code> now contains the value <code>0.025</code>.</p>
 <p>If you type the name of your variable and press <kbd>Enter</kbd>:</p>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r.html#cb36-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.025</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r.html#cb36-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.025</span></span></code></pre></div>
 <p>If you explore the <strong>Environment tab</strong> in RStudio (top left panel), you will see that <code>x</code> and its value have appeared.</p>
 <p>We can use our variable instead of a number in any calculation that expects a number.</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r.html#cb37-1" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r.html#cb38-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">3.688879</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r.html#cb38-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">3.688879</span></span></code></pre></div>
 <p>Variables can also be reassigned:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r.html#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r.html#cb39-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
 <p><code>x</code> used to contain the value 0.025. It now has the value 100.</p>
 <p>Assignment values can contain the variable being assigned to:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r.html#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="do">##notice how RStudio updates the value of x in the environment tab</span></span>
-<span id="cb40-2"><a href="r.html#cb40-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r.html#cb40-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="do">##notice how RStudio updates the value of x in the environment tab</span></span>
+<span id="cb40-2"><a href="r.html#cb40-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <p>Variable names can contain letters, numbers, underscores and periods, but no spaces. They must start with a letter or a period follow by a letter (they cannot start with a number or an underscore). Variables beginning with a period are hidden variables.</p>
 <p>Different people use different conventions for long variable names, these include:</p>
 <ul>
@@ -379,7 +406,7 @@ This is main area for <strong>writing and editing R scripts</strong>. Code writt
 </ul>
 <p>What you use is up to you, but <strong>be consistent</strong>.</p>
 <p>It is also possible to use the <code>=</code> operator for assignment.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r.html#cb41-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r.html#cb41-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 </div>
 <div id="r-packages" class="section level3 hasAnchor">
 <h3>R packages<a href="r.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -388,25 +415,583 @@ The functions we used so far <code>getwd()</code>, <code>sin()</code>, <code>log
 <p>As of August 2026, there are a total of <strong>24,776</strong> available R packages in the <a href="https://cran.r-project.org/index.html">Comprehensive R Archive Network (CRAN)</a>.
 If we wanted for all these packages to be loaded at the moment we launch RStudio, it would take a supercomputer to do so. This is the reason of why specialized packages need to be installed and loaded prior to their functions be accessible for us.</p>
 <p>Let’s first create a variable that has a list of observations:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r.html#cb42-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.6</span>, <span class="dv">7</span>, <span class="fl">4.8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">8</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r.html#cb42-1" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.6</span>, <span class="dv">7</span>, <span class="fl">4.8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">8</span>,<span class="dv">3</span>)</span></code></pre></div>
 <p>Let’s assume we want to normalize the values in our list so that they fall within a specific range, such as 0 and 1. We could implement the logic ourselves and create an algorithm to perform this transformation. However, there is often a simpler solution. For many common tasks, it is likely that someone has already encountered the same problem and developed a reliable solution that we can use.</p>
 <p>The function we want to use is <strong>rescale()</strong>. If you try to use it passing your list as an argument:</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r.html#cb43-1" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
 <p>You will get an error message saying:</p>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r.html#cb44-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">rescale</span>(my_list) <span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">&quot;rescale&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r.html#cb44-1" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">rescale</span>(my_list) <span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">&quot;rescale&quot;</span></span></code></pre></div>
 <p>This means that in our R Environment, there is no package that implements the <strong>rescale()</strong> function.</p>
 <p>For that, we need first to install the package that contains this function:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r.html#cb45-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)</span></code></pre></div>
 <p>After it is downloaded, we need to load the package (remember that if every single package we have installed was pre-loaded, we would need lots of computational resources).
 To load a package:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r.html#cb46-1" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div>
 <p>Now, if you try to use the function <strong>rescale()</strong> again, it should work:</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r.html#cb47-1" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r.html#cb48-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.00000000</span> <span class="fl">0.03459638</span> <span class="fl">0.08896211</span> <span class="fl">1.00000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r.html#cb48-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.00000000</span> <span class="fl">0.03459638</span> <span class="fl">0.08896211</span> <span class="fl">1.00000000</span></span></code></pre></div>
+</div>
+</div>
+<div id="seeking-help-with-r" class="section level2 hasAnchor">
+<h2>Seeking Help with R<a href="r.html#seeking-help-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="infobox">
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>To be able to read R help files for functions, data objects and
+special operators.</li>
+<li>To be able to use CRAN task views to identify packages to solve a
+problem.</li>
+</ul>
+</div>
+<div id="reading-help-files" class="section level3 hasAnchor">
+<h3>Reading Help Files<a href="r.html#reading-help-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R, and every package, provide help files for functions or data objects.
+The general syntax to search for help on any function, “function_name”,
+from a specific function that is in a package loaded into your R session
+is:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r.html#cb49-1" tabindex="-1"></a>?function_name</span>
+<span id="cb49-2"><a href="r.html#cb49-2" tabindex="-1"></a><span class="fu">help</span>(function_name)</span></code></pre></div>
+<p>For example take a look at the help file for <code>mean()</code></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r.html#cb50-1" tabindex="-1"></a>?<span class="fu">mean</span>()</span></code></pre></div>
+<p>This will load up a help page in RStudio.</p>
+<p>Each help page is broken down into sections:</p>
+<ul>
+<li><code>Description</code>: A brief description of what a function does or what a
+data object contains.</li>
+<li><code>Usage</code>: For functions, shows how the function is called, including
+its arguments and their default values. For data objects, shows the
+name of the object and - sometimes how it is structured or loaded.</li>
+<li><code>Arguments</code>: For functions, describes each argument and the type of
+input it expects. This section is usually absent for data objects.</li>
+<li><code>Format</code>: Common for data objects; describes the structure of the
+object, such as the number of observations and variables, variable
+names, data types, and what each variable represents.</li>
+<li><code>Details</code>: Provides additional information about how the function
+works or important background information about the data object.</li>
+<li><code>Value</code>: For functions, describes what the function returns. This
+section is usually absent for data objects.</li>
+<li><code>Source</code>: Common for data objects; describes where the data came
+from or provides a reference to the original source.</li>
+<li><code>Examples</code>: Provides example code demonstrating how to use the
+function or work with the data object.</li>
+</ul>
+<p>Different functions/objects might have different sections, but these are
+the main ones you should be aware of.</p>
+<div id="tip-running-examples" class="section level4 hasAnchor">
+<h4>Tip: Running Examples<a href="r.html#tip-running-examples" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>From within the function help page, you can highlight code in the
+Examples and hit <kbd>Return</kbd> to run it in RStudio console. This
+gives you a quick way to get a feel for how a function works.</p>
+</div>
+<div id="tip-reading-help-files" class="section level4 hasAnchor">
+<h4>Tip: Reading Help Files<a href="r.html#tip-reading-help-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>One of the most daunting aspects of R is the large number of functions
+available. It would be prohibitive, if not impossible to remember the
+correct usage for every function you use. Luckily, using the help files
+means you don’t have to remember that!</p>
+</div>
+</div>
+<div id="data-objects" class="section level3 hasAnchor">
+<h3>Data Objects<a href="r.html#data-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R by default comes with a collection of built-in data objects from the
+alphabets and months of the year to datasets collected about penguins
+and tooth growth in guinea pigs. These objects provide convenient
+examples for learning how to explore, manipulate, summarize, and
+visualize different types of data in R. Additionally, many R packages
+come with their own data objects, such as example datasets, reference
+databases, lookup tables, and precomputed results. Understanding what
+these data objects contain and how they are structured can be essential
+for using certain packages effectively.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r.html#cb51-1" tabindex="-1"></a>?<span class="fu">iris</span>()</span>
+<span id="cb51-2"><a href="r.html#cb51-2" tabindex="-1"></a>?<span class="fu">LETTERS</span>()</span></code></pre></div>
+</div>
+<div id="special-operators" class="section level3 hasAnchor">
+<h3>Special Operators<a href="r.html#special-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To seek help on special operators, use quotes or backticks:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r.html#cb52-1" tabindex="-1"></a>?<span class="st">&quot;&lt;-&quot;</span></span>
+<span id="cb52-2"><a href="r.html#cb52-2" tabindex="-1"></a>?<span class="st">`</span><span class="at">&lt;-</span><span class="st">`</span></span></code></pre></div>
+</div>
+<div id="getting-help-with-packages" class="section level3 hasAnchor">
+<h3>Getting Help with Packages<a href="r.html#getting-help-with-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many packages come with “vignettes”: tutorials and extended example
+documentation. Without any arguments, <code>vignette()</code> will list all
+vignettes for all installed packages; <code>vignette(package="package-name")</code>
+will list all available vignettes for <code>package-name</code>, and
+<code>vignette("vignette-name")</code> will open the specified vignette.</p>
+<p>If a package doesn’t have any vignettes, you can usually find help by
+typing <code>help("package-name")</code>.</p>
+<p>RStudio also has a set of excellent
+<a href="https://rstudio.com/resources/cheatsheets/">cheatsheets</a> for many
+packages.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r.html#cb53-1" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+</div>
+<div id="when-you-remember-part-of-the-function-name" class="section level3 hasAnchor">
+<h3>When You Remember Part of the Function Name<a href="r.html#when-you-remember-part-of-the-function-name" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you’re not sure what package a function is in or how it’s
+specifically spelled, you can do a fuzzy search:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r.html#cb54-1" tabindex="-1"></a>??function_name</span></code></pre></div>
+<p>A fuzzy search is when you search for an approximate string match. For
+example, you may remember that the function to set your working
+directory includes “set” in its name. You can do a fuzzy search to help
+you identify the function:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r.html#cb55-1" tabindex="-1"></a>??standarddeviation</span></code></pre></div>
+</div>
+<div id="when-you-have-no-idea-where-to-begin" class="section level3 hasAnchor">
+<h3>When You Have No Idea Where to Begin<a href="r.html#when-you-have-no-idea-where-to-begin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you don’t know what function or package you need to use <a href="https://cran.at.r-project.org/web/views">CRAN Task
+Views</a> is a specially
+maintained list of packages grouped into fields. This can be a good
+starting point.</p>
+</div>
+<div id="other-ways-to-get-help" class="section level3 hasAnchor">
+<h3>Other Ways to Get Help<a href="r.html#other-ways-to-get-help" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R’s built-in documentation is not always enough, especially when you are
+trying to solve a specific problem. Other useful sources of help
+include:</p>
+<ul>
+<li>Package websites: Popular packages often have dedicated websites
+containing documentation, tutorials, and examples.</li>
+<li>Stack Overflow: Searching for the error message or problem you are
+encountering can often lead to solutions from other R users.</li>
+<li>R community forums: Communities such as Posit Community provide a
+place to ask questions and discuss R-related problems.</li>
+<li>GitHub: Package repositories can be useful for checking known
+issues, reporting bugs, and finding examples of how a package is
+being developed or used.</li>
+<li>AI/LLMs: AI tools such as ChatGPT can help explain R concepts,
+interpret error messages, suggest functions or packages, and
+generate or troubleshoot code. However, AI-generated answers can be
+incorrect or outdated, so you should verify important information
+against official documentation and other reliable sources.</li>
+</ul>
+</div>
+<div id="resources" class="section level3 hasAnchor">
+<h3>Resources<a href="r.html#resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://www.statmethods.net/">Quick R</a></li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">RStudio cheat
+sheets</a></li>
+<li><a href="https://www.cookbook-r.com/">Cookbook for R</a></li>
+</ul>
+</div>
+</div>
+<div id="data-structures-data-types-and-data-frames" class="section level2 hasAnchor">
+<h2>Data Structures, Data Types and Data frames<a href="r.html#data-structures-data-types-and-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="infobox">
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>To begin exploring data frames, and understand how they are related
+to vectors.</li>
+<li>To be able to ask questions from R about the type and
+structure of an object.</li>
+<li>To be able to manipulate rows and columns of a data frame.</li>
+</ul>
+</div>
+<p>One of R’s most powerful features is its ability to work with <strong>tabular
+data</strong>, such as data you might already have in a spreadsheet or CSV
+file. Tabular data in R is commonly stored as a <strong>data frame</strong>, which
+can be thought of as a collection of vectors arranged into columns. Each
+vector represents a single column, while each row typically represents
+an observation or record.</p>
+<div class="infobox">
+<p><strong>What is a vector?</strong></p>
+<p>In R, a vector is a sequence of values that all have the same data type.
+Vectors are one of the fundamental data structures in R and form the
+individual columns of a data frame.</p>
+<p>Some of the most common data types you will encounter in R include:</p>
+<ul>
+<li><code>Double</code>: Numeric values that can contain decimals, such as 3.14 or
+10.5.</li>
+<li><code>Integer</code>: Whole numbers, such as 1, 5, or 100.</li>
+<li><code>Character</code>: Text values, such as “Hello” or “world”.</li>
+<li><code>Logical</code>: Boolean values that can be either TRUE or FALSE.</li>
+</ul>
+</div>
+<p>Let’s start by creating a toy data frame containing information about
+three different penguins.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r.html#cb56-1" tabindex="-1"></a>pg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb56-2"><a href="r.html#cb56-2" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Chinstrap&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>),</span>
+<span id="cb56-3"><a href="r.html#cb56-3" tabindex="-1"></a>  <span class="at">island =</span> <span class="fu">c</span>(<span class="st">&quot;Torgersen&quot;</span>, <span class="st">&quot;Dream&quot;</span>, <span class="st">&quot;Biscoe&quot;</span>),</span>
+<span id="cb56-4"><a href="r.html#cb56-4" tabindex="-1"></a>  <span class="at">bill_len =</span> <span class="fu">c</span>(<span class="fl">39.1</span>, <span class="fl">46.5</span>, <span class="fl">46.1</span>),</span>
+<span id="cb56-5"><a href="r.html#cb56-5" tabindex="-1"></a>  <span class="at">flipper_len =</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">192</span>, <span class="dv">211</span>),</span>
+<span id="cb56-6"><a href="r.html#cb56-6" tabindex="-1"></a>  <span class="at">is_male =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb56-7"><a href="r.html#cb56-7" tabindex="-1"></a>)</span>
+<span id="cb56-8"><a href="r.html#cb56-8" tabindex="-1"></a>pg</span></code></pre></div>
+<pre><code>##     species    island bill_len flipper_len is_male
+## 1    Adelie Torgersen     39.1         181    TRUE
+## 2 Chinstrap     Dream     46.5         192   FALSE
+## 3    Gentoo    Biscoe     46.1         211   FALSE</code></pre>
+<div class="float">
+<img src="img/penguin-species.png" alt="Source: www.gabemednick.com/post/penguin" />
+<div class="figcaption">Source: www.gabemednick.com/post/penguin</div>
+</div>
+<p><br></p>
+<p>We can begin exploring our dataset right away. Individual columns can be
+accessed by specifying the name of the data frame followed by the $
+operator and the name of the column:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r.html#cb58-1" tabindex="-1"></a>pg<span class="sc">$</span>bill_len</span></code></pre></div>
+<p>This returns the bill_len column as a vector. Because it is a numeric
+vector, we can perform mathematical operations directly on its values:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r.html#cb59-1" tabindex="-1"></a>pg<span class="sc">$</span>bill_len <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<p>Notice the operation is applied to every value in the vector.</p>
+<div id="data-types" class="section level3 hasAnchor">
+<h3>Data Types<a href="r.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To know the data types each of the column in our toy dataset, there are
+several methods to do this:</p>
+<ol style="list-style-type: decimal">
+<li>Use <code>str()</code> to examine the structure of the data frame</li>
+</ol>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r.html#cb60-1" tabindex="-1"></a><span class="fu">str</span>(pg)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  5 variables:
+##  $ species    : chr  &quot;Adelie&quot; &quot;Chinstrap&quot; &quot;Gentoo&quot;
+##  $ island     : chr  &quot;Torgersen&quot; &quot;Dream&quot; &quot;Biscoe&quot;
+##  $ bill_len   : num  39.1 46.5 46.1
+##  $ flipper_len: num  181 192 211
+##  $ is_male    : logi  TRUE FALSE FALSE</code></pre>
+<p><code>str()</code> provides a compact overview of the entire data frame, including
+its dimensions, column names, data types, and some example values. This
+is often one of the first functions you will use when exploring a new
+dataset.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Use <code>summary()</code> to summarize each column</li>
+</ol>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r.html#cb62-1" tabindex="-1"></a><span class="fu">summary</span>(pg)</span></code></pre></div>
+<pre><code>##    species             island             bill_len     flipper_len   
+##  Length:3           Length:3           Min.   :39.1   Min.   :181.0  
+##  Class :character   Class :character   1st Qu.:42.6   1st Qu.:186.5  
+##  Mode  :character   Mode  :character   Median :46.1   Median :192.0  
+##                                        Mean   :43.9   Mean   :194.7  
+##                                        3rd Qu.:46.3   3rd Qu.:201.5  
+##                                        Max.   :46.5   Max.   :211.0  
+##   is_male       
+##  Mode :logical  
+##  FALSE:2        
+##  TRUE :1        
+##                 
+##                 
+## </code></pre>
+<p><code>summary()</code> provides a summary appropriate for the type of data in each
+column. For numeric columns, this includes statistics such as the
+minimum, median, mean, and maximum. For other data types, the
+information displayed will differ.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Use <code>typeof()</code> to inspect the underlying type of a specific column</li>
+</ol>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r.html#cb64-1" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>species)</span>
+<span id="cb64-2"><a href="r.html#cb64-2" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span>
+<span id="cb64-3"><a href="r.html#cb64-3" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>bill_len)</span>
+<span id="cb64-4"><a href="r.html#cb64-4" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb64-5"><a href="r.html#cb64-5" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>flipper_len)</span>
+<span id="cb64-6"><a href="r.html#cb64-6" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb64-7"><a href="r.html#cb64-7" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>is_male)</span>
+<span id="cb64-8"><a href="r.html#cb64-8" tabindex="-1"></a><span class="do">## [1] &quot;logical&quot;</span></span></code></pre></div>
+<p>Notice that <code>flipper_len</code> is also stored as a double, even though all of
+its values are whole numbers. In R, entering a number such as 181
+creates a double by default. To explicitly create an integer, the number
+is followed by L, for example:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r.html#cb65-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">181</span>)</span>
+<span id="cb65-2"><a href="r.html#cb65-2" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb65-3"><a href="r.html#cb65-3" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">181</span><span class="dt">L</span>)</span>
+<span id="cb65-4"><a href="r.html#cb65-4" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span></code></pre></div>
+<p>For everyday data analysis, you will often use str() to quickly inspect
+an entire dataset and functions such as typeof() when you need to
+investigate a particular object in more detail.</p>
+</div>
+<div id="manipulating-data-frames" class="section level3 hasAnchor">
+<h3>Manipulating data frames<a href="r.html#manipulating-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we know how to access parts of a data frame, let’s try
+manipulating the data stored within it. There are many ways a data frame
+can be manipulated. For example, we can add or remove columns, keep
+specific observations, or modify the values of an existing column.</p>
+<ol style="list-style-type: decimal">
+<li>Add a new column</li>
+</ol>
+<p>Let’s multiply the flipper length by two and store the resulting vector
+as a new column:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r.html#cb66-1" tabindex="-1"></a>flip_length_x2 <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb66-2"><a href="r.html#cb66-2" tabindex="-1"></a>pg<span class="sc">$</span>flip_length_x2 <span class="ot">&lt;-</span> flip_length_x2</span>
+<span id="cb66-3"><a href="r.html#cb66-3" tabindex="-1"></a>pg</span></code></pre></div>
+<pre><code>##     species    island bill_len flipper_len is_male flip_length_x2
+## 1    Adelie Torgersen     39.1         181    TRUE            362
+## 2 Chinstrap     Dream     46.5         192   FALSE            384
+## 3    Gentoo    Biscoe     46.1         211   FALSE            422</code></pre>
+<p>We can also perform the calculation and create the new column in a
+single step:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="r.html#cb68-1" tabindex="-1"></a>pg<span class="sc">$</span>flip_length_x2 <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb68-2"><a href="r.html#cb68-2" tabindex="-1"></a>pg</span></code></pre></div>
+<pre><code>##     species    island bill_len flipper_len is_male flip_length_x2
+## 1    Adelie Torgersen     39.1         181    TRUE            362
+## 2 Chinstrap     Dream     46.5         192   FALSE            384
+## 3    Gentoo    Biscoe     46.1         211   FALSE            422</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Remove a column</li>
+</ol>
+<p>One way to exclude a column is to select only the columns that we want
+to keep. Data frames can be subset using the notation:</p>
+<pre><code>data_frame[rows, columns]</code></pre>
+<p>For example, we can keep all rows and only the first five columns:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r.html#cb71-1" tabindex="-1"></a>pg <span class="ot">&lt;-</span> pg[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb71-2"><a href="r.html#cb71-2" tabindex="-1"></a>pg</span></code></pre></div>
+<pre><code>##     species    island bill_len flipper_len is_male
+## 1    Adelie Torgersen     39.1         181    TRUE
+## 2 Chinstrap     Dream     46.5         192   FALSE
+## 3    Gentoo    Biscoe     46.1         211   FALSE</code></pre>
+<p>Leaving the space before the comma empty means that we want to keep all
+rows, while <code>1:5</code> specifies that we want to keep columns 1 through 5.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Keep specific observations</li>
+</ol>
+<p>The same notation can be used to select specific rows. For example, we
+can keep the first and third penguins:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="r.html#cb73-1" tabindex="-1"></a>pg[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), ]</span></code></pre></div>
+<pre><code>##   species    island bill_len flipper_len is_male
+## 1  Adelie Torgersen     39.1         181    TRUE
+## 3  Gentoo    Biscoe     46.1         211   FALSE</code></pre>
+<p>Here, <code>c(1, 3)</code> specifies the rows we want to keep, while leaving the
+space after the comma empty means that we want to keep all columns.</p>
+<p>We can also specify both rows and columns:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="r.html#cb75-1" tabindex="-1"></a>pg[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>##   species    island bill_len flipper_len is_male
+## 1  Adelie Torgersen     39.1         181    TRUE
+## 3  Gentoo    Biscoe     46.1         211   FALSE</code></pre>
+<p>This keeps rows 1 and 3 and columns 1 through 5.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Modify an existing column</li>
+</ol>
+<p>Existing columns can also be replaced with new values. For example, we
+can multiply every value in <code>flipper_len</code> by two:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="r.html#cb77-1" tabindex="-1"></a>pg<span class="sc">$</span>flipper_len <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb77-2"><a href="r.html#cb77-2" tabindex="-1"></a>pg</span></code></pre></div>
+<pre><code>##     species    island bill_len flipper_len is_male
+## 1    Adelie Torgersen     39.1         362    TRUE
+## 2 Chinstrap     Dream     46.5         384   FALSE
+## 3    Gentoo    Biscoe     46.1         422   FALSE</code></pre>
+<p>The <code>&lt;-</code> assignment operator is important here. Without it,
+<code>pg$flipper_len * 2</code> would calculate and return the new values but would
+not modify the original data frame.</p>
+</div>
+<div id="reading-and-writing-data-frames" class="section level3 hasAnchor">
+<h3>Reading and Writing Data Frames<a href="r.html#reading-and-writing-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data stored in R can be written to a file so that it can be saved or
+used by other programs. Similarly, data stored in external files can be
+read into R as data frames.</p>
+<div id="writing-a-data-frame" class="section level4 hasAnchor">
+<h4>Writing a data frame<a href="r.html#writing-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>write.table()</code> function provides a flexible way to write tabular
+data to a text file:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="r.html#cb79-1" tabindex="-1"></a><span class="fu">write.table</span>(</span>
+<span id="cb79-2"><a href="r.html#cb79-2" tabindex="-1"></a>  pg,                            <span class="co"># data object to write</span></span>
+<span id="cb79-3"><a href="r.html#cb79-3" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;penguins_dataset.csv&quot;</span>, <span class="co"># name of the output file</span></span>
+<span id="cb79-4"><a href="r.html#cb79-4" tabindex="-1"></a>  <span class="at">quote =</span> <span class="cn">FALSE</span>,                 <span class="co"># whether to quote character values</span></span>
+<span id="cb79-5"><a href="r.html#cb79-5" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,                     <span class="co"># column separator: &quot;,&quot; for CSV, &quot;\t&quot; for TSV</span></span>
+<span id="cb79-6"><a href="r.html#cb79-6" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,             <span class="co"># whether to include row names</span></span>
+<span id="cb79-7"><a href="r.html#cb79-7" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="cn">TRUE</span>               <span class="co"># whether to include column names</span></span>
+<span id="cb79-8"><a href="r.html#cb79-8" tabindex="-1"></a>)</span></code></pre></div>
+<p>Because we specified <code>sep = ","</code>, the resulting file is a
+comma-separated values (CSV) file.</p>
+<p>R also provides the convenience function <code>write.csv()</code> specifically for
+writing CSV files:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="r.html#cb80-1" tabindex="-1"></a><span class="fu">write.csv</span>(</span>
+<span id="cb80-2"><a href="r.html#cb80-2" tabindex="-1"></a>  pg,</span>
+<span id="cb80-3"><a href="r.html#cb80-3" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;penguins_dataset.csv&quot;</span>,</span>
+<span id="cb80-4"><a href="r.html#cb80-4" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb80-5"><a href="r.html#cb80-5" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb80-6"><a href="r.html#cb80-6" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning in write.csv(pg, file = &quot;penguins_dataset.csv&quot;, row.names = FALSE, :
+## attempt to set &#39;col.names&#39; ignored</code></pre>
+</div>
+<div id="reading-a-data-frame" class="section level4 hasAnchor">
+<h4>Reading a data frame<a href="r.html#reading-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can read the CSV file back into R using <code>read.csv()</code>:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="r.html#cb82-1" tabindex="-1"></a>pg2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb82-2"><a href="r.html#cb82-2" tabindex="-1"></a>  <span class="st">&quot;penguins_dataset.csv&quot;</span>,</span>
+<span id="cb82-3"><a href="r.html#cb82-3" tabindex="-1"></a>  <span class="at">header =</span> <span class="cn">TRUE</span></span>
+<span id="cb82-4"><a href="r.html#cb82-4" tabindex="-1"></a>)</span>
+<span id="cb82-5"><a href="r.html#cb82-5" tabindex="-1"></a></span>
+<span id="cb82-6"><a href="r.html#cb82-6" tabindex="-1"></a>pg2</span></code></pre></div>
+<pre><code>##     species    island bill_len flipper_len is_male
+## 1    Adelie Torgersen     39.1         362    TRUE
+## 2 Chinstrap     Dream     46.5         384   FALSE
+## 3    Gentoo    Biscoe     46.1         422   FALSE</code></pre>
+</div>
+</div>
+</div>
+<div id="creating-plots-with-ggplot2" class="section level2 hasAnchor">
+<h2>Creating Plots with ggplot2<a href="r.html#creating-plots-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="infobox">
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>To be able to use ggplot2 to generate publication-quality graphics.</li>
+<li>To apply geometry, aesthetic, and statistics layers to a ggplot
+plot.</li>
+<li>To manipulate the aesthetics of a plot using different colors,
+and shapes</li>
+<li>To save a plot created with ggplot to disk.</li>
+</ul>
+</div>
+<p>Plotting our data is one of the best ways to quickly explore it and the
+various relationships between variables.</p>
+<p>There are various plotting systems available in R, but today we’ll be learning about the <code>ggplot2</code> package because it provides a flexible and powerful system for creating publication-quality graphics.</p>
+<p><code>ggplot2</code> is built on the <strong>grammar of graphics</strong>, the idea that any plot
+can be built from the same set of components: a <strong>data set</strong>, <strong>mapping
+aesthetics</strong>, and graphical <strong>layers</strong>:</p>
+<ul>
+<li><p><strong>Data sets</strong> are the data that you, the user, provide.</p></li>
+<li><p><strong>Mapping aesthetics</strong> are what connect the data to the graphics.
+They tell ggplot2 how to use your data to affect how the graph
+looks, such as changing what is plotted on the X or Y axis, or the
+size or color of different data points.</p></li>
+<li><p><strong>Layers</strong> are the actual graphical output from ggplot2. Layers
+determine what kinds of plot are shown (scatterplot, histogram,
+etc.), the coordinate system used (rectangular, polar, others), and
+other important aspects of the plot. The idea of layers of graphics
+may be familiar to you if you have used image editing programs like
+Photoshop, Illustrator, or Inkscape.</p></li>
+</ul>
+<p>Let’s start off building an example using the entire <code>penguins</code> dataset.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="r.html#cb84-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb84-2"><a href="r.html#cb84-2" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
+<pre><code>##   species    island bill_len bill_dep flipper_len body_mass    sex year
+## 1  Adelie Torgersen     39.1     18.7         181      3750   male 2007
+## 2  Adelie Torgersen     39.5     17.4         186      3800 female 2007
+## 3  Adelie Torgersen     40.3     18.0         195      3250 female 2007
+## 4  Adelie Torgersen       NA       NA          NA        NA   &lt;NA&gt; 2007
+## 5  Adelie Torgersen     36.7     19.3         193      3450 female 2007
+## 6  Adelie Torgersen     39.3     20.6         190      3650   male 2007</code></pre>
+<div id="building-a-ggplot" class="section level3 hasAnchor">
+<h3>Building a ggplot<a href="r.html#building-a-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The main function used to create a plot is <code>ggplot()</code>, which lets R know that we are creating a new plot. Any of the arguments we give the <code>ggplot</code> function
+are the <em>global</em> options for the plot: they apply to all layers on the
+plot.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="r.html#cb86-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" alt="" width="672" /></p>
+<p>Here we called <code>ggplot</code> and told it what data we want to show on our
+figure. This is not enough information for <code>ggplot</code> to actually draw
+anything. It only creates a blank slate for other elements to be added
+to.</p>
+<p>Next, we need to specify the mapping aesthetics using the aes() function.</p>
+<p>The <code>aes()</code> function tells <code>ggplot2</code> how variables in the data should map to aesthetic properties of the figure. For example, we can specify which columns should determine the <strong>x</strong> and <strong>y</strong> positions.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="r.html#cb87-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb87-2"><a href="r.html#cb87-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb87-3"><a href="r.html#cb87-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
+<span id="cb87-4"><a href="r.html#cb87-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/ggplot-with-aes-1.png" alt="" width="672" /></p>
+<p>Here we told <code>ggplot</code> we want to plot the <code>body_mass</code> column of the
+<code>penguins</code> data frame on the x-axis, and the <code>flipper_len</code> column on the
+y-axis. Notice that we didn’t need to explicitly pass <code>aes</code> these
+columns (e.g. <code>aes(x = penguins$body_mass, y = penguins$flipper_len)</code>), this is because <code>ggplot</code>
+is smart enough to know to look in the <strong>data</strong> for that column!</p>
+<p>However, we still haven’t told <code>ggplot2</code> how to display these observations. To do this, we add a graphical layer using one of the <code>geom_*()</code> functions.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="r.html#cb88-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb88-2"><a href="r.html#cb88-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb88-3"><a href="r.html#cb88-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> flipper_len)</span>
+<span id="cb88-4"><a href="r.html#cb88-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb88-5"><a href="r.html#cb88-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" alt="" width="672" /></p>
+<p>Here we used <code>geom_point</code>, which tells <code>ggplot</code> we want to visually
+represent the relationship between <strong>x</strong> and <strong>y</strong> as a scatterplot of
+points.</p>
+<p>Notice the <code>+</code> symbol after <code>ggplot()</code>. In <code>ggplot2</code>, we use <code>+</code> to progressively add new layers and components to our plot.</p>
+</div>
+<div id="changing-point-aethetics" class="section level3 hasAnchor">
+<h3>Changing point aethetics<a href="r.html#changing-point-aethetics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can adjust the appearance of individual data points by specifying aesthetic properties, such as<code>size</code> and <code>colour</code> arguments inside <code>geom_point()</code></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="r.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb89-2"><a href="r.html#cb89-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb89-3"><a href="r.html#cb89-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
+<span id="cb89-4"><a href="r.html#cb89-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb89-5"><a href="r.html#cb89-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" alt="" width="672" /></p>
+<p>After increasing the size of the points, we can see that many observations overlap with each other, forming clusters that can make the visualization more difficult to interpret.</p>
+<p>One strategy for dealing with overlapping points is to adjust <code>alpha</code>, which controls the transparency of graphical elements.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="r.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb90-2"><a href="r.html#cb90-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb90-3"><a href="r.html#cb90-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
+<span id="cb90-4"><a href="r.html#cb90-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb90-5"><a href="r.html#cb90-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" alt="" width="672" /></p>
+<p>An <code>alpha</code> value of 1 is completely opaque, while an alpha value closer to 0 is increasingly transparent. By making the points partially transparent, areas containing many overlapping observations become easier to identify.</p>
+</div>
+<div id="mapping-aesthetics-to-variables" class="section level3 hasAnchor">
+<h3>Mapping aesthetics to variables<a href="r.html#mapping-aesthetics-to-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So far, all observations have been displayed using the same colour. We can introduce another dimension to our plot by mapping the colour aesthetic to the species column, i.e. <code>aes(colour = species)</code></p>
+<p>Instead of assigning every point the same colour, we will colour each point according to its species</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="r.html#cb91-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
+<span id="cb91-2"><a href="r.html#cb91-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" alt="" width="672" /></p>
+<p>Notice an important difference between this plot and our previous example.</p>
+<p>When we write:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="r.html#cb92-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
+<p>we are setting the colour of every point to the same value.</p>
+<p>In contrast, when we write:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="r.html#cb93-1" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">colour =</span> species)</span></code></pre></div>
+<p>we are mapping the <code>colour</code> aesthetic to a variable in the data. <code>ggplot2</code> therefore assigns different colours to the different species and automatically generates a legend.</p>
+<p>This distinction between setting an aesthetic and mapping an aesthetic is an important concept when working with <code>ggplot2</code>.</p>
+<p>We can create even greater contrast between species by also mapping the <code>shape</code> aesthetic to <code>species</code>.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="r.html#cb94-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb94-2"><a href="r.html#cb94-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb94-3"><a href="r.html#cb94-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
+<span id="cb94-4"><a href="r.html#cb94-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb94-5"><a href="r.html#cb94-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672" /></p>
+<p>Now, observations belonging to different species are represented using both different colours and different shapes.</p>
+<p>Mapping the same variable to multiple aesthetics can also improve accessibility because the groups can still be distinguished when colour differences are difficult to perceive.</p>
+</div>
+<div id="adding-labels-and-themes" class="section level3 hasAnchor">
+<h3>Adding labels and themes<a href="r.html#adding-labels-and-themes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s finalize our plot by adding informative axis labels, a title, and a figure caption using the <code>labs()</code> function.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="r.html#cb95-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb95-2"><a href="r.html#cb95-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb95-3"><a href="r.html#cb95-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
+<span id="cb95-4"><a href="r.html#cb95-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb95-5"><a href="r.html#cb95-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb95-6"><a href="r.html#cb95-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb95-7"><a href="r.html#cb95-7" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Body mass (g)&quot;</span>,</span>
+<span id="cb95-8"><a href="r.html#cb95-8" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Flipper length (mm)&quot;</span>,</span>
+<span id="cb95-9"><a href="r.html#cb95-9" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Heavier penguins have larger flippers&quot;</span>,</span>
+<span id="cb95-10"><a href="r.html#cb95-10" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
+<span id="cb95-11"><a href="r.html#cb95-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb95-12"><a href="r.html#cb95-12" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">15</span>) <span class="co"># to remove the grey background</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" alt="" width="672" /></p>
+</div>
+<div id="saving-a-ggplot" class="section level3 hasAnchor">
+<h3>Saving a ggplot<a href="r.html#saving-a-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once we are satisfied with our plot, we can save it to disk using the <code>ggsave()</code> function.</p>
+<p>By default, <code>ggsave()</code> saves the most recently generated plot.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="r.html#cb96-1" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb96-2"><a href="r.html#cb96-2" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;penguins_plot.png&quot;</span>,</span>
+<span id="cb96-3"><a href="r.html#cb96-3" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb96-4"><a href="r.html#cb96-4" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
+<span id="cb96-5"><a href="r.html#cb96-5" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<p>The file format is determined automatically from the extension supplied to <code>filename</code>. For example, we could save the figure as a PDF by specifying <code>"penguins_plot.pdf"</code> instead.</p>
+<p>For greater control, we can assign our plot to an R object.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="r.html#cb98-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb98-2"><a href="r.html#cb98-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb98-3"><a href="r.html#cb98-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
+<span id="cb98-4"><a href="r.html#cb98-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb98-5"><a href="r.html#cb98-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb98-6"><a href="r.html#cb98-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Body mass (g)&quot;</span>,</span>
+<span id="cb98-7"><a href="r.html#cb98-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Flipper length (mm)&quot;</span>,</span>
+<span id="cb98-8"><a href="r.html#cb98-8" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Heavier penguins have larger flippers&quot;</span>,</span>
+<span id="cb98-9"><a href="r.html#cb98-9" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
+<span id="cb98-10"><a href="r.html#cb98-10" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb98-11"><a href="r.html#cb98-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">15</span>) <span class="co"># to remove the grey background</span></span></code></pre></div>
+<p>We can then explicitly tell <code>ggsave()</code> which plot object we want to save using the plot argument.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="r.html#cb99-1" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb99-2"><a href="r.html#cb99-2" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;penguins_plot.png&quot;</span>,</span>
+<span id="cb99-3"><a href="r.html#cb99-3" tabindex="-1"></a>  p, <span class="co"># ggplot object</span></span>
+<span id="cb99-4"><a href="r.html#cb99-4" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb99-5"><a href="r.html#cb99-5" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
+<span id="cb99-6"><a href="r.html#cb99-6" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<p>Assigning plots to objects is particularly useful when working with multiple plots because it allows us to modify, reuse, and save individual plots without having to recreate them.</p>
 
 </div>
 </div>
