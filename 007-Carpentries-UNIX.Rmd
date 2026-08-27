@@ -36,7 +36,7 @@
  C:\Windows\System32\OpenSSH\ssh.exe -i CBW.pem ubuntu@##.uhn-hpc.ca
 ```
 
-### Alternative: logging in to the terminal with the browser (Windows)
+### Alternative: logging in to the terminal with the browser (all operating systems)
 
 If you're on a managed/work computer or wifi network, sometimes port access will be blocked, making the above steps fail. An alternative option is to use the browser. In your browser of choice, enter the following into the URL bar, where ## indicates the unique portion of your hostname:
 
