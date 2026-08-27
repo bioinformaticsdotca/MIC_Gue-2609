@@ -192,6 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-the-amazon-cloud-during-the-workshop"><i class="fa fa-check"></i>Logging into the Amazon Cloud During the Workshop</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-ssh-maclinux"><i class="fa fa-check"></i>Logging in with ssh (Mac/Linux)</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-openssh-client-windows"><i class="fa fa-check"></i>Logging in with OpenSSH client (Windows)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#alternative-logging-in-to-the-terminal-with-the-browser-windows"><i class="fa fa-check"></i>Alternative: logging in to the terminal with the browser (Windows)</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#file-system-layout"><i class="fa fa-check"></i>File System Layout</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
@@ -378,6 +379,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="awsunix.html#cb3-1" tabindex="-1"></a> <span class="ex">C:\Windows\System32\OpenSSH\ssh.exe</span> <span class="at">-i</span> CBW.pem ubuntu@##.uhn-hpc.ca</span></code></pre></div>
 </div>
+<div id="alternative-logging-in-to-the-terminal-with-the-browser-windows" class="section level3 hasAnchor">
+<h3>Alternative: logging in to the terminal with the browser (Windows)<a href="awsunix.html#alternative-logging-in-to-the-terminal-with-the-browser-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you’re on a managed/work computer or wifi network, sometimes port access will be blocked, making the above steps fail. An alternative option is to use the browser. In your browser of choice, enter the following into the URL bar, where ## indicates the unique portion of your hostname:</p>
+<pre><code>http://##.uhn-hpc.ca:8080</code></pre>
+<p>This should bring up the RStudio login screen. Enter the username and password from the Slack channel. You should see a screen similar to the following. Click the Terminal tab:</p>
+<p><img src="img/rstudio-terminal.png"></p>
+<p>You are now connected! Note that the Console tab allows you to work in R, while the Terminal tab allows you to work on the command line (Bash).</p>
+</div>
 <div id="file-system-layout" class="section level3 hasAnchor">
 <h3>File System Layout<a href="awsunix.html#file-system-layout" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When you log in, you’ll notice that you have two directories: <strong>CourseData</strong> and <strong>workspace</strong>.</p>
@@ -425,8 +434,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 Solution
 </summary>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="awsunix.html#cb7-1" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb7-2"><a href="awsunix.html#cb7-2" tabindex="-1"></a><span class="ex">CourseData</span>  R  workspace</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="awsunix.html#cb8-1" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb8-2"><a href="awsunix.html#cb8-2" tabindex="-1"></a><span class="ex">CourseData</span>  R  workspace</span></code></pre></div>
 <p>The <code>ls</code> command lists the contents of a working directory.</p>
 </details>
 <p><br></p>
@@ -437,8 +446,8 @@ Solution
 <summary>
 Solution
 </summary>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="awsunix.html#cb8-1" tabindex="-1"></a><span class="ex">$</span> pwd</span>
-<span id="cb8-2"><a href="awsunix.html#cb8-2" tabindex="-1"></a><span class="ex">/home/ubuntu</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="awsunix.html#cb9-1" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb9-2"><a href="awsunix.html#cb9-2" tabindex="-1"></a><span class="ex">/home/ubuntu</span></span></code></pre></div>
 <p>The <code>pwd</code> command shows the absolute <em>path to the working directory</em>.</p>
 </details>
 </div>
@@ -467,8 +476,8 @@ Yes. You can use <code>less</code>, <code>cat</code>, <code>head</code>, or <cod
 <summary>
 Solution
 </summary>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="awsunix.html#cb9-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> GCF_009858895.2_ASM985889v3_genomic.gff </span>
-<span id="cb9-2"><a href="awsunix.html#cb9-2" tabindex="-1"></a><span class="ex">67</span> GCF_009858895.2_ASM985889v3_genomic.gff</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="awsunix.html#cb10-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> GCF_009858895.2_ASM985889v3_genomic.gff </span>
+<span id="cb10-2"><a href="awsunix.html#cb10-2" tabindex="-1"></a><span class="ex">67</span> GCF_009858895.2_ASM985889v3_genomic.gff</span></code></pre></div>
 <p>There are 67 lines in this file.</p>
 </details>
 <p><br></p>
@@ -479,7 +488,7 @@ Solution
 <summary>
 Solution
 </summary>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="awsunix.html#cb10-1" tabindex="-1"></a><span class="ex">$</span> less GCF_009858895.2_ASM985889v3_genomic.gff </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="awsunix.html#cb11-1" tabindex="-1"></a><span class="ex">$</span> less GCF_009858895.2_ASM985889v3_genomic.gff </span></code></pre></div>
 </details>
 <hr />
 </div>
@@ -498,20 +507,20 @@ Solution
 <ol style="list-style-type: decimal">
 <li>First, use the <code>nano</code> command to open a file called <code>helloworld.txt</code></li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="awsunix.html#cb11-1" tabindex="-1"></a><span class="ex">$</span> nano helloworld.txt</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="awsunix.html#cb12-1" tabindex="-1"></a><span class="ex">$</span> nano helloworld.txt</span></code></pre></div>
 <p>Inside the nano editor, write “Hello world”, then use the <code>^O</code> option to write the changes and <code>^X</code> to exit.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Create a subdirectory called “test”; move the helloworld.txt file into test.</li>
 </ol>
 <p>Use the command <code>mkdir</code> to create this new directory. Then, use <code>mv</code> to move <code>helloworld.txt</code> into this directory.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="awsunix.html#cb12-1" tabindex="-1"></a><span class="ex">$</span> mkdir test</span>
-<span id="cb12-2"><a href="awsunix.html#cb12-2" tabindex="-1"></a><span class="ex">$</span> mv helloworld.txt test/</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="awsunix.html#cb13-1" tabindex="-1"></a><span class="ex">$</span> mkdir test</span>
+<span id="cb13-2"><a href="awsunix.html#cb13-2" tabindex="-1"></a><span class="ex">$</span> mv helloworld.txt test/</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a copy of the <code>helloworld.txt</code> file called <code>helloworld2.txt</code>.</li>
 </ol>
 <p>Change the working directory using <code>cd</code>, then use the <code>cp</code> command to create the copy.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="awsunix.html#cb13-1" tabindex="-1"></a><span class="ex">$</span> cd test</span>
-<span id="cb13-2"><a href="awsunix.html#cb13-2" tabindex="-1"></a><span class="ex">$</span> cp helloworld.txt helloworld2.txt</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="awsunix.html#cb14-1" tabindex="-1"></a><span class="ex">$</span> cd test</span>
+<span id="cb14-2"><a href="awsunix.html#cb14-2" tabindex="-1"></a><span class="ex">$</span> cp helloworld.txt helloworld2.txt</span></code></pre></div>
 </details>
 </div>
 <div id="reference-material" class="section level3 hasAnchor">
@@ -528,9 +537,9 @@ Solution
 <div id="setup" class="section level3 hasAnchor">
 <h3>Setup<a href="awsunix.html#setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We want to explore some data on our instances, but it is a compressed ZIP file, so we’ll need to unzip it first. First move into your home directory, and then unzip the file named data.zip:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="awsunix.html#cb14-1" tabindex="-1"></a><span class="bu">cd</span> ~</span>
-<span id="cb14-2"><a href="awsunix.html#cb14-2" tabindex="-1"></a><span class="fu">unzip</span> data.zip</span>
-<span id="cb14-3"><a href="awsunix.html#cb14-3" tabindex="-1"></a><span class="bu">cd</span> data</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="awsunix.html#cb15-1" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb15-2"><a href="awsunix.html#cb15-2" tabindex="-1"></a><span class="fu">unzip</span> data.zip</span>
+<span id="cb15-3"><a href="awsunix.html#cb15-3" tabindex="-1"></a><span class="bu">cd</span> data</span></code></pre></div>
 <p>Take a look at what’s in your home directory after unzipping using ls:</p>
 <pre><code>ls </code></pre>
 <pre><code>GCF_009858895.2_ASM985889v3_genomic.gff  __MACOSX  data  data.zip</code></pre>
@@ -539,15 +548,15 @@ Solution
 <div id="data-exploration" class="section level3 hasAnchor">
 <h3>Data Exploration<a href="awsunix.html#data-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We’ll begin by looking at files are in Genbank gbff. This is a text file that describes the nucleotide sequence and annotation features on those nucleotide sequences. First of all, we run the <code>ls</code> command to view the names of the files in the <code>ecoli_genomes</code> directory:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="awsunix.html#cb17-1" tabindex="-1"></a><span class="ex">$</span> ls genomes</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="awsunix.html#cb18-1" tabindex="-1"></a><span class="ex">$</span> ls genomes</span></code></pre></div>
 <pre><code>atlanta.gbff      braunschweig.gbff lab-strain.gbff   london.gbff       muenster.gbff     nevada.gbff       texas.gbff</code></pre>
 <p>Let’s go into that directory with <code>cd</code> and run an example command <code>wc london.gbff</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="awsunix.html#cb19-1" tabindex="-1"></a><span class="ex">$</span> cd genomes</span>
-<span id="cb19-2"><a href="awsunix.html#cb19-2" tabindex="-1"></a><span class="ex">$</span> wc london.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="awsunix.html#cb20-1" tabindex="-1"></a><span class="ex">$</span> cd genomes</span>
+<span id="cb20-2"><a href="awsunix.html#cb20-2" tabindex="-1"></a><span class="ex">$</span> wc london.gbff</span></code></pre></div>
 <pre><code>212462  899913 13993868 london.gbff</code></pre>
 <p><code>wc</code> is the ‘word count’ command: it counts the number of lines, words, and characters in files (from left to right, in that order).</p>
 <p>If we run the command <code>wc *.gbff</code>, the <code>*</code> wildcard matches zero or more occurences of any character, so the shell turns <code>*.gbff</code> into a list of all gbff files in the current directory:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="awsunix.html#cb21-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="pp">*</span>.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="awsunix.html#cb22-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="pp">*</span>.gbff</span></code></pre></div>
 <pre><code>  217040  915629 14251456 atlanta.gbff
   204528  837084 13332241 braunschweig.gbff
   191859  685480 11851718 lab-strain.gbff
@@ -558,7 +567,7 @@ Solution
  1453227 5893743 94234811 total</code></pre>
 <p>Note that <code>wc *.gbff</code> also shows the total number of all lines in the last line of the output.</p>
 <p>If we run <code>wc -l</code> instead of just <code>wc</code>, the output shows only the number of lines per file:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="awsunix.html#cb23-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="awsunix.html#cb24-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff</span></code></pre></div>
 <pre><code>  217040 atlanta.gbff
   204528 braunschweig.gbff
   191859 lab-strain.gbff
@@ -568,12 +577,12 @@ Solution
   208514 texas.gbff
  1453227 total</code></pre>
 <p>Which of these files contains the fewest lines? It’s an easy question to answer when there are only six files, but what if there were 6000? Our first step toward a solution is to run the command:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="awsunix.html#cb25-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff <span class="op">&gt;</span> lengths.txt</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="awsunix.html#cb26-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff <span class="op">&gt;</span> lengths.txt</span></code></pre></div>
 <p>The greater than symbol, <code>&gt;</code>, tells the shell to redirect the command’s output to a file instead of printing it to the screen. (This is why there is no screen output: everything that wc would have printed has gone into the file <code>lengths.txt</code> instead.) The shell will create the file if it doesn’t exist. If the file exists, it will be silently overwritten, which may lead to data loss and thus requires some caution. <code>ls lengths.txt</code> confirms that the file exists:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="awsunix.html#cb26-1" tabindex="-1"></a><span class="ex">$</span> ls lengths.txt</span>
-<span id="cb26-2"><a href="awsunix.html#cb26-2" tabindex="-1"></a><span class="ex">lengths.txt</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="awsunix.html#cb27-1" tabindex="-1"></a><span class="ex">$</span> ls lengths.txt</span>
+<span id="cb27-2"><a href="awsunix.html#cb27-2" tabindex="-1"></a><span class="ex">lengths.txt</span></span></code></pre></div>
 <p>We can now send the content of <code>lengths.txt</code> to the screen using <code>cat lengths.txt</code>. The cat command gets its name from ‘concatenate’ i.e. join together, and it prints the contents of files one after another. There’s only one file in this case, so cat just shows us what it contains:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="awsunix.html#cb27-1" tabindex="-1"></a><span class="ex">$</span> cat lengths.txt</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="awsunix.html#cb28-1" tabindex="-1"></a><span class="ex">$</span> cat lengths.txt</span></code></pre></div>
 <pre><code>  217040 atlanta.gbff
   204528 braunschweig.gbff
   191859 lab-strain.gbff
@@ -586,22 +595,22 @@ Solution
 <div id="sorting" class="section level3 hasAnchor">
 <h3>Sorting<a href="awsunix.html#sorting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>sort</code> command rearranges the lines in a file in order. There are different methods of sorting - lexigraphically (a-z1-9) or numerically. The default sort type is lexigraphically, where numbers are treated one character at a time. Given a the file “numbers.txt” that looks like:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="awsunix.html#cb29-1" tabindex="-1"></a><span class="bu">cd</span> ../sorting</span>
-<span id="cb29-2"><a href="awsunix.html#cb29-2" tabindex="-1"></a><span class="fu">cat</span> numbers.txt</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="awsunix.html#cb30-1" tabindex="-1"></a><span class="bu">cd</span> ../sorting</span>
+<span id="cb30-2"><a href="awsunix.html#cb30-2" tabindex="-1"></a><span class="fu">cat</span> numbers.txt</span></code></pre></div>
 <pre><code>10
 2
 19
 22
 6</code></pre>
 <p>If we run <code>sort</code> on this file:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="awsunix.html#cb31-1" tabindex="-1"></a><span class="fu">sort</span> numbers.txt</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="awsunix.html#cb32-1" tabindex="-1"></a><span class="fu">sort</span> numbers.txt</span></code></pre></div>
 <pre><code>10
 19
 2
 22
 6</code></pre>
 <p>If we run <code>sort -n</code> on the same input - specifying that we want to sort numerically, we get this instead:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="awsunix.html#cb33-1" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-n</span> numbers.txt</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="awsunix.html#cb34-1" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-n</span> numbers.txt</span></code></pre></div>
 <pre><code>2
 6
 10
@@ -615,8 +624,8 @@ Solution
 The -n option specifies a numerical rather than an alphanumerical sort.
 </details>
 <p>We will sort our lengths.txt file using the <code>-n</code> option to specify that the sort is numerical instead of alphanumerical. Note that running sort does not modify the file; instead, it sends the sorted result to the screen:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="awsunix.html#cb35-1" tabindex="-1"></a><span class="bu">cd</span> ../genomes</span>
-<span id="cb35-2"><a href="awsunix.html#cb35-2" tabindex="-1"></a><span class="ex">$</span> sort <span class="at">-n</span> lengths.txt</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="awsunix.html#cb36-1" tabindex="-1"></a><span class="bu">cd</span> ../genomes</span>
+<span id="cb36-2"><a href="awsunix.html#cb36-2" tabindex="-1"></a><span class="ex">$</span> sort <span class="at">-n</span> lengths.txt</span></code></pre></div>
 <pre><code>  191859 lab-strain.gbff
   202036 muenster.gbff
   204528 braunschweig.gbff
@@ -626,29 +635,29 @@ The -n option specifies a numerical rather than an alphanumerical sort.
   217040 atlanta.gbff
  1453227 total</code></pre>
 <p>We can put the sorted list of lines in another temporary file called <code>sorted-lengths.txt</code> by putting <code>&gt; sorted-lengths.txt</code> after the command, just as we used <code>&gt; lengths.txt</code> to put the output of <code>wc</code> into <code>lengths.txt</code>. Once we’ve done that, we can run another command called <code>head</code> to get the first few lines in sorted-lengths.txt:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="awsunix.html#cb37-1" tabindex="-1"></a><span class="ex">$</span> sort <span class="at">-n</span> lengths.txt <span class="op">&gt;</span> sorted-lengths.txt</span>
-<span id="cb37-2"><a href="awsunix.html#cb37-2" tabindex="-1"></a><span class="ex">$</span> head <span class="at">-n</span> 1 sorted-lengths.txt</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="awsunix.html#cb38-1" tabindex="-1"></a><span class="ex">$</span> sort <span class="at">-n</span> lengths.txt <span class="op">&gt;</span> sorted-lengths.txt</span>
+<span id="cb38-2"><a href="awsunix.html#cb38-2" tabindex="-1"></a><span class="ex">$</span> head <span class="at">-n</span> 1 sorted-lengths.txt</span></code></pre></div>
 <pre><code>  191859 lab-strain.gbff</code></pre>
 <p>Using <code>-n 1</code> with head tells it that we only want the first line of the file; <code>-n 20</code> would get the first 20, and so on. Since <code>sorted-lengths.txt</code> contains the lengths of our files ordered from least to greatest, the output of head must be the file with the fewest lines.</p>
 </div>
 <div id="what-does-mean" class="section level3 hasAnchor">
 <h3>What Does &gt;&gt; Mean?<a href="awsunix.html#what-does-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have seen the use of <code>&gt;</code>, but there is a similar operator <code>&gt;&gt;</code> which works slightly differently. We’ll learn about the differences between these two operators by printing some strings. We can use the echo command to print strings e.g.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="awsunix.html#cb39-1" tabindex="-1"></a><span class="ex">$</span> echo The echo command prints text</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="awsunix.html#cb40-1" tabindex="-1"></a><span class="ex">$</span> echo The echo command prints text</span></code></pre></div>
 <pre><code>The echo command prints text</code></pre>
 <p>Now test the commands below to reveal the difference between the two operators:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="awsunix.html#cb41-1" tabindex="-1"></a><span class="ex">$</span> echo hello <span class="op">&gt;</span> testfile01.txt</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="awsunix.html#cb42-1" tabindex="-1"></a><span class="ex">$</span> echo hello <span class="op">&gt;</span> testfile01.txt</span></code></pre></div>
 <p>and:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="awsunix.html#cb42-1" tabindex="-1"></a><span class="ex">$</span> echo hello <span class="op">&gt;&gt;</span> testfile01.txt</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="awsunix.html#cb43-1" tabindex="-1"></a><span class="ex">$</span> echo hello <span class="op">&gt;&gt;</span> testfile01.txt</span></code></pre></div>
 </div>
 <div id="running-commands-together" class="section level3 hasAnchor">
 <h3>Running Commands Together<a href="awsunix.html#running-commands-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you think this is confusing, you’re in good company: even once you understand what <code>wc</code>, <code>sort</code>, and <code>head</code> do, all those intermediate files make it hard to follow what’s going on. We can make it easier to understand by running sort and head together:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="awsunix.html#cb43-1" tabindex="-1"></a><span class="ex">$</span> sort <span class="at">-n</span> lengths.txt <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="awsunix.html#cb44-1" tabindex="-1"></a><span class="ex">$</span> sort <span class="at">-n</span> lengths.txt <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span></code></pre></div>
 <pre><code>  191859 lab-strain.gbff</code></pre>
 <p>The vertical bar, <code>|</code>, between the two commands is called a pipe. It tells the shell that we want to use the output of the command on the left as the input to the command on the right.</p>
 <p>Nothing prevents us from chaining pipes consecutively. That is, we can for example send the output of <code>wc</code> directly to sort, and then the resulting output to head. Thus we first use a pipe to send the output of <code>wc</code> to <code>sort</code>:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="awsunix.html#cb45-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="awsunix.html#cb46-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span></span></code></pre></div>
 <pre><code>  191859 lab-strain.gbff
   202036 muenster.gbff
   204528 braunschweig.gbff
@@ -658,7 +667,7 @@ The -n option specifies a numerical rather than an alphanumerical sort.
   217040 atlanta.gbff
  1453227 total</code></pre>
 <p>And now we send the output of this pipe, through another pipe, to head, so that the full pipeline becomes:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="awsunix.html#cb47-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="awsunix.html#cb48-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.gbff <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span></code></pre></div>
 <pre><code>  191859 lab-strain.gbff</code></pre>
 <p>The redirection and pipes used in the last few commands are illustrated below:</p>
 <div class="float">
@@ -669,10 +678,10 @@ The -n option specifies a numerical rather than an alphanumerical sort.
 <div id="piping-commands-together" class="section level3 hasAnchor">
 <h3>Piping Commands Together<a href="awsunix.html#piping-commands-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="awsunix.html#cb49-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="op">&gt;</span> sort <span class="at">-n</span> <span class="op">&gt;</span> head <span class="at">-n</span> 3</span>
-<span id="cb49-2"><a href="awsunix.html#cb49-2" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1-3</span>
-<span id="cb49-3"><a href="awsunix.html#cb49-3" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span></span>
-<span id="cb49-4"><a href="awsunix.html#cb49-4" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="awsunix.html#cb50-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="op">&gt;</span> sort <span class="at">-n</span> <span class="op">&gt;</span> head <span class="at">-n</span> 3</span>
+<span id="cb50-2"><a href="awsunix.html#cb50-2" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1-3</span>
+<span id="cb50-3"><a href="awsunix.html#cb50-3" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span></span>
+<span id="cb50-4"><a href="awsunix.html#cb50-4" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3</span></code></pre></div>
 <p>This idea of linking programs together is why Unix has been so successful. Instead of creating enormous programs that try to do many different things, Unix programmers focus on creating lots of simple tools that each do one job well, and that work well with each other. This programming model is called ‘pipes and filters’. We’ve already seen pipes; a filter is a program like <code>wc</code> or <code>sort</code> that transforms a stream of input into a stream of output. Almost all of the standard Unix tools can work this way: unless told to do otherwise, they read from standard input, do something with what they’ve read, and write to standard output.</p>
 <p>The key is that any program that reads lines of text from standard input and writes lines of text to standard output can be combined with every other program that behaves this way as well. You can and should write your programs this way so that you and other people can put those programs into pipes to multiply their power.</p>
 </div>
@@ -689,8 +698,8 @@ The -n option specifies a numerical rather than an alphanumerical sort.
 2021-05-30,texas
 2004-06-10,lab-strain</code></pre>
 <p>What text passes through each of the pipes and the final redirect in the pipeline below?</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="awsunix.html#cb51-1" tabindex="-1"></a><span class="ex">$</span> cd ../collection</span>
-<span id="cb51-2"><a href="awsunix.html#cb51-2" tabindex="-1"></a><span class="ex">$</span> cat annotation-dates.txt <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 5 <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-r</span> <span class="op">&gt;</span> final.txt</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="awsunix.html#cb52-1" tabindex="-1"></a><span class="ex">$</span> cd ../collection</span>
+<span id="cb52-2"><a href="awsunix.html#cb52-2" tabindex="-1"></a><span class="ex">$</span> cat annotation-dates.txt <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 5 <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 3 <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-r</span> <span class="op">&gt;</span> final.txt</span></code></pre></div>
 <details>
 <summary>
 Solution
@@ -710,7 +719,7 @@ Solution
 <div id="pipe-construction" class="section level3 hasAnchor">
 <h3>Pipe Construction<a href="awsunix.html#pipe-construction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the file <code>annotation-dates.txt</code> from the previous exercise, consider the following command:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="awsunix.html#cb52-1" tabindex="-1"></a><span class="ex">$</span> cut <span class="at">-d</span> , <span class="at">-f</span> 2 annotation-dates.txt</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="awsunix.html#cb53-1" tabindex="-1"></a><span class="ex">$</span> cut <span class="at">-d</span> , <span class="at">-f</span> 2 annotation-dates.txt</span></code></pre></div>
 <p>The <code>cut</code> command is used to remove or ‘cut out’ certain sections of each line in the file, and <code>cut</code> expects the lines to be separated into columns by a Tab character. A character used in this way is a called a delimiter. In the example above we use the <code>-d</code> option to specify the comma as our delimiter character. We have also used the <code>-f</code> option to specify that we want to extract the second field (column). This gives the following output:</p>
 <pre><code>atlanta
 branschweig
@@ -754,8 +763,8 @@ Option 4. is the correct answer. If you have difficulty understanding why, try r
 <div id="checking-files" class="section level3 hasAnchor">
 <h3>Checking Files<a href="awsunix.html#checking-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s say our collaborator has created 17 files in the <code>north-pacific-gyre/2012-07-03</code> directory. As a quick check, starting from the <code>data</code> directory, if we type:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="awsunix.html#cb54-1" tabindex="-1"></a><span class="ex">$</span> cd north-pacific-gyre/2012-07-03</span>
-<span id="cb54-2"><a href="awsunix.html#cb54-2" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.txt</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="awsunix.html#cb55-1" tabindex="-1"></a><span class="ex">$</span> cd north-pacific-gyre/2012-07-03</span>
+<span id="cb55-2"><a href="awsunix.html#cb55-2" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.txt</span></code></pre></div>
 <p>The output is 18 lines that look like this:</p>
 <pre><code>300 NENE01729A.txt
 300 NENE01729B.txt
@@ -765,21 +774,21 @@ Option 4. is the correct answer. If you have difficulty understanding why, try r
 300 NENE01812A.txt
 ...</code></pre>
 <p>Now if we run</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="awsunix.html#cb56-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.txt <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 5</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="awsunix.html#cb57-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.txt <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 5</span></code></pre></div>
 <pre><code>  240 NENE02018B.txt
   300 NENE01729A.txt
   300 NENE01729B.txt
   300 NENE01736A.txt
   300 NENE01751A.txt</code></pre>
 <p>Whoops: one of the files is 60 lines shorter than the others. Hypothetically speaking, — someone was probably in using the machine on the weekend entering the data, and forgot to save the last few lines. Before re-running that sample, lets checks to see if any files have too much data:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="awsunix.html#cb58-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.txt <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 5</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb59-1"><a href="awsunix.html#cb59-1" tabindex="-1"></a><span class="ex">$</span> wc <span class="at">-l</span> <span class="pp">*</span>.txt <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 5</span></code></pre></div>
 <pre><code> 300 NENE02040B.txt
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
 5040 total</code></pre>
 <p>Those numbers look good — but what’s that ‘Z’ doing there in the third-to-last line? All of her samples should be marked ‘A’ or ‘B’; by convention, her lab uses ‘Z’ to indicate samples with missing information. To find others like it, we can:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb60-1"><a href="awsunix.html#cb60-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="pp">*</span>Z.txt</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb61-1"><a href="awsunix.html#cb61-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="pp">*</span>Z.txt</span></code></pre></div>
 <pre><code>NENE01971Z.txt    NENE02040Z.txt</code></pre>
 <p>It turns outt hat there’s no depth recorded for either of those samples. Since it’s too late to get the information any other way, we must exclude those two files from our analysis. We could delete them using rm, but there are actually some analyses we might do later where depth doesn’t matter, so instead, we’ll have to be careful later on to select files using the wildcard expression <em>[AB].txt. As always, the </em> matches any number of characters; the expression [AB] matches either an ‘A’ or a ‘B’, so this matches all the valid data files she has.</p>
 </div>
@@ -823,59 +832,59 @@ Solution
 <p>We are finally ready to see what makes the shell such a powerful programming environment. We are going to take the commands we repeat frequently and save them in files so that we can re-run all those operations again later by typing a single command. For historical reasons, a bunch of commands saved in a file is usually called a shell script, but make no mistake: these are actually small programs.</p>
 <p>Not only will writing shell scripts make your work faster– you won’t have to retype the same commands over and over again– it will also make it more accurate (fewer chances for typos) and more reproducible. If you come back to your work later (or if someone else finds your work and wants to build on it) you will be able to reproduce the same results simply by running your script, rather than having to remember or retype a long list of commands.</p>
 <p>Let’s start by going back to <code>data/genomes</code> and creating a new file, <code>count_tags.sh</code> which will become our shell script:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb62-1"><a href="awsunix.html#cb62-1" tabindex="-1"></a><span class="ex">$</span> cd data/genomes</span>
-<span id="cb62-2"><a href="awsunix.html#cb62-2" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb63-1"><a href="awsunix.html#cb63-1" tabindex="-1"></a><span class="ex">$</span> cd data/genomes</span>
+<span id="cb63-2"><a href="awsunix.html#cb63-2" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
 <p>The command nano <code>count_tags.sh</code> opens the file <code>count_tags.sh</code> within the text editor ‘nano’ (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file – we’ll simply insert the following line:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb63-1"><a href="awsunix.html#cb63-1" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;atlanta.gbff: &quot;</span></span>
-<span id="cb63-2"><a href="awsunix.html#cb63-2" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> atlanta.gbff <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb64-1"><a href="awsunix.html#cb64-1" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;atlanta.gbff: &quot;</span></span>
+<span id="cb64-2"><a href="awsunix.html#cb64-2" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> atlanta.gbff <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div>
 <p>Then we save the file (Ctrl-O in nano), and exit the text editor (Ctrl-X in nano). Check that the directory molecules now contains a file called <code>count_tags.sh</code>.</p>
 <p>Once we have saved the file, we can ask the shell to execute the commands it contains. Our shell is called bash, so we run the following command:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb64-1"><a href="awsunix.html#cb64-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb65-1"><a href="awsunix.html#cb65-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh</span></code></pre></div>
 <pre><code>atlanta.gbff 12237</code></pre>
 <p>Sure enough, our script’s output is exactly what we would get if we ran that pipeline directly.</p>
 <p>I’ve noticed that each locus tag appears twice in the gbff file, so we’re double-counting a lot of tags. Let’s modify our script to only count unique tags:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb66-1"><a href="awsunix.html#cb66-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
-<div class="sourceCode" id="cb67"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb67-1"><a href="awsunix.html#cb67-1" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;atlanta.gbff: &quot;</span></span>
-<span id="cb67-2"><a href="awsunix.html#cb67-2" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> atlanta.gbff <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb67-1"><a href="awsunix.html#cb67-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb68-1"><a href="awsunix.html#cb68-1" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;atlanta.gbff: &quot;</span></span>
+<span id="cb68-2"><a href="awsunix.html#cb68-2" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> atlanta.gbff <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div>
 <p>Now when we run the script:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb68-1"><a href="awsunix.html#cb68-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb69-1"><a href="awsunix.html#cb69-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh</span></code></pre></div>
 <pre><code>atlanta.gbff 6109</code></pre>
 <p>What if we want to count the number of locus tags in many files? Let’s introduce a new concept: loopingOpen up our script again</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb70-1"><a href="awsunix.html#cb70-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
-<div class="sourceCode" id="cb71"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb71-1"><a href="awsunix.html#cb71-1" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> atlanta.gbff london.gbff</span>
-<span id="cb71-2"><a href="awsunix.html#cb71-2" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb71-3"><a href="awsunix.html#cb71-3" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
-<span id="cb71-4"><a href="awsunix.html#cb71-4" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb71-5"><a href="awsunix.html#cb71-5" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb71-1"><a href="awsunix.html#cb71-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="awsunix.html#cb72-1" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> atlanta.gbff london.gbff</span>
+<span id="cb72-2"><a href="awsunix.html#cb72-2" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb72-3"><a href="awsunix.html#cb72-3" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
+<span id="cb72-4"><a href="awsunix.html#cb72-4" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb72-5"><a href="awsunix.html#cb72-5" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>We feed the loop with two elements: the text “atlanta.gbff” and then with the text “london.gbff”.
 The loop executes all of the commands between <code>do</code> and <code>done</code> for each time the loop iterates, and each time, the variable “$filename” is replaced by either “atlanta.gbff” or “london.gbff”</p>
 <p>What if we wanted to count the number of tags in other gbff file. At the moment, the filenames are hard-coded into our script. It only counts tags in atlanta.gbff and london.gbff. We can make the script a little bit more flexible by using the variable nams “$1” and “$2”</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="awsunix.html#cb72-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb73-1"><a href="awsunix.html#cb73-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
 <p>Now, within “nano”, replace the text “atlanta.gbff” with the special variable called $1:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb73-1"><a href="awsunix.html#cb73-1" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$1</span> <span class="va">$2</span></span>
-<span id="cb73-2"><a href="awsunix.html#cb73-2" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb73-3"><a href="awsunix.html#cb73-3" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
-<span id="cb73-4"><a href="awsunix.html#cb73-4" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb73-5"><a href="awsunix.html#cb73-5" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb74-1"><a href="awsunix.html#cb74-1" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$1</span> <span class="va">$2</span></span>
+<span id="cb74-2"><a href="awsunix.html#cb74-2" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb74-3"><a href="awsunix.html#cb74-3" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
+<span id="cb74-4"><a href="awsunix.html#cb74-4" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb74-5"><a href="awsunix.html#cb74-5" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>Inside a shell script, <code>$1</code> means ‘the first filename (or other argument) on the command line’. Similarly, <code>$2</code> is the second argument passed to the script. We can now run our script like this:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb74-1"><a href="awsunix.html#cb74-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh atlanta.gbff london.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb75-1"><a href="awsunix.html#cb75-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh atlanta.gbff london.gbff</span></code></pre></div>
 <pre><code>atlanta.gbff 6109
 london.gbff 5831</code></pre>
 <p>or on a different file like this:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb76-1"><a href="awsunix.html#cb76-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh nevada.gbff texas.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb77-1"><a href="awsunix.html#cb77-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh nevada.gbff texas.gbff</span></code></pre></div>
 <pre><code>nevada.gbff 5691
 texas.gbff 5424</code></pre>
 <p>In case the filename happens to contain any spaces, we surround $1 with double-quotes.</p>
 <p>This is better, but our script still isn’t quite as flexible as I’d like. It can only operate on two files at a time. What if I wanted to count the tags in three or four files at a time?</p>
 <p>There is a special variable “$@” which holds all of the arguments passed to the script. Let’s make another modification to our script:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb78-1"><a href="awsunix.html#cb78-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb79-1"><a href="awsunix.html#cb79-1" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$@</span></span>
-<span id="cb79-2"><a href="awsunix.html#cb79-2" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb79-3"><a href="awsunix.html#cb79-3" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
-<span id="cb79-4"><a href="awsunix.html#cb79-4" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb79-5"><a href="awsunix.html#cb79-5" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb79-1"><a href="awsunix.html#cb79-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb80-1"><a href="awsunix.html#cb80-1" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$@</span></span>
+<span id="cb80-2"><a href="awsunix.html#cb80-2" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb80-3"><a href="awsunix.html#cb80-3" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
+<span id="cb80-4"><a href="awsunix.html#cb80-4" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb80-5"><a href="awsunix.html#cb80-5" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>The “$@” variable gets replaced with all of the arguments passed to our script. This allows us to run:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb80-1"><a href="awsunix.html#cb80-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh <span class="pp">*</span>.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb81-1"><a href="awsunix.html#cb81-1" tabindex="-1"></a><span class="ex">$</span> bash count_tags.sh <span class="pp">*</span>.gbff</span></code></pre></div>
 <pre><code>atlanta.gbff 6109
 braunschweig.gbff 5248
 lab-strain.gbff 4609
@@ -884,26 +893,26 @@ muenster.gbff 5176
 nevada.gbff 5691
 texas.gbff 5424</code></pre>
 <p>This works, but it may take the next person who reads <code>count_tags.sh</code> a moment to figure out what it does. We can improve our script by adding some comments at the top:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb82-1"><a href="awsunix.html#cb82-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
-<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="awsunix.html#cb83-1" tabindex="-1"></a><span class="co"># Counts the number of unique locus tags in one or more gbff files.</span></span>
-<span id="cb83-2"><a href="awsunix.html#cb83-2" tabindex="-1"></a></span>
-<span id="cb83-3"><a href="awsunix.html#cb83-3" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$@</span></span>
-<span id="cb83-4"><a href="awsunix.html#cb83-4" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb83-5"><a href="awsunix.html#cb83-5" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
-<span id="cb83-6"><a href="awsunix.html#cb83-6" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb83-7"><a href="awsunix.html#cb83-7" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="awsunix.html#cb83-1" tabindex="-1"></a><span class="ex">$</span> nano count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="awsunix.html#cb84-1" tabindex="-1"></a><span class="co"># Counts the number of unique locus tags in one or more gbff files.</span></span>
+<span id="cb84-2"><a href="awsunix.html#cb84-2" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="awsunix.html#cb84-3" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$@</span></span>
+<span id="cb84-4"><a href="awsunix.html#cb84-4" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb84-5"><a href="awsunix.html#cb84-5" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
+<span id="cb84-6"><a href="awsunix.html#cb84-6" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb84-7"><a href="awsunix.html#cb84-7" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>A comment starts with a <code>#</code> character and runs to the end of the line. The computer ignores comments, but they’re invaluable for helping people (including your future self) understand and use scripts. The only caveat is that each time you modify the script, you should check that the comment is still accurate: an explanation that sends the reader in the wrong direction is worse than none at all.</p>
 <p>Lastly, let’s make our script executable. First we’ll modify the file permissions. This can be done using the <code>chmod</code> command:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="awsunix.html#cb84-1" tabindex="-1"></a><span class="fu">chmod</span> +x count_tags.sh</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="awsunix.html#cb85-1" tabindex="-1"></a><span class="fu">chmod</span> +x count_tags.sh</span></code></pre></div>
 <p>We’ll also add a “shebang” line to our script which tells the shell what program should be used to run our script. Modify our script to include this first line:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="awsunix.html#cb85-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb85-2"><a href="awsunix.html#cb85-2" tabindex="-1"></a><span class="co"># Counts the number of unique locus tags in one or more gbff files.</span></span>
-<span id="cb85-3"><a href="awsunix.html#cb85-3" tabindex="-1"></a></span>
-<span id="cb85-4"><a href="awsunix.html#cb85-4" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$@</span></span>
-<span id="cb85-5"><a href="awsunix.html#cb85-5" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb85-6"><a href="awsunix.html#cb85-6" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
-<span id="cb85-7"><a href="awsunix.html#cb85-7" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb85-8"><a href="awsunix.html#cb85-8" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb86-1"><a href="awsunix.html#cb86-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb86-2"><a href="awsunix.html#cb86-2" tabindex="-1"></a><span class="co"># Counts the number of unique locus tags in one or more gbff files.</span></span>
+<span id="cb86-3"><a href="awsunix.html#cb86-3" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="awsunix.html#cb86-4" tabindex="-1"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="va">$@</span></span>
+<span id="cb86-5"><a href="awsunix.html#cb86-5" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb86-6"><a href="awsunix.html#cb86-6" tabindex="-1"></a>  <span class="bu">echo</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st"> &quot;</span></span>
+<span id="cb86-7"><a href="awsunix.html#cb86-7" tabindex="-1"></a>  <span class="fu">grep</span> <span class="st">&quot;/locus_tag=&quot;</span> <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb86-8"><a href="awsunix.html#cb86-8" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>Exercise: Can you create a command that uses our count_tags.sh script to find the gbff file with the smallest number of locus tags?</p>
 </div>
 <div id="awk" class="section level3 hasAnchor">
@@ -911,45 +920,45 @@ texas.gbff 5424</code></pre>
 <p>Another very helpful “Swiss Army knife” of the shell is the program <code>awk</code>. Awk that, like <code>grep</code>, allows you to search for lines in a file matching some condition, but <code>awk</code> /also/ allows you to perform some small operations on those lines once you have matched them.</p>
 <p>Let’s build an simple example piece by piece.</p>
 <p>Open up a new file:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb86-1"><a href="awsunix.html#cb86-1" tabindex="-1"></a><span class="fu">nano</span> find_lengths.awk</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb87-1"><a href="awsunix.html#cb87-1" tabindex="-1"></a><span class="fu">nano</span> find_lengths.awk</span></code></pre></div>
 <p>In this awk script, let’s just write:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb87-1"><a href="awsunix.html#cb87-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb88-1"><a href="awsunix.html#cb88-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span></span></code></pre></div>
 <p>This is instructing awk to find all files that match the string “LOCUS”. We can find all the lines matching “LOCUS” in the atlanta.gbff file by running:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb88-1"><a href="awsunix.html#cb88-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="awsunix.html#cb89-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
 <pre><code>LOCUS       NZ_CP027572          5858866 bp    DNA     circular CON 24-MAY-2021
 LOCUS       NZ_CP027571            97037 bp    DNA     circular CON 24-MAY-2021</code></pre>
 <p>Notice that the third column in the “LOCUS” lines includes the length of the sequence. Let’s pull that out. Modify the contents of <code>find_lengths.awk</code> to include a block (executed each time awk finds a matching line)</p>
 <p>In an awk script, we can use $3 to refer to the text in the third column (space-separated). Note that this is different to the dollar-sign variables in bash. Here we are writing in a script in the awk language, and not the bash language.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb90-1"><a href="awsunix.html#cb90-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span> <span class="op">{</span></span>
-<span id="cb90-2"><a href="awsunix.html#cb90-2" tabindex="-1"></a>    <span class="kw">print</span> <span class="st">&quot;Found a locus with length &quot;</span> <span class="dt">$3</span> <span class="st">&quot; bp&quot;</span></span>
-<span id="cb90-3"><a href="awsunix.html#cb90-3" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb91-1"><a href="awsunix.html#cb91-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span> <span class="op">{</span></span>
+<span id="cb91-2"><a href="awsunix.html#cb91-2" tabindex="-1"></a>    <span class="kw">print</span> <span class="st">&quot;Found a locus with length &quot;</span> <span class="dt">$3</span> <span class="st">&quot; bp&quot;</span></span>
+<span id="cb91-3"><a href="awsunix.html#cb91-3" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Running the script now gives:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb91-1"><a href="awsunix.html#cb91-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb92-1"><a href="awsunix.html#cb92-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
 <pre><code>Found a locus with length 5858866 bp
 Found a locus with length 97037 bp</code></pre>
 <p>It might be helpful to sum up those lengths. We can create a variable called ‘total’ and add the numbers found in the third column. Open up the awk script and modify the contents to read</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb93-1"><a href="awsunix.html#cb93-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span> <span class="op">{</span></span>
-<span id="cb93-2"><a href="awsunix.html#cb93-2" tabindex="-1"></a>    <span class="kw">print</span> <span class="st">&quot;Found a locus with length &quot;</span> <span class="dt">$3</span> <span class="st">&quot; bp&quot;</span></span>
-<span id="cb93-3"><a href="awsunix.html#cb93-3" tabindex="-1"></a>    sum <span class="op">+=</span> <span class="dt">$3</span></span>
-<span id="cb93-4"><a href="awsunix.html#cb93-4" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb93-5"><a href="awsunix.html#cb93-5" tabindex="-1"></a></span>
-<span id="cb93-6"><a href="awsunix.html#cb93-6" tabindex="-1"></a><span class="cf">END</span> <span class="op">{</span></span>
-<span id="cb93-7"><a href="awsunix.html#cb93-7" tabindex="-1"></a>    <span class="kw">print</span> <span class="st">&quot;Total: &quot;</span> sum <span class="st">&quot; bp&quot;</span></span>
-<span id="cb93-8"><a href="awsunix.html#cb93-8" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb94-1"><a href="awsunix.html#cb94-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span> <span class="op">{</span></span>
+<span id="cb94-2"><a href="awsunix.html#cb94-2" tabindex="-1"></a>    <span class="kw">print</span> <span class="st">&quot;Found a locus with length &quot;</span> <span class="dt">$3</span> <span class="st">&quot; bp&quot;</span></span>
+<span id="cb94-3"><a href="awsunix.html#cb94-3" tabindex="-1"></a>    sum <span class="op">+=</span> <span class="dt">$3</span></span>
+<span id="cb94-4"><a href="awsunix.html#cb94-4" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb94-5"><a href="awsunix.html#cb94-5" tabindex="-1"></a></span>
+<span id="cb94-6"><a href="awsunix.html#cb94-6" tabindex="-1"></a><span class="cf">END</span> <span class="op">{</span></span>
+<span id="cb94-7"><a href="awsunix.html#cb94-7" tabindex="-1"></a>    <span class="kw">print</span> <span class="st">&quot;Total: &quot;</span> sum <span class="st">&quot; bp&quot;</span></span>
+<span id="cb94-8"><a href="awsunix.html#cb94-8" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>We’ve written a new block here. Our first block uses the <code>/LOCUS/</code> matcher so it is run every time awk finds a line that matches “LOCUS”. The <code>END</code> block is a special block that is run only once - when awk reaches the end of the input file. There is a similar optional <code>BEGIN</code> block run once at the beginning, but we have no use for that in our example.</p>
 <p>Running the script now gives:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb94-1"><a href="awsunix.html#cb94-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb95-1"><a href="awsunix.html#cb95-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
 <pre><code>Found a locus with length 5858866 bp
 Found a locus with length 97037 bp
 Total: 5955903 bp</code></pre>
 <p>I think that this script is a little bit too long and verbose. Let’s clean it up a little to read simply:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb96-1"><a href="awsunix.html#cb96-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span> <span class="op">{</span>sum <span class="op">+=</span> <span class="dt">$3</span><span class="op">}</span></span>
-<span id="cb96-2"><a href="awsunix.html#cb96-2" tabindex="-1"></a><span class="cf">END</span> <span class="op">{</span><span class="kw">print</span> sum<span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode awk"><code class="sourceCode awk"><span id="cb97-1"><a href="awsunix.html#cb97-1" tabindex="-1"></a><span class="ot">/</span><span class="ss">LOCUS</span><span class="ot">/</span> <span class="op">{</span>sum <span class="op">+=</span> <span class="dt">$3</span><span class="op">}</span></span>
+<span id="cb97-2"><a href="awsunix.html#cb97-2" tabindex="-1"></a><span class="cf">END</span> <span class="op">{</span><span class="kw">print</span> sum<span class="op">}</span></span></code></pre></div>
 <p>This gives us just the total length for a file:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb97-1"><a href="awsunix.html#cb97-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb98-1"><a href="awsunix.html#cb98-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-f</span> find_lengths.awk atlanta.gbff</span></code></pre></div>
 <pre><code>5955903</code></pre>
 <p>It is actually not even necessary to write our awk command in a separte file. Our script is short enough that we might even just want to write it in-line inside a command:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb99-1"><a href="awsunix.html#cb99-1" tabindex="-1"></a><span class="fu">awk</span> <span class="st">&#39;/LOCUS/{sum += $3} END{print sum}&#39;</span> atlanta.gbff</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb100-1"><a href="awsunix.html#cb100-1" tabindex="-1"></a><span class="fu">awk</span> <span class="st">&#39;/LOCUS/{sum += $3} END{print sum}&#39;</span> atlanta.gbff</span></code></pre></div>
 <pre><code>5955903</code></pre>
 <p>Exercise: Can you write a command or a bash script to find the genome with the smallest total size?</p>
 </div>
