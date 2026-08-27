@@ -44,7 +44,7 @@ If you're on a managed/work computer or wifi network, sometimes port access will
 http://##.uhn-hpc.ca:8080
 ```
 
-This should bring up the RStudio login screen. Enter the username and password from the Slack channel. You should see a screen similar to the following. Click the Terminal tab:
+This should bring up the RStudio login screen. Enter the username and password from the Slack channel. You should see a screen similar to the following. Click the Terminal tab (might be partway down the screen):
 
 <img src="./img/rstudio-terminal.png">
 

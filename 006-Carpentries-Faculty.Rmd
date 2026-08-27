@@ -39,7 +39,7 @@ Halifax, NS, Canada <br>
 Gustavo works at the intersection of computer science and biology, with research interests centered on mining complex biological datasets to generate actionable insights. His work spans emerging infectious diseases, including mpox and Ebola virus disease, as well as the development of artificial intelligence-based approaches to uncover patterns of gene regulation in microbes and viruses.
 Having learned biology from biologists, Gustavo sees teaching computational methods as a way of giving back to the scientific community that shaped his interdisciplinary perspective. He is particularly interested in helping biologists understand how computational systems work and how they can be used to address biological questions.
 
-### Zhibin Lu
+#### Zhibin Lu
 
 <img src="./img/faculty/zhibin-lu.jpeg" width="200">
 
