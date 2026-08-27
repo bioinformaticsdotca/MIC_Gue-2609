@@ -20,6 +20,7 @@ Dr. Sarathy is Bioinformatics Researcher and Lecturer specializing in mathematic
 >Postdoctoral Fellow <br>
 Simon Fraser University <br>
 Burnaby, BC, Canada <br>
+> --- [ccl40\@sfu.ca](mailto:ccl40@sfu.ca){.email}
 >
 
 Jimmy is a postdoctoral fellow trained in bioinformatics and biochemistry. He completed his PhD at Simon Fraser University, where his research focused on developing novel computational methods to enhance the use of genomics data for enteric disease outbreak investigations and longitudinal surveillance. He also has several years of experience applying nanopore long-read sequencing to clinical diagnostics, including the development of real-time data analysis approaches to accelerate diagnostic turnaround times.
