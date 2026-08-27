@@ -12,3 +12,17 @@ LOCATION
 
 BIO GOES HERE-->
 
+<!--### Zhibin Lu
+
+<img src="./img/faculty/zhibin-lu.jpeg" width="200">
+
+>HPC and Bioinformatics Services Manager<br>
+Princess Margaret Cancer Centre, University Health Network
+
+Zhibin Lu is a senior manager at University Health Network Digital. He is responsible for UHN
+HPC operations and scientific software. He manages two HPC clusters at UHN, including
+system administration, user management, and maintenance of bioinformatics tools for
+HPC4health. He is also skilled in Next-Gen sequence data analysis and has developed and
+maintained bioinformatics pipelines at the Bioinformatics and HPC Core. He is a member of the
+Digital Research Alliance of Canada Bioinformatics National Team and Scheduling National
+Team.-->

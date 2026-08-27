@@ -1,6 +1,6 @@
-# (PART) Carpentries Pre-Session {-}
+# (PART) Pre-Session {-}
 
-# Meet Your Faculty
+# Meet Your Pre-Session Faculty
 
 #### Chaitra Sarathy, PhD (she/her)
 
@@ -39,5 +39,18 @@ Halifax, NS, Canada <br>
 Gustavo works at the intersection of computer science and biology, with research interests centered on mining complex biological datasets to generate actionable insights. His work spans emerging infectious diseases, including mpox and Ebola virus disease, as well as the development of artificial intelligence-based approaches to uncover patterns of gene regulation in microbes and viruses.
 Having learned biology from biologists, Gustavo sees teaching computational methods as a way of giving back to the scientific community that shaped his interdisciplinary perspective. He is particularly interested in helping biologists understand how computational systems work and how they can be used to address biological questions.
 
+### Zhibin Lu
 
+<img src="./img/faculty/zhibin-lu.jpeg" width="200">
+
+>HPC and Bioinformatics Services Manager<br>
+Princess Margaret Cancer Centre, University Health Network
+
+Zhibin Lu is a senior manager at University Health Network Digital. He is responsible for UHN
+HPC operations and scientific software. He manages two HPC clusters at UHN, including
+system administration, user management, and maintenance of bioinformatics tools for
+HPC4health. He is also skilled in Next-Gen sequence data analysis and has developed and
+maintained bioinformatics pipelines at the Bioinformatics and HPC Core. He is a member of the
+Digital Research Alliance of Canada Bioinformatics National Team and Scheduling National
+Team.
 
