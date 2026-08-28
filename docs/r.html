@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>R | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="R | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -180,8 +180,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
 <li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
-<li class="part"><span><b>II Carpentries Pre-Session</b></span></li>
-<li class="chapter" data-level="" data-path="meet-your-faculty-1.html"><a href="meet-your-faculty-1.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="part"><span><b>II Pre-Session</b></span></li>
+<li class="chapter" data-level="" data-path="meet-your-pre-session-faculty.html"><a href="meet-your-pre-session-faculty.html"><i class="fa fa-check"></i>Meet Your Pre-Session Faculty</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html"><i class="fa fa-check"></i>AWS/UNIX</a>
 <ul>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-aws"><i class="fa fa-check"></i>1. Logging into AWS</a>
@@ -189,6 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-the-amazon-cloud-during-the-workshop"><i class="fa fa-check"></i>Logging into the Amazon Cloud During the Workshop</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-ssh-maclinux"><i class="fa fa-check"></i>Logging in with ssh (Mac/Linux)</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-openssh-client-windows"><i class="fa fa-check"></i>Logging in with OpenSSH client (Windows)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#alternative-logging-in-to-the-terminal-with-the-browser-all-operating-systems"><i class="fa fa-check"></i>Alternative: logging in to the terminal with the browser (all operating systems)</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#file-system-layout"><i class="fa fa-check"></i>File System Layout</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
 <li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
@@ -381,15 +382,15 @@ This is main area for <strong>writing and editing R scripts</strong>. Code writt
 <h3>Using R as a calculator<a href="r.html#using-r-as-a-calculator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The simplest thing you could do with R is to do arithmetic:</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="r.html#cb124-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">200</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="r.html#cb125-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">200</span></span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="r.html#cb125-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">201</span></span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="r.html#cb126-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">201</span></span></code></pre></div>
 <p>R will print the answer with a preceding “[1]”. [1] is the first element of the line being printed in the console.</p>
 <p>If you type and incomplete command, R will wait for you to complete it. This behavior is similar with Unix.</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="r.html#cb126-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="r.html#cb127-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span></span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="r.html#cb127-1" tabindex="-1"></a><span class="sc">+</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="r.html#cb128-1" tabindex="-1"></a><span class="sc">+</span></span></code></pre></div>
 <p>If you are using R from the command line or from within RStudio’s console, you need to use <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel the command. This applies to Mac users as well.</p>
 <p>Cancelling a command is not only useful for killing incomplete commands: you can also use it to tell <strong>R</strong> to stop running code (for example, if it is taking much longer than you expect).</p>
 <p>When using <strong>R</strong> as a calculator, the order of operations is the same as you would have learned back in school.</p>
@@ -407,42 +408,42 @@ This is main area for <strong>writing and editing R scripts</strong>. Code writt
 <h3>Mathematical functions<a href="r.html#mathematical-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R has many built in mathematical functions. To call a function, we can type its name followed by open and closing parentheses. Functions take <strong>arguments as inputs</strong>, i.e., anything we type inside the parenthesis or a function is considered an argument. Depending on the function, the number of arguments can vary to none to multiple. The result of a function ** is an output**, this represents the mathematical processing that was done with the input argument(s).</p>
 <p><strong>Input (returns the working directory)</strong></p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="r.html#cb128-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="r.html#cb129-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <p><strong>Input (trigonometry)</strong></p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="r.html#cb129-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="r.html#cb130-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">1</span>)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="r.html#cb130-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.841471</span></span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="r.html#cb131-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.841471</span></span></code></pre></div>
 <p><strong>Input (natural logarithm)</strong></p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="r.html#cb131-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="r.html#cb132-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="r.html#cb132-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="r.html#cb133-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
 <p><strong>Input (base-10 logarithm)</strong></p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="r.html#cb133-1" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="r.html#cb134-1" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="r.html#cb134-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="r.html#cb135-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 <p>Don’t worry about trying to remember every function in R. You can look them up on Google, or if you can remember the start of the function’s name, use the tab completion in RStudio.</p>
 <p>This is one advantage that RStudio has over R on its own, it has auto-completion abilities that allow you to more easily look up functions, their arguments, and the values that they take.</p>
 </div>
 <div id="variables-and-assignment" class="section level3 hasAnchor">
 <h3>Variables and assignment<a href="r.html#variables-and-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can store values in variables using the assignment operator <code>&lt;-</code>:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="r.html#cb135-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="r.html#cb136-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span></code></pre></div>
 <p>Notice that this assignment does not print a value. Instead, we stored (for later usage) in something called a <strong>variable x</strong>. <code>x</code> now contains the value <code>0.025</code>.</p>
 <p>If you type the name of your variable and press <kbd>Enter</kbd>:</p>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="r.html#cb136-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.025</span></span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="r.html#cb137-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.025</span></span></code></pre></div>
 <p>If you explore the <strong>Environment tab</strong> in RStudio (top left panel), you will see that <code>x</code> and its value have appeared.</p>
 <p>We can use our variable instead of a number in any calculation that expects a number.</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="r.html#cb137-1" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="r.html#cb138-1" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="r.html#cb138-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">3.688879</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="r.html#cb139-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="sc">-</span><span class="fl">3.688879</span></span></code></pre></div>
 <p>Variables can also be reassigned:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="r.html#cb139-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="r.html#cb140-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
 <p><code>x</code> used to contain the value 0.025. It now has the value 100.</p>
 <p>Assignment values can contain the variable being assigned to:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="r.html#cb140-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="do">##notice how RStudio updates the value of x in the environment tab</span></span>
-<span id="cb140-2"><a href="r.html#cb140-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="r.html#cb141-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span> <span class="do">##notice how RStudio updates the value of x in the environment tab</span></span>
+<span id="cb141-2"><a href="r.html#cb141-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <p>Variable names can contain letters, numbers, underscores and periods, but no spaces. They must start with a letter or a period follow by a letter (they cannot start with a number or an underscore). Variables beginning with a period are hidden variables.</p>
 <p>Different people use different conventions for long variable names, these include:</p>
 <ul>
@@ -452,7 +453,7 @@ This is main area for <strong>writing and editing R scripts</strong>. Code writt
 </ul>
 <p>What you use is up to you, but <strong>be consistent</strong>.</p>
 <p>It is also possible to use the <code>=</code> operator for assignment.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="r.html#cb141-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="r.html#cb142-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 </div>
 <div id="r-packages" class="section level3 hasAnchor">
 <h3>R packages<a href="r.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -461,25 +462,25 @@ The functions we used so far <code>getwd()</code>, <code>sin()</code>, <code>log
 <p>As of August 2026, there are a total of <strong>24,776</strong> available R packages in the <a href="https://cran.r-project.org/index.html">Comprehensive R Archive Network (CRAN)</a>.
 If we wanted for all these packages to be loaded at the moment we launch RStudio, it would take a supercomputer to do so. This is the reason of why specialized packages need to be installed and loaded prior to their functions be accessible for us.</p>
 <p>Let’s first create a variable that has a list of observations:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="r.html#cb142-1" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.6</span>, <span class="dv">7</span>, <span class="fl">4.8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">8</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="r.html#cb143-1" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.6</span>, <span class="dv">7</span>, <span class="fl">4.8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">8</span>,<span class="dv">3</span>)</span></code></pre></div>
 <p>Let’s assume we want to normalize the values in our list so that they fall within a specific range, such as 0 and 1. We could implement the logic ourselves and create an algorithm to perform this transformation. However, there is often a simpler solution. For many common tasks, it is likely that someone has already encountered the same problem and developed a reliable solution that we can use.</p>
 <p>The function we want to use is <strong>rescale()</strong>. If you try to use it passing your list as an argument:</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="r.html#cb143-1" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="r.html#cb144-1" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
 <p>You will get an error message saying:</p>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="r.html#cb144-1" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">rescale</span>(my_list) <span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">&quot;rescale&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="r.html#cb145-1" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">rescale</span>(my_list) <span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">&quot;rescale&quot;</span></span></code></pre></div>
 <p>This means that in our R Environment, there is no package that implements the <strong>rescale()</strong> function.</p>
 <p>For that, we need first to install the package that contains this function:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="r.html#cb145-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="r.html#cb146-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)</span></code></pre></div>
 <p>After it is downloaded, we need to load the package (remember that if every single package we have installed was pre-loaded, we would need lots of computational resources).
 To load a package:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="r.html#cb146-1" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="r.html#cb147-1" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div>
 <p>Now, if you try to use the function <strong>rescale()</strong> again, it should work:</p>
 <p><strong>Input</strong></p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="r.html#cb147-1" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="r.html#cb148-1" tabindex="-1"></a><span class="fu">rescale</span>(my_list)</span></code></pre></div>
 <p><strong>Output</strong></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="r.html#cb148-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.00000000</span> <span class="fl">0.03459638</span> <span class="fl">0.08896211</span> <span class="fl">1.00000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="r.html#cb149-1" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.00000000</span> <span class="fl">0.03459638</span> <span class="fl">0.08896211</span> <span class="fl">1.00000000</span></span></code></pre></div>
 </div>
 </div>
 <div id="seeking-help-with-r" class="section level2 hasAnchor">
@@ -499,10 +500,10 @@ problem.</li>
 The general syntax to search for help on any function, “function_name”,
 from a specific function that is in a package loaded into your R session
 is:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="r.html#cb149-1" tabindex="-1"></a>?function_name</span>
-<span id="cb149-2"><a href="r.html#cb149-2" tabindex="-1"></a><span class="fu">help</span>(function_name)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="r.html#cb150-1" tabindex="-1"></a>?function_name</span>
+<span id="cb150-2"><a href="r.html#cb150-2" tabindex="-1"></a><span class="fu">help</span>(function_name)</span></code></pre></div>
 <p>For example take a look at the help file for <code>mean()</code></p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="r.html#cb150-1" tabindex="-1"></a>?<span class="fu">mean</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="r.html#cb151-1" tabindex="-1"></a>?<span class="fu">mean</span>()</span></code></pre></div>
 <p>This will load up a help page in RStudio.</p>
 <p>Each help page is broken down into sections:</p>
 <ul>
@@ -552,14 +553,14 @@ come with their own data objects, such as example datasets, reference
 databases, lookup tables, and precomputed results. Understanding what
 these data objects contain and how they are structured can be essential
 for using certain packages effectively.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="r.html#cb151-1" tabindex="-1"></a>?<span class="fu">iris</span>()</span>
-<span id="cb151-2"><a href="r.html#cb151-2" tabindex="-1"></a>?<span class="fu">LETTERS</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="r.html#cb152-1" tabindex="-1"></a>?<span class="fu">iris</span>()</span>
+<span id="cb152-2"><a href="r.html#cb152-2" tabindex="-1"></a>?<span class="fu">LETTERS</span>()</span></code></pre></div>
 </div>
 <div id="special-operators" class="section level3 hasAnchor">
 <h3>Special Operators<a href="r.html#special-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To seek help on special operators, use quotes or backticks:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="r.html#cb152-1" tabindex="-1"></a>?<span class="st">&quot;&lt;-&quot;</span></span>
-<span id="cb152-2"><a href="r.html#cb152-2" tabindex="-1"></a>?<span class="st">`</span><span class="at">&lt;-</span><span class="st">`</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="r.html#cb153-1" tabindex="-1"></a>?<span class="st">&quot;&lt;-&quot;</span></span>
+<span id="cb153-2"><a href="r.html#cb153-2" tabindex="-1"></a>?<span class="st">`</span><span class="at">&lt;-</span><span class="st">`</span></span></code></pre></div>
 </div>
 <div id="getting-help-with-packages" class="section level3 hasAnchor">
 <h3>Getting Help with Packages<a href="r.html#getting-help-with-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -573,17 +574,17 @@ typing <code>help("package-name")</code>.</p>
 <p>RStudio also has a set of excellent
 <a href="https://rstudio.com/resources/cheatsheets/">cheatsheets</a> for many
 packages.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="r.html#cb153-1" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="r.html#cb154-1" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="when-you-remember-part-of-the-function-name" class="section level3 hasAnchor">
 <h3>When You Remember Part of the Function Name<a href="r.html#when-you-remember-part-of-the-function-name" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you’re not sure what package a function is in or how it’s
 specifically spelled, you can do a fuzzy search:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="r.html#cb154-1" tabindex="-1"></a>??function_name</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="r.html#cb155-1" tabindex="-1"></a>??function_name</span></code></pre></div>
 <p>A fuzzy search is when you search for an approximate string match. For
 example, you may be looking for a function to compute standard deviation. You can do a fuzzy search to help
 you identify the function:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="r.html#cb155-1" tabindex="-1"></a>??standarddeviation</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="r.html#cb156-1" tabindex="-1"></a>??standarddeviation</span></code></pre></div>
 </div>
 <div id="when-you-have-no-idea-where-to-begin" class="section level3 hasAnchor">
 <h3>When You Have No Idea Where to Begin<a href="r.html#when-you-have-no-idea-where-to-begin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -661,14 +662,14 @@ categories, such as “Control” and “Treatment” or “Low”, “Medium”
 </div>
 <p>Let’s start by creating a toy data frame containing information about
 three different penguins.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="r.html#cb156-1" tabindex="-1"></a>pg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb156-2"><a href="r.html#cb156-2" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Chinstrap&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>),</span>
-<span id="cb156-3"><a href="r.html#cb156-3" tabindex="-1"></a>  <span class="at">island =</span> <span class="fu">c</span>(<span class="st">&quot;Torgersen&quot;</span>, <span class="st">&quot;Dream&quot;</span>, <span class="st">&quot;Biscoe&quot;</span>),</span>
-<span id="cb156-4"><a href="r.html#cb156-4" tabindex="-1"></a>  <span class="at">bill_len =</span> <span class="fu">c</span>(<span class="fl">39.1</span>, <span class="fl">46.5</span>, <span class="fl">46.1</span>),</span>
-<span id="cb156-5"><a href="r.html#cb156-5" tabindex="-1"></a>  <span class="at">flipper_len =</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">192</span>, <span class="dv">211</span>),</span>
-<span id="cb156-6"><a href="r.html#cb156-6" tabindex="-1"></a>  <span class="at">is_male =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb156-7"><a href="r.html#cb156-7" tabindex="-1"></a>)</span>
-<span id="cb156-8"><a href="r.html#cb156-8" tabindex="-1"></a>pg</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="r.html#cb157-1" tabindex="-1"></a>pg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb157-2"><a href="r.html#cb157-2" tabindex="-1"></a>  <span class="at">species =</span> <span class="fu">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Chinstrap&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>),</span>
+<span id="cb157-3"><a href="r.html#cb157-3" tabindex="-1"></a>  <span class="at">island =</span> <span class="fu">c</span>(<span class="st">&quot;Torgersen&quot;</span>, <span class="st">&quot;Dream&quot;</span>, <span class="st">&quot;Biscoe&quot;</span>),</span>
+<span id="cb157-4"><a href="r.html#cb157-4" tabindex="-1"></a>  <span class="at">bill_len =</span> <span class="fu">c</span>(<span class="fl">39.1</span>, <span class="fl">46.5</span>, <span class="fl">46.1</span>),</span>
+<span id="cb157-5"><a href="r.html#cb157-5" tabindex="-1"></a>  <span class="at">flipper_len =</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">192</span>, <span class="dv">211</span>),</span>
+<span id="cb157-6"><a href="r.html#cb157-6" tabindex="-1"></a>  <span class="at">is_male =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb157-7"><a href="r.html#cb157-7" tabindex="-1"></a>)</span>
+<span id="cb157-8"><a href="r.html#cb157-8" tabindex="-1"></a>pg</span></code></pre></div>
 <pre><code>##     species    island bill_len flipper_len is_male
 ## 1    Adelie Torgersen     39.1         181    TRUE
 ## 2 Chinstrap     Dream     46.5         192   FALSE
@@ -681,10 +682,10 @@ three different penguins.</p>
 <p>We can begin exploring our dataset right away. Individual columns can be
 accessed by specifying the name of the data frame followed by the $
 operator and the name of the column:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="r.html#cb158-1" tabindex="-1"></a>pg<span class="sc">$</span>bill_len</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="r.html#cb159-1" tabindex="-1"></a>pg<span class="sc">$</span>bill_len</span></code></pre></div>
 <p>This returns the bill_len column as a vector. Because it is a numeric
 vector, we can perform mathematical operations directly on its values:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="r.html#cb159-1" tabindex="-1"></a>pg<span class="sc">$</span>bill_len <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="r.html#cb160-1" tabindex="-1"></a>pg<span class="sc">$</span>bill_len <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <p>Notice the operation is applied to every value in the vector.</p>
 <div id="data-types" class="section level3 hasAnchor">
 <h3>Data Types<a href="r.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -693,7 +694,7 @@ several methods to do this:</p>
 <ol style="list-style-type: decimal">
 <li>Use <code>str()</code> to examine the structure of the data frame</li>
 </ol>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="r.html#cb160-1" tabindex="-1"></a><span class="fu">str</span>(pg)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="r.html#cb161-1" tabindex="-1"></a><span class="fu">str</span>(pg)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    3 obs. of  5 variables:
 ##  $ species    : chr  &quot;Adelie&quot; &quot;Chinstrap&quot; &quot;Gentoo&quot;
 ##  $ island     : chr  &quot;Torgersen&quot; &quot;Dream&quot; &quot;Biscoe&quot;
@@ -707,7 +708,7 @@ dataset.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Use <code>summary()</code> to summarize each column</li>
 </ol>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="r.html#cb162-1" tabindex="-1"></a><span class="fu">summary</span>(pg)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="r.html#cb163-1" tabindex="-1"></a><span class="fu">summary</span>(pg)</span></code></pre></div>
 <pre><code>##    species             island             bill_len     flipper_len   
 ##  Length:3           Length:3           Min.   :39.1   Min.   :181.0  
 ##  Class :character   Class :character   1st Qu.:42.6   1st Qu.:186.5  
@@ -729,22 +730,22 @@ information displayed will differ.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Use <code>typeof()</code> to inspect the underlying type of a specific column</li>
 </ol>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="r.html#cb164-1" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>species)</span>
-<span id="cb164-2"><a href="r.html#cb164-2" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span>
-<span id="cb164-3"><a href="r.html#cb164-3" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>bill_len)</span>
-<span id="cb164-4"><a href="r.html#cb164-4" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
-<span id="cb164-5"><a href="r.html#cb164-5" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>flipper_len)</span>
-<span id="cb164-6"><a href="r.html#cb164-6" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
-<span id="cb164-7"><a href="r.html#cb164-7" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>is_male)</span>
-<span id="cb164-8"><a href="r.html#cb164-8" tabindex="-1"></a><span class="do">## [1] &quot;logical&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="r.html#cb165-1" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>species)</span>
+<span id="cb165-2"><a href="r.html#cb165-2" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span>
+<span id="cb165-3"><a href="r.html#cb165-3" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>bill_len)</span>
+<span id="cb165-4"><a href="r.html#cb165-4" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb165-5"><a href="r.html#cb165-5" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>flipper_len)</span>
+<span id="cb165-6"><a href="r.html#cb165-6" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb165-7"><a href="r.html#cb165-7" tabindex="-1"></a><span class="fu">typeof</span>(pg<span class="sc">$</span>is_male)</span>
+<span id="cb165-8"><a href="r.html#cb165-8" tabindex="-1"></a><span class="do">## [1] &quot;logical&quot;</span></span></code></pre></div>
 <p>Notice that <code>flipper_len</code> is also stored as a double, even though all of
 its values are whole numbers. In R, entering a number such as 181
 creates a double by default. To explicitly create an integer, the number
 is followed by L, for example:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="r.html#cb165-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">181</span>)</span>
-<span id="cb165-2"><a href="r.html#cb165-2" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
-<span id="cb165-3"><a href="r.html#cb165-3" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">181</span><span class="dt">L</span>)</span>
-<span id="cb165-4"><a href="r.html#cb165-4" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="r.html#cb166-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">181</span>)</span>
+<span id="cb166-2"><a href="r.html#cb166-2" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb166-3"><a href="r.html#cb166-3" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">181</span><span class="dt">L</span>)</span>
+<span id="cb166-4"><a href="r.html#cb166-4" tabindex="-1"></a><span class="do">## [1] &quot;integer&quot;</span></span></code></pre></div>
 <p>For everyday data analysis, you will often use str() to quickly inspect
 an entire dataset and functions such as typeof() when you need to
 investigate a particular object in more detail.</p>
