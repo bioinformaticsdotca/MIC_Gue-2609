@@ -297,7 +297,7 @@ help(function_name)
 For example take a look at the help file for `mean()`
 
 ```{r, eval=FALSE}
-?mean()
+?mean
 ```
 
 This will load up a help page in RStudio.
@@ -352,8 +352,8 @@ these data objects contain and how they are structured can be essential
 for using certain packages effectively.
 
 ```{r, eval=FALSE}
-?iris()
-?LETTERS()
+?penguins
+?LETTERS
 ```
 
 ### Special Operators
