@@ -395,8 +395,7 @@ specifically spelled, you can do a fuzzy search:
 ```
 
 A fuzzy search is when you search for an approximate string match. For
-example, you may remember that the function to set your working
-directory includes "set" in its name. You can do a fuzzy search to help
+example, you may be looking for a function to compute standard deviation. You can do a fuzzy search to help
 you identify the function:
 
 ```{r, eval=FALSE}
@@ -443,7 +442,7 @@ include:
 ::: {.infobox}
 **Learning Objectives**
 
--   To begin exploring data frames, and understand how they are related
+-   To begin exploring data frames and understand how they are related
     to vectors.
 -   To be able to ask questions from R about the type and
     structure of an object.
@@ -578,15 +577,6 @@ Let's multiply the flipper length by two and store the resulting vector
 as a new column:
 
 ```{r}
-flip_length_x2 <- pg$flipper_len * 2
-pg$flip_length_x2 <- flip_length_x2
-pg
-```
-
-We can also perform the calculation and create the new column in a
-single step:
-
-```{r}
 pg$flip_length_x2 <- pg$flipper_len * 2
 pg
 ```
@@ -672,12 +662,12 @@ comma-separated values (CSV) file.
 R also provides the convenience function `write.csv()` specifically for
 writing CSV files:
 
-```{r}
+```{r, warning = F}
 write.csv(
   pg,
   file = "penguins_dataset.csv",
   row.names = FALSE,
-  col.names = TRUE
+  quote = FALSE
 )
 ```
 
@@ -700,9 +690,9 @@ pg2
 **Learning Objectives**
 
 -   To be able to use ggplot2 to generate publication-quality graphics.
--   To apply geometry, aesthetic, and statistics layers to a ggplot
+-   To apply data, geometry and aesthetic layers to a ggplot
     plot.
--   To manipulate the aesthetics of a plot using different colors,
+-   To manipulate the aesthetics of a plot using different colors
     and shapes
 -   To save a plot created with ggplot to disk.
 :::
@@ -732,9 +722,9 @@ aesthetics**, and graphical **layers**:
 
 Let's start off building an example using the entire `penguins` dataset.
 
-```{r blank-ggplot, message=FALSE}
+```{r blank-ggplot, message=FALSE, warning = FALSE}
 library("ggplot2")
-head(penguins)
+str(penguins)
 ```
 
 ### Building a ggplot
@@ -872,7 +862,7 @@ ggplot(
     title = "Heavier penguins have larger flippers",
     caption = "Data source: datasets R package",
   ) +
-  theme_bw(15) # to remove the grey background
+  theme_bw() # to remove the grey background
 ```
 
 ### Saving a ggplot
@@ -904,7 +894,7 @@ p <- ggplot(
     title = "Heavier penguins have larger flippers",
     caption = "Data source: datasets R package",
   ) +
-  theme_bw(15) # to remove the grey background
+  theme_bw() # to remove the grey background
 ```
 
 We can then explicitly tell `ggsave()` which plot object we want to save using the plot argument.
