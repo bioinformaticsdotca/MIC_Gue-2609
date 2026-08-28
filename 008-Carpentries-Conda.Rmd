@@ -1,5 +1,7 @@
 # Conda
 
+This tutorial was adapted from [Introduction to Conda for Data Scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/)
+
 ## Getting Started with Conda
 
 ### Packages and Environment

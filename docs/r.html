@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>R | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
 
   <meta property="og:title" content="R | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -503,7 +503,7 @@ is:</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="r.html#cb150-1" tabindex="-1"></a>?function_name</span>
 <span id="cb150-2"><a href="r.html#cb150-2" tabindex="-1"></a><span class="fu">help</span>(function_name)</span></code></pre></div>
 <p>For example take a look at the help file for <code>mean()</code></p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="r.html#cb151-1" tabindex="-1"></a>?<span class="fu">mean</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="r.html#cb151-1" tabindex="-1"></a>?mean</span></code></pre></div>
 <p>This will load up a help page in RStudio.</p>
 <p>Each help page is broken down into sections:</p>
 <ul>
@@ -553,8 +553,8 @@ come with their own data objects, such as example datasets, reference
 databases, lookup tables, and precomputed results. Understanding what
 these data objects contain and how they are structured can be essential
 for using certain packages effectively.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="r.html#cb152-1" tabindex="-1"></a>?<span class="fu">iris</span>()</span>
-<span id="cb152-2"><a href="r.html#cb152-2" tabindex="-1"></a>?<span class="fu">LETTERS</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="r.html#cb152-1" tabindex="-1"></a>?penguins</span>
+<span id="cb152-2"><a href="r.html#cb152-2" tabindex="-1"></a>?LETTERS</span></code></pre></div>
 </div>
 <div id="special-operators" class="section level3 hasAnchor">
 <h3>Special Operators<a href="r.html#special-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -582,8 +582,7 @@ packages.</p>
 specifically spelled, you can do a fuzzy search:</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="r.html#cb155-1" tabindex="-1"></a>??function_name</span></code></pre></div>
 <p>A fuzzy search is when you search for an approximate string match. For
-example, you may remember that the function to set your working
-directory includes “set” in its name. You can do a fuzzy search to help
+example, you may be looking for a function to compute standard deviation. You can do a fuzzy search to help
 you identify the function:</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="r.html#cb156-1" tabindex="-1"></a>??standarddeviation</span></code></pre></div>
 </div>
@@ -631,7 +630,7 @@ sheets</a></li>
 <div class="infobox">
 <p><strong>Learning Objectives</strong></p>
 <ul>
-<li>To begin exploring data frames, and understand how they are related
+<li>To begin exploring data frames and understand how they are related
 to vectors.</li>
 <li>To be able to ask questions from R about the type and
 structure of an object.</li>
@@ -762,17 +761,8 @@ specific observations, or modify the values of an existing column.</p>
 </ol>
 <p>Let’s multiply the flipper length by two and store the resulting vector
 as a new column:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="r.html#cb167-1" tabindex="-1"></a>flip_length_x2 <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb167-2"><a href="r.html#cb167-2" tabindex="-1"></a>pg<span class="sc">$</span>flip_length_x2 <span class="ot">&lt;-</span> flip_length_x2</span>
-<span id="cb167-3"><a href="r.html#cb167-3" tabindex="-1"></a>pg</span></code></pre></div>
-<pre><code>##     species    island bill_len flipper_len is_male flip_length_x2
-## 1    Adelie Torgersen     39.1         181    TRUE            362
-## 2 Chinstrap     Dream     46.5         192   FALSE            384
-## 3    Gentoo    Biscoe     46.1         211   FALSE            422</code></pre>
-<p>We can also perform the calculation and create the new column in a
-single step:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="r.html#cb169-1" tabindex="-1"></a>pg<span class="sc">$</span>flip_length_x2 <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb169-2"><a href="r.html#cb169-2" tabindex="-1"></a>pg</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="r.html#cb167-1" tabindex="-1"></a>pg<span class="sc">$</span>flip_length_x2 <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb167-2"><a href="r.html#cb167-2" tabindex="-1"></a>pg</span></code></pre></div>
 <pre><code>##     species    island bill_len flipper_len is_male flip_length_x2
 ## 1    Adelie Torgersen     39.1         181    TRUE            362
 ## 2 Chinstrap     Dream     46.5         192   FALSE            384
@@ -784,8 +774,8 @@ single step:</p>
 to keep. Data frames can be subset using the notation:</p>
 <pre><code>data_frame[rows, columns]</code></pre>
 <p>For example, we can keep all rows and only the first five columns:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="r.html#cb172-1" tabindex="-1"></a>pg <span class="ot">&lt;-</span> pg[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb172-2"><a href="r.html#cb172-2" tabindex="-1"></a>pg</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="r.html#cb170-1" tabindex="-1"></a>pg <span class="ot">&lt;-</span> pg[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb170-2"><a href="r.html#cb170-2" tabindex="-1"></a>pg</span></code></pre></div>
 <pre><code>##     species    island bill_len flipper_len is_male
 ## 1    Adelie Torgersen     39.1         181    TRUE
 ## 2 Chinstrap     Dream     46.5         192   FALSE
@@ -797,14 +787,14 @@ rows, while <code>1:5</code> specifies that we want to keep columns 1 through 5.
 </ol>
 <p>The same notation can be used to select specific rows. For example, we
 can keep the first and third penguins:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="r.html#cb174-1" tabindex="-1"></a>pg[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), ]</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="r.html#cb172-1" tabindex="-1"></a>pg[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), ]</span></code></pre></div>
 <pre><code>##   species    island bill_len flipper_len is_male
 ## 1  Adelie Torgersen     39.1         181    TRUE
 ## 3  Gentoo    Biscoe     46.1         211   FALSE</code></pre>
 <p>Here, <code>c(1, 3)</code> specifies the rows we want to keep, while leaving the
 space after the comma empty means that we want to keep all columns.</p>
 <p>We can also specify both rows and columns:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="r.html#cb176-1" tabindex="-1"></a>pg[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="r.html#cb174-1" tabindex="-1"></a>pg[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##   species    island bill_len flipper_len is_male
 ## 1  Adelie Torgersen     39.1         181    TRUE
 ## 3  Gentoo    Biscoe     46.1         211   FALSE</code></pre>
@@ -814,8 +804,8 @@ space after the comma empty means that we want to keep all columns.</p>
 </ol>
 <p>Existing columns can also be replaced with new values. For example, we
 can multiply every value in <code>flipper_len</code> by two:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="r.html#cb178-1" tabindex="-1"></a>pg<span class="sc">$</span>flipper_len <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb178-2"><a href="r.html#cb178-2" tabindex="-1"></a>pg</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="r.html#cb176-1" tabindex="-1"></a>pg<span class="sc">$</span>flipper_len <span class="ot">&lt;-</span> pg<span class="sc">$</span>flipper_len <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb176-2"><a href="r.html#cb176-2" tabindex="-1"></a>pg</span></code></pre></div>
 <pre><code>##     species    island bill_len flipper_len is_male
 ## 1    Adelie Torgersen     39.1         362    TRUE
 ## 2 Chinstrap     Dream     46.5         384   FALSE
@@ -833,36 +823,34 @@ read into R as data frames.</p>
 <h4>Writing a data frame<a href="r.html#writing-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <code>write.table()</code> function provides a flexible way to write tabular
 data to a text file:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="r.html#cb180-1" tabindex="-1"></a><span class="fu">write.table</span>(</span>
-<span id="cb180-2"><a href="r.html#cb180-2" tabindex="-1"></a>  pg,                            <span class="co"># data object to write</span></span>
-<span id="cb180-3"><a href="r.html#cb180-3" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;penguins_dataset.csv&quot;</span>, <span class="co"># name of the output file</span></span>
-<span id="cb180-4"><a href="r.html#cb180-4" tabindex="-1"></a>  <span class="at">quote =</span> <span class="cn">FALSE</span>,                 <span class="co"># whether to quote character values</span></span>
-<span id="cb180-5"><a href="r.html#cb180-5" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,                     <span class="co"># column separator: &quot;,&quot; for CSV, &quot;\t&quot; for TSV</span></span>
-<span id="cb180-6"><a href="r.html#cb180-6" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,             <span class="co"># whether to include row names</span></span>
-<span id="cb180-7"><a href="r.html#cb180-7" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="cn">TRUE</span>               <span class="co"># whether to include column names</span></span>
-<span id="cb180-8"><a href="r.html#cb180-8" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="r.html#cb178-1" tabindex="-1"></a><span class="fu">write.table</span>(</span>
+<span id="cb178-2"><a href="r.html#cb178-2" tabindex="-1"></a>  pg,                            <span class="co"># data object to write</span></span>
+<span id="cb178-3"><a href="r.html#cb178-3" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;penguins_dataset.csv&quot;</span>, <span class="co"># name of the output file</span></span>
+<span id="cb178-4"><a href="r.html#cb178-4" tabindex="-1"></a>  <span class="at">quote =</span> <span class="cn">FALSE</span>,                 <span class="co"># whether to quote character values</span></span>
+<span id="cb178-5"><a href="r.html#cb178-5" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,                     <span class="co"># column separator: &quot;,&quot; for CSV, &quot;\t&quot; for TSV</span></span>
+<span id="cb178-6"><a href="r.html#cb178-6" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,             <span class="co"># whether to include row names</span></span>
+<span id="cb178-7"><a href="r.html#cb178-7" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="cn">TRUE</span>               <span class="co"># whether to include column names</span></span>
+<span id="cb178-8"><a href="r.html#cb178-8" tabindex="-1"></a>)</span></code></pre></div>
 <p>Because we specified <code>sep = ","</code>, the resulting file is a
 comma-separated values (CSV) file.</p>
 <p>R also provides the convenience function <code>write.csv()</code> specifically for
 writing CSV files:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="r.html#cb181-1" tabindex="-1"></a><span class="fu">write.csv</span>(</span>
-<span id="cb181-2"><a href="r.html#cb181-2" tabindex="-1"></a>  pg,</span>
-<span id="cb181-3"><a href="r.html#cb181-3" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;penguins_dataset.csv&quot;</span>,</span>
-<span id="cb181-4"><a href="r.html#cb181-4" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb181-5"><a href="r.html#cb181-5" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="cn">TRUE</span></span>
-<span id="cb181-6"><a href="r.html#cb181-6" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Warning in write.csv(pg, file = &quot;penguins_dataset.csv&quot;, row.names = FALSE, :
-## attempt to set &#39;col.names&#39; ignored</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="r.html#cb179-1" tabindex="-1"></a><span class="fu">write.csv</span>(</span>
+<span id="cb179-2"><a href="r.html#cb179-2" tabindex="-1"></a>  pg,</span>
+<span id="cb179-3"><a href="r.html#cb179-3" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;penguins_dataset.csv&quot;</span>,</span>
+<span id="cb179-4"><a href="r.html#cb179-4" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb179-5"><a href="r.html#cb179-5" tabindex="-1"></a>  <span class="at">quote =</span> <span class="cn">FALSE</span></span>
+<span id="cb179-6"><a href="r.html#cb179-6" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="reading-a-data-frame" class="section level4 hasAnchor">
 <h4>Reading a data frame<a href="r.html#reading-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can read the CSV file back into R using <code>read.csv()</code>:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="r.html#cb183-1" tabindex="-1"></a>pg2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
-<span id="cb183-2"><a href="r.html#cb183-2" tabindex="-1"></a>  <span class="st">&quot;penguins_dataset.csv&quot;</span>,</span>
-<span id="cb183-3"><a href="r.html#cb183-3" tabindex="-1"></a>  <span class="at">header =</span> <span class="cn">TRUE</span></span>
-<span id="cb183-4"><a href="r.html#cb183-4" tabindex="-1"></a>)</span>
-<span id="cb183-5"><a href="r.html#cb183-5" tabindex="-1"></a></span>
-<span id="cb183-6"><a href="r.html#cb183-6" tabindex="-1"></a>pg2</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="r.html#cb180-1" tabindex="-1"></a>pg2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb180-2"><a href="r.html#cb180-2" tabindex="-1"></a>  <span class="st">&quot;penguins_dataset.csv&quot;</span>,</span>
+<span id="cb180-3"><a href="r.html#cb180-3" tabindex="-1"></a>  <span class="at">header =</span> <span class="cn">TRUE</span></span>
+<span id="cb180-4"><a href="r.html#cb180-4" tabindex="-1"></a>)</span>
+<span id="cb180-5"><a href="r.html#cb180-5" tabindex="-1"></a></span>
+<span id="cb180-6"><a href="r.html#cb180-6" tabindex="-1"></a>pg2</span></code></pre></div>
 <pre><code>##     species    island bill_len flipper_len is_male
 ## 1    Adelie Torgersen     39.1         362    TRUE
 ## 2 Chinstrap     Dream     46.5         384   FALSE
@@ -876,9 +864,9 @@ writing CSV files:</p>
 <p><strong>Learning Objectives</strong></p>
 <ul>
 <li>To be able to use ggplot2 to generate publication-quality graphics.</li>
-<li>To apply geometry, aesthetic, and statistics layers to a ggplot
+<li>To apply data, geometry and aesthetic layers to a ggplot
 plot.</li>
-<li>To manipulate the aesthetics of a plot using different colors,
+<li>To manipulate the aesthetics of a plot using different colors
 and shapes</li>
 <li>To save a plot created with ggplot to disk.</li>
 </ul>
@@ -903,46 +891,47 @@ may be familiar to you if you have used image editing programs like
 Photoshop, Illustrator, or Inkscape.</p></li>
 </ul>
 <p>Let’s start off building an example using the entire <code>penguins</code> dataset.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="r.html#cb185-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.5.2</code></pre>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="r.html#cb187-1" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
-<pre><code>##   species    island bill_len bill_dep flipper_len body_mass    sex year
-## 1  Adelie Torgersen     39.1     18.7         181      3750   male 2007
-## 2  Adelie Torgersen     39.5     17.4         186      3800 female 2007
-## 3  Adelie Torgersen     40.3     18.0         195      3250 female 2007
-## 4  Adelie Torgersen       NA       NA          NA        NA   &lt;NA&gt; 2007
-## 5  Adelie Torgersen     36.7     19.3         193      3450 female 2007
-## 6  Adelie Torgersen     39.3     20.6         190      3650   male 2007</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="r.html#cb182-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb182-2"><a href="r.html#cb182-2" tabindex="-1"></a><span class="fu">str</span>(penguins)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    344 obs. of  8 variables:
+##  $ species    : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ island     : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+##  $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+##  $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...
+##  $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+##  $ sex        : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
+##  $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
 <div id="building-a-ggplot" class="section level3 hasAnchor">
 <h3>Building a ggplot<a href="r.html#building-a-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The main function used to create a plot is <code>ggplot()</code>, which lets R know that we are creating a new plot. Any of the arguments we give the <code>ggplot</code> function
 are the <em>global</em> options for the plot: they apply to all layers on the
 plot.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="r.html#cb189-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="r.html#cb184-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672" /></p>
 <p>Here we called <code>ggplot</code> and told it what data we want to show on our
 figure. This is not enough information for <code>ggplot</code> to actually draw
 anything. It only creates a blank slate for other elements to be added
 to.</p>
 <p>Next, we need to specify the mapping aesthetics using the aes() function.</p>
 <p>The <code>aes()</code> function tells <code>ggplot2</code> how variables in the data should map to aesthetic properties of the figure. For example, we can specify which columns should determine the <strong>x</strong> and <strong>y</strong> positions.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r.html#cb190-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb190-2"><a href="r.html#cb190-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb190-3"><a href="r.html#cb190-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
-<span id="cb190-4"><a href="r.html#cb190-4" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/ggplot-with-aes-1.png" width="672" /></p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="r.html#cb185-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb185-2"><a href="r.html#cb185-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb185-3"><a href="r.html#cb185-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
+<span id="cb185-4"><a href="r.html#cb185-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/ggplot-with-aes-1.png" alt="" width="672" /></p>
 <p>Here we told <code>ggplot</code> we want to plot the <code>body_mass</code> column of the
 <code>penguins</code> data frame on the x-axis, and the <code>flipper_len</code> column on the
 y-axis. Notice that we didn’t need to explicitly pass <code>aes</code> these
 columns (e.g. <code>aes(x = penguins$body_mass, y = penguins$flipper_len)</code>), this is because <code>ggplot</code>
 is smart enough to know to look in the <strong>data</strong> for that column!</p>
 <p>However, we still haven’t told <code>ggplot2</code> how to display these observations. To do this, we add a graphical layer using one of the <code>geom_*()</code> functions.</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="r.html#cb191-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb191-2"><a href="r.html#cb191-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb191-3"><a href="r.html#cb191-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> flipper_len)</span>
-<span id="cb191-4"><a href="r.html#cb191-4" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb191-5"><a href="r.html#cb191-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="r.html#cb186-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb186-2"><a href="r.html#cb186-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb186-3"><a href="r.html#cb186-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> flipper_len)</span>
+<span id="cb186-4"><a href="r.html#cb186-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb186-5"><a href="r.html#cb186-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" alt="" width="672" /></p>
 <p>Here we used <code>geom_point</code>, which tells <code>ggplot</code> we want to visually
 represent the relationship between <strong>x</strong> and <strong>y</strong> as a scatterplot of
 points.</p>
@@ -951,93 +940,93 @@ points.</p>
 <div id="changing-point-aethetics" class="section level3 hasAnchor">
 <h3>Changing point aethetics<a href="r.html#changing-point-aethetics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can adjust the appearance of individual data points by specifying aesthetic properties, such as<code>size</code> and <code>colour</code> arguments inside <code>geom_point()</code></p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="r.html#cb192-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb192-2"><a href="r.html#cb192-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb192-3"><a href="r.html#cb192-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
-<span id="cb192-4"><a href="r.html#cb192-4" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb192-5"><a href="r.html#cb192-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="r.html#cb187-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb187-2"><a href="r.html#cb187-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb187-3"><a href="r.html#cb187-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
+<span id="cb187-4"><a href="r.html#cb187-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb187-5"><a href="r.html#cb187-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" alt="" width="672" /></p>
 <p>After increasing the size of the points, we can see that many observations overlap with each other, forming clusters that can make the visualization more difficult to interpret.</p>
 <p>One strategy for dealing with overlapping points is to adjust <code>alpha</code>, which controls the transparency of graphical elements.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="r.html#cb193-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb193-2"><a href="r.html#cb193-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb193-3"><a href="r.html#cb193-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
-<span id="cb193-4"><a href="r.html#cb193-4" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb193-5"><a href="r.html#cb193-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="r.html#cb188-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb188-2"><a href="r.html#cb188-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb188-3"><a href="r.html#cb188-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
+<span id="cb188-4"><a href="r.html#cb188-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb188-5"><a href="r.html#cb188-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" alt="" width="672" /></p>
 <p>An <code>alpha</code> value of 1 is completely opaque, while an alpha value closer to 0 is increasingly transparent. By making the points partially transparent, areas containing many overlapping observations become easier to identify.</p>
 </div>
 <div id="mapping-aesthetics-to-variables" class="section level3 hasAnchor">
 <h3>Mapping aesthetics to variables<a href="r.html#mapping-aesthetics-to-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So far, all observations have been displayed using the same colour. We can introduce another dimension to our plot by mapping the colour aesthetic to the species column, i.e. <code>aes(colour = species)</code></p>
 <p>Instead of assigning every point the same colour, we will colour each point according to its species</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="r.html#cb194-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
-<span id="cb194-2"><a href="r.html#cb194-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="r.html#cb189-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
+<span id="cb189-2"><a href="r.html#cb189-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" alt="" width="672" /></p>
 <p>Notice an important difference between this plot and our previous example.</p>
 <p>When we write:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="r.html#cb195-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r.html#cb190-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
 <p>we are setting the colour of every point to the same value.</p>
 <p>In contrast, when we write:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="r.html#cb196-1" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">colour =</span> species)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="r.html#cb191-1" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">colour =</span> species)</span></code></pre></div>
 <p>we are mapping the <code>colour</code> aesthetic to a variable in the data. <code>ggplot2</code> therefore assigns different colours to the different species and automatically generates a legend.</p>
 <p>This distinction between setting an aesthetic and mapping an aesthetic is an important concept when working with <code>ggplot2</code>.</p>
 <p>We can create even greater contrast between species by also mapping the <code>shape</code> aesthetic to <code>species</code>.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="r.html#cb197-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb197-2"><a href="r.html#cb197-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb197-3"><a href="r.html#cb197-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
-<span id="cb197-4"><a href="r.html#cb197-4" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb197-5"><a href="r.html#cb197-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="r.html#cb192-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb192-2"><a href="r.html#cb192-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb192-3"><a href="r.html#cb192-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
+<span id="cb192-4"><a href="r.html#cb192-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb192-5"><a href="r.html#cb192-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" alt="" width="672" /></p>
 <p>Now, observations belonging to different species are represented using both different colours and different shapes.</p>
 <p>Mapping the same variable to multiple aesthetics can also improve accessibility because the groups can still be distinguished when colour differences are difficult to perceive.</p>
 </div>
 <div id="adding-labels-and-themes" class="section level3 hasAnchor">
 <h3>Adding labels and themes<a href="r.html#adding-labels-and-themes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s finalize our plot by adding informative axis labels, a title, and a figure caption using the <code>labs()</code> function.</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="r.html#cb198-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb198-2"><a href="r.html#cb198-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb198-3"><a href="r.html#cb198-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
-<span id="cb198-4"><a href="r.html#cb198-4" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb198-5"><a href="r.html#cb198-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb198-6"><a href="r.html#cb198-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb198-7"><a href="r.html#cb198-7" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Body mass (g)&quot;</span>,</span>
-<span id="cb198-8"><a href="r.html#cb198-8" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Flipper length (mm)&quot;</span>,</span>
-<span id="cb198-9"><a href="r.html#cb198-9" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Heavier penguins have larger flippers&quot;</span>,</span>
-<span id="cb198-10"><a href="r.html#cb198-10" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
-<span id="cb198-11"><a href="r.html#cb198-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb198-12"><a href="r.html#cb198-12" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">15</span>) <span class="co"># to remove the grey background</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="r.html#cb193-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb193-2"><a href="r.html#cb193-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb193-3"><a href="r.html#cb193-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
+<span id="cb193-4"><a href="r.html#cb193-4" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb193-5"><a href="r.html#cb193-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb193-6"><a href="r.html#cb193-6" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb193-7"><a href="r.html#cb193-7" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Body mass (g)&quot;</span>,</span>
+<span id="cb193-8"><a href="r.html#cb193-8" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Flipper length (mm)&quot;</span>,</span>
+<span id="cb193-9"><a href="r.html#cb193-9" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Heavier penguins have larger flippers&quot;</span>,</span>
+<span id="cb193-10"><a href="r.html#cb193-10" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
+<span id="cb193-11"><a href="r.html#cb193-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb193-12"><a href="r.html#cb193-12" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># to remove the grey background</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672" /></p>
 </div>
 <div id="saving-a-ggplot" class="section level3 hasAnchor">
 <h3>Saving a ggplot<a href="r.html#saving-a-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once we are satisfied with our plot, we can save it to disk using the <code>ggsave()</code> function.</p>
 <p>By default, <code>ggsave()</code> saves the most recently generated plot.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="r.html#cb199-1" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb199-2"><a href="r.html#cb199-2" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;penguins_plot.png&quot;</span>,</span>
-<span id="cb199-3"><a href="r.html#cb199-3" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb199-4"><a href="r.html#cb199-4" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
-<span id="cb199-5"><a href="r.html#cb199-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="r.html#cb194-1" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb194-2"><a href="r.html#cb194-2" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;penguins_plot.png&quot;</span>,</span>
+<span id="cb194-3"><a href="r.html#cb194-3" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb194-4"><a href="r.html#cb194-4" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
+<span id="cb194-5"><a href="r.html#cb194-5" tabindex="-1"></a>)</span></code></pre></div>
 <p>The file format is determined automatically from the extension supplied to <code>filename</code>. For example, we could save the figure as a PDF by specifying <code>"penguins_plot.pdf"</code> instead.</p>
 <p>For greater control, we can assign our plot to an R object.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="r.html#cb200-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb200-2"><a href="r.html#cb200-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb200-3"><a href="r.html#cb200-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
-<span id="cb200-4"><a href="r.html#cb200-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb200-5"><a href="r.html#cb200-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb200-6"><a href="r.html#cb200-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Body mass (g)&quot;</span>,</span>
-<span id="cb200-7"><a href="r.html#cb200-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Flipper length (mm)&quot;</span>,</span>
-<span id="cb200-8"><a href="r.html#cb200-8" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Heavier penguins have larger flippers&quot;</span>,</span>
-<span id="cb200-9"><a href="r.html#cb200-9" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
-<span id="cb200-10"><a href="r.html#cb200-10" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb200-11"><a href="r.html#cb200-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">15</span>) <span class="co"># to remove the grey background</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="r.html#cb195-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb195-2"><a href="r.html#cb195-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
+<span id="cb195-3"><a href="r.html#cb195-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
+<span id="cb195-4"><a href="r.html#cb195-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb195-5"><a href="r.html#cb195-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb195-6"><a href="r.html#cb195-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Body mass (g)&quot;</span>,</span>
+<span id="cb195-7"><a href="r.html#cb195-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Flipper length (mm)&quot;</span>,</span>
+<span id="cb195-8"><a href="r.html#cb195-8" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Heavier penguins have larger flippers&quot;</span>,</span>
+<span id="cb195-9"><a href="r.html#cb195-9" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
+<span id="cb195-10"><a href="r.html#cb195-10" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb195-11"><a href="r.html#cb195-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># to remove the grey background</span></span></code></pre></div>
 <p>We can then explicitly tell <code>ggsave()</code> which plot object we want to save using the plot argument.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="r.html#cb201-1" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb201-2"><a href="r.html#cb201-2" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;penguins_plot.png&quot;</span>,</span>
-<span id="cb201-3"><a href="r.html#cb201-3" tabindex="-1"></a>  p, <span class="co"># ggplot object</span></span>
-<span id="cb201-4"><a href="r.html#cb201-4" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb201-5"><a href="r.html#cb201-5" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
-<span id="cb201-6"><a href="r.html#cb201-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="r.html#cb196-1" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb196-2"><a href="r.html#cb196-2" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;penguins_plot.png&quot;</span>,</span>
+<span id="cb196-3"><a href="r.html#cb196-3" tabindex="-1"></a>  p, <span class="co"># ggplot object</span></span>
+<span id="cb196-4"><a href="r.html#cb196-4" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb196-5"><a href="r.html#cb196-5" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
+<span id="cb196-6"><a href="r.html#cb196-6" tabindex="-1"></a>)</span></code></pre></div>
 <p>Assigning plots to objects is particularly useful when working with multiple plots because it allows us to modify, reuse, and save individual plots without having to recreate them.</p>
 
 </div>
