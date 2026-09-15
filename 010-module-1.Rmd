@@ -7,8 +7,8 @@
 <!--<iframe width="640" height="360" src="YOUTUBE EMBED LINK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 -->
 
-<!--<iframe src="GOOGLE SLIDES LINK/preview" width="640" height="480" allow="autoplay"></iframe>  
--->
+<iframe src="https://docs.google.com/presentation/d/1iPQesYpZPLTRc0Pe3zAEuZYQWGEoZrOP/preview" width="640" height="480" allow="autoplay"></iframe>  
+
 
 ## Lab
 
@@ -978,7 +978,7 @@ mkdir tree_out
 ```
 
 The first step in building a phylogenetic tree is creating a multiple sequence alignment of our sequences. This ensures that we're comparing homologous positions, and we use a tool called [mafft](https://mafft.cbrc.jp/alignment/server/index.html):
-```{bash}
+```bash
 qiime alignment mafft --i-sequences final_output/rep_seqs_final.qza \
                       --p-n-threads 4 \
                       --o-alignment tree_out/rep_seqs_final_aligned.qza
@@ -1521,7 +1521,7 @@ mkdir tree_out
 ```
 
 The first step in building a phylogenetic tree is creating a multiple sequence alignment of our sequences. This ensures that we're comparing homologous positions, and we use a tool called [mafft](https://mafft.cbrc.jp/alignment/server/index.html):
-```{bash}
+```bash
 qiime alignment mafft --i-sequences final_output/rep_seqs_final.qza \
                       --p-n-threads 4 \
                       --o-alignment tree_out/rep_seqs_final_aligned.qza
