@@ -421,32 +421,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, September 15-17). It is based on the Amplicon SOP available on the <a href="https://microbiomehelper.ca/">Microbiome Helper</a> and previous workshops designed by Robyn Wright, Monica Alvaro Fuss, Diana Haider and Robert Beiko.</p>
 <p><strong>Author</strong>: Robyn Wright</p>
 <p>This module provides a walkthrough of an end-to-end pipeline using the command line interface for the analysis of high-throughput marker gene data. Commonly used marker genes for microbiome analysis include the 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) for fungi.</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-info"></i> BEFORE YOU START!<br><br>
-In this tutorial, you can choose between using:<br>
-<strong>1. 16S dataset from wild blueberry, Vaccinium angustifolium (soil microbiome)</strong>
-- <a href="https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R">Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats</a>
-- <a href="https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50">Metagenomic Functional Shifts to Plant Induced Environmental Changes</a></p>
-<p><strong>2. 18S dataset from plastics incubated in a coastal marine environment (plastisphere)</strong>
-- <a href="https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050">Microbial pioneers of plastic colonisation in coastal seawaters</a></p>
-<p><strong>3. ITS2 dataset from stool samples from pregnant women (gut microbiome)</strong>
-- <a href="https://gut.bmj.com/content/73/8/1302.long">Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health</a>
-{: .alert .alert-info .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>BEFORE YOU START!</strong><br><br>
+<strong>1. 16S dataset from wild blueberry, Vaccinium angustifolium (soil microbiome)</strong><br>
+- <a href="https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R">Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats</a><br>
+- <a href="https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50">Metagenomic Functional Shifts to Plant Induced Environmental Changes</a><br>
+<br>
+<strong>2. 18S dataset from plastics incubated in a coastal marine environment (plastisphere)</strong><br>
+- <a href="https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050">Microbial pioneers of plastic colonisation in coastal seawaters</a>
+<br>
+<strong>3. ITS2 dataset from stool samples from pregnant women (gut microbiome)</strong><br>
+- <a href="https://gut.bmj.com/content/73/8/1302.long">Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health</a></p>
+</div>
+</div>
 <p>You can jump to one of the below sections for the commands needed for processing each of these amplicons. We recommend choosing one of them - 16S is the most widely used and also allows you to easily generate a phylogenetic tree. If you have never done any amplicon analysis before then we recommend choosing the 16S dataset.</p>
 <p>In this module we will cover the basics of marker gene analysis from raw reads to filtered feature table and phylogenetic tree. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version rachis-qiime2-2026.7), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the <a href="https://qiime2.org/">QIIME 2 user documentation</a>, along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within <a href="https://view.qiime2.org/">QIIME2 View</a>.</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i> Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.</p>
+</div>
+</div>
 </div>
 <div id="reminder-on-logging-into-the-server" class="section level2 hasAnchor">
 <h2>Reminder on logging into the server<a href="module-1.html#reminder-on-logging-into-the-server" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<blockquote>
-<p><i class="fa-solid fa-circle-info"></i> Connecting to AWS <br>
-As a reminder, there are instructions on logging into your instances <a href="https://bioinformaticsdotca.github.io/MIC_Gue-2609/awsunix.html">here</a>.
-{: .alert .alert-info .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Connecting to AWS</strong><br><br>
+As a reminder, there are instructions on logging into your instances <a href="https://bioinformaticsdotca.github.io/MIC_Gue-2609/awsunix.html">here</a>.</p>
+</div>
+</div>
 </div>
 <div id="s" class="section level2 hasAnchor">
 <h2>1. 16S<a href="module-1.html#s" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -460,10 +467,12 @@ ln -s ~/CourseData/amplicon_data/16S_Blueberry/metadata.tsv .</code></pre>
 - <code>rachis-qiime2-2026.7</code> - the latest QIIME2 version
 - <code>quality_control</code> - an environment containing FastQC and MultiQC, programs that we’ll use for quality control of the reads</p>
 <pre><code>conda activate rachis-qiime2-2026.7</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!</p>
+</div>
+</div>
 <div id="s-first-steps" class="section level3 hasAnchor">
 <h3>1.1. 16S First steps<a href="module-1.html#s-first-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="inspect-raw-data" class="section level4 hasAnchor">
@@ -471,22 +480,25 @@ ln -s ~/CourseData/amplicon_data/16S_Blueberry/metadata.tsv .</code></pre>
 <p>First, let’s take a look at the directory containing our raw reads as well as our metadata file.</p>
 <pre><code>ls raw_data</code></pre>
 <pre><code>head metadata.tsv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 1:</strong> How many samples are there?<br>
-<strong>Question 2:</strong> Into what group(s) are the samples classified?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 1:</strong> How many samples are there?<br>
+<strong>Question 2:</strong> Into what group(s) are the samples classified?</p>
+</div>
+</div>
 </div>
 <div id="quality-control" class="section level4 hasAnchor">
 <h4>1.1.2. Quality control<a href="module-1.html#quality-control" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Use FastQC and MultiQC for quality control of reads.</p>
 <p>Now let’s activate the environment with these programs:</p>
 <pre><code>conda activate quality_control</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> Note that we are only going to show this in this module so that we don’t repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Note that we are only going to show this in this module so that we don’t repeat things in this workshop, but this is something that you would need to do at the start of every analysis!</p>
+</div>
+</div>
 <p>First we’ll be running fastqc, and to do that, we’ll first make a directory for the output to go: <code>mkdir fastqc_out</code></p>
 <p>Now we’ll run fastqc:</p>
 <pre><code>fastqc -t 4 raw_data/*fastq.gz -o fastqc_out</code></pre>
@@ -507,10 +519,12 @@ ln -s ~/CourseData/amplicon_data/16S_Blueberry/metadata.tsv .</code></pre>
 <div id="back-to-the-quality-control" class="section level4 hasAnchor">
 <h4>1.1.4. Back to the quality control<a href="module-1.html#back-to-the-quality-control" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now take a look at one of the .html files in <code>fastqc_out/</code></p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> Note that you’ll need to download it from <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Note that you’ll need to download it from <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.</p>
+</div>
+</div>
 <p>Next we’ll run multiqc. The name suggests it might be performing QC on multiple files, but it’s actually for combining the output together of multiple files, so we can run it like this:</p>
 <pre><code>multiqc fastqc_out --filename multiqc.html</code></pre>
 <p>So we’ve given as arguments:
@@ -518,16 +532,17 @@ ln -s ~/CourseData/amplicon_data/16S_Blueberry/metadata.tsv .</code></pre>
 - <code>--filename multiqc.html</code>: the file name to save the output as.</p>
 <p>Now look at <code>multiqc.html</code>.</p>
 <p>There are some questions here to help you look at the files and interpret these:</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 3:</strong> What is the GC% of the samples?<br>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 3:</strong> What is the GC% of the samples?<br>
 <strong>Question 4:</strong> What % of the samples are duplicate reads? Is this what you expected?<br>
 <strong>Question 5:</strong> Now look at the Sequence Counts section. Which sample has the most reads?<br>
 <strong>Question 6:</strong> How many unique and duplicate reads are in the sample with the most reads?<br>
 <strong>Question 7:</strong> Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
-<strong>Question 8:</strong> Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<strong>Question 8:</strong> Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.</p>
+</div>
+</div>
 </div>
 <div id="import-fastqs-as-qiime2-artifact" class="section level4 hasAnchor">
 <h4>1.1.5. Import FASTQs as QIIME2 artifact<a href="module-1.html#import-fastqs-as-qiime2-artifact" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -567,11 +582,12 @@ mkdir reads_qza</code></pre>
 <p>Here you can see summaries of the numbers of reads in your samples as well as histograms showing the numbers of reads per sample and a table with the read numbers at the bottom.</p>
 <p>The interactive quality plot tab shows you the quality across your forward and reverse reads:
 <img src="/img/CBW2026_module1_cutadapt_quality_16S.png" /></p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 9:</strong> What would happen if you ran this exact command on V4/V5-amplified sequences?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 9:</strong> What would happen if you ran this exact command on V4/V5-amplified sequences?</p>
+</div>
+</div>
 </div>
 <div id="s-denoising-the-reads-into-amplicon-sequence-variants" class="section level3 hasAnchor">
 <h3>1.2. 16S Denoising the reads into amplicon sequence variants<a href="module-1.html#s-denoising-the-reads-into-amplicon-sequence-variants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -598,12 +614,13 @@ mkdir reads_qza</code></pre>
   --i-data reads_qza/reads_trimmed_joined_filt.qza \
   --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv</code></pre>
 <p>Now open this file in <a href="https://view.qiime2.org/">QIIME2 View</a> and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 10:</strong> How long are our forward reads? Why are there no reverse reads in our file?<br>
-<strong>Question 11:</strong> What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 10:</strong> How long are our forward reads? Why are there no reverse reads in our file?<br>
+<strong>Question 11:</strong> What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.</p>
+</div>
+</div>
 </div>
 <div id="running-deblur" class="section level4 hasAnchor">
 <h4>1.2.4. Running Deblur<a href="module-1.html#running-deblur" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -616,11 +633,12 @@ mkdir reads_qza</code></pre>
   --p-jobs-to-start 4 \
   --p-min-reads 1 \
   --output-dir deblur_output</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i>
-This command may take a few minutes to run.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>This command may take a few minutes to run.</p>
+</div>
+</div>
 </div>
 <div id="summarizing-deblur-output" class="section level4 hasAnchor">
 <h4>1.2.5. Summarizing Deblur output<a href="module-1.html#summarizing-deblur-output" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -630,12 +648,13 @@ This command may take a few minutes to run.
     --o-feature-frequencies deblur_output/deblur_table_summary_feature_frequencies.qza \
     --o-sample-frequencies deblur_output/deblur_table_summary_sample_frequencies.qza \
     --o-summary deblur_output/deblur_table_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 12:</strong> What is the mean sequencing depth per sample after denoising?<br>
-<strong>Question 13:</strong> Which sample has the least reads?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 12:</strong> What is the mean sequencing depth per sample after denoising?<br>
+<strong>Question 13:</strong> Which sample has the least reads?</p>
+</div>
+</div>
 </div>
 </div>
 <div id="s-assign-taxonomy-to-asvs" class="section level3 hasAnchor">
@@ -653,11 +672,13 @@ This command may take a few minutes to run.
   --i-classifier gtdb-r232.0-2026.7.0-classifier.qza \
   --p-n-jobs 4 \
   --output-dir taxa</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-You’re probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>TERMINATED</strong><br><br>
+You’re probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.</p>
+</div>
+</div>
 <pre><code>mkdir taxa
 cp ~/CourseData/amplicon_data/output/16S_Blueberry/taxa/classification.qza taxa/</code></pre>
 <p>As with all QZA files, you can export the output file to take a look at the classifications and confidence scores:</p>
@@ -682,13 +703,14 @@ cp ~/CourseData/amplicon_data/output/16S_Blueberry/taxa/classification.qza taxa/
 <div id="filter-out-rare-asvs" class="section level4 hasAnchor">
 <h4>1.4.1. Filter out rare ASVs<a href="module-1.html#filter-out-rare-asvs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Based on the summary visualization created in step 1.2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 1.2.5 (deblur_table_summary.qzv), multiply it by 0.001, and round to the nearest integer.</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> <br>
-So if the mean frequency is 6,669.8:<br>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>So if the mean frequency is 6,669.8:
 6,669.8 x 0.001 = 6.6698<br>
-Rounded to the nearest integer = 7
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+Rounded to the nearest integer = 7</p>
+</div>
+</div>
 <p>Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):</p>
 <pre><code>qiime feature-table filter-features \
   --i-table deblur_output/table.qza \
@@ -720,11 +742,12 @@ Rounded to the nearest integer = 7
     --o-feature-frequencies deblur_output/deblur_table_filt_contam_summary_feature_frequencies.qza \
     --o-sample-frequencies deblur_output/deblur_table_filt_contam_summary_sample_frequencies.qza \
     --o-summary deblur_output/deblur_table_filt_contam_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 14:</strong> What is the minimum and maximum sequencing depth across all samples?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 14:</strong> What is the minimum and maximum sequencing depth across all samples?</p>
+</div>
+</div>
 <p>Happy? Copy a final table.</p>
 <pre><code>mkdir final_output
 cp deblur_output/deblur_table_filt_contam.qza final_output/deblur_table_final.qza</code></pre>
@@ -750,11 +773,13 @@ cp deblur_output/deblur_table_filt_contam.qza final_output/deblur_table_final.qz
   --o-tree final_output/asvs-tree.qza \
   --o-placements final_output/insertion-placements.qza \
   --p-threads 4</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-You’re probably going to see the alert telling you that your command was terminated again. :( Again, we don’t have enough memory to run this so we’ll copy over the output.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>TERMINATED</strong><br><br>
+You’re probably going to see the alert telling you that your command was terminated again. :( Again, we don’t have enough memory to run this so we’ll copy over the output.</p>
+</div>
+</div>
 <pre><code>cp ~/CourseData/amplicon_data/output/16S_Blueberry/final_output/asvs-tree.qza final_output/
 cp ~/CourseData/amplicon_data/output/16S_Blueberry/final_output/insertion-placements.qza final_output/</code></pre>
 <p>High-quality reference phylogenetic trees can be downloaded from QIIME2’s data resources. It doesn’t really matter whether the reference tree used for sequence placement matches the reference database used for taxonomic classification - what really matters is that the reference tree used is quite complete so it will make a good skeleton for inserting our sequences into. Custom reference files can be specified for placing other types of amplicons. However, for marker genes such as 18S and ITS, the recommended approach is to construct a de novo phylogenetic tree, as outlined in the later sections. Considerations for 18S and ITS data and and further detailed in the Microbiome Helper repository.</p>
@@ -843,10 +868,12 @@ ln -s ~/CourseData/amplicon_data/18S_Plastisphere/metadata.tsv .</code></pre>
 <p>You should have learnt about conda environments in the pre-work, and here we have a couple of environments already installed that we’ll use in this module:
 - <code>rachis-qiime2-2026.7</code> - the latest QIIME2 version
 - <code>quality_control</code> - an environment containing FastQC and MultiQC, programs that we’ll use for quality control of the reads</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!</p>
+</div>
+</div>
 <div id="s-first-steps-1" class="section level3 hasAnchor">
 <h3>2.1. 18S First steps<a href="module-1.html#s-first-steps-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="inspect-raw-data-1" class="section level4 hasAnchor">
@@ -854,22 +881,25 @@ ln -s ~/CourseData/amplicon_data/18S_Plastisphere/metadata.tsv .</code></pre>
 <p>First, let’s take a look at the directory containing our raw reads as well as our metadata file.</p>
 <pre><code>ls raw_data</code></pre>
 <pre><code>head metadata.tsv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 1:</strong> How many samples are there?<br>
-<strong>Question 2:</strong> Into what group(s) are the samples classified?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 1:</strong> How many samples are there?<br>
+<strong>Question 2:</strong> Into what group(s) are the samples classified?</p>
+</div>
+</div>
 </div>
 <div id="quality-control-1" class="section level4 hasAnchor">
 <h4>2.1.2. Quality control<a href="module-1.html#quality-control-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Use FastQC and MultiQC for quality control of reads.</p>
 <p>Now let’s activate the environment with these programs:</p>
 <pre><code>conda activate quality_control</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> Note that we are only going to show this in this module so that we don’t repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Note that we are only going to show this in this module so that we don’t repeat things in this workshop, but this is something that you would need to do at the start of every analysis!</p>
+</div>
+</div>
 <p>First we’ll be running fastqc, and to do that, we’ll first make a directory for the output to go: <code>mkdir fastqc_out</code></p>
 <p>Now we’ll run fastqc:</p>
 <pre><code>fastqc -t 4 raw_data/*fastq.gz -o fastqc_out</code></pre>
@@ -889,10 +919,12 @@ ln -s ~/CourseData/amplicon_data/18S_Plastisphere/metadata.tsv .</code></pre>
 <div id="back-to-the-quality-control-1" class="section level4 hasAnchor">
 <h4>2.1.4. Back to the quality control<a href="module-1.html#back-to-the-quality-control-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now take a look at one of the .html files in <code>fastqc_out/</code></p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> Note that you’ll need to download it from <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Note that you’ll need to download it from <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.</p>
+</div>
+</div>
 <p>Next we’ll run multiqc. The name suggests it might be performing QC on multiple files, but it’s actually for combining the output together of multiple files, so we can run it like this:</p>
 <pre><code>multiqc fastqc_out --filename multiqc.html</code></pre>
 <p>So we’ve given as arguments:
@@ -900,16 +932,17 @@ ln -s ~/CourseData/amplicon_data/18S_Plastisphere/metadata.tsv .</code></pre>
 - <code>--filename multiqc.html</code>: the file name to save the output as.</p>
 <p>Now look at <code>multiqc.html</code>.</p>
 <p>There are some questions here to help you look at the files and interpret these:</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 3:</strong> What is the GC% of the samples?<br>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 3:</strong> What is the GC% of the samples?<br>
 <strong>Question 4:</strong> What % of the samples are duplicate reads? Is this what you expected?<br>
 <strong>Question 5:</strong> Now look at the Sequence Counts section. Which sample has the most reads?<br>
 <strong>Question 6:</strong> How many unique and duplicate reads are in the sample with the most reads?<br>
 <strong>Question 7:</strong> Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
-<strong>Question 8:</strong> Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<strong>Question 8:</strong> Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.</p>
+</div>
+</div>
 </div>
 <div id="import-fastqs-as-qiime2-artifact-1" class="section level4 hasAnchor">
 <h4>2.1.5. Import FASTQs as QIIME2 artifact<a href="module-1.html#import-fastqs-as-qiime2-artifact-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -944,11 +977,12 @@ mkdir reads_qza</code></pre>
 <pre><code>qiime demux summarize \
   --i-data reads_qza/reads_trimmed.qza \
   --o-visualization reads_qza/reads_trimmed_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 9:</strong> What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 9:</strong> What would happen if you ran this exact command on 16S V4/V5-amplified sequences?</p>
+</div>
+</div>
 </div>
 <div id="s-denoising-the-reads-into-amplicon-sequence-variants-1" class="section level3 hasAnchor">
 <h3>2.2. 18S Denoising the reads into amplicon sequence variants<a href="module-1.html#s-denoising-the-reads-into-amplicon-sequence-variants-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -975,12 +1009,13 @@ mkdir reads_qza</code></pre>
   --i-data reads_qza/reads_trimmed_joined_filt.qza \
   --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv</code></pre>
 <p>Now open the file in <a href="https://view.qiime2.org/">QIIME2 View</a> and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 10:</strong> How long are our forward reads? Why are there no reverse reads in our file?<br>
-<strong>Question 11:</strong> What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 10:</strong> How long are our forward reads? Why are there no reverse reads in our file?<br>
+<strong>Question 11:</strong> What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.</p>
+</div>
+</div>
 </div>
 <div id="running-deblur-1" class="section level4 hasAnchor">
 <h4>2.2.4. Running Deblur<a href="module-1.html#running-deblur-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1002,11 +1037,12 @@ mkdir reads_qza</code></pre>
    --p-jobs-to-start 4 \
    --p-min-reads 1 \
    --output-dir deblur_output</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i>
-This command may take a few minutes to run.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>This command may take a few minutes to run.</p>
+</div>
+</div>
 </div>
 <div id="summarizing-deblur-output-1" class="section level4 hasAnchor">
 <h4>2.2.5. Summarizing Deblur output<a href="module-1.html#summarizing-deblur-output-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1016,12 +1052,13 @@ This command may take a few minutes to run.
     --o-feature-frequencies deblur_output/deblur_table_summary_feature_frequencies.qza \
     --o-sample-frequencies deblur_output/deblur_table_summary_sample_frequencies.qza \
     --o-summary deblur_output/deblur_table_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 12:</strong> What is the mean sequencing depth per sample after denoising?<br>
-<strong>Question 13:</strong> Which sample has the least reads?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 12:</strong> What is the mean sequencing depth per sample after denoising?<br>
+<strong>Question 13:</strong> Which sample has the least reads?</p>
+</div>
+</div>
 </div>
 </div>
 <div id="s-assign-taxonomy-to-asvs-1" class="section level3 hasAnchor">
@@ -1039,11 +1076,13 @@ This command may take a few minutes to run.
   --i-classifier pr2_version_5.1.0_SSU_18S.qza \
   --p-n-jobs 4 \
   --output-dir taxa</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-You’re probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>TERMINATED</strong><br><br>
+You’re probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.</p>
+</div>
+</div>
 <pre><code>mkdir taxa
 cp ~/CourseData/amplicon_data/output/18S_Plastisphere/taxa/classification.qza taxa/</code></pre>
 <p>As with all QZA files, you can export the output file to take a look at the classifications and confidence scores:</p>
@@ -1070,13 +1109,14 @@ cp ~/CourseData/amplicon_data/output/18S_Plastisphere/taxa/classification.qza ta
 <div id="filter-out-rare-asvs-1" class="section level4 hasAnchor">
 <h4>2.4.1. Filter out rare ASVs<a href="module-1.html#filter-out-rare-asvs-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Based on the summary visualization created in step 2.2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.2.5 (deblur_table_summary.qzv), multiply it by 0.001, and round to the nearest integer.</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> <br>
-So if the mean frequency is 6,588.9:<br>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>So if the mean frequency is 6,588.9:<br>
 6,588.9 x 0.001 = 6.5889<br>
-Rounded to the nearest integer = 7
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+Rounded to the nearest integer = 7</p>
+</div>
+</div>
 <p>Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):</p>
 <pre><code>qiime feature-table filter-features \
   --i-table deblur_output/table.qza \
@@ -1108,11 +1148,12 @@ Rounded to the nearest integer = 7
     --o-feature-frequencies deblur_output/deblur_table_filt_contam_summary_feature_frequencies.qza \
     --o-sample-frequencies deblur_output/deblur_table_filt_contam_summary_sample_frequencies.qza \
     --o-summary deblur_output/deblur_table_filt_contam_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 14:</strong> What is the minimum and maximum sequencing depth across all samples?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 14:</strong> What is the minimum and maximum sequencing depth across all samples?</p>
+</div>
+</div>
 <p>Happy? Copy a final table.</p>
 <pre><code>mkdir final_output
 cp deblur_output/deblur_table_filt_contam.qza final_output/deblur_table_final.qza</code></pre>
@@ -1235,10 +1276,12 @@ ln -s ~/CourseData/amplicon_data/ITS_Pregnancy/metadata.tsv .</code></pre>
 <p>You should have learnt about conda environments in the pre-work, and here we have a couple of environments already installed that we’ll use in this module:
 - <code>rachis-qiime2-2026.7</code> - the latest QIIME2 version
 - <code>quality_control</code> - an environment containing FastQC and MultiQC, programs that we’ll use for quality control of the reads</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!</p>
+</div>
+</div>
 <div id="its-first-steps" class="section level3 hasAnchor">
 <h3>2.1. ITS First steps<a href="module-1.html#its-first-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="inspect-raw-data-2" class="section level4 hasAnchor">
@@ -1246,22 +1289,25 @@ ln -s ~/CourseData/amplicon_data/ITS_Pregnancy/metadata.tsv .</code></pre>
 <p>First, let’s take a look at the directory containing our raw reads as well as our metadata file.</p>
 <pre><code>ls raw_data</code></pre>
 <pre><code>head metadata.tsv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 1:</strong> How many samples are there?<br>
-<strong>Question 2:</strong> Into what group(s) are the samples classified?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 1:</strong> How many samples are there?<br>
+<strong>Question 2:</strong> Into what group(s) are the samples classified?</p>
+</div>
+</div>
 </div>
 <div id="quality-control-2" class="section level4 hasAnchor">
 <h4>2.1.2. Quality control<a href="module-1.html#quality-control-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Use FastQC and MultiQC for quality control of reads.</p>
 <p>Now let’s activate the environment with these programs:</p>
 <pre><code>conda activate quality_control</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> Note that we are only going to show this in this module so that we don’t repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Note that we are only going to show this in this module so that we don’t repeat things in this workshop, but this is something that you would need to do at the start of every analysis!</p>
+</div>
+</div>
 <p>First we’ll be running fastqc, and to do that, we’ll first make a directory for the output to go: <code>mkdir fastqc_out</code></p>
 <p>Now we’ll run fastqc:</p>
 <pre><code>fastqc -t 4 raw_data/*fastq.gz -o fastqc_out</code></pre>
@@ -1281,10 +1327,12 @@ ln -s ~/CourseData/amplicon_data/ITS_Pregnancy/metadata.tsv .</code></pre>
 <div id="back-to-the-quality-control-2" class="section level4 hasAnchor">
 <h4>2.1.4. Back to the quality control<a href="module-1.html#back-to-the-quality-control-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now take a look at one of the .html files in <code>fastqc_out/</code></p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> Note that you’ll need to download it from <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Note that you’ll need to download it from <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.</p>
+</div>
+</div>
 <p>Next we’ll run multiqc. The name suggests it might be performing QC on multiple files, but it’s actually for combining the output together of multiple files, so we can run it like this:</p>
 <pre><code>multiqc fastqc_out --filename multiqc.html</code></pre>
 <p>So we’ve given as arguments:
@@ -1292,16 +1340,17 @@ ln -s ~/CourseData/amplicon_data/ITS_Pregnancy/metadata.tsv .</code></pre>
 - <code>--filename multiqc.html</code>: the file name to save the output as.</p>
 <p>Now look at <code>multiqc.html</code>.</p>
 <p>There are some questions here to help you look at the files and interpret these:</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 3:</strong> What is the GC% of the samples?<br>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 3:</strong> What is the GC% of the samples?<br>
 <strong>Question 4:</strong> What % of the samples are duplicate reads? Is this what you expected?<br>
 <strong>Question 5:</strong> Now look at the Sequence Counts section. Which sample has the most reads?<br>
 <strong>Question 6:</strong> How many unique and duplicate reads are in the sample with the most reads?<br>
 <strong>Question 7:</strong> Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
-<strong>Question 8:</strong> Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<strong>Question 8:</strong> Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and click on the blue “BLAST” button at the bottom of the page.</p>
+</div>
+</div>
 </div>
 <div id="import-fastqs-as-qiime2-artifact-2" class="section level4 hasAnchor">
 <h4>2.1.5. Import FASTQs as QIIME2 artifact<a href="module-1.html#import-fastqs-as-qiime2-artifact-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1336,11 +1385,12 @@ mkdir reads_qza</code></pre>
 <pre><code>qiime demux summarize \
   --i-data reads_qza/reads_trimmed.qza \
   --o-visualization reads_qza/reads_trimmed_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 9:</strong> What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 9:</strong> What would happen if you ran this exact command on 16S V4/V5-amplified sequences?</p>
+</div>
+</div>
 </div>
 <div id="its-denoising-the-reads-into-amplicon-sequence-variants" class="section level3 hasAnchor">
 <h3>2.2. ITS Denoising the reads into amplicon sequence variants<a href="module-1.html#its-denoising-the-reads-into-amplicon-sequence-variants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1367,12 +1417,13 @@ mkdir reads_qza</code></pre>
   --i-data reads_qza/reads_trimmed_joined_filt.qza \
   --o-visualization reads_qza/reads_trimmed_joined_filt_summary.qzv</code></pre>
 <p>Now open the file in <a href="https://view.qiime2.org/">QIIME2 View</a> and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.</p>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 10:</strong> How long are our forward reads? Why are there no reverse reads in our file?<br>
-<strong>Question 11:</strong> What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 10:</strong> How long are our forward reads? Why are there no reverse reads in our file?<br>
+<strong>Question 11:</strong> What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.</p>
+</div>
+</div>
 </div>
 <div id="running-deblur-2" class="section level4 hasAnchor">
 <h4>2.2.4. Running Deblur<a href="module-1.html#running-deblur-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1394,11 +1445,12 @@ mkdir reads_qza</code></pre>
    --p-jobs-to-start 4 \
    --p-min-reads 1 \
    --output-dir deblur_output</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i>
-This command may take a few minutes to run.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>This command may take a few minutes to run.</p>
+</div>
+</div>
 </div>
 <div id="summarizing-deblur-output-2" class="section level4 hasAnchor">
 <h4>2.2.5. Summarizing Deblur output<a href="module-1.html#summarizing-deblur-output-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1408,12 +1460,13 @@ This command may take a few minutes to run.
     --o-feature-frequencies deblur_output/deblur_table_summary_feature_frequencies.qza \
     --o-sample-frequencies deblur_output/deblur_table_summary_sample_frequencies.qza \
     --o-summary deblur_output/deblur_table_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 12:</strong> What is the mean sequencing depth per sample after denoising?<br>
-<strong>Question 13:</strong> Which sample has the least reads?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 12:</strong> What is the mean sequencing depth per sample after denoising?<br>
+<strong>Question 13:</strong> Which sample has the least reads?</p>
+</div>
+</div>
 </div>
 </div>
 <div id="its-assign-taxonomy-to-asvs" class="section level3 hasAnchor">
@@ -1431,11 +1484,13 @@ This command may take a few minutes to run.
   --i-classifier classifier_fungi_ITS_sh_taxonomy_sh_taxonomy_qiime_ver10_99_04.04.2024_dev.qza \
   --p-n-jobs 4 \
   --output-dir taxa</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-You’re probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>TERMINATED</strong><br><br>
+You’re probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.</p>
+</div>
+</div>
 <pre><code>mkdir taxa
 cp ~/CourseData/amplicon_data/output/ITS_Pregnancy/taxa/classification.qza taxa/</code></pre>
 <p>As with all QZA files, you can export the output file to take a look at the classifications and confidence scores:</p>
@@ -1462,13 +1517,14 @@ cp ~/CourseData/amplicon_data/output/ITS_Pregnancy/taxa/classification.qza taxa/
 <div id="filter-out-rare-asvs-2" class="section level4 hasAnchor">
 <h4>2.4.1. Filter out rare ASVs<a href="module-1.html#filter-out-rare-asvs-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Based on the summary visualization created in step 2.2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.2.5 (deblur_table_summary.qzv), multiply it by 0.001, and round to the nearest integer.</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-exclamation"></i> <br>
-So if the mean frequency is 62,567.2:<br>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>So if the mean frequency is 62,567.2:<br>
 62,567.2 x 0.001 = 62.5672<br>
-Rounded to the nearest integer = 63
-{: .alert .alert-primary .p-3}</p>
-</blockquote>
+Rounded to the nearest integer = 63</p>
+</div>
+</div>
 <p>Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):</p>
 <pre><code>qiime feature-table filter-features \
   --i-table deblur_output/table.qza \
@@ -1499,11 +1555,12 @@ Rounded to the nearest integer = 63
     --o-feature-frequencies deblur_output/deblur_table_filt_contam_summary_feature_frequencies.qza \
     --o-sample-frequencies deblur_output/deblur_table_filt_contam_summary_sample_frequencies.qza \
     --o-summary deblur_output/deblur_table_filt_contam_summary.qzv</code></pre>
-<blockquote>
-<p><i class="fa-solid fa-question-circle"></i><br>
-<strong>Question 14:</strong> What is the minimum and maximum sequencing depth across all samples?
-{: .alert .alert-success .p-3}</p>
-</blockquote>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 14:</strong> What is the minimum and maximum sequencing depth across all samples?</p>
+</div>
+</div>
 <p>Happy? Copy a final table.</p>
 <pre><code>mkdir final_output
 cp deblur_output/deblur_table_filt_contam.qza final_output/deblur_table_final.qza</code></pre>

@@ -423,13 +423,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Performing differential abundance testing with MaAsLin3</li>
 </ul>
 <p>All analyses in this module will be conducted in R/RStudio.</p>
-<blockquote>
-<p><i class="fa-solid fa-circle-info"></i> Connecting to Rstudio <br><br>
-Connecting to Rstudio on your workshop instances is covered in the pre-work shop material
-for a refresher checkout the link below.
-<a href="https://bioinformaticsdotca.github.io/MIC_Gue-2609/r.html" class="uri">https://bioinformaticsdotca.github.io/MIC_Gue-2609/r.html</a>
-{: .alert .alert-info .p-3}</p>
-</blockquote>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Connecting to Rstudio</strong><br><br>
+Connecting to Rstudio on your workshop instances is covered in the pre-work shop material. For a refresher checkout <a href="https://bioinformaticsdotca.github.io/MIC_Gue-2609/r.html">this link.</a></p>
+</div>
+</div>
 </div>
 <div id="setup-1" class="section level2 hasAnchor">
 <h2>Setup<a href="module-2.html#setup-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -452,11 +452,14 @@ for a refresher checkout the link below.
 </div>
 <div id="loading-the-data" class="section level2 hasAnchor">
 <h2>Loading the Data<a href="module-2.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<blockquote>
-<p><i class="fa-solid fa-circle-info"></i> BEFORE YOU START <br><br>
-Below, we load the amplicon sequencing data used in this lab. As with the previous lab there are three choices 16S, ITS, and 18S data. The below commands are provided for the 16S data, however, those up for an extra challenge may choose one of the other datasets and edit the code accordingly.
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>BEFORE YOU START</strong><br><br>
+Below, we load the amplicon sequencing data used in this lab. As with the previous lab there are three choices 16S, ITS, and 18S data. The below commands are provided for the 16S data, however, those up for an extra challenge may choose one of the other datasets and edit the code accordingly. If you did not finish the lab this morning, you can choose to finish off that lab or flag down one of the instructors/TAs and we will copy across the output for you.<br>
 Additionally, the code chunks below contain comments to help explain what each command is doing. Examine them closely!</p>
-</blockquote>
+</div>
+</div>
 <div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="module-2.html#cb308-1" tabindex="-1"></a><span class="co"># Read in the feature table containing taxonomy information</span></span>
 <span id="cb308-2"><a href="module-2.html#cb308-2" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
 <span id="cb308-3"><a href="module-2.html#cb308-3" tabindex="-1"></a>  <span class="st">&quot;~/workspace/amplicon_data/16S_Blueberry/final_output_exported/feature-table_w_tax.txt&quot;</span>,</span>
@@ -633,11 +636,14 @@ Additionally, the code chunks below contain comments to help explain what each c
 <span id="cb319-3"><a href="module-2.html#cb319-3" tabindex="-1"></a>  <span class="at">data =</span> metadata_div</span>
 <span id="cb319-4"><a href="module-2.html#cb319-4" tabindex="-1"></a>)</span></code></pre></div>
 <p>The test indicates whether Shannon diversity differs significantly between the sample categories.</p>
-<p><strong>Try this on your own:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Create boxplots for observed richness and Simpson diversity.</li>
-<li>Perform Wilcoxon tests to compare these metrics between sample categories.</li>
-</ol>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Try this on your own:</strong><br><br>
+1. Create boxplots for observed richness and Simpson diversity.<br>
+2. Perform Wilcoxon tests to compare these metrics between sample categories.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="beta-diversity" class="section level2 hasAnchor">
@@ -668,7 +674,12 @@ Additionally, the code chunks below contain comments to help explain what each c
 <span id="cb320-9"><a href="module-2.html#cb320-9" tabindex="-1"></a>)</span>
 <span id="cb320-10"><a href="module-2.html#cb320-10" tabindex="-1"></a></span>
 <span id="cb320-11"><a href="module-2.html#cb320-11" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as.matrix</span>(jaccard_dist))</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
 <p><strong>Question:</strong> Why is the diagonal all 0s?</p>
+</div>
+</div>
 </div>
 <div id="principal-coordinates-analysis" class="section level3 hasAnchor">
 <h3>Principal Coordinates Analysis<a href="module-2.html#principal-coordinates-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -901,7 +912,12 @@ Additionally, the code chunks below contain comments to help explain what each c
 <h2>If There Is Time<a href="module-2.html#if-there-is-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="collapsing-tables-by-taxa" class="section level3 hasAnchor">
 <h3>Collapsing Tables by Taxa<a href="module-2.html#collapsing-tables-by-taxa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What happens if you want to run a differential abundance analysis at a level other than the ASV level?</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question:</strong> What happens if you want to run a differential abundance analysis at a level other than the ASV level?</p>
+</div>
+</div>
 <div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="module-2.html#cb330-1" tabindex="-1"></a><span class="co">#define the taxonomic hierarchy</span></span>
 <span id="cb330-2"><a href="module-2.html#cb330-2" tabindex="-1"></a>taxa_order <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb330-3"><a href="module-2.html#cb330-3" tabindex="-1"></a>  <span class="st">&quot;Domain&quot;</span>,</span>
