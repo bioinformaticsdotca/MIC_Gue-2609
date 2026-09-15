@@ -119,7 +119,7 @@ Try running `htop`. This is an interactive viewer that shows you the processes t
 - Memory - this is the amount of memory, or RAM, that we have available to us. You’ll see that it is ~16GB - this is similar to many laptops now, but many servers that you’ll use or have access to for bioinformatics analysis will have much more than a standard computer. For example, one of the Langille lab servers has ~1.5 TB RAM. The larger your dataset, or the deeper your sequencing depth, the more RAM you are likely to need. 
 - The processes (at the bottom) - you can see everything that is running under a PID (Process ID). This is useful when you’re using a shared server to see who is running what, particularly for when you’re wanting to run something that will use a lot of memory or will take a long time and you want to check that it won’t bother anyone else.
 
-![](/img/CBW2026_module1_htop.png)
+![](img/CBW2026_module1_htop.png)
 
 When you’re done looking at this, press `F10` (on a Mac this is `fn`+`F10`) or `q` to exit from this screen.
 
@@ -205,7 +205,7 @@ qiime demux summarize \
 ```
 
 You should see that the first tab looks something like this:
-![](/img/CBW2026_module1_cutadapt_16S.png)
+![](img/CBW2026_module1_cutadapt_16S.png)
 
 Here you can see summaries of the numbers of reads in your samples as well as histograms showing the numbers of reads per sample and a table with the read numbers at the bottom.
 

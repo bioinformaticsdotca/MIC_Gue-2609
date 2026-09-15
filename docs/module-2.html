@@ -342,6 +342,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
 <li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#setup-1"><i class="fa fa-check"></i>Setup</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#alpha-diversity"><i class="fa fa-check"></i>Alpha Diversity</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#rarefaction"><i class="fa fa-check"></i>Rarefaction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#testing-for-differences-in-alpha-diversity"><i class="fa fa-check"></i>Testing for differences in alpha diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#beta-diversity"><i class="fa fa-check"></i>Beta Diversity</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#calculating-distance-and-dissimilarity-metrics"><i class="fa fa-check"></i>Calculating Distance and Dissimilarity Metrics</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#jaccard-distance"><i class="fa fa-check"></i>Jaccard Distance</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#principal-coordinates-analysis"><i class="fa fa-check"></i>Principal Coordinates Analysis</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#permanova"><i class="fa fa-check"></i>PERMANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#braycurtis-dissimilarity"><i class="fa fa-check"></i>Bray–Curtis Dissimilarity</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#weighted-unifrac-distance"><i class="fa fa-check"></i>Weighted UniFrac Distance</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#differential-abundance-testing-with-maaslin3"><i class="fa fa-check"></i>Differential Abundance Testing with MaAsLin3</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#explanation-of-maaslin3-outputs"><i class="fa fa-check"></i>Explanation of MaAsLin3 Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#if-there-is-time"><i class="fa fa-check"></i>If There Is Time</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#collapsing-tables-by-taxa"><i class="fa fa-check"></i>Collapsing Tables by Taxa</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html"><i class="fa fa-check"></i>Module 3</a>
 <ul>
@@ -384,10 +408,571 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Module 2<a href="module-2.html#module-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="lecture-1" class="section level2 hasAnchor">
 <h2>Lecture<a href="module-2.html#lecture-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://docs.google.com/presentation/d/1b7lNcO8nBaKF3CA2B9WqUTULOc7p3_an/preview" width="640" height="480" allow="autoplay">
+</iframe>
 </div>
 <div id="lab-1" class="section level2 hasAnchor">
 <h2>Lab<a href="module-2.html#lab-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Author</strong>: Jacob T. Nearing</p>
+<p>In the previous lab, we learned how to process raw amplicon sequencing data into feature tables. In this module, we will apply the concepts introduced in lecture to perform several common downstream analyses of amplicon sequencing data.</p>
+<p>Specifically, we will cover:</p>
+<ul>
+<li>Loading amplicon sequencing data into R</li>
+<li>Calculating and comparing alpha diversity</li>
+<li>Calculating and comparing beta diversity</li>
+<li>Performing differential abundance testing with MaAsLin3</li>
+</ul>
+<p>All analyses in this module will be conducted in R/RStudio.</p>
+<blockquote>
+<p><i class="fa-solid fa-circle-info"></i> Connecting to Rstudio <br><br>
+Connecting to Rstudio on your workshop instances is covered in the pre-work shop material
+for a refresher checkout the link below.
+<a href="https://bioinformaticsdotca.github.io/MIC_Gue-2609/r.html" class="uri">https://bioinformaticsdotca.github.io/MIC_Gue-2609/r.html</a>
+{: .alert .alert-info .p-3}</p>
+</blockquote>
+</div>
+<div id="setup-1" class="section level2 hasAnchor">
+<h2>Setup<a href="module-2.html#setup-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, load the R packages needed for this lab.</p>
+<ul>
+<li><strong>dplyr</strong> and <strong>tidyr</strong>: Tools for cleaning, transforming, reshaping, and summarizing data</li>
+<li><strong>ggplot2</strong>: Tools for creating plots</li>
+<li><strong>vegan</strong>: Tools for ecological and community analysis, including diversity measures and ordination</li>
+<li><strong>Maaslin3</strong>: A statistical modeling tool for identifying associations between microbial features and metadata</li>
+<li><strong>GUniFrac</strong>: Methods for calculating UniFrac distances in R</li>
+<li><strong>ape</strong>: Tools for loading and manipulating phylogenetic trees in R</li>
+</ul>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="module-2.html#cb307-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb307-2"><a href="module-2.html#cb307-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb307-3"><a href="module-2.html#cb307-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb307-4"><a href="module-2.html#cb307-4" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb307-5"><a href="module-2.html#cb307-5" tabindex="-1"></a><span class="fu">library</span>(maaslin3)</span>
+<span id="cb307-6"><a href="module-2.html#cb307-6" tabindex="-1"></a><span class="fu">library</span>(GUniFrac)</span>
+<span id="cb307-7"><a href="module-2.html#cb307-7" tabindex="-1"></a><span class="fu">library</span>(ape)</span></code></pre></div>
+</div>
+<div id="loading-the-data" class="section level2 hasAnchor">
+<h2>Loading the Data<a href="module-2.html#loading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><i class="fa-solid fa-circle-info"></i> BEFORE YOU START <br><br>
+Below, we load the amplicon sequencing data used in this lab. As with the previous lab there are three choices 16S, ITS, and 18S data. The below commands are provided for the 16S data, however, those up for an extra challenge may choose one of the other datasets and edit the code accordingly.
+Additionally, the code chunks below contain comments to help explain what each command is doing. Examine them closely!</p>
+</blockquote>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="module-2.html#cb308-1" tabindex="-1"></a><span class="co"># Read in the feature table containing taxonomy information</span></span>
+<span id="cb308-2"><a href="module-2.html#cb308-2" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
+<span id="cb308-3"><a href="module-2.html#cb308-3" tabindex="-1"></a>  <span class="st">&quot;~/workspace/amplicon_data/16S_Blueberry/final_output_exported/feature-table_w_tax.txt&quot;</span>,</span>
+<span id="cb308-4"><a href="module-2.html#cb308-4" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb308-5"><a href="module-2.html#cb308-5" tabindex="-1"></a>  <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb308-6"><a href="module-2.html#cb308-6" tabindex="-1"></a>  <span class="at">comment.char =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb308-7"><a href="module-2.html#cb308-7" tabindex="-1"></a>  <span class="at">skip =</span> <span class="dv">1</span>,</span>
+<span id="cb308-8"><a href="module-2.html#cb308-8" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb308-9"><a href="module-2.html#cb308-9" tabindex="-1"></a>)</span>
+<span id="cb308-10"><a href="module-2.html#cb308-10" tabindex="-1"></a></span>
+<span id="cb308-11"><a href="module-2.html#cb308-11" tabindex="-1"></a><span class="co"># Set the row names of the count table to the ASV IDs</span></span>
+<span id="cb308-12"><a href="module-2.html#cb308-12" tabindex="-1"></a><span class="fu">rownames</span>(counts) <span class="ot">&lt;-</span> counts[, <span class="dv">1</span>]</span>
+<span id="cb308-13"><a href="module-2.html#cb308-13" tabindex="-1"></a></span>
+<span id="cb308-14"><a href="module-2.html#cb308-14" tabindex="-1"></a><span class="co"># Remove the taxonomy and ASV ID columns from the abundance table</span></span>
+<span id="cb308-15"><a href="module-2.html#cb308-15" tabindex="-1"></a>counts_no_taxa <span class="ot">&lt;-</span> counts <span class="sc">%&gt;%</span></span>
+<span id="cb308-16"><a href="module-2.html#cb308-16" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(taxonomy, <span class="st">`</span><span class="at">#OTU ID</span><span class="st">`</span>))</span>
+<span id="cb308-17"><a href="module-2.html#cb308-17" tabindex="-1"></a></span>
+<span id="cb308-18"><a href="module-2.html#cb308-18" tabindex="-1"></a><span class="co"># Read in the sample metadata</span></span>
+<span id="cb308-19"><a href="module-2.html#cb308-19" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
+<span id="cb308-20"><a href="module-2.html#cb308-20" tabindex="-1"></a>  <span class="st">&quot;~/workspace/amplicon_data/16S_Blueberry/metadata.tsv&quot;</span>,</span>
+<span id="cb308-21"><a href="module-2.html#cb308-21" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb308-22"><a href="module-2.html#cb308-22" tabindex="-1"></a>  <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb308-23"><a href="module-2.html#cb308-23" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb308-24"><a href="module-2.html#cb308-24" tabindex="-1"></a>)</span>
+<span id="cb308-25"><a href="module-2.html#cb308-25" tabindex="-1"></a></span>
+<span id="cb308-26"><a href="module-2.html#cb308-26" tabindex="-1"></a><span class="co"># Rename the first metadata column to &quot;Sample&quot;</span></span>
+<span id="cb308-27"><a href="module-2.html#cb308-27" tabindex="-1"></a><span class="fu">colnames</span>(metadata)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Sample&quot;</span></span>
+<span id="cb308-28"><a href="module-2.html#cb308-28" tabindex="-1"></a></span>
+<span id="cb308-29"><a href="module-2.html#cb308-29" tabindex="-1"></a><span class="fu">head</span>(metadata)</span></code></pre></div>
+</div>
+<div id="alpha-diversity" class="section level2 hasAnchor">
+<h2>Alpha Diversity<a href="module-2.html#alpha-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Alpha diversity describes the diversity within individual samples. In this section, we will examine sequencing depth, calculate several alpha diversity metrics, and compare diversity between sample categories.</p>
+<div id="rarefaction" class="section level3 hasAnchor">
+<h3>Rarefaction<a href="module-2.html#rarefaction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first step in examining alpha diversity is to evaluate the relationship between sequencing depth and ASV detection. Rarefaction curves allow us to determine whether samples are approaching a plateau in the number of observed ASVs as sequencing depth increases.</p>
+<p>The <code>vegan</code> package expects samples to be rows and features or taxa to be columns. We therefore transpose the feature table.</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="module-2.html#cb309-1" tabindex="-1"></a><span class="co"># Transpose the feature table so that samples are rows</span></span>
+<span id="cb309-2"><a href="module-2.html#cb309-2" tabindex="-1"></a>counts_no_taxa_t <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(counts_no_taxa))</span>
+<span id="cb309-3"><a href="module-2.html#cb309-3" tabindex="-1"></a></span>
+<span id="cb309-4"><a href="module-2.html#cb309-4" tabindex="-1"></a><span class="co"># Determine the minimum sequencing depth across all samples</span></span>
+<span id="cb309-5"><a href="module-2.html#cb309-5" tabindex="-1"></a>min_depth <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">rowSums</span>(counts_no_taxa_t))</span>
+<span id="cb309-6"><a href="module-2.html#cb309-6" tabindex="-1"></a></span>
+<span id="cb309-7"><a href="module-2.html#cb309-7" tabindex="-1"></a>min_depth</span></code></pre></div>
+<p>We can now generate rarefaction curves for each sample.</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="module-2.html#cb310-1" tabindex="-1"></a><span class="fu">rarecurve</span>(</span>
+<span id="cb310-2"><a href="module-2.html#cb310-2" tabindex="-1"></a>  <span class="at">x =</span> counts_no_taxa_t,</span>
+<span id="cb310-3"><a href="module-2.html#cb310-3" tabindex="-1"></a>  <span class="at">step =</span> <span class="dv">20</span>,</span>
+<span id="cb310-4"><a href="module-2.html#cb310-4" tabindex="-1"></a>  <span class="at">sample =</span> min_depth</span>
+<span id="cb310-5"><a href="module-2.html#cb310-5" tabindex="-1"></a>)</span></code></pre></div>
+<p><img width="1400" height="865" alt="image" src="https://github.com/user-attachments/assets/528ebc87-2b4f-4c6a-80ad-d61f8999ff73" /></p>
+<p>At the minimum sequencing depth, the rarefaction curves appear to plateau to some degree. This suggests that the selected depth is fairly reasonable for comparing diversity among samples.</p>
+<p>In the literature, rarefaction is often performed using a single random subsample. However, because rarefaction is stochastic, a more robust approach is to repeat the process multiple times at the selected sequencing depth.</p>
+<p>We will first go through the code to perform rarefaction with a single subsample.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="module-2.html#cb311-1" tabindex="-1"></a><span class="co"># Set a seed to make the results reproducible</span></span>
+<span id="cb311-2"><a href="module-2.html#cb311-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb311-3"><a href="module-2.html#cb311-3" tabindex="-1"></a></span>
+<span id="cb311-4"><a href="module-2.html#cb311-4" tabindex="-1"></a><span class="co"># Perform one rarefaction for each sample</span></span>
+<span id="cb311-5"><a href="module-2.html#cb311-5" tabindex="-1"></a>counts_no_taxa_t_rare <span class="ot">&lt;-</span> <span class="fu">rrarefy</span>(</span>
+<span id="cb311-6"><a href="module-2.html#cb311-6" tabindex="-1"></a>  counts_no_taxa_t,</span>
+<span id="cb311-7"><a href="module-2.html#cb311-7" tabindex="-1"></a>  <span class="at">sample =</span> min_depth</span>
+<span id="cb311-8"><a href="module-2.html#cb311-8" tabindex="-1"></a>)</span>
+<span id="cb311-9"><a href="module-2.html#cb311-9" tabindex="-1"></a></span>
+<span id="cb311-10"><a href="module-2.html#cb311-10" tabindex="-1"></a><span class="co"># Confirm that all samples have the same read depth</span></span>
+<span id="cb311-11"><a href="module-2.html#cb311-11" tabindex="-1"></a><span class="fu">rowSums</span>(counts_no_taxa_t_rare)</span></code></pre></div>
+<p>We can calculate Shannon diversity from the rarefied count table.</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="module-2.html#cb312-1" tabindex="-1"></a>shannon_div <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb312-2"><a href="module-2.html#cb312-2" tabindex="-1"></a>  <span class="at">Sample =</span> <span class="fu">rownames</span>(counts_no_taxa_t_rare),</span>
+<span id="cb312-3"><a href="module-2.html#cb312-3" tabindex="-1"></a>  <span class="at">Shannon =</span> <span class="fu">diversity</span>(</span>
+<span id="cb312-4"><a href="module-2.html#cb312-4" tabindex="-1"></a>    counts_no_taxa_t_rare,</span>
+<span id="cb312-5"><a href="module-2.html#cb312-5" tabindex="-1"></a>    <span class="at">index =</span> <span class="st">&quot;shannon&quot;</span></span>
+<span id="cb312-6"><a href="module-2.html#cb312-6" tabindex="-1"></a>  )</span>
+<span id="cb312-7"><a href="module-2.html#cb312-7" tabindex="-1"></a>)</span>
+<span id="cb312-8"><a href="module-2.html#cb312-8" tabindex="-1"></a></span>
+<span id="cb312-9"><a href="module-2.html#cb312-9" tabindex="-1"></a><span class="fu">head</span>(shannon_div)</span></code></pre></div>
+<p>We can repeat the rarefaction process 100 times and calculate multiple diversity metrics for each iteration to reduce some of the randomness caused by subsampling.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="module-2.html#cb313-1" tabindex="-1"></a><span class="co"># Save the sample names</span></span>
+<span id="cb313-2"><a href="module-2.html#cb313-2" tabindex="-1"></a>sample_names <span class="ot">&lt;-</span> <span class="fu">rownames</span>(counts_no_taxa_t)</span>
+<span id="cb313-3"><a href="module-2.html#cb313-3" tabindex="-1"></a></span>
+<span id="cb313-4"><a href="module-2.html#cb313-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb313-5"><a href="module-2.html#cb313-5" tabindex="-1"></a></span>
+<span id="cb313-6"><a href="module-2.html#cb313-6" tabindex="-1"></a><span class="co"># Perform 100 independent rarefactions</span></span>
+<span id="cb313-7"><a href="module-2.html#cb313-7" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">seq_len</span>(<span class="dv">100</span>), <span class="cf">function</span>(i) {</span>
+<span id="cb313-8"><a href="module-2.html#cb313-8" tabindex="-1"></a></span>
+<span id="cb313-9"><a href="module-2.html#cb313-9" tabindex="-1"></a>  <span class="co"># Rarefy the count table once</span></span>
+<span id="cb313-10"><a href="module-2.html#cb313-10" tabindex="-1"></a>  rarefied <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">rrarefy</span>(</span>
+<span id="cb313-11"><a href="module-2.html#cb313-11" tabindex="-1"></a>    counts_no_taxa_t,</span>
+<span id="cb313-12"><a href="module-2.html#cb313-12" tabindex="-1"></a>    <span class="at">sample =</span> min_depth</span>
+<span id="cb313-13"><a href="module-2.html#cb313-13" tabindex="-1"></a>  )</span>
+<span id="cb313-14"><a href="module-2.html#cb313-14" tabindex="-1"></a></span>
+<span id="cb313-15"><a href="module-2.html#cb313-15" tabindex="-1"></a>  <span class="co"># Calculate diversity metrics</span></span>
+<span id="cb313-16"><a href="module-2.html#cb313-16" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb313-17"><a href="module-2.html#cb313-17" tabindex="-1"></a>    <span class="at">Sample =</span> sample_names,</span>
+<span id="cb313-18"><a href="module-2.html#cb313-18" tabindex="-1"></a>    <span class="at">Iteration =</span> i,</span>
+<span id="cb313-19"><a href="module-2.html#cb313-19" tabindex="-1"></a>    <span class="at">Observed_Richness =</span> <span class="fu">rowSums</span>(rarefied <span class="sc">&gt;</span> <span class="dv">0</span>),</span>
+<span id="cb313-20"><a href="module-2.html#cb313-20" tabindex="-1"></a>    <span class="at">Shannon =</span> vegan<span class="sc">::</span><span class="fu">diversity</span>(</span>
+<span id="cb313-21"><a href="module-2.html#cb313-21" tabindex="-1"></a>      rarefied,</span>
+<span id="cb313-22"><a href="module-2.html#cb313-22" tabindex="-1"></a>      <span class="at">index =</span> <span class="st">&quot;shannon&quot;</span></span>
+<span id="cb313-23"><a href="module-2.html#cb313-23" tabindex="-1"></a>    ),</span>
+<span id="cb313-24"><a href="module-2.html#cb313-24" tabindex="-1"></a>    <span class="at">Simpson =</span> vegan<span class="sc">::</span><span class="fu">diversity</span>(</span>
+<span id="cb313-25"><a href="module-2.html#cb313-25" tabindex="-1"></a>      rarefied,</span>
+<span id="cb313-26"><a href="module-2.html#cb313-26" tabindex="-1"></a>      <span class="at">index =</span> <span class="st">&quot;simpson&quot;</span></span>
+<span id="cb313-27"><a href="module-2.html#cb313-27" tabindex="-1"></a>    )</span>
+<span id="cb313-28"><a href="module-2.html#cb313-28" tabindex="-1"></a>  )</span>
+<span id="cb313-29"><a href="module-2.html#cb313-29" tabindex="-1"></a>})</span>
+<span id="cb313-30"><a href="module-2.html#cb313-30" tabindex="-1"></a></span>
+<span id="cb313-31"><a href="module-2.html#cb313-31" tabindex="-1"></a><span class="co"># Look at the top of the first table in results</span></span>
+<span id="cb313-32"><a href="module-2.html#cb313-32" tabindex="-1"></a><span class="fu">head</span>(results[[<span class="dv">1</span>]])</span>
+<span id="cb313-33"><a href="module-2.html#cb313-33" tabindex="-1"></a></span>
+<span id="cb313-34"><a href="module-2.html#cb313-34" tabindex="-1"></a><span class="co"># If we wanted to look at the second table, we could call:</span></span>
+<span id="cb313-35"><a href="module-2.html#cb313-35" tabindex="-1"></a><span class="co"># head(results[[2]])</span></span></code></pre></div>
+<p><img width="754" height="202" alt="image" src="https://github.com/user-attachments/assets/c2b63543-f542-4591-a87f-b5de68acd620" /></p>
+<p>The object <code>results</code> is a list containing 100 data frames. Each data frame contains diversity metrics calculated from one subsampled dataset.</p>
+<p>We can combine the results into a single data frame.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="module-2.html#cb314-1" tabindex="-1"></a>rareified_div <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(results)</span>
+<span id="cb314-2"><a href="module-2.html#cb314-2" tabindex="-1"></a></span>
+<span id="cb314-3"><a href="module-2.html#cb314-3" tabindex="-1"></a><span class="fu">head</span>(rareified_div)</span></code></pre></div>
+<p>We can now examine how observed richness varies across rarefaction iterations for each sample.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="module-2.html#cb315-1" tabindex="-1"></a>rareified_div <span class="sc">%&gt;%</span></span>
+<span id="cb315-2"><a href="module-2.html#cb315-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sample, <span class="at">y =</span> Observed_Richness)) <span class="sc">+</span></span>
+<span id="cb315-3"><a href="module-2.html#cb315-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb315-4"><a href="module-2.html#cb315-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb315-5"><a href="module-2.html#cb315-5" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb315-6"><a href="module-2.html#cb315-6" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.4</span></span>
+<span id="cb315-7"><a href="module-2.html#cb315-7" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb315-8"><a href="module-2.html#cb315-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb315-9"><a href="module-2.html#cb315-9" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb315-10"><a href="module-2.html#cb315-10" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb315-11"><a href="module-2.html#cb315-11" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb315-12"><a href="module-2.html#cb315-12" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span></span>
+<span id="cb315-13"><a href="module-2.html#cb315-13" tabindex="-1"></a>    )</span>
+<span id="cb315-14"><a href="module-2.html#cb315-14" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb315-15"><a href="module-2.html#cb315-15" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb315-16"><a href="module-2.html#cb315-16" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Sample&quot;</span>,</span>
+<span id="cb315-17"><a href="module-2.html#cb315-17" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Observed richness&quot;</span></span>
+<span id="cb315-18"><a href="module-2.html#cb315-18" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img width="1400" height="865" alt="image" src="https://github.com/user-attachments/assets/c01bef97-e483-4d8b-8299-93938a26ce16" /></p>
+<p>For each sample, the variation in observed richness across rarefaction iterations is relatively small. We can therefore calculate the mean diversity value for each sample across all iterations to get an estimate of alpha diversity in each sample.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="module-2.html#cb316-1" tabindex="-1"></a>rareified_div_means <span class="ot">&lt;-</span> rareified_div <span class="sc">%&gt;%</span></span>
+<span id="cb316-2"><a href="module-2.html#cb316-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Sample) <span class="sc">%&gt;%</span></span>
+<span id="cb316-3"><a href="module-2.html#cb316-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb316-4"><a href="module-2.html#cb316-4" tabindex="-1"></a>    <span class="at">Richness =</span> <span class="fu">mean</span>(Observed_Richness),</span>
+<span id="cb316-5"><a href="module-2.html#cb316-5" tabindex="-1"></a>    <span class="at">Shannon =</span> <span class="fu">mean</span>(Shannon),</span>
+<span id="cb316-6"><a href="module-2.html#cb316-6" tabindex="-1"></a>    <span class="at">Simpson =</span> <span class="fu">mean</span>(Simpson),</span>
+<span id="cb316-7"><a href="module-2.html#cb316-7" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb316-8"><a href="module-2.html#cb316-8" tabindex="-1"></a>  )</span>
+<span id="cb316-9"><a href="module-2.html#cb316-9" tabindex="-1"></a></span>
+<span id="cb316-10"><a href="module-2.html#cb316-10" tabindex="-1"></a><span class="fu">head</span>(rareified_div_means)</span></code></pre></div>
+<p><img width="645" height="204" alt="image" src="https://github.com/user-attachments/assets/fac89069-21f7-466f-b7be-b91258964d17" /></p>
+</div>
+<div id="testing-for-differences-in-alpha-diversity" class="section level3 hasAnchor">
+<h3>Testing for differences in alpha diversity<a href="module-2.html#testing-for-differences-in-alpha-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, combine the mean diversity estimates with the sample metadata.</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="module-2.html#cb317-1" tabindex="-1"></a>metadata_div <span class="ot">&lt;-</span> rareified_div_means <span class="sc">%&gt;%</span></span>
+<span id="cb317-2"><a href="module-2.html#cb317-2" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb317-3"><a href="module-2.html#cb317-3" tabindex="-1"></a>    metadata,</span>
+<span id="cb317-4"><a href="module-2.html#cb317-4" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">&quot;Sample&quot;</span></span>
+<span id="cb317-5"><a href="module-2.html#cb317-5" tabindex="-1"></a>  )</span>
+<span id="cb317-6"><a href="module-2.html#cb317-6" tabindex="-1"></a></span>
+<span id="cb317-7"><a href="module-2.html#cb317-7" tabindex="-1"></a><span class="fu">head</span>(metadata_div)</span></code></pre></div>
+<p>We can visualize Shannon diversity across sample categories.</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="module-2.html#cb318-1" tabindex="-1"></a>metadata_div <span class="sc">%&gt;%</span></span>
+<span id="cb318-2"><a href="module-2.html#cb318-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> Shannon)) <span class="sc">+</span></span>
+<span id="cb318-3"><a href="module-2.html#cb318-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb318-4"><a href="module-2.html#cb318-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb318-5"><a href="module-2.html#cb318-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb318-6"><a href="module-2.html#cb318-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Sample category&quot;</span>,</span>
+<span id="cb318-7"><a href="module-2.html#cb318-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Mean Shannon diversity&quot;</span></span>
+<span id="cb318-8"><a href="module-2.html#cb318-8" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img width="1400" height="865" alt="image" src="https://github.com/user-attachments/assets/2d370ee8-a652-4e38-81f7-5675608fd7df" /></p>
+<p>We can test for a difference in Shannon diversity between categories using a Wilcoxon rank-sum test.</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="module-2.html#cb319-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(</span>
+<span id="cb319-2"><a href="module-2.html#cb319-2" tabindex="-1"></a>  Shannon <span class="sc">~</span> category,</span>
+<span id="cb319-3"><a href="module-2.html#cb319-3" tabindex="-1"></a>  <span class="at">data =</span> metadata_div</span>
+<span id="cb319-4"><a href="module-2.html#cb319-4" tabindex="-1"></a>)</span></code></pre></div>
+<p>The test indicates whether Shannon diversity differs significantly between the sample categories.</p>
+<p><strong>Try this on your own:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create boxplots for observed richness and Simpson diversity.</li>
+<li>Perform Wilcoxon tests to compare these metrics between sample categories.</li>
+</ol>
+</div>
+</div>
+<div id="beta-diversity" class="section level2 hasAnchor">
+<h2>Beta Diversity<a href="module-2.html#beta-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Beta diversity describes differences in community composition among samples. In microbiome research, beta diversity is often used to test whether the overall microbial community composition differs between groups.</p>
+<div id="calculating-distance-and-dissimilarity-metrics" class="section level3 hasAnchor">
+<h3>Calculating Distance and Dissimilarity Metrics<a href="module-2.html#calculating-distance-and-dissimilarity-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Several distance and dissimilarity metrics can be calculated from a microbiome feature table. Different metrics emphasize different aspects of community composition.</p>
+<p>In this section, we will introduce:</p>
+<ul>
+<li>Jaccard distance</li>
+<li>Bray–Curtis dissimilarity</li>
+<li>Weighted UniFrac distance</li>
+</ul>
+</div>
+<div id="jaccard-distance" class="section level3 hasAnchor">
+<h3>Jaccard Distance<a href="module-2.html#jaccard-distance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Jaccard distance is based on the presence or absence of features. It measures differences in community membership while ignoring the relative abundance of each feature.</p>
+<p>We can calculate Jaccard distance using the <code>vegan</code> package. Here, <code>avgdist()</code> calculates an average distance across repeated subsampling events. As such, we need to specify the sampling depth determined above.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="module-2.html#cb320-1" tabindex="-1"></a><span class="co"># x is the feature table</span></span>
+<span id="cb320-2"><a href="module-2.html#cb320-2" tabindex="-1"></a><span class="co"># sample is the sampling depth</span></span>
+<span id="cb320-3"><a href="module-2.html#cb320-3" tabindex="-1"></a><span class="co"># dmethod is the distance/dissimilarity method</span></span>
+<span id="cb320-4"><a href="module-2.html#cb320-4" tabindex="-1"></a></span>
+<span id="cb320-5"><a href="module-2.html#cb320-5" tabindex="-1"></a>jaccard_dist <span class="ot">&lt;-</span> <span class="fu">avgdist</span>(</span>
+<span id="cb320-6"><a href="module-2.html#cb320-6" tabindex="-1"></a>  <span class="at">x =</span> counts_no_taxa_t,</span>
+<span id="cb320-7"><a href="module-2.html#cb320-7" tabindex="-1"></a>  <span class="at">sample =</span> min_depth,</span>
+<span id="cb320-8"><a href="module-2.html#cb320-8" tabindex="-1"></a>  <span class="at">dmethod =</span> <span class="st">&quot;jaccard&quot;</span></span>
+<span id="cb320-9"><a href="module-2.html#cb320-9" tabindex="-1"></a>)</span>
+<span id="cb320-10"><a href="module-2.html#cb320-10" tabindex="-1"></a></span>
+<span id="cb320-11"><a href="module-2.html#cb320-11" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as.matrix</span>(jaccard_dist))</span></code></pre></div>
+<p><strong>Question:</strong> Why is the diagonal all 0s?</p>
+</div>
+<div id="principal-coordinates-analysis" class="section level3 hasAnchor">
+<h3>Principal Coordinates Analysis<a href="module-2.html#principal-coordinates-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use principal coordinates analysis (PCoA) to visualize differences among samples based on the Jaccard distance matrix.</p>
+<p>We will do this using the <code>cmdscale()</code> function.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="module-2.html#cb321-1" tabindex="-1"></a>jaccard_pcoa <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(</span>
+<span id="cb321-2"><a href="module-2.html#cb321-2" tabindex="-1"></a>  jaccard_dist,</span>
+<span id="cb321-3"><a href="module-2.html#cb321-3" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">4</span>,</span>
+<span id="cb321-4"><a href="module-2.html#cb321-4" tabindex="-1"></a>  <span class="at">eig =</span> <span class="cn">TRUE</span></span>
+<span id="cb321-5"><a href="module-2.html#cb321-5" tabindex="-1"></a>)</span>
+<span id="cb321-6"><a href="module-2.html#cb321-6" tabindex="-1"></a></span>
+<span id="cb321-7"><a href="module-2.html#cb321-7" tabindex="-1"></a><span class="co"># Calculate the percentage of variation explained by the first two axes.</span></span>
+<span id="cb321-8"><a href="module-2.html#cb321-8" tabindex="-1"></a><span class="co"># Variation explained is the component eigenvalue divided by the sum of</span></span>
+<span id="cb321-9"><a href="module-2.html#cb321-9" tabindex="-1"></a><span class="co"># all positive eigenvalues across each component.</span></span>
+<span id="cb321-10"><a href="module-2.html#cb321-10" tabindex="-1"></a></span>
+<span id="cb321-11"><a href="module-2.html#cb321-11" tabindex="-1"></a>positive_eigenvalues <span class="ot">&lt;-</span> jaccard_pcoa<span class="sc">$</span>eig[</span>
+<span id="cb321-12"><a href="module-2.html#cb321-12" tabindex="-1"></a>  jaccard_pcoa<span class="sc">$</span>eig <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb321-13"><a href="module-2.html#cb321-13" tabindex="-1"></a>]</span>
+<span id="cb321-14"><a href="module-2.html#cb321-14" tabindex="-1"></a></span>
+<span id="cb321-15"><a href="module-2.html#cb321-15" tabindex="-1"></a>pc1_percent <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> jaccard_pcoa<span class="sc">$</span>eig[<span class="dv">1</span>] <span class="sc">/</span></span>
+<span id="cb321-16"><a href="module-2.html#cb321-16" tabindex="-1"></a>  <span class="fu">sum</span>(positive_eigenvalues)</span>
+<span id="cb321-17"><a href="module-2.html#cb321-17" tabindex="-1"></a></span>
+<span id="cb321-18"><a href="module-2.html#cb321-18" tabindex="-1"></a>pc2_percent <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> jaccard_pcoa<span class="sc">$</span>eig[<span class="dv">2</span>] <span class="sc">/</span></span>
+<span id="cb321-19"><a href="module-2.html#cb321-19" tabindex="-1"></a>  <span class="fu">sum</span>(positive_eigenvalues)</span>
+<span id="cb321-20"><a href="module-2.html#cb321-20" tabindex="-1"></a></span>
+<span id="cb321-21"><a href="module-2.html#cb321-21" tabindex="-1"></a>pc1_percent</span>
+<span id="cb321-22"><a href="module-2.html#cb321-22" tabindex="-1"></a>pc2_percent</span></code></pre></div>
+<p>The coordinates of each sample along the PCoA axes are stored in <code>jaccard_pcoa$points</code>. Before combining these coordinates with the metadata, ensure that the metadata are in the same order as the PCoA results.</p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="module-2.html#cb322-1" tabindex="-1"></a><span class="co"># Set sample names as the row names of the metadata</span></span>
+<span id="cb322-2"><a href="module-2.html#cb322-2" tabindex="-1"></a><span class="fu">rownames</span>(metadata) <span class="ot">&lt;-</span> metadata<span class="sc">$</span>Sample</span>
+<span id="cb322-3"><a href="module-2.html#cb322-3" tabindex="-1"></a></span>
+<span id="cb322-4"><a href="module-2.html#cb322-4" tabindex="-1"></a><span class="co"># Reorder metadata to match the PCoA sample order</span></span>
+<span id="cb322-5"><a href="module-2.html#cb322-5" tabindex="-1"></a>metadata_ordered <span class="ot">&lt;-</span> metadata[</span>
+<span id="cb322-6"><a href="module-2.html#cb322-6" tabindex="-1"></a>  <span class="fu">rownames</span>(jaccard_pcoa<span class="sc">$</span>points),</span>
+<span id="cb322-7"><a href="module-2.html#cb322-7" tabindex="-1"></a>  ,</span>
+<span id="cb322-8"><a href="module-2.html#cb322-8" tabindex="-1"></a>  drop <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb322-9"><a href="module-2.html#cb322-9" tabindex="-1"></a>]</span>
+<span id="cb322-10"><a href="module-2.html#cb322-10" tabindex="-1"></a></span>
+<span id="cb322-11"><a href="module-2.html#cb322-11" tabindex="-1"></a><span class="co"># Create a data frame containing PCoA coordinates and sample categories</span></span>
+<span id="cb322-12"><a href="module-2.html#cb322-12" tabindex="-1"></a>jaccard_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb322-13"><a href="module-2.html#cb322-13" tabindex="-1"></a>  <span class="at">Sample =</span> <span class="fu">rownames</span>(jaccard_pcoa<span class="sc">$</span>points),</span>
+<span id="cb322-14"><a href="module-2.html#cb322-14" tabindex="-1"></a>  <span class="at">PC1 =</span> jaccard_pcoa<span class="sc">$</span>points[, <span class="dv">1</span>],</span>
+<span id="cb322-15"><a href="module-2.html#cb322-15" tabindex="-1"></a>  <span class="at">PC2 =</span> jaccard_pcoa<span class="sc">$</span>points[, <span class="dv">2</span>],</span>
+<span id="cb322-16"><a href="module-2.html#cb322-16" tabindex="-1"></a>  <span class="at">category =</span> metadata_ordered<span class="sc">$</span>category</span>
+<span id="cb322-17"><a href="module-2.html#cb322-17" tabindex="-1"></a>)</span></code></pre></div>
+<p>We can visualize the PCoA results using <code>ggplot2</code>.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="module-2.html#cb323-1" tabindex="-1"></a>jaccard_df <span class="sc">%&gt;%</span></span>
+<span id="cb323-2"><a href="module-2.html#cb323-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb323-3"><a href="module-2.html#cb323-3" tabindex="-1"></a>    <span class="at">x =</span> PC1,</span>
+<span id="cb323-4"><a href="module-2.html#cb323-4" tabindex="-1"></a>    <span class="at">y =</span> PC2,</span>
+<span id="cb323-5"><a href="module-2.html#cb323-5" tabindex="-1"></a>    <span class="at">color =</span> category</span>
+<span id="cb323-6"><a href="module-2.html#cb323-6" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb323-7"><a href="module-2.html#cb323-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb323-8"><a href="module-2.html#cb323-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb323-9"><a href="module-2.html#cb323-9" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb323-10"><a href="module-2.html#cb323-10" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">&quot;PCoA 1 (&quot;</span>, <span class="fu">round</span>(pc1_percent, <span class="dv">2</span>), <span class="st">&quot;%)&quot;</span>),</span>
+<span id="cb323-11"><a href="module-2.html#cb323-11" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">&quot;PCoA 2 (&quot;</span>, <span class="fu">round</span>(pc2_percent, <span class="dv">2</span>), <span class="st">&quot;%)&quot;</span>),</span>
+<span id="cb323-12"><a href="module-2.html#cb323-12" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Category&quot;</span></span>
+<span id="cb323-13"><a href="module-2.html#cb323-13" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img width="1400" height="865" alt="image" src="https://github.com/user-attachments/assets/62cbb594-1a01-45d8-b265-b61603e3c365" /></p>
+</div>
+<div id="permanova" class="section level3 hasAnchor">
+<h3>PERMANOVA<a href="module-2.html#permanova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can test whether community composition differs between sample categories using PERMANOVA, implemented in the <code>adonis2()</code> function.</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="module-2.html#cb324-1" tabindex="-1"></a><span class="fu">adonis2</span>(</span>
+<span id="cb324-2"><a href="module-2.html#cb324-2" tabindex="-1"></a>  jaccard_dist <span class="sc">~</span> category,</span>
+<span id="cb324-3"><a href="module-2.html#cb324-3" tabindex="-1"></a>  <span class="at">data =</span> metadata_ordered,</span>
+<span id="cb324-4"><a href="module-2.html#cb324-4" tabindex="-1"></a>  <span class="at">permutations =</span> <span class="dv">999</span></span>
+<span id="cb324-5"><a href="module-2.html#cb324-5" tabindex="-1"></a>)</span></code></pre></div>
+<p><img width="640" height="201" alt="image" src="https://github.com/user-attachments/assets/99f38971-3332-4d32-8fba-93aaf3732bb7" /></p>
+<p>The PERMANOVA output includes an estimate of the amount of variation explained by sample category and a permutation-based significance test.</p>
+<p>Our results indicate that category explains 25.3% of the total community variance in Jaccard distances.</p>
+</div>
+</div>
+<div id="braycurtis-dissimilarity" class="section level2 hasAnchor">
+<h2>Bray–Curtis Dissimilarity<a href="module-2.html#braycurtis-dissimilarity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bray–Curtis dissimilarity incorporates the relative abundance of features and is commonly used to compare microbial community composition.</p>
+<p>We can calculate Bray–Curtis dissimilarity in the same way we did above for Jaccard by adjusting the <code>dmethod</code> parameter in <code>avgdist()</code>. Try this yourself!</p>
+</div>
+<div id="weighted-unifrac-distance" class="section level2 hasAnchor">
+<h2>Weighted UniFrac Distance<a href="module-2.html#weighted-unifrac-distance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Weighted UniFrac incorporates both feature abundance and phylogenetic relationships among features.</p>
+<p>Calculating weighted UniFrac requires a phylogenetic tree in addition to the feature table and taxonomy information.</p>
+<p>We will therefore load the tree using the <code>ape</code> package.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="module-2.html#cb325-1" tabindex="-1"></a>phylo_tree <span class="ot">&lt;-</span> <span class="fu">read.tree</span>(</span>
+<span id="cb325-2"><a href="module-2.html#cb325-2" tabindex="-1"></a>  <span class="st">&quot;~/workspace/amplicon_data/16S_Blueberry/final_output_exported/tree.nwk&quot;</span></span>
+<span id="cb325-3"><a href="module-2.html#cb325-3" tabindex="-1"></a>)</span>
+<span id="cb325-4"><a href="module-2.html#cb325-4" tabindex="-1"></a></span>
+<span id="cb325-5"><a href="module-2.html#cb325-5" tabindex="-1"></a>phylo_tree</span></code></pre></div>
+<p>Next, we can calculate the weighted UniFrac distance of a feature table and its accompanying phylogenetic tree using <code>GUniFrac()</code>.</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="module-2.html#cb326-1" tabindex="-1"></a><span class="co"># This function calculates multiple UniFrac distances based on an alpha parameter.</span></span>
+<span id="cb326-2"><a href="module-2.html#cb326-2" tabindex="-1"></a><span class="co"># The alpha parameter controls how abundance is weighted during the UniFrac calculation.</span></span>
+<span id="cb326-3"><a href="module-2.html#cb326-3" tabindex="-1"></a><span class="co"># Below, we will explore the traditional weighted UniFrac value.</span></span>
+<span id="cb326-4"><a href="module-2.html#cb326-4" tabindex="-1"></a><span class="co"># Feel free to explore the other values as well.</span></span>
+<span id="cb326-5"><a href="module-2.html#cb326-5" tabindex="-1"></a></span>
+<span id="cb326-6"><a href="module-2.html#cb326-6" tabindex="-1"></a>unifracs <span class="ot">&lt;-</span> <span class="fu">GUniFrac</span>(</span>
+<span id="cb326-7"><a href="module-2.html#cb326-7" tabindex="-1"></a>  counts_no_taxa_t_rare,</span>
+<span id="cb326-8"><a href="module-2.html#cb326-8" tabindex="-1"></a>  <span class="at">tree =</span> phylo_tree</span>
+<span id="cb326-9"><a href="module-2.html#cb326-9" tabindex="-1"></a>)<span class="sc">$</span>unifracs</span>
+<span id="cb326-10"><a href="module-2.html#cb326-10" tabindex="-1"></a></span>
+<span id="cb326-11"><a href="module-2.html#cb326-11" tabindex="-1"></a>w_unifrac <span class="ot">&lt;-</span> unifracs[, , <span class="st">&quot;d_1&quot;</span>]</span></code></pre></div>
+<p>We can now complete both PCoA visualization and PERMANOVA testing in the same manner as we did previously.</p>
+<p><strong>Try to write the code out yourself!</strong></p>
+</div>
+<div id="differential-abundance-testing-with-maaslin3" class="section level2 hasAnchor">
+<h2>Differential Abundance Testing with MaAsLin3<a href="module-2.html#differential-abundance-testing-with-maaslin3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>MaAsLin3 can be used to identify microbial features whose abundances or prevalences are associated with sample metadata variables.</p>
+<p>Before running MaAsLin3, ensure that:</p>
+<ul>
+<li>The feature table contains samples as rows and features as columns.</li>
+<li>The metadata table contains samples as rows.</li>
+<li>Sample identifiers match between the feature table and metadata.</li>
+<li>Features with extremely low prevalence or abundance have been removed if appropriate.</li>
+<li>The metadata variables have the correct data types.</li>
+</ul>
+<p>The first step in MaAsLin3 is to calculate the read depth of each sample. This is done to control for differences in read depth without the need for rarefaction.</p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="module-2.html#cb327-1" tabindex="-1"></a><span class="co"># Read depth is equal to the total number of reads detected</span></span>
+<span id="cb327-2"><a href="module-2.html#cb327-2" tabindex="-1"></a>read_depths <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb327-3"><a href="module-2.html#cb327-3" tabindex="-1"></a>  <span class="at">Sample =</span> <span class="fu">rownames</span>(counts_no_taxa_t),</span>
+<span id="cb327-4"><a href="module-2.html#cb327-4" tabindex="-1"></a>  <span class="at">read_depth =</span> <span class="fu">rowSums</span>(counts_no_taxa_t)</span>
+<span id="cb327-5"><a href="module-2.html#cb327-5" tabindex="-1"></a>)</span>
+<span id="cb327-6"><a href="module-2.html#cb327-6" tabindex="-1"></a></span>
+<span id="cb327-7"><a href="module-2.html#cb327-7" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> metadata <span class="sc">%&gt;%</span></span>
+<span id="cb327-8"><a href="module-2.html#cb327-8" tabindex="-1"></a>  <span class="fu">left_join</span>(read_depths)</span>
+<span id="cb327-9"><a href="module-2.html#cb327-9" tabindex="-1"></a></span>
+<span id="cb327-10"><a href="module-2.html#cb327-10" tabindex="-1"></a><span class="co"># MaAsLin3 requires metadata row names to be the sample names</span></span>
+<span id="cb327-11"><a href="module-2.html#cb327-11" tabindex="-1"></a><span class="fu">rownames</span>(metadata) <span class="ot">&lt;-</span> metadata<span class="sc">$</span>Sample</span>
+<span id="cb327-12"><a href="module-2.html#cb327-12" tabindex="-1"></a></span>
+<span id="cb327-13"><a href="module-2.html#cb327-13" tabindex="-1"></a>maas_results <span class="ot">&lt;-</span> maaslin3<span class="sc">::</span><span class="fu">maaslin3</span>(</span>
+<span id="cb327-14"><a href="module-2.html#cb327-14" tabindex="-1"></a>  <span class="at">input_data =</span> counts_no_taxa_t,</span>
+<span id="cb327-15"><a href="module-2.html#cb327-15" tabindex="-1"></a>  <span class="at">input_metadata =</span> metadata,</span>
+<span id="cb327-16"><a href="module-2.html#cb327-16" tabindex="-1"></a>  <span class="at">output =</span> <span class="st">&quot;~/workspace/amplicon_data/16S_Blueberry/maaslin3_out&quot;</span>,</span>
+<span id="cb327-17"><a href="module-2.html#cb327-17" tabindex="-1"></a>  <span class="at">formula =</span> <span class="st">&quot;~ category + read_depth&quot;</span>,</span>
+<span id="cb327-18"><a href="module-2.html#cb327-18" tabindex="-1"></a>  <span class="at">normalization =</span> <span class="st">&quot;TSS&quot;</span>,</span>
+<span id="cb327-19"><a href="module-2.html#cb327-19" tabindex="-1"></a>  <span class="at">transform =</span> <span class="st">&quot;LOG&quot;</span>,</span>
+<span id="cb327-20"><a href="module-2.html#cb327-20" tabindex="-1"></a>  <span class="at">max_pngs =</span> <span class="dv">100</span></span>
+<span id="cb327-21"><a href="module-2.html#cb327-21" tabindex="-1"></a>)</span></code></pre></div>
+<p>We can now look at the summary heatmap (you can navigate to this in the bottom right “Files” panel in R Studio).</p>
+<p><img width="3800" height="3330" alt="image" src="https://github.com/user-attachments/assets/8426fa99-af4c-4df7-af8e-6fdb55fcdf43" /></p>
+<p>The color of the dots indicates significance, whereas their placement on the x-axis shows the magnitude of the effect. As expected with our small dataset of 10 samples, we found no significant features.</p>
+<p>We can also examine the results table by opening the saved <code>.tsv</code> file with Excel or by examining the saved variables in the current R session.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="module-2.html#cb328-1" tabindex="-1"></a><span class="co"># Prevalence results</span></span>
+<span id="cb328-2"><a href="module-2.html#cb328-2" tabindex="-1"></a><span class="fu">head</span>(maas_results<span class="sc">$</span>fit_data_prevalence<span class="sc">$</span>results)</span></code></pre></div>
+<p><img width="753" height="227" alt="image" src="https://github.com/user-attachments/assets/c26fa047-0b86-4e15-b372-015c277f0404" /></p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="module-2.html#cb329-1" tabindex="-1"></a><span class="fu">head</span>(maas_results<span class="sc">$</span>fit_data_abundance<span class="sc">$</span>results)</span></code></pre></div>
+<div id="explanation-of-maaslin3-outputs" class="section level3 hasAnchor">
+<h3>Explanation of MaAsLin3 Outputs<a href="module-2.html#explanation-of-maaslin3-outputs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A full explanation of the outputs is provided below.</p>
+<div id="data-output-files" class="section level4 hasAnchor">
+<h4>1. Data Output Files<a href="module-2.html#data-output-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong><code>all_results.tsv</code></strong>
+<ul>
+<li><code>feature</code> and <code>metadata</code> are the feature and metadata names.</li>
+<li><code>value</code> and <code>name</code> are the value of the metadata and variable name from the model.</li>
+<li><code>coef</code> and <code>stderr</code> are the fit coefficient and standard error from the model.</li>
+<li>In abundance models, a one-unit change in the metadata variable corresponds to a <code>2^coef</code> fold change in the relative abundance of the feature.</li>
+<li>In prevalence models, a one-unit change in the metadata variable corresponds to a <code>coef</code> change in the log-odds of a feature being present.</li>
+<li><code>null_hypothesis</code> is the value of the null hypothesis against which the coefficient is tested.</li>
+<li><code>pval_individual</code> is the p-value of the individual association.</li>
+<li><code>qval_individual</code> is the false discovery rate-corrected q-value of the individual association.</li>
+<li>FDR correction is performed over all p-values without errors in the abundance and prevalence modeling together.</li>
+<li><code>pval_joint</code> and <code>qval_joint</code> are the p-value and q-value of the joint prevalence and abundance association.</li>
+<li>The joint p-value comes from plugging the minimum of the association’s abundance and prevalence p-values into the Beta(1,2) cumulative distribution function.</li>
+<li><code>error</code> lists any errors from the model fitting.</li>
+<li><code>model</code> specifies whether the association is abundance or prevalence.</li>
+<li><code>N</code> and <code>N_not_zero</code> are the total number of data points and the total number of non-zero data points for the feature.</li>
+</ul></li>
+<li><strong><code>significant_results.tsv</code></strong>
+<ul>
+<li>This file is a subset of the results in <code>all_results.tsv</code>.</li>
+<li>It only includes associations with joint or individual q-values less than or equal to the significance threshold.</li>
+</ul></li>
+<li><strong><code>features</code></strong>
+<ul>
+<li>This folder includes the filtered, normalized, and transformed versions of the input feature table.</li>
+<li>These steps are performed sequentially in the above order.</li>
+<li>If an option is set such that a step does not change the data, the resulting table will still be output.</li>
+</ul></li>
+<li><strong><code>models_linear.rds</code> and <code>models_logistic.rds</code></strong>
+<ul>
+<li>These files contain a list with every model fit object.</li>
+<li>They are generated only if <code>save_models</code> is set to <code>TRUE</code>.</li>
+</ul></li>
+<li><strong><code>residuals_linear.rds</code> and <code>residuals_logistic.rds</code></strong>
+<ul>
+<li>These files contain a data frame with residuals for each feature.</li>
+</ul></li>
+<li><strong><code>fitted_linear.rds</code> and <code>fitted_logistic.rds</code></strong>
+<ul>
+<li>These files contain a data frame with fitted values for each feature.</li>
+</ul></li>
+<li><strong><code>ranef_linear.rds</code> and <code>ranef_logistic.rds</code></strong>
+<ul>
+<li>These files contain a data frame with extracted random effects for each feature when random effects are specified.</li>
+</ul></li>
+<li><strong><code>maaslin3.log</code></strong>
+<ul>
+<li>This file contains all log information for the run.</li>
+<li>It includes all settings, warnings, errors, and steps run.</li>
+</ul></li>
+</ul>
+</div>
+<div id="visualization-output-files" class="section level4 hasAnchor">
+<h4>2. Visualization Output Files<a href="module-2.html#visualization-output-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong><code>summary_plot.pdf</code></strong>
+<ul>
+<li>This file contains a combined coefficient plot and heatmap of the most significant associations.</li>
+<li>In the heatmap, one star indicates that the individual q-value is below the <code>max_significance</code> parameter.</li>
+<li>Two stars indicate that the individual q-value is below <code>max_significance / 10</code>.</li>
+</ul></li>
+<li><strong><code>association_plots/[metadatum]/[association]/[metadatum]_[feature]_[association].png</code></strong>
+<ul>
+<li>A plot is generated for each significant association up to <code>max_pngs</code>.</li>
+<li>Scatter plots are used for continuous metadata abundance associations.</li>
+<li>Box plots are used for categorical metadata abundance associations.</li>
+<li>Box plots are used for continuous metadata prevalence associations.</li>
+<li>Grids are used for categorical metadata prevalence associations.</li>
+<li>Data points plotted are after filtering, normalization, and transformation, so the scale in the plot is the scale used during model fitting.</li>
+</ul></li>
+</ul>
+<p>At the top right of each association plot is the name of the significant association in the results file, the FDR-corrected q-value for the individual association, the number of samples in the dataset, and the number of samples with non-zero abundances for the feature.</p>
+<p>In plots with categorical metadata variables, the reference category is on the left. The significant q-values and coefficients in the top right are in the order of the values specified above.</p>
+<p>Because the displayed coefficients correspond to the full fitted model with potentially scaled metadata variables, the marginal association plotted might not match the coefficient displayed. However, the plots are intended to provide an interpretable visual while usually agreeing with the full model.</p>
+</div>
+</div>
+</div>
+<div id="if-there-is-time" class="section level2 hasAnchor">
+<h2>If There Is Time<a href="module-2.html#if-there-is-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="collapsing-tables-by-taxa" class="section level3 hasAnchor">
+<h3>Collapsing Tables by Taxa<a href="module-2.html#collapsing-tables-by-taxa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What happens if you want to run a differential abundance analysis at a level other than the ASV level?</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="module-2.html#cb330-1" tabindex="-1"></a><span class="co">#define the taxonomic hierarchy</span></span>
+<span id="cb330-2"><a href="module-2.html#cb330-2" tabindex="-1"></a>taxa_order <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb330-3"><a href="module-2.html#cb330-3" tabindex="-1"></a>  <span class="st">&quot;Domain&quot;</span>,</span>
+<span id="cb330-4"><a href="module-2.html#cb330-4" tabindex="-1"></a>  <span class="st">&quot;Phylum&quot;</span>,</span>
+<span id="cb330-5"><a href="module-2.html#cb330-5" tabindex="-1"></a>  <span class="st">&quot;Class&quot;</span>,</span>
+<span id="cb330-6"><a href="module-2.html#cb330-6" tabindex="-1"></a>  <span class="st">&quot;Order&quot;</span>,</span>
+<span id="cb330-7"><a href="module-2.html#cb330-7" tabindex="-1"></a>  <span class="st">&quot;Family&quot;</span>,</span>
+<span id="cb330-8"><a href="module-2.html#cb330-8" tabindex="-1"></a>  <span class="st">&quot;Genus&quot;</span>,</span>
+<span id="cb330-9"><a href="module-2.html#cb330-9" tabindex="-1"></a>  <span class="st">&quot;Species&quot;</span></span>
+<span id="cb330-10"><a href="module-2.html#cb330-10" tabindex="-1"></a>)</span>
+<span id="cb330-11"><a href="module-2.html#cb330-11" tabindex="-1"></a></span>
+<span id="cb330-12"><a href="module-2.html#cb330-12" tabindex="-1"></a><span class="co">#save the sample names</span></span>
+<span id="cb330-13"><a href="module-2.html#cb330-13" tabindex="-1"></a>Samples <span class="ot">&lt;-</span> metadata<span class="sc">$</span>Sample</span>
+<span id="cb330-14"><a href="module-2.html#cb330-14" tabindex="-1"></a></span>
+<span id="cb330-15"><a href="module-2.html#cb330-15" tabindex="-1"></a><span class="co">#split the taxonomy column by &quot;;&quot; into the taxonomic order we defined above.</span></span>
+<span id="cb330-16"><a href="module-2.html#cb330-16" tabindex="-1"></a>counts_taxa_split <span class="ot">&lt;-</span> <span class="fu">separate</span>(</span>
+<span id="cb330-17"><a href="module-2.html#cb330-17" tabindex="-1"></a>  counts,</span>
+<span id="cb330-18"><a href="module-2.html#cb330-18" tabindex="-1"></a>  <span class="at">col =</span> taxonomy,</span>
+<span id="cb330-19"><a href="module-2.html#cb330-19" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>,</span>
+<span id="cb330-20"><a href="module-2.html#cb330-20" tabindex="-1"></a>  <span class="at">into =</span> taxa_order</span>
+<span id="cb330-21"><a href="module-2.html#cb330-21" tabindex="-1"></a>)</span>
+<span id="cb330-22"><a href="module-2.html#cb330-22" tabindex="-1"></a></span>
+<span id="cb330-23"><a href="module-2.html#cb330-23" tabindex="-1"></a><span class="co"># Aggregate counts by Genus</span></span>
+<span id="cb330-24"><a href="module-2.html#cb330-24" tabindex="-1"></a>counts_by_genus <span class="ot">&lt;-</span> counts_taxa_split <span class="sc">%&gt;%</span></span>
+<span id="cb330-25"><a href="module-2.html#cb330-25" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb330-26"><a href="module-2.html#cb330-26" tabindex="-1"></a>    <span class="co"># If Genus is empty, set it to unclassified</span></span>
+<span id="cb330-27"><a href="module-2.html#cb330-27" tabindex="-1"></a>    <span class="at">Genus =</span> <span class="fu">if_else</span>(</span>
+<span id="cb330-28"><a href="module-2.html#cb330-28" tabindex="-1"></a>      <span class="fu">is.na</span>(Genus) <span class="sc">|</span> Genus <span class="sc">==</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb330-29"><a href="module-2.html#cb330-29" tabindex="-1"></a>      <span class="st">&quot;Unclassified&quot;</span>,</span>
+<span id="cb330-30"><a href="module-2.html#cb330-30" tabindex="-1"></a>      Genus</span>
+<span id="cb330-31"><a href="module-2.html#cb330-31" tabindex="-1"></a>    )</span>
+<span id="cb330-32"><a href="module-2.html#cb330-32" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb330-33"><a href="module-2.html#cb330-33" tabindex="-1"></a>  <span class="fu">group_by</span>(Genus) <span class="sc">%&gt;%</span></span>
+<span id="cb330-34"><a href="module-2.html#cb330-34" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb330-35"><a href="module-2.html#cb330-35" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb330-36"><a href="module-2.html#cb330-36" tabindex="-1"></a>      <span class="at">.cols =</span> <span class="fu">all_of</span>(Samples),</span>
+<span id="cb330-37"><a href="module-2.html#cb330-37" tabindex="-1"></a>      <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">sum</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb330-38"><a href="module-2.html#cb330-38" tabindex="-1"></a>    ),</span>
+<span id="cb330-39"><a href="module-2.html#cb330-39" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb330-40"><a href="module-2.html#cb330-40" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb330-41"><a href="module-2.html#cb330-41" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb330-42"><a href="module-2.html#cb330-42" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb330-43"><a href="module-2.html#cb330-43" tabindex="-1"></a>    <span class="at">check.rows =</span> <span class="cn">FALSE</span></span>
+<span id="cb330-44"><a href="module-2.html#cb330-44" tabindex="-1"></a>  )</span>
+<span id="cb330-45"><a href="module-2.html#cb330-45" tabindex="-1"></a></span>
+<span id="cb330-46"><a href="module-2.html#cb330-46" tabindex="-1"></a><span class="co"># Add genus names as the row names</span></span>
+<span id="cb330-47"><a href="module-2.html#cb330-47" tabindex="-1"></a><span class="fu">rownames</span>(counts_by_genus) <span class="ot">&lt;-</span> counts_by_genus<span class="sc">$</span>Genus</span>
+<span id="cb330-48"><a href="module-2.html#cb330-48" tabindex="-1"></a></span>
+<span id="cb330-49"><a href="module-2.html#cb330-49" tabindex="-1"></a><span class="co"># Remove the genus column</span></span>
+<span id="cb330-50"><a href="module-2.html#cb330-50" tabindex="-1"></a>counts_by_genus <span class="ot">&lt;-</span> counts_by_genus[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb330-51"><a href="module-2.html#cb330-51" tabindex="-1"></a></span>
+<span id="cb330-52"><a href="module-2.html#cb330-52" tabindex="-1"></a><span class="co"># Flip the table so samples are rows and genera are columns</span></span>
+<span id="cb330-53"><a href="module-2.html#cb330-53" tabindex="-1"></a>counts_by_genus <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb330-54"><a href="module-2.html#cb330-54" tabindex="-1"></a>  <span class="fu">t</span>(counts_by_genus),</span>
+<span id="cb330-55"><a href="module-2.html#cb330-55" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb330-56"><a href="module-2.html#cb330-56" tabindex="-1"></a>  <span class="at">check.rows =</span> <span class="cn">FALSE</span></span>
+<span id="cb330-57"><a href="module-2.html#cb330-57" tabindex="-1"></a>)</span></code></pre></div>
+<p>Now that the samples have rows as samples and rows as Genus we can run MaAsLin3 on them to see if any Genera are associated our metadata.</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="module-2.html#cb331-1" tabindex="-1"></a>maas_results <span class="ot">&lt;-</span> maaslin3<span class="sc">::</span><span class="fu">maaslin3</span>(</span>
+<span id="cb331-2"><a href="module-2.html#cb331-2" tabindex="-1"></a>  <span class="at">input_data =</span> counts_by_genus,</span>
+<span id="cb331-3"><a href="module-2.html#cb331-3" tabindex="-1"></a>  <span class="at">input_metadata =</span> metadata,</span>
+<span id="cb331-4"><a href="module-2.html#cb331-4" tabindex="-1"></a>  <span class="at">output =</span> <span class="st">&quot;~/workspace/amplicon_data/16S_Blueberry/maaslin3_out_genus&quot;</span>,</span>
+<span id="cb331-5"><a href="module-2.html#cb331-5" tabindex="-1"></a>  <span class="at">formula =</span> <span class="st">&quot;~ category + read_depth&quot;</span>,</span>
+<span id="cb331-6"><a href="module-2.html#cb331-6" tabindex="-1"></a>  <span class="at">normalization =</span> <span class="st">&quot;TSS&quot;</span>,</span>
+<span id="cb331-7"><a href="module-2.html#cb331-7" tabindex="-1"></a>  <span class="at">transform =</span> <span class="st">&quot;LOG&quot;</span>,</span>
+<span id="cb331-8"><a href="module-2.html#cb331-8" tabindex="-1"></a>  <span class="at">max_pngs =</span> <span class="dv">100</span></span>
+<span id="cb331-9"><a href="module-2.html#cb331-9" tabindex="-1"></a>)</span></code></pre></div>
+<p>Again, you can navigate to the summary plot and it should look like this:</p>
+<p><img width="3549" height="3330" alt="image" src="https://github.com/user-attachments/assets/602dbd31-b68b-487b-947c-13495d52a46f" /></p>
 
+</div>
 </div>
 </div>
             </section>

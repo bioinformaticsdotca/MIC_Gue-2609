@@ -1,7 +1,7 @@
 # Module 2
 
 ## Lecture
-
+<iframe src="https://docs.google.com/presentation/d/1b7lNcO8nBaKF3CA2B9WqUTULOc7p3_an/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab
 
