@@ -20,31 +20,36 @@ This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, S
 
 This module provides a walkthrough of an end-to-end pipeline using the command line interface for the analysis of high-throughput marker gene data. Commonly used marker genes for microbiome analysis include the 16S ribosomal RNA (rRNA) for prokaryotes, 18S rRNA for eukaryotes, and the internal transcribed spacer (ITS) for fungi.
 
-> <i class="fa-solid fa-circle-info"></i> BEFORE YOU START!<br><br>
-> In this tutorial, you can choose between using:<br>
-> **1. 16S dataset from wild blueberry, Vaccinium angustifolium (soil microbiome)**
-> - [Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats](https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R)
-> - [Metagenomic Functional Shifts to Plant Induced Environmental Changes](https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50)
-> 
-> **2. 18S dataset from plastics incubated in a coastal marine environment (plastisphere)**
-> - [Microbial pioneers of plastic colonisation in coastal seawaters](https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050)
-> 
-> **3. ITS2 dataset from stool samples from pregnant women (gut microbiome)**
-> - [Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health](https://gut.bmj.com/content/73/8/1302.long)
-{: .alert .alert-info .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**BEFORE YOU START!**<br><br>
+**1. 16S dataset from wild blueberry, Vaccinium angustifolium (soil microbiome)**
+- [Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats](https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R)
+- [Metagenomic Functional Shifts to Plant Induced Environmental Changes](https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full#B50)
+<br>
+**2. 18S dataset from plastics incubated in a coastal marine environment (plastisphere)**
+- [Microbial pioneers of plastic colonisation in coastal seawaters](https://www.sciencedirect.com/science/article/pii/S0025326X22003836#s0050)
+<br>
+**3. ITS2 dataset from stool samples from pregnant women (gut microbiome)**
+- [Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health](https://gut.bmj.com/content/73/8/1302.long)
+:::
 
 You can jump to one of the below sections for the commands needed for processing each of these amplicons. We recommend choosing one of them - 16S is the most widely used and also allows you to easily generate a phylogenetic tree. If you have never done any amplicon analysis before then we recommend choosing the 16S dataset.
 
 In this module we will cover the basics of marker gene analysis from raw reads to filtered feature table and phylogenetic tree. The pipeline described is embedded in the latest version of QIIME2 (Quantitative Insights into Microbial Ecology version rachis-qiime2-2026.7), which is a popular microbiome bioinformatics platform for microbial ecology built on user-made software packages called plugins that work on QIIME2 artifact or QZA files. Documentation for these plugins can be found in the [QIIME 2 user documentation](https://qiime2.org/), along with tutorials and other useful information. QIIME2 also provides interpretable visualizations that can be accessed by opening any generated QZV files within [QIIME2 View](https://view.qiime2.org/).
 
-> <i class="fa-solid fa-question-circle"></i> Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.
+:::
 
 ## Reminder on logging into the server
 
-> <i class="fa-solid fa-circle-info"></i> Connecting to AWS <br>
-> As a reminder, there are instructions on logging into your instances [here](https://bioinformaticsdotca.github.io/MIC_Gue-2609/awsunix.html).
-{: .alert .alert-info .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Connecting to AWS**<br><br>
+As a reminder, there are instructions on logging into your instances [here](https://bioinformaticsdotca.github.io/MIC_Gue-2609/awsunix.html).
+:::
 
 ## 1. 16S
 
@@ -66,8 +71,10 @@ You should have learnt about conda environments in the pre-work, and here we hav
 conda activate rachis-qiime2-2026.7
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
+:::
 
 ### 1.1. 16S First steps
 
@@ -83,10 +90,11 @@ ls raw_data
 head metadata.tsv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 1:** How many samples are there?<br>
-> **Question 2:** Into what group(s) are the samples classified?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 1:** How many samples are there?<br>
+**Question 2:** Into what group(s) are the samples classified?
+:::
 
 #### 1.1.2. Quality control
 
@@ -97,8 +105,10 @@ Now let's activate the environment with these programs:
 conda activate quality_control
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> Note that we are only going to show this in this module so that we don't repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Note that we are only going to show this in this module so that we don't repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
+:::
 
 First we’ll be running fastqc, and to do that, we’ll first make a directory for the output to go: ```mkdir fastqc_out```
 
@@ -127,8 +137,10 @@ When you’re done looking at this, press `F10` (on a Mac this is `fn`+`F10`) or
 
 Now take a look at one of the .html files in `fastqc_out/` 
 
-> <i class="fa-solid fa-circle-exclamation"></i> Note that you’ll need to download it from http://##.uhn-hpc.ca/ (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Note that you’ll need to download it from http://##.uhn-hpc.ca/ (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
+:::
 
 Next we’ll run multiqc. The name suggests it might be performing QC on multiple files, but it’s actually for combining the output together of multiple files, so we can run it like this:
 
@@ -144,14 +156,15 @@ Now look at `multiqc.html`.
 
 There are some questions here to help you look at the files and interpret these:
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 3:** What is the GC% of the samples?<br>
-> **Question 4:** What % of the samples are duplicate reads? Is this what you expected?<br>
-> **Question 5:** Now look at the Sequence Counts section. Which sample has the most reads?<br>
-> **Question 6:** How many unique and duplicate reads are in the sample with the most reads?<br>
-> **Question 7:** Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
-> **Question 8:** Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and click on the blue “BLAST” button at the bottom of the page.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 3:** What is the GC% of the samples?<br>
+**Question 4:** What % of the samples are duplicate reads? Is this what you expected?<br>
+**Question 5:** Now look at the Sequence Counts section. Which sample has the most reads?<br>
+**Question 6:** How many unique and duplicate reads are in the sample with the most reads?<br>
+**Question 7:** Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
+**Question 8:** Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and click on the blue “BLAST” button at the bottom of the page.
+:::
 
 #### 1.1.5. Import FASTQs as QIIME2 artifact
 
@@ -212,9 +225,10 @@ Here you can see summaries of the numbers of reads in your samples as well as hi
 The interactive quality plot tab shows you the quality across your forward and reverse reads:
 ![](/img/CBW2026_module1_cutadapt_quality_16S.png)
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 9:** What would happen if you ran this exact command on V4/V5-amplified sequences?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 9:** What would happen if you ran this exact command on V4/V5-amplified sequences?
+:::
 
 ### 1.2. 16S Denoising the reads into amplicon sequence variants
 
@@ -253,10 +267,11 @@ qiime demux summarize \
 
 Now open this file in [QIIME2 View](https://view.qiime2.org/) and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 10:** How long are our forward reads? Why are there no reverse reads in our file?<br>
-> **Question 11:** What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 10:** How long are our forward reads? Why are there no reverse reads in our file?<br>
+**Question 11:** What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+:::
 
 #### 1.2.4. Running Deblur
 
@@ -274,9 +289,10 @@ qiime deblur denoise-16S \
   --output-dir deblur_output
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i>
-> This command may take a few minutes to run.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+This command may take a few minutes to run.
+:::
 
 #### 1.2.5. Summarizing Deblur output
 
@@ -290,10 +306,11 @@ qiime feature-table summarize \
     --o-summary deblur_output/deblur_table_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 12:** What is the mean sequencing depth per sample after denoising?<br>
-> **Question 13:** Which sample has the least reads?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 12:** What is the mean sequencing depth per sample after denoising?<br>
+**Question 13:** Which sample has the least reads?
+:::
 
 ### 1.3. 16S Assign taxonomy to ASVs
 
@@ -318,9 +335,11 @@ qiime feature-classifier classify-sklearn \
   --output-dir taxa
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-> You're probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**TERMINATED**<br><br>
+You're probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
+:::
 
 ```
 mkdir taxa
@@ -361,11 +380,12 @@ Filtering the denoised table is an important step of microbiome data analysis. Y
 
 Based on the summary visualization created in step 1.2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 1.2.5 (deblur_table_summary.qzv), multiply it by 0.001, and round to the nearest integer.
 
-> <i class="fa-solid fa-circle-exclamation"></i> <br>
-> So if the mean frequency is 6,669.8:<br>
-> 6,669.8 x 0.001 = 6.6698<br>
-> Rounded to the nearest integer = 7
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+So if the mean frequency is 6,669.8:
+6,669.8 x 0.001 = 6.6698<br>
+Rounded to the nearest integer = 7
+:::
 
 Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):
 
@@ -409,9 +429,10 @@ qiime feature-table summarize \
     --o-summary deblur_output/deblur_table_filt_contam_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 14:** What is the minimum and maximum sequencing depth across all samples?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 14:** What is the minimum and maximum sequencing depth across all samples?
+:::
 
 Happy? Copy a final table.
 
@@ -452,9 +473,12 @@ qiime fragment-insertion sepp \
   --p-threads 4
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-> You're probably going to see the alert telling you that your command was terminated again. :( Again, we don't have enough memory to run this so we'll copy over the output.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**TERMINATED**<br><br>
+You're probably going to see the alert telling you that your command was terminated again. :( Again, we don't have enough memory to run this so we'll copy over the output.
+:::
+
 
 ```
 cp ~/CourseData/amplicon_data/output/16S_Blueberry/final_output/asvs-tree.qza final_output/
@@ -587,8 +611,10 @@ You should have learnt about conda environments in the pre-work, and here we hav
 - `rachis-qiime2-2026.7` - the latest QIIME2 version
 - `quality_control` - an environment containing FastQC and MultiQC, programs that we'll use for quality control of the reads
 
-> <i class="fa-solid fa-circle-exclamation"></i> If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
+:::
 
 ### 2.1. 18S First steps
 
@@ -604,10 +630,11 @@ ls raw_data
 head metadata.tsv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 1:** How many samples are there?<br>
-> **Question 2:** Into what group(s) are the samples classified?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 1:** How many samples are there?<br>
+**Question 2:** Into what group(s) are the samples classified?
+:::
 
 #### 2.1.2. Quality control
 
@@ -618,8 +645,10 @@ Now let's activate the environment with these programs:
 conda activate quality_control
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> Note that we are only going to show this in this module so that we don't repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Note that we are only going to show this in this module so that we don't repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
+:::
 
 First we’ll be running fastqc, and to do that, we’ll first make a directory for the output to go: ```mkdir fastqc_out```
 
@@ -646,8 +675,10 @@ When you’re done looking at this, press `F10` (on a Mac this is `fn`+`F10`) to
 
 Now take a look at one of the .html files in `fastqc_out/` 
 
-> <i class="fa-solid fa-circle-exclamation"></i> Note that you’ll need to download it from http://##.uhn-hpc.ca/ (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Note that you’ll need to download it from http://##.uhn-hpc.ca/ (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
+:::
 
 Next we’ll run multiqc. The name suggests it might be performing QC on multiple files, but it’s actually for combining the output together of multiple files, so we can run it like this:
 
@@ -663,14 +694,15 @@ Now look at `multiqc.html`.
 
 There are some questions here to help you look at the files and interpret these:
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 3:** What is the GC% of the samples?<br>
-> **Question 4:** What % of the samples are duplicate reads? Is this what you expected?<br>
-> **Question 5:** Now look at the Sequence Counts section. Which sample has the most reads?<br>
-> **Question 6:** How many unique and duplicate reads are in the sample with the most reads?<br>
-> **Question 7:** Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
-> **Question 8:** Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and click on the blue “BLAST” button at the bottom of the page.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 3:** What is the GC% of the samples?<br>
+**Question 4:** What % of the samples are duplicate reads? Is this what you expected?<br>
+**Question 5:** Now look at the Sequence Counts section. Which sample has the most reads?<br>
+**Question 6:** How many unique and duplicate reads are in the sample with the most reads?<br>
+**Question 7:** Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
+**Question 8:** Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and click on the blue “BLAST” button at the bottom of the page.
+:::
 
 #### 2.1.5. Import FASTQs as QIIME2 artifact
 
@@ -723,9 +755,11 @@ qiime demux summarize \
   --o-visualization reads_qza/reads_trimmed_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 9:** What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 9:** What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
+:::
+
 
 ### 2.2. 18S Denoising the reads into amplicon sequence variants
 
@@ -764,10 +798,11 @@ qiime demux summarize \
 
 Now open the file in [QIIME2 View](https://view.qiime2.org/) and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 10:** How long are our forward reads? Why are there no reverse reads in our file?<br>
-> **Question 11:** What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 10:** How long are our forward reads? Why are there no reverse reads in our file?<br>
+**Question 11:** What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+:::
 
 #### 2.2.4. Running Deblur
 
@@ -801,9 +836,10 @@ qiime deblur denoise-other \
    --output-dir deblur_output
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i>
-> This command may take a few minutes to run.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+This command may take a few minutes to run.
+:::
 
 #### 2.2.5. Summarizing Deblur output
 
@@ -817,10 +853,11 @@ qiime feature-table summarize \
     --o-summary deblur_output/deblur_table_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 12:** What is the mean sequencing depth per sample after denoising?<br>
-> **Question 13:** Which sample has the least reads?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 12:** What is the mean sequencing depth per sample after denoising?<br>
+**Question 13:** Which sample has the least reads?
+:::
 
 ### 2.3. 18S Assign taxonomy to ASVs
 
@@ -843,9 +880,12 @@ qiime feature-classifier classify-sklearn \
   --output-dir taxa
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-> You're probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**TERMINATED**<br><br>
+You're probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
+:::
+
 
 ```
 mkdir taxa
@@ -890,11 +930,12 @@ Filtering the denoised table is an important step of microbiome data analysis. Y
 
 Based on the summary visualization created in step 2.2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.2.5 (deblur_table_summary.qzv), multiply it by 0.001, and round to the nearest integer.
 
-> <i class="fa-solid fa-circle-exclamation"></i> <br>
-> So if the mean frequency is 6,588.9:<br>
-> 6,588.9 x 0.001 = 6.5889<br>
-> Rounded to the nearest integer = 7
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+So if the mean frequency is 6,588.9:<br>
+6,588.9 x 0.001 = 6.5889<br>
+Rounded to the nearest integer = 7
+:::
 
 Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):
 
@@ -938,9 +979,10 @@ qiime feature-table summarize \
     --o-summary deblur_output/deblur_table_filt_contam_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 14:** What is the minimum and maximum sequencing depth across all samples?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 14:** What is the minimum and maximum sequencing depth across all samples?
+:::
 
 Happy? Copy a final table.
 
@@ -1132,8 +1174,11 @@ You should have learnt about conda environments in the pre-work, and here we hav
 - `rachis-qiime2-2026.7` - the latest QIIME2 version
 - `quality_control` - an environment containing FastQC and MultiQC, programs that we'll use for quality control of the reads
 
-> <i class="fa-solid fa-circle-exclamation"></i> If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+If you get logged off the server at any point, you will need to change back to this directory and reactivate the environment before picking up where you left off!
+:::
+
 
 ### 2.1. ITS First steps
 
@@ -1149,10 +1194,11 @@ ls raw_data
 head metadata.tsv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 1:** How many samples are there?<br>
-> **Question 2:** Into what group(s) are the samples classified?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 1:** How many samples are there?<br>
+**Question 2:** Into what group(s) are the samples classified?
+:::
 
 #### 2.1.2. Quality control
 
@@ -1163,8 +1209,10 @@ Now let's activate the environment with these programs:
 conda activate quality_control
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> Note that we are only going to show this in this module so that we don't repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Note that we are only going to show this in this module so that we don't repeat things in this workshop, but this is something that you would need to do at the start of every analysis!
+:::
 
 First we’ll be running fastqc, and to do that, we’ll first make a directory for the output to go: ```mkdir fastqc_out```
 
@@ -1191,8 +1239,10 @@ When you’re done looking at this, press `F10` (on a Mac this is `fn`+`F10`) to
 
 Now take a look at one of the .html files in `fastqc_out/` 
 
-> <i class="fa-solid fa-circle-exclamation"></i> Note that you’ll need to download it from http://##.uhn-hpc.ca/ (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+Note that you’ll need to download it from http://##.uhn-hpc.ca/ (replace ## with your number!), and if you already have that webpage open, you will need to refresh it.
+:::
 
 Next we’ll run multiqc. The name suggests it might be performing QC on multiple files, but it’s actually for combining the output together of multiple files, so we can run it like this:
 
@@ -1208,14 +1258,15 @@ Now look at `multiqc.html`.
 
 There are some questions here to help you look at the files and interpret these:
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 3:** What is the GC% of the samples?<br>
-> **Question 4:** What % of the samples are duplicate reads? Is this what you expected?<br>
-> **Question 5:** Now look at the Sequence Counts section. Which sample has the most reads?<br>
-> **Question 6:** How many unique and duplicate reads are in the sample with the most reads?<br>
-> **Question 7:** Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
-> **Question 8:** Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and click on the blue “BLAST” button at the bottom of the page.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 3:** What is the GC% of the samples?<br>
+**Question 4:** What % of the samples are duplicate reads? Is this what you expected?<br>
+**Question 5:** Now look at the Sequence Counts section. Which sample has the most reads?<br>
+**Question 6:** How many unique and duplicate reads are in the sample with the most reads?<br>
+**Question 7:** Look at the Sequence Quality Histograms. Do these seem good to you? Why or why not? Does this seem normal?<br>
+**Question 8:** Look at the top overrepresented sequence. If you want to see what it is, paste it into the “Enter accession number(s), gi(s), or FASTA sequence(s)” box [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and click on the blue “BLAST” button at the bottom of the page.
+:::
 
 #### 2.1.5. Import FASTQs as QIIME2 artifact
 
@@ -1268,9 +1319,10 @@ qiime demux summarize \
   --o-visualization reads_qza/reads_trimmed_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 9:** What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 9:** What would happen if you ran this exact command on 16S V4/V5-amplified sequences?
+:::
 
 ### 2.2. ITS Denoising the reads into amplicon sequence variants
 
@@ -1308,10 +1360,11 @@ qiime demux summarize \
 
 Now open the file in [QIIME2 View](https://view.qiime2.org/) and look at the Overview and Interactive Quality Plot tabs to explore your data and answer the following questions.
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 10:** How long are our forward reads? Why are there no reverse reads in our file?<br>
-> **Question 11:** What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 10:** How long are our forward reads? Why are there no reverse reads in our file?<br>
+**Question 11:** What would be a good trim length for our reads? Remember that there are answers at the bottom of the page if you would like to check this.
+:::
 
 #### 2.2.4. Running Deblur
 
@@ -1345,9 +1398,10 @@ qiime deblur denoise-other \
    --output-dir deblur_output
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i>
-> This command may take a few minutes to run.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+This command may take a few minutes to run.
+:::
 
 #### 2.2.5. Summarizing Deblur output
 
@@ -1361,10 +1415,11 @@ qiime feature-table summarize \
     --o-summary deblur_output/deblur_table_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 12:** What is the mean sequencing depth per sample after denoising?<br>
-> **Question 13:** Which sample has the least reads?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 12:** What is the mean sequencing depth per sample after denoising?<br>
+**Question 13:** Which sample has the least reads?
+:::
 
 ### 2.3. ITS Assign taxonomy to ASVs
 
@@ -1387,9 +1442,11 @@ qiime feature-classifier classify-sklearn \
   --output-dir taxa
 ```
 
-> <i class="fa-solid fa-circle-exclamation"></i> TERMINATED<br>
-> You're probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**TERMINATED**<br><br>
+You're probably going to see an alert that tells you your command was terminated. :( Unfortunately we don’t actually have enough memory to run this. Instead, we’ll copy across the output that we would have got.
+:::
 
 ```
 mkdir taxa
@@ -1434,11 +1491,12 @@ Filtering the denoised table is an important step of microbiome data analysis. Y
 
 Based on the summary visualization created in step 2.2.5 above you can choose a cut-off for how frequent a variant needs to be (and optionally how many samples need to have the variant) for it to be retained. Here we will remove all ASVs that have a frequency of less than 0.1% of the mean sample depth. This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). To calculate this cut-off you would identify the mean sample depth in the visualization created in step 2.2.5 (deblur_table_summary.qzv), multiply it by 0.001, and round to the nearest integer.
 
-> <i class="fa-solid fa-circle-exclamation"></i> <br>
-> So if the mean frequency is 62,567.2:<br>
-> 62,567.2 x 0.001 = 62.5672<br>
-> Rounded to the nearest integer = 63
-{: .alert .alert-primary .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+So if the mean frequency is 62,567.2:<br>
+62,567.2 x 0.001 = 62.5672<br>
+Rounded to the nearest integer = 63
+:::
 
 Once you’ve determined how you would like to filter your table you can do so with this command (X is a placeholder for your choice):
 
@@ -1481,9 +1539,10 @@ qiime feature-table summarize \
     --o-summary deblur_output/deblur_table_filt_contam_summary.qzv
 ```
 
-> <i class="fa-solid fa-question-circle"></i><br>
-> **Question 14:** What is the minimum and maximum sequencing depth across all samples?
-{: .alert .alert-success .p-3}
+:::: {.greenbox data-latex=""}
+::: {.center data-latex=""}
+**Question 14:** What is the minimum and maximum sequencing depth across all samples?
+:::
 
 Happy? Copy a final table.
 
