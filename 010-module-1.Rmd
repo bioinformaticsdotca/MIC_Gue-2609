@@ -305,7 +305,7 @@ You can assign taxonomy to your ASVs using a Naive-Bayes approach implemented in
 We're going to use the GTDB classifier today.
 
 ```
-wget https://zenodo.org/records/21619532/files/gtdb-r232.0-2026.7.0-classifier.qza?download=1
+wget https://zenodo.org/records/21619532/files/gtdb-r232.0-2026.7.0-classifier.qza?download=1 -O gtdb-r232.0-2026.7.0-classifier.qza
 ```
 
 You can run the taxonomic classification with this command, which is one of the longest running and most memory-intensive command of the tutorial. If you receive an error related to insufficient memory (and if you cannot increase your memory usage) then you can look into the `--p-reads-per-batch` option and set this to be lower than the default (which is dynamic depending on sample depth and the number of threads) and also try running the command with fewer jobs (e.g. set `--p-n-jobs 1`).
