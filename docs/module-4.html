@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 4 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 4 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -392,6 +392,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lab-3"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#overview-1"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#anvio"><i class="fa fa-check"></i>Anvi’o</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#initial-setup"><i class="fa fa-check"></i>4.1. Initial setup</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#assembly-of-raw-reads-with-megahit"><i class="fa fa-check"></i>4.2. Assembly of raw reads with MEGAHIT</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#make-an-anvio-contigs-databases"><i class="fa fa-check"></i>4.3. Make an Anvi’o contigs databases</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#run-hmms-to-identify-single-copy-genes"><i class="fa fa-check"></i>4.4. Run HMMs to identify single copy genes</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#identify-taxonomy-of-single-copy-genes"><i class="fa fa-check"></i>4.5. Identify taxonomy of single-copy genes</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#map-samples-onto-contigs-with-bowtie2"><i class="fa fa-check"></i>4.6. Map samples onto contigs with Bowtie2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#add-coverage-and-detection-statistics-to-the-anvio-profile"><i class="fa fa-check"></i>Add coverage and detection statistics to the Anvi’o profile</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#merge-sample-profiles"><i class="fa fa-check"></i>Merge sample profiles</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#cluster-contigs-into-bins"><i class="fa fa-check"></i>4.7. Cluster contigs into bins</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#interactive-viewing-of-bins"><i class="fa fa-check"></i>4.8. Interactive viewing of bins</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#if-you-are-using-putty"><i class="fa fa-check"></i>If you are using Putty</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#in-the-browser-anvio-page"><i class="fa fa-check"></i>In the browser Anvi’o page</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#running-the-other-binning-algorithms"><i class="fa fa-check"></i>4.9. Running the other binning algorithms</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#combining-the-clustering-results-with-das-tool"><i class="fa fa-check"></i>4.10. Combining the clustering results with DAS Tool</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#run-gtdb-tk"><i class="fa fa-check"></i>4.11. Run GTDB-tk</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#visualise-our-mags"><i class="fa fa-check"></i>4.12. Visualise our MAGs</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#run-checkm"><i class="fa fa-check"></i>4.13. Run CheckM</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#extras"><i class="fa fa-check"></i>Extras</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#answers-1"><i class="fa fa-check"></i>Answers</a></li>
 </ul></li>
 <li class="divider"></li>
 <h1 id="sponsors">Sponsors</h1>
@@ -429,6 +456,598 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="lab-3" class="section level2 hasAnchor">
 <h2>Lab<a href="module-4.html#lab-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, September 15-17). It is based on the metagenomics workflows available on the <a href="https://microbiomehelper.ca/">Microbiome Helper</a> and is based on previous versions written for the <a href="https://github.com/LangilleLab/microbiome_helper/wiki/CBW%E2%80%90ICG%E2%80%90AMB%E2%80%90Module2">2024 CBW Advanced Microbiome Analysis workshop</a>.</p>
+<p><strong>Author:</strong> Robyn Wright</p>
+</div>
+<div id="overview-1" class="section level2 hasAnchor">
+<h2>Overview<a href="module-4.html#overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The main goal of this tutorial is to introduce students to the assembly of genomes from metagenomic reads (Metagenome Assembled Genomes/MAGs). There is not a one-size-fits-all pipeline for assembling MAGs. MAG assembly is incredibly computationally intensive with a lot of differen options at many steps, and so the approach here is to demonstrate the main steps involved and give you some familiarity with the methods used. At the end of this tutorial we’ve provided a few other pipelines for MAG assembly that you may wish to look into if you are looking to assemble MAGs with your own metagenome data.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.</p>
+</div>
+</div>
+<div id="anvio" class="section level3 hasAnchor">
+<h3>Anvi’o<a href="module-4.html#anvio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://anvio.org/">Anvi’o</a> is an open-source, community-driven <code>an</code>alysis and <code>vi</code>sualization platform for microbial <code>'o</code>mics. It packages together many different tools used for genomics, metagenomics, metatranscriptomics, phylogenomics, etc. and has great interactive visualisations that can be used to help this. We are just touching the surface of what Anvi’o can do today, but the website has great tutorials and learning resources for all of its capabilities - I recommend browsing through to get some inspiration!</p>
+</div>
+</div>
+<div id="initial-setup" class="section level2 hasAnchor">
+<h2>4.1. Initial setup<a href="module-4.html#initial-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hopefully, at the end of module 3 you were able to get MEGAHIT started. If you were, go back into your <code>tmux</code> session to see how it is going: <code>tmux a</code>
+This usually takes about 2 hours to run with this data, so hopefully it is finished now! In any case, go to the next step where I explain what it is that we did there.</p>
+<p>If you didn’t get here, open up your <code>tmux</code> session with <code>tmux a</code> and then activate the environment that we will be using:</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb399-1"><a href="module-4.html#cb399-1" tabindex="-1"></a><span class="ex">conda</span> activate anvio-9</span></code></pre></div>
+<p>Make sure that you are in the <code>workspace/metagenome</code> directory, and then symlink the data that we will be using:</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb400-1"><a href="module-4.html#cb400-1" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> ~/CourseData/metagenome/mapped_matched_fastq .</span></code></pre></div>
+</div>
+<div id="assembly-of-raw-reads-with-megahit" class="section level2 hasAnchor">
+<h2>4.2. Assembly of raw reads with MEGAHIT<a href="module-4.html#assembly-of-raw-reads-with-megahit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The first step in the assembly of MAGs is the assembly of the shorter reads from sequencing into contigs. A contig is a contiguous sequence assembled from a set of sequence fragments, and there are different bioinformatic methods for assembling our reads into contigs. For this part of the tutorial, we are continuing to use reads from the same samples that we used for taxonomic annotation, but we have sub-sampled these to contain reads from only a few species, to ensure that we have the read depth required for MAG assembly while keeping the files small enough to be able to run on these small AWS instances. These are all still short reads of approximately 100 base pairs each.</p>
+<p>We are using a tool called <code>MEGAHIT</code> for this assembly because it allows co-assembly of the reads from multiple samples. This means that rather than the assembly being performed separately for each sample, it is performed on all of the reads from all of the samples at the same time. In this tutorial, we will co-assemble all of the samples together, but in your own analyses you should think about what makes the most sense. Are you expecting microbial taxa to overlap between different samples? Would it make sense to find similar genomes in multiple samples? If you answered “yes” to those questions, then it might be worth thinking about co-assembly. If not, then it is probably worth assembling each sample separately. You may also want to consider assembling the samples from different treatments separately. There are methods for combining the MAGs from samples that were assembled separately into a non-redundant set of MAGs at a defined similarity threshold afterwards.</p>
+<p>Prior to assembling your samples you would usually run quality checks and remove potentially contaminating sequences, but seeing as we skipped that during the Taxonomic annotation tutorial, we will again be skipping that here.</p>
+<p>First, we’ll make a directory for the output to go into:</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb401-1"><a href="module-4.html#cb401-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio</span></code></pre></div>
+<p>Now we’ll run <code>MEGAHIT</code> on our samples:</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb402-1"><a href="module-4.html#cb402-1" tabindex="-1"></a><span class="va">R1</span><span class="op">=</span><span class="va">$(</span> <span class="fu">ls</span> mapped_matched_fastq/<span class="pp">*</span>_R1.fastq <span class="kw">|</span> <span class="fu">tr</span> <span class="st">&#39;\n&#39;</span> <span class="st">&#39;,&#39;</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s/,$//&#39;</span> <span class="va">)</span></span>
+<span id="cb402-2"><a href="module-4.html#cb402-2" tabindex="-1"></a><span class="va">R2</span><span class="op">=</span><span class="va">$(</span> <span class="fu">ls</span> mapped_matched_fastq/<span class="pp">*</span>_R2.fastq <span class="kw">|</span> <span class="fu">tr</span> <span class="st">&#39;\n&#39;</span> <span class="st">&#39;,&#39;</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s/,$//&#39;</span> <span class="va">)</span></span>
+<span id="cb402-3"><a href="module-4.html#cb402-3" tabindex="-1"></a><span class="ex">megahit</span> <span class="at">-1</span> <span class="va">$R1</span> <span class="dt">\</span></span>
+<span id="cb402-4"><a href="module-4.html#cb402-4" tabindex="-1"></a>        <span class="at">-2</span> <span class="va">$R2</span> <span class="dt">\</span></span>
+<span id="cb402-5"><a href="module-4.html#cb402-5" tabindex="-1"></a>        <span class="at">--min-contig-len</span> 1000 <span class="dt">\</span></span>
+<span id="cb402-6"><a href="module-4.html#cb402-6" tabindex="-1"></a>        <span class="at">--num-cpu-threads</span> 8 <span class="dt">\</span></span>
+<span id="cb402-7"><a href="module-4.html#cb402-7" tabindex="-1"></a>        <span class="at">--presets</span> meta-large <span class="dt">\</span></span>
+<span id="cb402-8"><a href="module-4.html#cb402-8" tabindex="-1"></a>        <span class="at">--memory</span> 0.8 <span class="dt">\</span></span>
+<span id="cb402-9"><a href="module-4.html#cb402-9" tabindex="-1"></a>        <span class="at">-o</span> anvio/megahit_out <span class="dt">\</span></span>
+<span id="cb402-10"><a href="module-4.html#cb402-10" tabindex="-1"></a>        <span class="at">--verbose</span></span></code></pre></div>
+<p>The arguments here are:</p>
+<ul>
+<li><code>-1</code> - The forward reads</li>
+<li><code>-2</code> - The reverse reads</li>
+<li><code>--min-contig-len</code> - The minimum length in base pairs for contigs that we want to use - <code>1000</code> is about the minimum length that you will ever want to use, but sometimes people might increase this to e.g. <code>2500</code> or <code>5000</code></li>
+<li><code>--num-cpu-threads</code> - The number of threads to use</li>
+<li><code>--presets</code> - This is for a set of parameters needed within <code>MEGAHIT</code>, and meta-large is suggested for large and complex metagenomes</li>
+<li><code>--memory</code> - The amount of available memory that we want to allow <code>MEGAHIT</code> to use - this means it will use up to 80% of the memory available. Keeping this below 100% just means that we would still be able to use the Amazon instance for other things, and could be important if you’re sharing a server with other people that might also need to be carrying out some work!</li>
+<li><code>-o</code> - The output folder name</li>
+<li><code>--verbose</code> - MEGAHIT will print out what it is doing</li>
+</ul>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>If you just ran this without seeing that we said there wasn’t time unless you started it before lunch, press <code>ctrl</code>+<code>c</code> now.</p>
+</div>
+</div>
+<p>And copy over the output that I already made:</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb403-1"><a href="module-4.html#cb403-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio/megahit_out</span>
+<span id="cb403-2"><a href="module-4.html#cb403-2" tabindex="-1"></a><span class="fu">cp</span> ~/CourseData/metagenome/output/anvio/megahit_out/final.contigs.fa anvio/megahit_out/</span></code></pre></div>
+<p>If you ran it yourself, a step that we’ll often do is removing the intermediate contigs to save space:</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb404-1"><a href="module-4.html#cb404-1" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> anvio/megahit_out/intermediate_contigs</span></code></pre></div>
+<p>The main output at this point is a fasta file containing the contigs <code>anvio/megahit_out/final.contigs.fa</code>. You can take a look at this with the <code>less</code> command if you like (remember to press <code>q</code> to exit this view), and we can also count the number of contigs that we have with <code>grep -c "&gt;" anvio/megahit_out/final.contigs.fa</code>.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 1:</strong> How many contigs are there in the <code>anvio/megahit_out/final.contigs.fa</code> file?</p>
+</div>
+</div>
+</div>
+<div id="make-an-anvio-contigs-databases" class="section level2 hasAnchor">
+<h2>4.3. Make an Anvi’o contigs databases<a href="module-4.html#make-an-anvio-contigs-databases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First of all, we’ll run a script to reformat our final contigs file from <code>MEGAHIT</code>. This ensures that they’re in the right format for reading into Anvi’o in the next step:</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb405-1"><a href="module-4.html#cb405-1" tabindex="-1"></a><span class="ex">anvi-script-reformat-fasta</span> anvio/megahit_out/final.contigs.fa <span class="dt">\</span></span>
+<span id="cb405-2"><a href="module-4.html#cb405-2" tabindex="-1"></a>                               <span class="at">--simplify-names</span> <span class="dt">\</span></span>
+<span id="cb405-3"><a href="module-4.html#cb405-3" tabindex="-1"></a>                               <span class="at">--min-len</span> 2500 <span class="dt">\</span></span>
+<span id="cb405-4"><a href="module-4.html#cb405-4" tabindex="-1"></a>                               <span class="at">-o</span> anvio/megahit_out/final.contigs.fixed.fa</span></code></pre></div>
+<p>Take a quick look at both <code>anvio/megahit_out/final.contigs.fa</code> and <code>anvio/megahit_out/final.contigs.fixed.fa</code> using the <code>less</code> or <code>head</code> commands to see what was changed! You can read more about the <code>anvi-script-reformat-fasta</code> command on <a href="https://anvio.org/help/main/programs/anvi-script-reformat-fasta/">this page</a>. You should be able to see that we’re giving this command a few options (aside from obviously giving it the final.contigs.fa file from the previous step:</p>
+<ul>
+<li><code>--simplify-names</code> - this is simply telling the program to simplify the names of the contigs in the file - you should have seen that in the original anvio/megahit_out/final.contigs.fa file, they had a description as well as a name, and this included information that Anvi’o doesn’t need and may confuse it.</li>
+<li><code>--min-len</code> - although we already used a minimum contig length of <code>1000</code> in the previous step, we’re further filtering here to ensure that we include only the best contigs, as well as reducing the computational time for the next steps.</li>
+<li><code>-o</code> - the name of the output file.</li>
+</ul>
+<p>Now that we’ve prepared the file, we can read this into Anvi’o:</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb406-1"><a href="module-4.html#cb406-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio/anvio_databases</span>
+<span id="cb406-2"><a href="module-4.html#cb406-2" tabindex="-1"></a><span class="ex">anvi-gen-contigs-database</span> <span class="at">-f</span> anvio/megahit_out/final.contigs.fixed.fa <span class="dt">\</span></span>
+<span id="cb406-3"><a href="module-4.html#cb406-3" tabindex="-1"></a>                              <span class="at">-o</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb406-4"><a href="module-4.html#cb406-4" tabindex="-1"></a>                              <span class="at">-n</span> HMP2</span></code></pre></div>
+<p>You can read more about what <code>anvi-gen-contigs-database</code> is doing here, but the key parts of this are:
+- <code>-f</code> - the input file of fixed contigs
+- <code>-o</code> - what the output should be saved as
+- <code>-n</code> - the name we’re giving this contigs database</p>
+<p>Throughout the next steps, we’re going to be adding information to this contigs database.</p>
+</div>
+<div id="run-hmms-to-identify-single-copy-genes" class="section level2 hasAnchor">
+<h2>4.4. Run HMMs to identify single copy genes<a href="module-4.html#run-hmms-to-identify-single-copy-genes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The first thing that we’re going to add to the contigs database is information on the genes within the contigs:</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb407-1"><a href="module-4.html#cb407-1" tabindex="-1"></a><span class="ex">anvi-run-hmms</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb407-2"><a href="module-4.html#cb407-2" tabindex="-1"></a>                              <span class="at">--num-threads</span> 4</span></code></pre></div>
+<p>Because the only arguments we’ve given this are the contigs database (<code>-c</code>) and the number of threads to use (<code>--num-threads</code>), it will run the default Hidden Markov Models (HMMs) within Anvi’o. You can read more about HMMs in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2766791/">this paper</a> if you’re interested, but in short, they are “statistical models that can be describe the evolution of observable events that depend on internal factors, which are not directly observable”. HMMs are often used in computational biology for predicting the function of a gene or protein; we can build HMMs using multiple sequence alignments of genes or proteins known to carry out the same function, and then we can run these HMMs against our protein (amino acid) or gene (DNA) sequences to find other proteins/genes that are likely to carry out this function. You can read about the default HMMs in Anvi’o <a href="https://anvio.org/help/7/artifacts/hmm-source/">here</a>, but they include Bacteria_71 (71 single-copy core genes for the bacterial domain), Archaea_76 (76 single-copy core genes for the archaeal domain), and Protista_83 (83 single-copy core genes for the protists, within the eukaryotic domain).</p>
+<p>If we had our own set of HMMs, or HMMs for specific genes of interest, we could also use these here.</p>
+<p>This next step exports the sequences for all of the genes that we’ve identified using the HMMs to a file called <code>anvio/anvio_databases/gene_calls.fa</code>:</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb408-1"><a href="module-4.html#cb408-1" tabindex="-1"></a><span class="ex">anvi-get-sequences-for-gene-calls</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb408-2"><a href="module-4.html#cb408-2" tabindex="-1"></a>                              <span class="at">-o</span> anvio/anvio_databases/gene_calls.fa</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 2:</strong> How many genes were identified?</p>
+</div>
+</div>
+</div>
+<div id="identify-taxonomy-of-single-copy-genes" class="section level2 hasAnchor">
+<h2>4.5. Identify taxonomy of single-copy genes<a href="module-4.html#identify-taxonomy-of-single-copy-genes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next, we want to add taxonomy informatio to our single-copy core genes (SCGs) in the contigs database. To do this, Anvi’o uses it’s own version of the GTDB database, which we did have to setup before.</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb409-1"><a href="module-4.html#cb409-1" tabindex="-1"></a><span class="ex">anvi-run-scg-taxonomy</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb409-2"><a href="module-4.html#cb409-2" tabindex="-1"></a>                      <span class="at">--num-threads</span> 4</span></code></pre></div>
+</div>
+<div id="map-samples-onto-contigs-with-bowtie2" class="section level2 hasAnchor">
+<h2>4.6. Map samples onto contigs with Bowtie2<a href="module-4.html#map-samples-onto-contigs-with-bowtie2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The next steps are going to generate abundance profiles of our contigs within the samples - these will help us to bin the contigs together into groups that have similar abundance profiles and are therefore likely to come from the same genome.</p>
+<p>The first step here is to build a Bowtie2 database/index of our fixed contigs:</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb410-1"><a href="module-4.html#cb410-1" tabindex="-1"></a><span class="ex">bowtie2-build</span> anvio/megahit_out/final.contigs.fixed.fa anvio/megahit_out/final.contigs.fixed <span class="at">--threads</span> 4</span></code></pre></div>
+<p>You can see that here we just have two positional arguments - the file name for the fasta file that we want to use, and the prefix to use for the Bowtie2 index If you look at the files in <code>anvio/megahit_out/</code> now, you should see six files with this prefix and the file extension <code>.bt2</code>. These files are what Bowtie2 will use in the next steps for mapping the samples to the contigs index.</p>
+<p>Now we’re going to make a file containing all of the sample ID’s that we’re using:</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb411-1"><a href="module-4.html#cb411-1" tabindex="-1"></a><span class="bu">printf</span> <span class="st">&#39;CSM79HR8\nHSM7J4QT\nMSM79HA3\nPSM7J18I\nHSM6XRQY\nHSMA33KE\nMSMB4LXW\nCSM7KOMH\nHSMA33J3\nMSM9VZHR&#39;</span> <span class="op">&gt;</span> sample_ids.txt</span></code></pre></div>
+<p>And then we can use this to loop through each of the samples using a for loop, performing the same actions on the files for each sample:</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb412-1"><a href="module-4.html#cb412-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio/bam_files</span>
+<span id="cb412-2"><a href="module-4.html#cb412-2" tabindex="-1"></a></span>
+<span id="cb412-3"><a href="module-4.html#cb412-3" tabindex="-1"></a><span class="cf">for</span> SAMPLE <span class="kw">in</span> <span class="kw">`</span><span class="fu">awk</span> <span class="st">&#39;{print $1}&#39;</span> sample_ids.txt<span class="kw">`</span></span>
+<span id="cb412-4"><a href="module-4.html#cb412-4" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb412-5"><a href="module-4.html#cb412-5" tabindex="-1"></a></span>
+<span id="cb412-6"><a href="module-4.html#cb412-6" tabindex="-1"></a>    <span class="co"># 1. do the bowtie mapping to get the SAM file:</span></span>
+<span id="cb412-7"><a href="module-4.html#cb412-7" tabindex="-1"></a>    <span class="ex">bowtie2</span> <span class="at">--threads</span> 4 <span class="dt">\</span></span>
+<span id="cb412-8"><a href="module-4.html#cb412-8" tabindex="-1"></a>            <span class="at">-x</span> anvio/megahit_out/final.contigs.fixed <span class="dt">\</span></span>
+<span id="cb412-9"><a href="module-4.html#cb412-9" tabindex="-1"></a>            <span class="at">-1</span> <span class="st">&quot;raw_data/&quot;</span><span class="va">$SAMPLE</span><span class="st">&quot;_R1_subsampled.fastq.gz&quot;</span> <span class="dt">\</span></span>
+<span id="cb412-10"><a href="module-4.html#cb412-10" tabindex="-1"></a>            <span class="at">-2</span> <span class="st">&quot;raw_data/&quot;</span><span class="va">$SAMPLE</span><span class="st">&quot;_R2_subsampled.fastq.gz&quot;</span> <span class="dt">\</span></span>
+<span id="cb412-11"><a href="module-4.html#cb412-11" tabindex="-1"></a>            <span class="at">--no-unal</span> <span class="dt">\</span></span>
+<span id="cb412-12"><a href="module-4.html#cb412-12" tabindex="-1"></a>            <span class="at">-S</span> anvio/bam_files/<span class="va">$SAMPLE</span>.sam</span>
+<span id="cb412-13"><a href="module-4.html#cb412-13" tabindex="-1"></a></span>
+<span id="cb412-14"><a href="module-4.html#cb412-14" tabindex="-1"></a>    <span class="co"># 2. convert the resulting SAM file to a BAM file:</span></span>
+<span id="cb412-15"><a href="module-4.html#cb412-15" tabindex="-1"></a>    <span class="ex">samtools</span> view <span class="at">-F</span> 4 <span class="at">-bS</span> anvio/bam_files/<span class="va">$SAMPLE</span>.sam <span class="op">&gt;</span> anvio/bam_files/<span class="va">$SAMPLE</span>-RAW.bam</span>
+<span id="cb412-16"><a href="module-4.html#cb412-16" tabindex="-1"></a>    </span>
+<span id="cb412-17"><a href="module-4.html#cb412-17" tabindex="-1"></a>    <span class="co"># 3. sort and index the BAM file:</span></span>
+<span id="cb412-18"><a href="module-4.html#cb412-18" tabindex="-1"></a>    <span class="ex">anvi-init-bam</span> anvio/bam_files/<span class="va">$SAMPLE</span>-RAW.bam <span class="at">-o</span> anvio/bam_files/<span class="va">$SAMPLE</span>.bam</span>
+<span id="cb412-19"><a href="module-4.html#cb412-19" tabindex="-1"></a>    </span>
+<span id="cb412-20"><a href="module-4.html#cb412-20" tabindex="-1"></a>    <span class="co"># 4. remove the intermediate BAM file that is no longer needed:</span></span>
+<span id="cb412-21"><a href="module-4.html#cb412-21" tabindex="-1"></a>    <span class="fu">rm</span> anvio/bam_files/<span class="va">$SAMPLE</span>-RAW.bam</span>
+<span id="cb412-22"><a href="module-4.html#cb412-22" tabindex="-1"></a></span>
+<span id="cb412-23"><a href="module-4.html#cb412-23" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>Hopefully you either remember about for loops from the pre-work or you already have some experience with them! Otherwise, I’ll explain them briefly here.</p>
+<p>For loops are an incredibly useful thing that we do in programming - to my knowledge, they exist in every programming language, and they allow us to repeat a section of code many times, with a different input each time. To explain what we are doing above, we can go through this step-by-step. The code is essentially saying that for each of the rows in the <code>sample_ids.txt</code> file, we want to: (1) run Bowtie2, (2) convert the output SAM file from Bowtie2 to a BAM file, (3) sort and index the BAM file, and (4) remove the intermediate BAM file. You can see that we give <code>$SAMPLE</code> in several places, as these parts will change for each of the sample names.</p>
+<p>In each of the steps within the for loop, we are giving several options:<br>
+1. We are running Bowtie2 using the contigs index that we created <code>-x</code>, forward and reverse reads for this sample, <code>-1</code> and <code>-2</code>, and the <code>--no-unal</code> options means it won’t output unaligned reads. We’ll then get <code>-S</code> as the output SAM file. SAM (Sequence Alignment MAP) files are used to store information about sequences aligned to a reference and they have 11 mandatory fields corresponding to various metrics about how well the sequence aligns to the reference. You can read more about them <a href="https://en.wikipedia.org/wiki/SAM_(file_format)">here</a>.<br>
+2. <code>samtools</code> is being used to convert the SAM file to a BAM file. You can see that this uses the <code>view</code> module of samtools, which would by default print the output to the Terminal, but as we’ve added <code>&gt; anvio/bam_files/$SAMPLE-RAW.bam</code>, this tells it to save the output to a file. A BAM (Binary Alignment MAP) file is a compressed, binary version of a SAM file (see more <a href="https://en.wikipedia.org/wiki/Binary_Alignment_Map">here</a>).<br>
+3. The running of <code>anvi-init-bam</code> is fairly straight-forward - we are just giving it the raw BAM file and it is outputting a sorted, reindexed version.<br>
+4. Then we just remove the intermediate BAM file.</p>
+<div id="add-coverage-and-detection-statistics-to-the-anvio-profile" class="section level3 hasAnchor">
+<h3>Add coverage and detection statistics to the Anvi’o profile<a href="module-4.html#add-coverage-and-detection-statistics-to-the-anvio-profile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we’ve created information on the coverage and detection of our contigs within our samples (how abundant they are and whether they appear in every sample or not), we can make Anvi’o profiles with this information:</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb413-1"><a href="module-4.html#cb413-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio/anvio_databases/profiles</span>
+<span id="cb413-2"><a href="module-4.html#cb413-2" tabindex="-1"></a></span>
+<span id="cb413-3"><a href="module-4.html#cb413-3" tabindex="-1"></a><span class="cf">for</span> SAMPLE <span class="kw">in</span> <span class="kw">`</span><span class="fu">awk</span> <span class="st">&#39;{print $1}&#39;</span> sample_ids.txt<span class="kw">`</span></span>
+<span id="cb413-4"><a href="module-4.html#cb413-4" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb413-5"><a href="module-4.html#cb413-5" tabindex="-1"></a></span>
+<span id="cb413-6"><a href="module-4.html#cb413-6" tabindex="-1"></a>    <span class="ex">anvi-profile</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb413-7"><a href="module-4.html#cb413-7" tabindex="-1"></a>                 <span class="at">-i</span> anvio/bam_files/<span class="va">$SAMPLE</span>.bam <span class="dt">\</span></span>
+<span id="cb413-8"><a href="module-4.html#cb413-8" tabindex="-1"></a>                 <span class="at">--num-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb413-9"><a href="module-4.html#cb413-9" tabindex="-1"></a>                 <span class="at">-o</span> anvio/anvio_databases/profiles/<span class="va">$SAMPLE</span></span>
+<span id="cb413-10"><a href="module-4.html#cb413-10" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>Note that we’re again using a for loop to carry this out on each of our samples. The <code>anvi-profile</code> program quantifies coverage per nucleotide position within the contigs, and averages them per contig. It also calculates single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants such as insertion and deletions and stores these data into appropriate tables.</p>
+</div>
+<div id="merge-sample-profiles" class="section level3 hasAnchor">
+<h3>Merge sample profiles<a href="module-4.html#merge-sample-profiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The command above created contig profiles for each sample individually, so now we need to merge these profiles into one single profile that we can use for clustering the contigs into bins. We’ll do this with the <code>anvi-merge</code> program:</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb414-1"><a href="module-4.html#cb414-1" tabindex="-1"></a><span class="ex">anvi-merge</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb414-2"><a href="module-4.html#cb414-2" tabindex="-1"></a>           <span class="at">-o</span> anvio/anvio_databases/merged_profiles <span class="dt">\</span></span>
+<span id="cb414-3"><a href="module-4.html#cb414-3" tabindex="-1"></a>           anvio/anvio_databases/profiles/<span class="pp">*</span>/PROFILE.db</span></code></pre></div>
+<p>And then it’s always a good idea to have a look at some basic stats about the contigs before we go further:</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb415-1"><a href="module-4.html#cb415-1" tabindex="-1"></a><span class="ex">anvi-display-contigs-stats</span> <span class="at">--report-as-text</span> <span class="dt">\</span></span>
+<span id="cb415-2"><a href="module-4.html#cb415-2" tabindex="-1"></a>                           <span class="at">--output-file</span> anvio/contigs_stats.txt <span class="dt">\</span></span>
+<span id="cb415-3"><a href="module-4.html#cb415-3" tabindex="-1"></a>                           anvio/anvio_databases/CONTIGS.db</span></code></pre></div>
+<p>If you take a look at the <code>anvio/contigs_stats.txt</code> file, you’ll see (you can also see these explanations <a href="https://anvio.org/help/main/programs/anvi-display-contigs-stats/">here</a>):<br>
+- <code>Total Length</code> - the total number of nucleotides in your contigs<br>
+- <code>Num Contigs</code> - the number of contigs in your database<br>
+- <code>Num Contigs &gt; X kb</code> - the number of contigs that are longer than X<br>
+- <code>Longest Contig</code> - the longest contig in your databases (in nucleotides)<br>
+- <code>Shortest Contig</code> - the shortest contig in your databases (in nucleotides), hopefully this is longer than the 2500 that we set earlier!<br>
+- <code>Num Genes (prodigal)</code> - the number of genes that Prodigal predicts are in your contigs<br>
+- <code>L50</code>, <code>L75</code>, <code>L90</code> - if you ordered the contigs in your database from longest to shortest, these stats describe the number of contigs you would need to go through before you had looked at a certain percent of a genome. For example, L50 describes the number of contigs you would have to go through before you reached 50 percent of the entire dataset<br>
+- <code>N50</code>, <code>N75</code>, <code>N90</code> - if you ordered the contigs in your database from longest to shortest, these stats describe the length of the contig you would be looking when you had looked at a certain percent of a genome. For example, N50 describes the length of contig you would be on when you reached 50 percent of the entire genome length<br>
+- The number of HMM hits in your database<br>
+- The number of genomes that Anvi’o predicts are in your samples, based on how many hits the single-copy core genes got in your database</p>
+<p>As long as we’re satisfied with all of this, then we can carry on to the clustering.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 3:</strong> How many contigs are there? Is this the same as what we started with? Why or why not?<br>
+<strong>Question 4:</strong> What are the longest and shortest contigs? What do you think of this?</p>
+</div>
+</div>
+</div>
+</div>
+<div id="cluster-contigs-into-bins" class="section level2 hasAnchor">
+<h2>4.7. Cluster contigs into bins<a href="module-4.html#cluster-contigs-into-bins" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next we will bin - or cluster - the contigs to create genome “bins”, or MAGs. To do this, we typically use information on the coverage, or abundance, of contigs within samples (that we generated in step two) and the binning algorithms will usually identify patterns in nucleotide composition or k-mer frequencies in order to group together contigs that they think are likely to have originated from the same genome.</p>
+<p>There are several different options for this within Anvi’o, which you can see by typing in <code>anvi-cluster-contigs -h</code> (and this also shows you the different options that you can give to the different binning tools). We will use a few different ones, so that you can see the different results that these give, and then at the end, we’ll run <code>DAS Tool</code>, which combines the results of multiple binners together into an optimised, non-redundant set of bins.</p>
+<p>We’ll use <code>CONCOCT</code> for this first:</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb416-1"><a href="module-4.html#cb416-1" tabindex="-1"></a><span class="ex">anvi-cluster-contigs</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb416-2"><a href="module-4.html#cb416-2" tabindex="-1"></a>                         <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb416-3"><a href="module-4.html#cb416-3" tabindex="-1"></a>                         <span class="at">-C</span> <span class="st">&quot;merged_concoct_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb416-4"><a href="module-4.html#cb416-4" tabindex="-1"></a>                         <span class="at">--driver</span> CONCOCT <span class="dt">\</span></span>
+<span id="cb416-5"><a href="module-4.html#cb416-5" tabindex="-1"></a>                         <span class="at">--length-threshold</span> 2500 <span class="dt">\</span></span>
+<span id="cb416-6"><a href="module-4.html#cb416-6" tabindex="-1"></a>                         <span class="at">--num-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb416-7"><a href="module-4.html#cb416-7" tabindex="-1"></a>                         <span class="at">--just-do-it</span></span></code></pre></div>
+<p>Here you can see that we’re giving a few options:<br>
+- <code>-c</code> - the contigs database<br>
+- <code>-p</code> - the profile database<br>
+- <code>-C</code> - the name for the resulting collection of bins to be given<br>
+- <code>--driver</code> - the clustering algorithm to be used<br>
+- <code>--num-threads</code> - the number of threads to use<br>
+- <code>--just-do-it</code> - ignore any warnings (like concoct being implemented experimentally into Anvi’o) and just run it anyway</p>
+<p>And then we’ll estimate the SCG taxonomy in our bins (this is something that DAS Tool will require, but also is nice to see the taxonomy across our entire bin, rather than in each individual contig as was calculated previously in the <code>anvi-run-scg-taxonomy</code> command):</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb417-1"><a href="module-4.html#cb417-1" tabindex="-1"></a><span class="ex">anvi-estimate-scg-taxonomy</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb417-2"><a href="module-4.html#cb417-2" tabindex="-1"></a>                           <span class="at">-C</span> <span class="st">&quot;merged_concoct_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb417-3"><a href="module-4.html#cb417-3" tabindex="-1"></a>                           <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb417-4"><a href="module-4.html#cb417-4" tabindex="-1"></a>                           <span class="at">--compute-scg-coverages</span></span></code></pre></div>
+<p>And then we’ll take a look at the bins that <code>CONCOCT</code> has given us:</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb418-1"><a href="module-4.html#cb418-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio/clustering_summary</span>
+<span id="cb418-2"><a href="module-4.html#cb418-2" tabindex="-1"></a><span class="ex">anvi-summarize</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb418-3"><a href="module-4.html#cb418-3" tabindex="-1"></a>                   <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb418-4"><a href="module-4.html#cb418-4" tabindex="-1"></a>                   <span class="at">-C</span> <span class="st">&quot;merged_concoct_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb418-5"><a href="module-4.html#cb418-5" tabindex="-1"></a>                   <span class="at">-o</span> anvio/clustering_summary/merged_concoct_2500/</span></code></pre></div>
+<p>Look at the summary: <code>less -S anvio/clustering_summary/merged_concoct_2500/bins_summary.txt</code></p>
+<p>Looking through the bins (the rows), you should see that there are a number of columns giving some stats on each of the bins (clusters of contigs), including:<br>
+- <code>total_length</code> - the total number of nucleotides in this bin<br>
+- <code>num_contigs</code> - the total number of contigs in this bin<br>
+- <code>N50</code> - N50 is a metric widely used to assess the contiguity of an assembly, and it is defined as the sequence length of the shortest contig that covers at least 50% of the total assembly length<br>
+- <code>GC_content</code> - GC content (%) is the percentage of bases in the contigs that make up this bin that are either guanine (G) or cytosine (C)<br>
+- <code>percent_completion</code> and <code>percent_redundancy</code> - completeness and contamination (also called redundancy) are both important when we’re assessing the quality of the MAGs that we’ve assembled. Both scores are calculated based on the presence of the ubiquitous, single-copy marker genes - ones that all bacteria are known to possess - and the completion is a prediction of how complete the genome is likely to be, so whether it possesses a copy of all of the marker genes that are expected. The contamination/redundancy is a measure of whether those marker genes that are expected to be present in only a single copy are duplicated. Typically speaking, a MAG that has &gt;50% completeness and &lt;10% contamination/redundancy is considered to be reasonable, although &gt;90% completeness is desirable. There is a good explanation on completeness and redundancy <a href="https://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/">here</a>.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 5:</strong> How many bins are there?<br>
+<strong>Question 6:</strong> How many bins &gt;50% completion are there?<br>
+<strong>Question 7:</strong> What is the redundancy in these bins?</p>
+</div>
+</div>
+<p>We should also have a line that looks something like this (you might need to scroll down):</p>
+<pre><code>Bin_9   6016304 153     61549   41.80050432702936       63.38028169014085       4.225352112676056       Bacteria        Bacteroidota    Bacteroidia     Bacteroidales        Bacteroidaceae  Bacteroides</code></pre>
+<p>We’re going to take a bit more of a look at this one.</p>
+</div>
+<div id="interactive-viewing-of-bins" class="section level2 hasAnchor">
+<h2>4.8. Interactive viewing of bins<a href="module-4.html#interactive-viewing-of-bins" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we’re going to be take a look at one of the bins. Assuming your output looks similar to mine, we’ll look at Bin_9:</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb420-1"><a href="module-4.html#cb420-1" tabindex="-1"></a><span class="ex">anvi-refine</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb420-2"><a href="module-4.html#cb420-2" tabindex="-1"></a>            <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb420-3"><a href="module-4.html#cb420-3" tabindex="-1"></a>            <span class="at">-C</span> <span class="st">&quot;merged_concoct_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb420-4"><a href="module-4.html#cb420-4" tabindex="-1"></a>            <span class="at">-b</span> Bin_9 <span class="dt">\</span></span>
+<span id="cb420-5"><a href="module-4.html#cb420-5" tabindex="-1"></a>            <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb420-6"><a href="module-4.html#cb420-6" tabindex="-1"></a>            <span class="at">-P</span> 8081</span></code></pre></div>
+<p>You’ll see that we’re telling Anvi’o the contigs database, profile and collection name, as well as the name of the bin we want to look at and:</p>
+<pre><code>--server-only
+-P 8081</code></pre>
+<p>Both of these parts are to do with Anvi’o being run on the Amazon instances rather than on our local computers. The <code>--server-only</code> part is telling it that we will want to create an SSH tunnel to the server, and then the <code>-P</code> port is telling it which port to use. This could be one of many ports, just like we are using port <code>8080</code> for accessing RStudio.</p>
+<p>Now open up a second Terminal window and run:</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb422-1"><a href="module-4.html#cb422-1" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-L</span> 8081:localhost:8081 <span class="at">-i</span> CBW.pem ubuntu@##.uhn-hpc.ca</span></code></pre></div>
+<p>Where <code>##</code> is your number. It should just look like you logged into the server in a new window. Now go to <a href="http://localhost:8081/" class="uri">http://localhost:8081/</a> in your browser. This should have an Anvi’o page loaded up.</p>
+<div id="if-you-are-using-putty" class="section level3 hasAnchor">
+<h3>If you are using Putty<a href="module-4.html#if-you-are-using-putty" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Your steps for this will be a little different. After you have run the Anvi’o refine command above, you’ll need to open a new Putty window.</p>
+<p>Click on “Session” and under “Saved Sessions”, click on the “Amazon node” and then click “Load”.</p>
+<p>Now go to “Connection” &gt; “SSH” &gt; “Tunnels”. In “Source port” type in <code>8081</code>. In “Destination” type in <code>ubuntu@##.uhn-hpc.ca:8081</code>.</p>
+<p>Click “Add” and then click “Open”. You should see a new Putty window open. Now go to <a href="http://localhost:8081/" class="uri">http://localhost:8081/</a> in your browser. This should have an Anvi’o page loaded up.</p>
+</div>
+<div id="in-the-browser-anvio-page" class="section level3 hasAnchor">
+<h3>In the browser Anvi’o page<a href="module-4.html#in-the-browser-anvio-page" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now press the “Draw” button. You should see something that looks like a phylogenetic tree get drawn. Each branch of this is for one of the contigs that makes up the bin, and you can see information about their abundance in different samples in the rings.</p>
+<p>Now click on the “Bins” tab and click on “Realtime taxonomy estimation for bins (whenever possible)”.</p>
+<p>If we select the whole tree (click on it), we should see information on the completeness, redundancy, and taxonomy come up. It should look like this:
+<img src="img/CBW2026_module4_Anvio1.png" /></p>
+<p>If we unselect (right click) some of the tree branches, this makes the completion, redundancy, and the length of the genome go up or down slightly.</p>
+<p>Seeing as we’re still running other binners, we’ll leave this alone for now. Go back to your <strong>first terminal window</strong> and click <code>ctrl</code>+<code>c</code> to stop what is running.</p>
+</div>
+</div>
+<div id="running-the-other-binning-algorithms" class="section level2 hasAnchor">
+<h2>4.9. Running the other binning algorithms<a href="module-4.html#running-the-other-binning-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we’re going to run <code>MAXBIN2</code> and <code>BINSANITY</code> on our contigs, and we’ll run the SCG estimation, too:</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb423-1"><a href="module-4.html#cb423-1" tabindex="-1"></a><span class="ex">anvi-cluster-contigs</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb423-2"><a href="module-4.html#cb423-2" tabindex="-1"></a>                         <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb423-3"><a href="module-4.html#cb423-3" tabindex="-1"></a>                         <span class="at">-C</span> <span class="st">&quot;merged_maxbin2_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb423-4"><a href="module-4.html#cb423-4" tabindex="-1"></a>                         <span class="at">--driver</span> MAXBIN2 <span class="dt">\</span></span>
+<span id="cb423-5"><a href="module-4.html#cb423-5" tabindex="-1"></a>                         <span class="at">--min-contig-length</span> 2500 <span class="dt">\</span></span>
+<span id="cb423-6"><a href="module-4.html#cb423-6" tabindex="-1"></a>                         <span class="at">--num-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb423-7"><a href="module-4.html#cb423-7" tabindex="-1"></a>                         <span class="at">--just-do-it</span></span>
+<span id="cb423-8"><a href="module-4.html#cb423-8" tabindex="-1"></a>                         </span>
+<span id="cb423-9"><a href="module-4.html#cb423-9" tabindex="-1"></a><span class="ex">anvi-cluster-contigs</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb423-10"><a href="module-4.html#cb423-10" tabindex="-1"></a>                         <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb423-11"><a href="module-4.html#cb423-11" tabindex="-1"></a>                         <span class="at">-C</span> <span class="st">&quot;merged_binsanity&quot;</span> <span class="dt">\</span></span>
+<span id="cb423-12"><a href="module-4.html#cb423-12" tabindex="-1"></a>                         <span class="at">--driver</span> BINSANITY <span class="dt">\</span></span>
+<span id="cb423-13"><a href="module-4.html#cb423-13" tabindex="-1"></a>                         <span class="at">--num-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb423-14"><a href="module-4.html#cb423-14" tabindex="-1"></a>                         <span class="at">--just-do-it</span></span>
+<span id="cb423-15"><a href="module-4.html#cb423-15" tabindex="-1"></a></span>
+<span id="cb423-16"><a href="module-4.html#cb423-16" tabindex="-1"></a><span class="ex">anvi-estimate-scg-taxonomy</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb423-17"><a href="module-4.html#cb423-17" tabindex="-1"></a>                           <span class="at">-C</span> <span class="st">&quot;merged_maxbin2_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb423-18"><a href="module-4.html#cb423-18" tabindex="-1"></a>                           <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb423-19"><a href="module-4.html#cb423-19" tabindex="-1"></a>                           <span class="at">--compute-scg-coverages</span></span>
+<span id="cb423-20"><a href="module-4.html#cb423-20" tabindex="-1"></a>                           </span>
+<span id="cb423-21"><a href="module-4.html#cb423-21" tabindex="-1"></a><span class="ex">anvi-estimate-scg-taxonomy</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb423-22"><a href="module-4.html#cb423-22" tabindex="-1"></a>                           <span class="at">-C</span> <span class="st">&quot;merged_binsanity&quot;</span> <span class="dt">\</span></span>
+<span id="cb423-23"><a href="module-4.html#cb423-23" tabindex="-1"></a>                           <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb423-24"><a href="module-4.html#cb423-24" tabindex="-1"></a>                           <span class="at">--compute-scg-coverages</span></span>
+<span id="cb423-25"><a href="module-4.html#cb423-25" tabindex="-1"></a>                           </span></code></pre></div>
+<p>Make sure that you’re looking at each line of code to make sure that you understand what it is doing!</p>
+<p>And summarise these:</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb424-1"><a href="module-4.html#cb424-1" tabindex="-1"></a><span class="ex">anvi-summarize</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb424-2"><a href="module-4.html#cb424-2" tabindex="-1"></a>                   <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb424-3"><a href="module-4.html#cb424-3" tabindex="-1"></a>                   <span class="at">-C</span> <span class="st">&quot;merged_maxbin2_2500&quot;</span> <span class="dt">\</span></span>
+<span id="cb424-4"><a href="module-4.html#cb424-4" tabindex="-1"></a>                   <span class="at">-o</span> anvio/clustering_summary/merged_maxbin2_2500/</span>
+<span id="cb424-5"><a href="module-4.html#cb424-5" tabindex="-1"></a>                   </span>
+<span id="cb424-6"><a href="module-4.html#cb424-6" tabindex="-1"></a><span class="ex">anvi-summarize</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb424-7"><a href="module-4.html#cb424-7" tabindex="-1"></a>                   <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb424-8"><a href="module-4.html#cb424-8" tabindex="-1"></a>                   <span class="at">-C</span> <span class="st">&quot;merged_binsanity&quot;</span> <span class="dt">\</span></span>
+<span id="cb424-9"><a href="module-4.html#cb424-9" tabindex="-1"></a>                   <span class="at">-o</span> anvio/clustering_summary/merged_binsanity/</span></code></pre></div>
+<p>Take a look at the summaries and compare them with what you got for <code>CONCOCT</code> above.</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb425-1"><a href="module-4.html#cb425-1" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> anvio/clustering_summary/merged_binsanity/bins_summary.txt</span>
+<span id="cb425-2"><a href="module-4.html#cb425-2" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> anvio/clustering_summary/merged_maxbin2_2500/bins_summary.txt</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 8:</strong> How are these different from CONCOCT?</p>
+</div>
+</div>
+</div>
+<div id="combining-the-clustering-results-with-das-tool" class="section level2 hasAnchor">
+<h2>4.10. Combining the clustering results with DAS Tool<a href="module-4.html#combining-the-clustering-results-with-das-tool" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now finally, we’re going to combine these clustering results together using DAS Tool:</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb426-1"><a href="module-4.html#cb426-1" tabindex="-1"></a><span class="ex">anvi-cluster-contigs</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb426-2"><a href="module-4.html#cb426-2" tabindex="-1"></a>                         <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb426-3"><a href="module-4.html#cb426-3" tabindex="-1"></a>                         <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb426-4"><a href="module-4.html#cb426-4" tabindex="-1"></a>                         <span class="at">--driver</span> DASTOOL <span class="dt">\</span></span>
+<span id="cb426-5"><a href="module-4.html#cb426-5" tabindex="-1"></a>                         <span class="at">--search_engine</span> <span class="st">&quot;diamond&quot;</span> <span class="dt">\</span></span>
+<span id="cb426-6"><a href="module-4.html#cb426-6" tabindex="-1"></a>                         <span class="at">-S</span> <span class="st">&quot;merged_concoct_2500,merged_maxbin2_2500,merged_binsanity&quot;</span> <span class="dt">\</span></span>
+<span id="cb426-7"><a href="module-4.html#cb426-7" tabindex="-1"></a>                         <span class="at">--num-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb426-8"><a href="module-4.html#cb426-8" tabindex="-1"></a>                         <span class="at">--just-do-it</span></span></code></pre></div>
+<p>Wait… I got an error?</p>
+<p>Why might this not work? Try looking at the help menu with <code>anvi-cluster-contigs -h</code>. Can you see what the issue might be?</p>
+<p>Make sure you take a good look at the spelling and punctuation in all of the options!! And at what the error message is.</p>
+<details>
+<summary>
+<b>Hint</b>
+</summary>
+<p>The <code>Unrecognized parameters --search_engine</code> is the key part here. It is suggesting that it doesn’t think <code>--search_engine</code> is a valid option. Can you see why that might be?</p>
+</details>
+<p><br>
+<br>
+If you can’t figure it out, you can see the correct command here:</p>
+<details>
+<summary>
+<b>Correct command:</b>
+</summary>
+<p>This was actually a real error that I had while making this workshop, and it took me a long time to realise that I had mis-typed <code>--search-engine</code> as <code>--search_engine</code>! The underscore instead of the hyphen meant it wasn’t recognised, and highlights why we often like to copy-paste commands when possible.</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb427-1"><a href="module-4.html#cb427-1" tabindex="-1"></a>  <span class="ex">anvi-cluster-contigs</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb427-2"><a href="module-4.html#cb427-2" tabindex="-1"></a>                       <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb427-3"><a href="module-4.html#cb427-3" tabindex="-1"></a>                       <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb427-4"><a href="module-4.html#cb427-4" tabindex="-1"></a>                       <span class="at">--driver</span> DASTOOL <span class="dt">\</span></span>
+<span id="cb427-5"><a href="module-4.html#cb427-5" tabindex="-1"></a>                       <span class="at">--search-engine</span> <span class="st">&quot;diamond&quot;</span> <span class="dt">\</span></span>
+<span id="cb427-6"><a href="module-4.html#cb427-6" tabindex="-1"></a>                       <span class="at">-S</span> <span class="st">&quot;merged_concoct_2500,merged_maxbin2_2500,merged_binsanity&quot;</span> <span class="dt">\</span></span>
+<span id="cb427-7"><a href="module-4.html#cb427-7" tabindex="-1"></a>                       <span class="at">--num-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb427-8"><a href="module-4.html#cb427-8" tabindex="-1"></a>                       <span class="at">--just-do-it</span></span></code></pre></div>
+</details>
+<p><br>
+<br>
+Once it’s run, you can create a summary of the results, as we did above:</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb428-1"><a href="module-4.html#cb428-1" tabindex="-1"></a><span class="ex">anvi-summarize</span> <span class="at">-c</span> anvio/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb428-2"><a href="module-4.html#cb428-2" tabindex="-1"></a>                   <span class="at">-p</span> anvio/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb428-3"><a href="module-4.html#cb428-3" tabindex="-1"></a>                   <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb428-4"><a href="module-4.html#cb428-4" tabindex="-1"></a>                   <span class="at">-o</span> anvio/clustering_summary/merged_dastool/</span></code></pre></div>
+<p>And take a look at them:</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb429-1"><a href="module-4.html#cb429-1" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> anvio/clustering_summary/merged_dastool/bins_summary.txt</span></code></pre></div>
+<p>This doesn’t seem like very many bins :( that’s because we used a small subset of the reads from the original samples. Although this is fine, it is easier to demonstrate some of the subsequent steps using a larger dataset. I assembled all of the reads in these samples on our own lab server, so let’s copy across that output:</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb430-1"><a href="module-4.html#cb430-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio_full</span>
+<span id="cb430-2"><a href="module-4.html#cb430-2" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/CourseData/metagenome/output/anvio_full/anvio_databases/ anvio_full/</span></code></pre></div>
+<p>First, we can get some information about what is in this database:</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb431-1"><a href="module-4.html#cb431-1" tabindex="-1"></a><span class="ex">anvi-db-info</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db</span>
+<span id="cb431-2"><a href="module-4.html#cb431-2" tabindex="-1"></a><span class="ex">anvi-show-collections-and-bins</span> <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 9:</strong> How does this compare with the previous one? Can you modify the above commands to summarise the <code>merged_dastool</code> collection?</p>
+</div>
+</div>
+<p>And take a look at this:</p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb432-1"><a href="module-4.html#cb432-1" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> anvio_full/clustering_summary/merged_dastool/bins_summary.txt</span></code></pre></div>
+<p>At this point, it might be easier to copy this across to look at locally. So let’s look at our workspace in our browser: <a href="http://##.uhn-hpc.ca/" class="uri">http://##.uhn-hpc.ca/</a> (remember to replace the <code>##</code> with your number!) Go to <code>metagenome/anvio_full/clustering_summary/</code>. Right click on <code>merged_dastool</code> &gt; <code>open in new tab</code>.</p>
+<p>Scroll down to the <strong>Summary of Bins (28)</strong> section. It says that you can download the information as a TAB-delimited file, so go ahead and do that. Now paste this into a new Excel (or whatever you usually use for viewing spreadsheets) document - it will be useful to refer back to. If you’re in Excel, you can easily get this into columns by going to the “Data” tab &gt; click on “Text to columns” &gt; check “Delimited” &gt; Next &gt; Check “Space” &gt; Finish.</p>
+<p>Now when we look at the bins we should see that we have a few bins that need refining because the redundancy is &gt;10%:
+- <code>Bin_Bin_84</code>
+- <code>Bin_Bin_88</code>
+- <code>Bin_Bin_9</code>
+- <code>Bin_Bin_95</code>
+- <code>Bin_MAXBIN__044_sub</code></p>
+<p>So we’re going to take a look at these bins and refine them to get the redundancy &lt;10%.</p>
+<p>Start with this one:</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb433-1"><a href="module-4.html#cb433-1" tabindex="-1"></a><span class="ex">anvi-refine</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb433-2"><a href="module-4.html#cb433-2" tabindex="-1"></a>            <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb433-3"><a href="module-4.html#cb433-3" tabindex="-1"></a>            <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb433-4"><a href="module-4.html#cb433-4" tabindex="-1"></a>            <span class="at">-b</span> Bin_Bin_84 <span class="dt">\</span></span>
+<span id="cb433-5"><a href="module-4.html#cb433-5" tabindex="-1"></a>            <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb433-6"><a href="module-4.html#cb433-6" tabindex="-1"></a>            <span class="at">-P</span> 8081</span></code></pre></div>
+<p>As we did before, we’ll need that second Terminal window. If it is still logged into the server, it is fine to leave it going. Now go to <a href="http://localhost:8081/" class="uri">http://localhost:8081/</a> in your browser again and click on “Draw” like you did previously, and go to the “Bins” tab and click on show taxonomy for bins.</p>
+<p>Here we can fairly clearly see two different abundance profiles split by the tree branches.</p>
+<p>If we select the entire tree, we can see it is 98.6% complete and 11.3% redundant. Right-clicking the smaller branch to remove it immediately takes us to 97.2% and 2.8% redundancy. We can try adding a new bin and clicking on the removed section, but this doesn’t give us any completion/redundancy estimate suggesting that it isn’t complete enough for a second bin. Delete that new bin and then click “Store refined bins in database”. You should see a pop-up saying that the server is on board, and this means that you can go back to the command line and terminate.</p>
+<p>Let’s try this with the next one:</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb434-1"><a href="module-4.html#cb434-1" tabindex="-1"></a><span class="ex">anvi-refine</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb434-2"><a href="module-4.html#cb434-2" tabindex="-1"></a>            <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb434-3"><a href="module-4.html#cb434-3" tabindex="-1"></a>            <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb434-4"><a href="module-4.html#cb434-4" tabindex="-1"></a>            <span class="at">-b</span> Bin_Bin_88 <span class="dt">\</span></span>
+<span id="cb434-5"><a href="module-4.html#cb434-5" tabindex="-1"></a>            <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb434-6"><a href="module-4.html#cb434-6" tabindex="-1"></a>            <span class="at">-P</span> 8081</span></code></pre></div>
+<p>This one isn’t so straight-forward! Try going to the Main tab and clicking on Data &gt; Detection and then clicking “Draw” again. Does this help? Go through these and try to click on the splits that look like they could reasonably come from the same genome. Once you’re happy, click on Store refined bins in database and go to the next bin with &gt;10% redundancy. You can also do it with any that have slightly higher redundancy (i.e. above 5%) if you like. Remember that the aim is to reduce redundancy without reducing completion too much, or doing too much cherry-picking!</p>
+<p>Go through the rest of the bins doing the same. Keep in mind that sometimes there could be two MAGs within one bin!</p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb435-1"><a href="module-4.html#cb435-1" tabindex="-1"></a><span class="ex">anvi-refine</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb435-2"><a href="module-4.html#cb435-2" tabindex="-1"></a>            <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb435-3"><a href="module-4.html#cb435-3" tabindex="-1"></a>            <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb435-4"><a href="module-4.html#cb435-4" tabindex="-1"></a>            <span class="at">-b</span> Bin_Bin_95 <span class="dt">\</span></span>
+<span id="cb435-5"><a href="module-4.html#cb435-5" tabindex="-1"></a>            <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb435-6"><a href="module-4.html#cb435-6" tabindex="-1"></a>            <span class="at">-P</span> 8081</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 10:</strong> Are these taxa what you would have expected based on the read-based taxonomy of the samples?</p>
+</div>
+</div>
+<p>Once you’ve done all of them, we want to save only the bins with completion &gt;= 50% and redundancy &lt;= 10%, so let’s rename the bins and make a new collection.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb436-1"><a href="module-4.html#cb436-1" tabindex="-1"></a><span class="ex">anvi-rename-bins</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb436-2"><a href="module-4.html#cb436-2" tabindex="-1"></a>                     <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb436-3"><a href="module-4.html#cb436-3" tabindex="-1"></a>                     <span class="at">--collection-to-read</span> merged_dastool <span class="dt">\</span></span>
+<span id="cb436-4"><a href="module-4.html#cb436-4" tabindex="-1"></a>                     <span class="at">--collection-to-write</span> refined_dastool <span class="dt">\</span></span>
+<span id="cb436-5"><a href="module-4.html#cb436-5" tabindex="-1"></a>                     <span class="at">--call-MAGs</span> <span class="dt">\</span></span>
+<span id="cb436-6"><a href="module-4.html#cb436-6" tabindex="-1"></a>                     <span class="at">--min-completion-for-MAG</span> 50 <span class="dt">\</span></span>
+<span id="cb436-7"><a href="module-4.html#cb436-7" tabindex="-1"></a>                     <span class="at">--max-redundancy-for-MAG</span> 10 <span class="dt">\</span></span>
+<span id="cb436-8"><a href="module-4.html#cb436-8" tabindex="-1"></a>                     <span class="at">--prefix</span> HMP2 <span class="dt">\</span></span>
+<span id="cb436-9"><a href="module-4.html#cb436-9" tabindex="-1"></a>                     <span class="at">--exclude-bins</span> <span class="dt">\</span></span>
+<span id="cb436-10"><a href="module-4.html#cb436-10" tabindex="-1"></a>                     <span class="at">--report-file</span> dastool_renaming_bins.txt</span></code></pre></div>
+<p>You can see that here we’re defining a new collection called “refined_dastool”, and we’re saying that to rename these bins as MAGs, they should be &gt;50% completion and &lt;10% redundancy, and we’re excluding any that didn’t meet these criteria. You can look at the file that’s created with the renamed bins if you like, to check that this did what you expected: <code>dastool_renaming_bins.txt</code>.</p>
+<p>Because some of the next steps require that we have the exact same MAGs, we’re going to copy across a previously made version of this collection:</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb437-1"><a href="module-4.html#cb437-1" tabindex="-1"></a><span class="ex">anvi-import-collection</span> ~/CourseData/metagenome/anvio_full/collection_FINAL_dastool.txt <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="at">-C</span> FINAL_dastool</span></code></pre></div>
+<p>Now we’ll summarise this new collection (it hopefully should be very similar to your collection anyway!):</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb438-1"><a href="module-4.html#cb438-1" tabindex="-1"></a><span class="ex">anvi-summarize</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb438-2"><a href="module-4.html#cb438-2" tabindex="-1"></a>                   <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb438-3"><a href="module-4.html#cb438-3" tabindex="-1"></a>                   <span class="at">-C</span> <span class="st">&quot;FINAL_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb438-4"><a href="module-4.html#cb438-4" tabindex="-1"></a>                   <span class="at">-o</span> anvio_full/FINAL_dastool_summary/</span></code></pre></div>
+<p>And we can have a look at the bins that we’ve created. Take a look in the folder <code>anvio_full/FINAL_dastool_summary/bin_by_bin</code> using the <code>ls</code> command.</p>
+<p>Now have a look in one of those MAG folders (<code>anvio_full/FINAL_dastool_summary/bin_by_bin/</code>) - you’ll see a lot of statistics, as well as a <code>*-contigs.fa</code>. This is a fasta file of the contigs used for each MAG, and we can use it as their genome for further analyses.</p>
+<p>Now we’ll create a copy of these in a new folder:</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb439-1"><a href="module-4.html#cb439-1" tabindex="-1"></a><span class="fu">mkdir</span> MAG_fasta</span>
+<span id="cb439-2"><a href="module-4.html#cb439-2" tabindex="-1"></a><span class="fu">cp</span> anvio_full/FINAL_dastool_summary/bin_by_bin/<span class="pp">*</span>MAG<span class="pp">*</span>/<span class="pp">*</span>contigs.fa MAG_fasta/</span>
+<span id="cb439-3"><a href="module-4.html#cb439-3" tabindex="-1"></a><span class="fu">ls</span> MAG_fasta/</span></code></pre></div>
+<p>You should have 26 MAGs here in the MAG_fasta folder (you can check this with <code>ls MAG_fasta | wc -l</code>)</p>
+<p>Now that we have our refined MAGs, we can do anything that we like with them!</p>
+</div>
+<div id="run-gtdb-tk" class="section level2 hasAnchor">
+<h2>4.11. Run GTDB-tk<a href="module-4.html#run-gtdb-tk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Another thing that we often do is make a phylogenetic tree with our MAGs. Unfortunately we don’t actually have enough RAM on these servers to do this :( but I did run this on our lab server and you can copy the results.</p>
+<p>I ran it like this:</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb440-1"><a href="module-4.html#cb440-1" tabindex="-1"></a><span class="ex">conda</span> activate gtdbtk-v2.7.1 <span class="co">#using r232 genomes</span></span>
+<span id="cb440-2"><a href="module-4.html#cb440-2" tabindex="-1"></a></span>
+<span id="cb440-3"><a href="module-4.html#cb440-3" tabindex="-1"></a><span class="ex">gtdbtk</span> de_novo_wf <span class="dt">\</span></span>
+<span id="cb440-4"><a href="module-4.html#cb440-4" tabindex="-1"></a>       <span class="at">--genome_dir</span> MAG_fasta <span class="dt">\</span></span>
+<span id="cb440-5"><a href="module-4.html#cb440-5" tabindex="-1"></a>       <span class="at">-x</span> fa <span class="dt">\</span></span>
+<span id="cb440-6"><a href="module-4.html#cb440-6" tabindex="-1"></a>       <span class="at">--out_dir</span> gtdbtk_out <span class="dt">\</span></span>
+<span id="cb440-7"><a href="module-4.html#cb440-7" tabindex="-1"></a>       <span class="at">--cpus</span> 24 <span class="dt">\</span></span>
+<span id="cb440-8"><a href="module-4.html#cb440-8" tabindex="-1"></a>       <span class="at">--keep_intermediates</span> <span class="dt">\</span></span>
+<span id="cb440-9"><a href="module-4.html#cb440-9" tabindex="-1"></a>       <span class="at">--bacteria</span> <span class="dt">\</span></span>
+<span id="cb440-10"><a href="module-4.html#cb440-10" tabindex="-1"></a>       <span class="at">--outgroup_taxon</span> p__Altiarchaeota</span></code></pre></div>
+<p>Let’s just copy across the final tree:</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb441-1"><a href="module-4.html#cb441-1" tabindex="-1"></a><span class="fu">cp</span> ~/CourseData/metagenome/gtdbtk.bac120.unrooted.tree .</span></code></pre></div>
+<p>This tree actually contains all of the GTDB genomes too, so we’ll filter it to include only the taxa that we’re interested in. First, we’ll make a file containing a list of the MAG names that we want to keep in our tree:</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb442-1"><a href="module-4.html#cb442-1" tabindex="-1"></a><span class="ex">parallel</span> <span class="at">-j</span> 1 <span class="st">&#39;echo $&quot;{/.}&quot; &gt;&gt; anvio_mags.txt&#39;</span> ::: MAG_fasta/<span class="pp">*</span></span></code></pre></div>
+<p>And now we’ll use a program called <code>gtotree</code> to “prune” our tree:</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb443-1"><a href="module-4.html#cb443-1" tabindex="-1"></a><span class="ex">gotree</span> prune <span class="at">-i</span> gtdbtk.bac120.unrooted.tree <span class="at">-f</span> anvio_mags.txt <span class="at">-o</span> gtdbtk.bac120.unrooted.filtered.tree <span class="at">--revert</span></span></code></pre></div>
+<p>Note that without the <code>--revert</code> flag, the default behaviour would be to remove the taxa in our <code>anvio_mags.txt</code> file, rather than keep them.</p>
+<p>If you take a look at this new tree file <code>gtdbtk.bac120.unrooted.filtered.tree</code>, you’ll notice that the names in the file are e.g. <code>HMP2_MAG_00008-contigs</code>, whereas in Anvi’o they are <code>HMP2_MAG_00008</code>. This is something that I probably should have changed before running the GTDB-tk tree command, but as is often the case in bioinformatics, it is easier/quicker to fix this in the output file than to rerun the tree command (which ran overnight using 24 threads on a server with 1.5 TB RAM). We can replace this part of the strings with the <code>sed</code> command:</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb444-1"><a href="module-4.html#cb444-1" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">&#39;s/-contigs//g&#39;</span> gtdbtk.bac120.unrooted.filtered.tree</span></code></pre></div>
+<p>What this is doing:<br>
+- <code>-i</code> - <em>in-place</em> editing of the file<br>
+- <code>s</code> - substitute<br>
+- <code>-contigs</code> - the text we want to find and replace<br>
+- <code>//</code> - what we want to replace the text with (nothing)<br>
+- <code>g</code> - that we want to replace all instances of <code>-contigs</code> and not just e.g. the first one (g for global)</p>
+</div>
+<div id="visualise-our-mags" class="section level2 hasAnchor">
+<h2>4.12. Visualise our MAGs<a href="module-4.html#visualise-our-mags" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finally, we can take a look at all of the MAGs that we have made!</p>
+<p>Let’s get an output file containing the taxonomic information so that we can view that with our MAGs:</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb445-1"><a href="module-4.html#cb445-1" tabindex="-1"></a><span class="ex">anvi-estimate-scg-taxonomy</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb445-2"><a href="module-4.html#cb445-2" tabindex="-1"></a>                           <span class="at">--profile-db</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb445-3"><a href="module-4.html#cb445-3" tabindex="-1"></a>                           <span class="at">-C</span> <span class="st">&quot;FINAL_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb445-4"><a href="module-4.html#cb445-4" tabindex="-1"></a>                           <span class="at">--compute-scg-coverages</span> <span class="dt">\</span></span>
+<span id="cb445-5"><a href="module-4.html#cb445-5" tabindex="-1"></a>                           <span class="at">-o</span> scg_taxonomy_FINAL_dastool.txt</span></code></pre></div>
+<p>This has some extra columns that we’re not interested in plotting, so let’s just take the ones with the MAG name and the taxonomic information:</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb446-1"><a href="module-4.html#cb446-1" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-f</span> 1,4,5,6,7,8,9,10 scg_taxonomy_FINAL_dastool.txt <span class="op">&gt;</span> scg_taxonomy_FINAL_dastool_reduced.txt</span></code></pre></div>
+<p>If you look at this, you’ll also see that we have some classifications that are “None”, so let’s go ahead and replace them with the previous value each time:</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb447-1"><a href="module-4.html#cb447-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-F</span><span class="st">&#39;\t&#39;</span> <span class="at">-v</span> OFS=<span class="st">&#39;\t&#39;</span> <span class="st">&#39;{for(i=2;i&lt;=NF;i++) if($i==&quot;None&quot; || $i==&quot;&quot;) $i=$(i-1)} 1&#39;</span> scg_taxonomy_FINAL_dastool_reduced.txt <span class="op">&gt;</span> scg_taxonomy_FINAL_dastool_reduced_fixed.txt</span></code></pre></div>
+<p>And then we can view this:</p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb448-1"><a href="module-4.html#cb448-1" tabindex="-1"></a><span class="ex">anvi-interactive</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb448-2"><a href="module-4.html#cb448-2" tabindex="-1"></a>                 <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb448-3"><a href="module-4.html#cb448-3" tabindex="-1"></a>                 <span class="at">-C</span> <span class="st">&quot;FINAL_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb448-4"><a href="module-4.html#cb448-4" tabindex="-1"></a>                 <span class="at">--additional-layers</span> scg_taxonomy_FINAL_dastool_reduced_fixed.txt <span class="dt">\</span></span>
+<span id="cb448-5"><a href="module-4.html#cb448-5" tabindex="-1"></a>                 <span class="at">--tree</span> gtdbtk.bac120.unrooted.filtered.tree <span class="dt">\</span></span>
+<span id="cb448-6"><a href="module-4.html#cb448-6" tabindex="-1"></a>                 <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb448-7"><a href="module-4.html#cb448-7" tabindex="-1"></a>                 <span class="at">-P</span> 8081</span></code></pre></div>
+<p>Make sure you follow the same steps as before, checking that the second terminal window is still logged in and going to your browser.</p>
+<p>Click on draw. The first thing that you will want to do is clicking on the “Order” dropdown menu and selecting the GTDB tree for how your MAGs are sorted (and click draw again - you will need to do this every time you make changes to show them).</p>
+<p>Now you can play around with the view. Some things to look at:<br>
+- Switch between phylogram and circle phylogram to see which you prefer<br>
+- Reorder the data shown under “Display” by dragging the labels up and down<br>
+- Remove some of them by setting the height to 0<br>
+- Remember to press “Draw” again each time you make changes, so that they show up!</p>
+<p>Mine looks like this at the end:
+<img src="img/CBW2026_module4_Anvio2.png" /></p>
+<p>Once you are happy, you can click on export to save it!</p>
+</div>
+<div id="run-checkm" class="section level2 hasAnchor">
+<h2>4.13. Run CheckM<a href="module-4.html#run-checkm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As a final verification step, we often like to also use an external program to verify the quality of our MAGs, so we’re going to run CheckM. CheckM can give us information on the quality of genomes as well as assigning taxonomy to them.</p>
+<p>First, we’ll activate the conda environment:</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb449-1"><a href="module-4.html#cb449-1" tabindex="-1"></a><span class="ex">conda</span> activate checkm2-1.1.0</span></code></pre></div>
+<p>Now we’ll download the CheckM databases:</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb450-1"><a href="module-4.html#cb450-1" tabindex="-1"></a><span class="ex">checkm2</span> database <span class="at">--download</span> <span class="at">--path</span> checkm2_database</span></code></pre></div>
+<p>Now we’ll start the <code>predict</code> workflow of <code>CheckM</code>:</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb451-1"><a href="module-4.html#cb451-1" tabindex="-1"></a><span class="ex">checkm2</span> predict <span class="at">-i</span> MAG_fasta/ <span class="at">--output_directory</span> MAGs_checkm2_output <span class="at">--allmodels</span> <span class="at">-x</span> .fa <span class="at">-t</span> 4 <span class="at">--remove_intermediates</span></span></code></pre></div>
+<p>This will take ~10 minutes.</p>
+<p>Once it’s finished, take a look at the <code>quality_report.tsv</code>:</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb452-1"><a href="module-4.html#cb452-1" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> MAGs_checkm2_output/quality_report.tsv</span></code></pre></div>
+<p>You can copy this across to your laptop to look at it more easily if you like.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 11:</strong> Are these similar to what Anvi’o predicted?</p>
+</div>
+</div>
+</div>
+<div id="extras" class="section level2 hasAnchor">
+<h2>Extras<a href="module-4.html#extras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you still have time in the workshop and want to have a look, I’ve added some papers that I think are nice uses of MAGs as well as some other things that can be done with MAGs that you might want to explore.</p>
+<p><strong>Papers</strong>:<br>
+- <a href="https://www.nature.com/articles/s41564-024-01888-3">Two decades of bacterial ecology and evolution in a freshwater lake</a><br>
+- <a href="https://www.nature.com/articles/s41564-018-0176-9">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes</a><br>
+- <a href="https://www.nature.com/articles/s41564-017-0012-7">Recovery of nearly 8,000 metagenome-assembled genomes substantially expands the tree of life</a><br>
+- <a href="https://doi.org/10.1038/s41587-020-0718-6">A genomic catalog of Earth’s microbiomes</a></p>
+</div>
+<div id="answers-1" class="section level2 hasAnchor">
+<h2>Answers<a href="module-4.html#answers-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Question 1:</strong> How many contigs are there in the <code>anvio/megahit_out/final.contigs.fa</code> file?</p>
+<p>Using the <code>grep -c "&gt;" anvio/megahit_out/final.contigs.fa</code> command, we can see there are 5,535 contigs (sequences) in this file.</p>
+<p><strong>Question 2:</strong> How many genes were identified?</p>
+<p>When you run this, you should see the following output:
+<img src="img/CBW2026_module4_genes.png" /></p>
+<p>This shows us that there were 20,225 genes identified in our contigs.</p>
+<p><strong>Question 3:</strong> How many contigs are there? Is this the same as what we started with? Why or why not?</p>
+<p>This should show the following output:
+<img src="img/CBW2026_module4_contigs_stats.png" /></p>
+<p>This shows 2,185 contigs, which is less than we started with. This is because we used a minimum length of 1,000 bp for our initial assembly and then only imported contigs &gt;2,500 bp into Anvi’o.</p>
+<p><strong>Question 4:</strong> What are the longest and shortest contigs? What do you think of this?</p>
+<p>The shortest contig is 2,501 bp, which makes sense given we’ve set a minimum length of 2,500. The longest is 171,697, which is good because this is a considerable proportion of a genome covered within a single contig.</p>
+<p><strong>Question 5:</strong> How many bins are there?</p>
+<p>There are 27 bins.</p>
+<p><strong>Question 6:</strong> How many bins &gt;50% completion are there?</p>
+<p>Bin_2: 100%
+Bin_5: 52%
+Bin_9: 63%</p>
+<p><strong>Question 7:</strong> What is the redundancy in these bins?</p>
+<p>Bin_2: 0%
+Bin_5: 5.6%
+Bin_9: 4.2%</p>
+<p><strong>Question 8:</strong> How are these different from CONCOCT?</p>
+<p>CONCOCT has lots more bins but they are very low completeness typically. The more complete bins appear to be similar between them all.</p>
+<p><strong>Question 9:</strong> How does this compare with the previous one? Can you modify the above commands to summarise the <code>merged_dastool</code> collection?</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb453-1"><a href="module-4.html#cb453-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio_full/clustering_summary/</span>
+<span id="cb453-2"><a href="module-4.html#cb453-2" tabindex="-1"></a><span class="ex">anvi-summarize</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb453-3"><a href="module-4.html#cb453-3" tabindex="-1"></a>                   <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb453-4"><a href="module-4.html#cb453-4" tabindex="-1"></a>                   <span class="at">-C</span> <span class="st">&quot;merged_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb453-5"><a href="module-4.html#cb453-5" tabindex="-1"></a>                   <span class="at">-o</span> anvio_full/clustering_summary/merged_dastool/</span></code></pre></div>
+<p><strong>Question 10:</strong> Are these taxa what you would have expected based on the read-based taxonomy of the samples?</p>
+<p>Yes - these all represent common gut taxa like <em>Bacteroides</em>, <em>Phocaeicola</em>, <em>Alistipes</em>, <em>Fusicatenibacter</em> and <em>Agathobacter</em>, all of which were in our read-based profiles.</p>
+<p><strong>Question 11:</strong> Are these similar to what Anvi’o predicted?</p>
+<p>Relatively, although there are some MAGs that CheckM2 predicts to be slightly below 50% complete. The CheckM2 contamination/redundancy values are typically lower than for Anvi’o, however, there is one MAG (<code>HMP2_MAG_00015</code>) that CheckM2 predicts has 18.45% contamination/redundancy.</p>
 
 </div>
 </div>
