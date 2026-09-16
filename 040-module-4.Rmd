@@ -495,7 +495,7 @@ less -S anvio/clustering_summary/merged_dastool/bins_summary.txt
 This doesn't seem like very many bins :( that's because we used a small subset of the reads from the original samples. Although this is fine, it is easier to demonstrate some of the subsequent steps using a larger dataset. I assembled all of the reads in these samples on our own lab server, so let's copy across that output:
 ```bash
 mkdir anvio_full
-cp -r ~/CourseData/metagenome/output/anvio_full/anvio_databases/ anvio_full/
+cp -r ~/CourseData/metagenome/anvio_full/anvio_databases/ anvio_full/
 ```
 
 First, we can get some information about what is in this database:
