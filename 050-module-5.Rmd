@@ -2,10 +2,10 @@
 
 ## Lecture
 
-
-<iframe src="https://docs.google.com/presentation/d/1SibH92C-IXyGG8wb29NqnROaazqesq2P/preview" width="640" height="480" allow="autoplay"></iframe>  
+<iframe src="https://docs.google.com/presentation/d/1-G3QrPDxj2t7QLvPRwpdaaGKzld4b4a4/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab
+<iframe src="https://docs.google.com/presentation/d/1SibH92C-IXyGG8wb29NqnROaazqesq2P/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, September 15-17). It is based on the metagenomics workflows available on the [Microbiome Helper](https://microbiomehelper.ca/).
 
