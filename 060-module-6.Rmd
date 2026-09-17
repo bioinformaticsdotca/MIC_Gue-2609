@@ -14,34 +14,7 @@ In the second part of the lab, we will introduce the basic concepts of supervise
 
 **Authors:** Jacob T. Nearing<br>
 
-### Libraries we will use:
-
-
-- **`ggplot2`**  
-  A data visualization package based on the *Grammar of Graphics*. It allows you to create customizable and publication-quality plots, including scatterplots, boxplots, bar charts, and faceted visualizations.
-
-- **`dplyr`**  
-  A data manipulation package that provides functions for filtering, selecting, arranging, summarizing, and transforming data frames.
-
-- **`maaslin3`**  
-  A statistical modeling package for microbiome and other high-dimensional biological data. It can be used to identify differentially abundant or differentially expressed features while accounting for covariates, random effects, and other study-design factors.
-
-- **`caret`**  
-  A machine-learning framework that provides tools for data preprocessing, model training, parameter tuning, performance evaluation, and cross-validation.
-
-- **`randomForest`**  
-  An R package for fitting random forest models for classification. Random forests combine multiple decision trees to make predictions and evaluate the importance of predictor variables.
-
-```
-library(ggplot2)
-library(dplyr)
-library(maaslin3)
-library(caret)
-library(randomForest)
-```
-
-
-## Data loading
+### Data loading
 
 In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata. This data has already been place in the student instances in CourseData.
 
@@ -72,6 +45,32 @@ tar -xvf maaslin3_pathway_expression_RNA.tar.gz
 ```
 
 After you are done this step the rest of this tutorial will proceed in **R**. 
+
+### Libraries we will use:
+
+
+- **`ggplot2`**  
+  A data visualization package based on the *Grammar of Graphics*. It allows you to create customizable and publication-quality plots, including scatterplots, boxplots, bar charts, and faceted visualizations.
+
+- **`dplyr`**  
+  A data manipulation package that provides functions for filtering, selecting, arranging, summarizing, and transforming data frames.
+
+- **`maaslin3`**  
+  A statistical modeling package for microbiome and other high-dimensional biological data. It can be used to identify differentially abundant or differentially expressed features while accounting for covariates, random effects, and other study-design factors.
+
+- **`caret`**  
+  A machine-learning framework that provides tools for data preprocessing, model training, parameter tuning, performance evaluation, and cross-validation.
+
+- **`randomForest`**  
+  An R package for fitting random forest models for classification. Random forests combine multiple decision trees to make predictions and evaluate the importance of predictor variables.
+
+```
+library(ggplot2)
+library(dplyr)
+library(maaslin3)
+library(caret)
+library(randomForest)
+```
 
 ### Metatranscriptomic data (MTX)
 ```
@@ -334,8 +333,7 @@ RNA_model <- maaslin3(
 ```
 
 :::: {.callout type="purple"}
-**his model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.**
-
+**This model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.**
 ::::
 
 Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.
@@ -348,7 +346,7 @@ Finally, we will run the differential expression MTX model in MaAsLin 3. We firs
 2. Sets the DNA abundance to log2([minimum non-zero relative abundance in the dataset] / 2) if the corresponding RNA abundance is non-zero but the DNA abundance is zero.
 3. Sets the DNA abundance to NA if both are zero, which excludes the sample when fitting the model for the feature.
 
-Now, we will switch the input_data to the preprocessed RNA table preprocess_out$dna_table and include the pre-processed DNA as the feature-specific covariate with `feature_specific_covariate = preprocess_out$dna_table`. We also set the name of the covariate for model fitting with `feature_specific_covariate_name = 'DNA'` and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting `feature_specific_covariate_record = FALSE.` 
+Now, we will switch the input_data to the preprocessed RNA table `preprocess_out$dna_table` and include the pre-processed DNA as the feature-specific covariate with `feature_specific_covariate = preprocess_out$dna_table`. We also set the name of the covariate for model fitting with `feature_specific_covariate_name = 'DNA'` and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting `feature_specific_covariate_record = FALSE.` 
 
 
 **The results are already saved on your instance so we suggest skipping this command and loading the preserved results.**
@@ -422,7 +420,7 @@ This type of split is called a **stratified split**. Stratification helps ensure
 # Set a seed so the split can be reproduced
 set.seed(123)
 
-# Create an 70/20 stratified split based on diagnosis
+# Create an 70/30 stratified split based on diagnosis
 training_index <- createDataPartition(
   classification_data$diagnosis,
   p = 0.70,

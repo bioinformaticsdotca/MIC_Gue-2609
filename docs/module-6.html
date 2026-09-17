@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 6 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 6 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -447,10 +447,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lecture-5"><i class="fa fa-check"></i>Lecture</a></li>
 <li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-5"><i class="fa fa-check"></i>Lab</a>
 <ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-loading"><i class="fa fa-check"></i>Data loading</a></li>
 <li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#libraries-we-will-use"><i class="fa fa-check"></i>Libraries we will use:</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-loading"><i class="fa fa-check"></i>Data loading</a>
-<ul>
 <li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#metatranscriptomic-data-mtx"><i class="fa fa-check"></i>Metatranscriptomic data (MTX)</a></li>
 <li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#metagenomic-data-mgx"><i class="fa fa-check"></i>Metagenomic data (MGX)</a></li>
 <li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#metadata"><i class="fa fa-check"></i>Metadata</a></li>
@@ -514,29 +512,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this lab, we will build on the concepts introduced in the Module 6 lecture to further explore differential abundance testing with MaAsLin3. In particular, we will learn how to incorporate covariates and random effects into our models to account for potential confounding factors and repeated or correlated measurements. We will also examine how MaAsLin3 can be applied to metatranscriptomic data to explore differential expression or differential abundance.</p>
 <p>In the second part of the lab, we will introduce the basic concepts of supervised machine learning in R using random forest models. We will begin by exploring how to divide data into training and testing sets, then compare this approach with k-fold cross-validation using the <code>caret</code> package. These exercises will provide a foundation for evaluating model performance and applying machine-learning methods to microbiome data.</p>
 <p><strong>Authors:</strong> Jacob T. Nearing<br></p>
-<div id="libraries-we-will-use" class="section level3 hasAnchor">
-<h3>Libraries we will use:<a href="module-6.html#libraries-we-will-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p><strong><code>ggplot2</code></strong><br />
-A data visualization package based on the <em>Grammar of Graphics</em>. It allows you to create customizable and publication-quality plots, including scatterplots, boxplots, bar charts, and faceted visualizations.</p></li>
-<li><p><strong><code>dplyr</code></strong><br />
-A data manipulation package that provides functions for filtering, selecting, arranging, summarizing, and transforming data frames.</p></li>
-<li><p><strong><code>maaslin3</code></strong><br />
-A statistical modeling package for microbiome and other high-dimensional biological data. It can be used to identify differentially abundant or differentially expressed features while accounting for covariates, random effects, and other study-design factors.</p></li>
-<li><p><strong><code>caret</code></strong><br />
-A machine-learning framework that provides tools for data preprocessing, model training, parameter tuning, performance evaluation, and cross-validation.</p></li>
-<li><p><strong><code>randomForest</code></strong><br />
-An R package for fitting random forest models for classification. Random forests combine multiple decision trees to make predictions and evaluate the importance of predictor variables.</p></li>
-</ul>
-<pre><code>library(ggplot2)
-library(dplyr)
-library(maaslin3)
-library(caret)
-library(randomForest)</code></pre>
-</div>
-</div>
-<div id="data-loading" class="section level2 hasAnchor">
-<h2>Data loading<a href="module-6.html#data-loading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-loading" class="section level3 hasAnchor">
+<h3>Data loading<a href="module-6.html#data-loading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata. This data has already been place in the student instances in CourseData.</p>
 <p>However, many of these MaAsLin3 models will take a while to run (15 minutes) so before we start the lab we will go ahead and download the results of them into our directory. You can then decided based on your own timing whether you run the model yourself or not!</p>
 <p><strong>Note this code chunck below should be done in your terminal/command line</strong></p>
@@ -560,6 +537,27 @@ wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisa
 #untar them
 tar -xvf maaslin3_pathway_expression_RNA.tar.gz</code></pre>
 <p>After you are done this step the rest of this tutorial will proceed in <strong>R</strong>.</p>
+</div>
+<div id="libraries-we-will-use" class="section level3 hasAnchor">
+<h3>Libraries we will use:<a href="module-6.html#libraries-we-will-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong><code>ggplot2</code></strong><br />
+A data visualization package based on the <em>Grammar of Graphics</em>. It allows you to create customizable and publication-quality plots, including scatterplots, boxplots, bar charts, and faceted visualizations.</p></li>
+<li><p><strong><code>dplyr</code></strong><br />
+A data manipulation package that provides functions for filtering, selecting, arranging, summarizing, and transforming data frames.</p></li>
+<li><p><strong><code>maaslin3</code></strong><br />
+A statistical modeling package for microbiome and other high-dimensional biological data. It can be used to identify differentially abundant or differentially expressed features while accounting for covariates, random effects, and other study-design factors.</p></li>
+<li><p><strong><code>caret</code></strong><br />
+A machine-learning framework that provides tools for data preprocessing, model training, parameter tuning, performance evaluation, and cross-validation.</p></li>
+<li><p><strong><code>randomForest</code></strong><br />
+An R package for fitting random forest models for classification. Random forests combine multiple decision trees to make predictions and evaluate the importance of predictor variables.</p></li>
+</ul>
+<pre><code>library(ggplot2)
+library(dplyr)
+library(maaslin3)
+library(caret)
+library(randomForest)</code></pre>
+</div>
 <div id="metatranscriptomic-data-mtx" class="section level3 hasAnchor">
 <h3>Metatranscriptomic data (MTX)<a href="module-6.html#metatranscriptomic-data-mtx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>#load MTX profiles
@@ -743,7 +741,7 @@ diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quo
 <div class="callout-purple">
 <span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
 <div class="callout-content">
-<p><strong>his model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.</strong></p>
+<p><strong>This model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.</strong></p>
 </div>
 </div>
 <p>Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.</p>
@@ -756,7 +754,7 @@ diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quo
 <li>Sets the DNA abundance to log2([minimum non-zero relative abundance in the dataset] / 2) if the corresponding RNA abundance is non-zero but the DNA abundance is zero.</li>
 <li>Sets the DNA abundance to NA if both are zero, which excludes the sample when fitting the model for the feature.</li>
 </ol>
-<p>Now, we will switch the input_data to the preprocessed RNA table preprocess_out<span class="math inline">\(dna_table and include the pre-processed DNA as the feature-specific covariate with `feature_specific_covariate = preprocess_out\)</span>dna_table<code>. We also set the name of the covariate for model fitting with</code>feature_specific_covariate_name = ‘DNA’<code>and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting</code>feature_specific_covariate_record = FALSE.`</p>
+<p>Now, we will switch the input_data to the preprocessed RNA table <code>preprocess_out$dna_table</code> and include the pre-processed DNA as the feature-specific covariate with <code>feature_specific_covariate = preprocess_out$dna_table</code>. We also set the name of the covariate for model fitting with <code>feature_specific_covariate_name = 'DNA'</code> and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting <code>feature_specific_covariate_record = FALSE.</code></p>
 <p><strong>The results are already saved on your instance so we suggest skipping this command and loading the preserved results.</strong></p>
 <pre><code>preprocess_out &lt;- preprocess_dna_mtx(MGX_pathway, MTX_pathways)
 
@@ -814,7 +812,7 @@ table(classification_data$diagnosis)</code></pre>
 <pre><code># Set a seed so the split can be reproduced
 set.seed(123)
 
-# Create an 70/20 stratified split based on diagnosis
+# Create an 70/30 stratified split based on diagnosis
 training_index &lt;- createDataPartition(
   classification_data$diagnosis,
   p = 0.70,
@@ -1054,20 +1052,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
