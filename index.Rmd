@@ -21,8 +21,8 @@ favicon: img/favicon.ico
 Welcome to the 2026 CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop webpage!  
 
 ## Pre-work
+<iframe width="640" height="360" src="https://www.youtube.com/watch?v=S2KEB4uaOJE&t=617s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<!--[You can find your pre-work here.](LINK TO PREWORK)-->
 
 ## Class Photo
 

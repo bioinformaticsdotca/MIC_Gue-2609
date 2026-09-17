@@ -2,9 +2,11 @@
 
 ## Lecture
 
-
+<iframe src="https://docs.google.com/presentation/d/1MiyTc9y-tnIDqm4XBKTwjDU7EhZ2RQ4s/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab
+
+<iframe src="https://docs.google.com/presentation/d/1KcuYb3uL4Dcs0B5T1orxIf9yggF0gsDD/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 In this lab, we will build on the concepts introduced in the Module 6 lecture to further explore differential abundance testing with MaAsLin3. In particular, we will learn how to incorporate covariates and random effects into our models to account for potential confounding factors and repeated or correlated measurements. We will also examine how MaAsLin3 can be applied to metatranscriptomic data to explore differential expression or differential abundance.
 

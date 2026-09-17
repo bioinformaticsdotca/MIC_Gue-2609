@@ -5,6 +5,8 @@
 
 ## Lab
 
+<iframe src="https://docs.google.com/presentation/d/1aFGXorJnexaPLrZEJWLwTj5RC9jnEWC6/preview" width="640" height="480" allow="autoplay"></iframe>
+
 This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, September 15-17). It is based on the metagenomics workflows available on the [Microbiome Helper](https://microbiomehelper.ca/) and is based on previous versions written for the [2024 CBW Advanced Microbiome Analysis workshop](https://github.com/LangilleLab/microbiome_helper/wiki/CBW%E2%80%90ICG%E2%80%90AMB%E2%80%90Module2).
 
 **Author:** Robyn Wright

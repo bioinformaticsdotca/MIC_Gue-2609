@@ -6,6 +6,8 @@
 
 ## Lab
 
+<iframe src="https://docs.google.com/presentation/d/1eZbMIN1KplHxTUhy6HOgaJTPDlfGY87Q/preview" width="640" height="480" allow="autoplay"></iframe>  
+
 This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, September 15-17). It is based on the metagenomics workflows available on the [Microbiome Helper](https://microbiomehelper.ca/) and is based on previous versions written for the [2024 CBW Advanced Microbiome Analysis workshop by Ben Fisher](https://bioinformaticsdotca.github.io/AMB_2024_module1) and [2025 CBW Advanced Microbiome Analysis workshop by Robyn Wright](https://bioinformaticsdotca.github.io/AMB_2025/module-1.html#lab-introduction-to-metagenomics-and-readbased-profiling).
 
 **Author:** Robyn Wright
