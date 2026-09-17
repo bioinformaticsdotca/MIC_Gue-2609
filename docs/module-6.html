@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 6 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 6 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -533,7 +533,29 @@ library(randomForest)</code></pre>
 </div>
 <div id="data-loading" class="section level2 hasAnchor">
 <h2>Data loading<a href="module-6.html#data-loading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata.</p>
+<p>In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata. This data has already been place in the student instances in CourseData.</p>
+<p>However, many of these MaAsLin3 models will take a while to run (15 minutes) so before we start the lab we will go ahead and download the results of them into our directory. You can then decided based on your own timing whether you run the model yourself or not!</p>
+<p><strong>Note this code chunck below should be done in your terminal/command line</strong></p>
+<pre><code>cd ~/workspace
+mkdir Module6
+
+cd Module6
+
+#download dna pathway results using wget
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_DNA.tar.gz
+
+#download RNA pathway results
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_raw_RNA.tar.gz
+
+#download pathway expression results
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_expression_RNA.tar.gz</code></pre>
+<p>After you are done this step the rest of this tutorial will proceed in <strong>R</strong>.</p>
 <div id="metatranscriptomic-data-mtx" class="section level3 hasAnchor">
 <h3>Metatranscriptomic data (MTX)<a href="module-6.html#metatranscriptomic-data-mtx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>#load MTX profiles
@@ -645,7 +667,7 @@ M2086 M2091 M2097 M2103 P6005 P6009 P6010 P6012 P6013 P6014 P6016 P6017 P6018 P6
     1     1    11     6    15    22    22    14    20     9    14    10    25    10     7     8    11    11     7    12 </code></pre>
 <p>To account for this lack of independence, we will include the individual identifier as a <strong>random effect</strong> in the MaAsLin3 model. A random effect allows the model to account for subject-specific differences while estimating the associations between our variables of interest and pathway abundance or prevalence.</p>
 <p>Random effects are specified using the syntax <code>1|variable</code>, where <code>variable</code> identifies the grouping factor. In this analysis, we will use the participant identifier:</p>
-<pre><code>formula=&quot; ~ age + sex + antibiotics + (1|participant_id)</code></pre>
+<pre><code>formula=&quot; ~ age + sex + antibiotics + (1|participant_id)&quot;</code></pre>
 <div class="callout-purple">
 <span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
 <div class="callout-content">
@@ -665,9 +687,7 @@ M2086 M2091 M2097 M2103 P6005 P6009 P6010 P6012 P6013 P6014 P6016 P6017 P6018 P6
 <div class="callout-purple">
 <span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
 <div class="callout-content">
-<p><strong>This model will take about 15 minutes to run if you would like to save time you can download the output here:</strong></p>
-<pre><code>wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
-tar -xvf maaslin3_pathway_DNA.tar.gz</code></pre>
+<p><strong>This model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.</strong></p>
 </div>
 </div>
 <p>We can now load the results from our MaAsLin3 analysis and use them to create a <strong>volcano plot</strong>. This plot will examine the relationship between the model coefficients and the adjusted <em>p</em>-values for DNA pathways associated with diagnosis.</p>
@@ -694,7 +714,7 @@ diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quo
 <p>The <strong>x-axis</strong> will display the model coefficient, indicating the direction and magnitude of the association. Positive coefficients represent higher pathway abundance in the diagnosis group compared with the <code>nonIBD</code> reference group, whereas negative coefficients represent lower pathway abundance. The <strong>y-axis</strong> will display the negative logarithm of the adjusted <em>p</em>-value, <code>-log10(adjusted p-value)</code>, with larger values representing stronger statistical evidence. The <strong>color</strong> will represent whether the association is comparing <code>nonIBD</code> to <code>CD</code> or <code>UC</code>.</p>
 <pre><code>diagnosis_dna_pathway_abundance %&gt;% ggplot(aes(x=coef, y=-log10(pval_individual), color=value)) + geom_point() +
   theme_bw(base_size=12)</code></pre>
-<p><img width="1400" height="865" alt="image" src="https://github.com/user-attachments/assets/73632458-412b-4524-bf8f-757334f6d328" /></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/73632458-412b-4524-bf8f-757334f6d328" /></p>
 <p>You can also inspect the results table using the <code>View()</code> function within Rstudio.</p>
 <pre><code>View(dna_pathway_res)</code></pre>
 <p><strong>Try building your own heat maps First, create a volcano plot showing the associations between pathway prevalence and diagnosis. Then, create a second volcano plot showing the associations between pathway abundance or prevalence and one of the control covariates, such as <code>sex</code>, <code>age</code>, or antibiotic use.</strong></p>
@@ -719,9 +739,7 @@ diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quo
 <div class="callout-purple">
 <span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
 <div class="callout-content">
-<p><strong>This model will take about 15 minutes to run if you would like to save time you can download the output here:</strong></p>
-<pre><code>wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
-tar -xvf maaslin3_pathway_raw_RNA.tar.gz</code></pre>
+<p><strong>his model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.</strong></p>
 </div>
 </div>
 <p>Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.</p>
@@ -749,13 +767,11 @@ RNA_expression_model &lt;- maaslin3(
 <div class="callout-purple">
 <span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
 <div class="callout-content">
-<p><strong>As with the other models this will run slowly. We recommend that to save time you download the output from here:</strong></p>
-<pre><code>wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
-tar -xvf maaslin3_pathway_expression_RNA.tar.gz</code></pre>
+<p><strong>As with the other models this will run slowly so feel free to use the already downloaded results at the start of this tutorial.</strong></p>
 </div>
 </div>
 <p>The summary plot will be saved in the specified output folder above and should look like below.</p>
-<p><img width="5400" height="3300" alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" /></p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" /></p>
 <div class="callout-green">
 <span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
 <div class="callout-content">

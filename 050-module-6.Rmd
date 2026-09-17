@@ -41,7 +41,35 @@ library(randomForest)
 
 ## Data loading
 
-In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata.
+In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata. This data has already been place in the student instances in CourseData.
+
+However, many of these MaAsLin3 models will take a while to run (15 minutes) so before we start the lab we will go ahead and download the results of them into our directory. You can then decided based on your own timing whether you run the model yourself or not!
+
+
+**Note this code chunck below should be done in your terminal/command line**
+```
+cd ~/workspace
+mkdir Module6
+
+cd Module6
+
+#download dna pathway results using wget
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_DNA.tar.gz
+
+#download RNA pathway results
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_raw_RNA.tar.gz
+
+#download pathway expression results
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_expression_RNA.tar.gz
+```
+
+After you are done this step the rest of this tutorial will proceed in **R**. 
 
 ### Metatranscriptomic data (MTX)
 ```
@@ -204,7 +232,7 @@ To account for this lack of independence, we will include the individual identif
 Random effects are specified using the syntax `1|variable`, where `variable` identifies the grouping factor. In this analysis, we will use the participant identifier:
 
 ```
-formula=" ~ age + sex + antibiotics + (1|participant_id)
+formula=" ~ age + sex + antibiotics + (1|participant_id)"
 ```
 
 :::: {.callout type="purple"}
@@ -225,11 +253,8 @@ HMP2_diagnosis <- maaslin3(input_data = MGX_pathway, input_metadata = HMP2_metad
 ```
 
 :::: {.callout type="purple"}
-**This model will take about 15 minutes to run if you would like to save time you can download the output here:**
-```
-wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
-tar -xvf maaslin3_pathway_DNA.tar.gz
-```
+**This model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.**
+
 ::::
 
 We can now load the results from our MaAsLin3 analysis and use them to create a **volcano plot**. This plot will examine the relationship between the model coefficients and the adjusted *p*-values for DNA pathways associated with diagnosis.
@@ -267,7 +292,7 @@ diagnosis_dna_pathway_abundance %>% ggplot(aes(x=coef, y=-log10(pval_individual)
   theme_bw(base_size=12)
 ```
 
-<img width="1400" height="865" alt="image" src="https://github.com/user-attachments/assets/73632458-412b-4524-bf8f-757334f6d328" />
+<img alt="image" src="https://github.com/user-attachments/assets/73632458-412b-4524-bf8f-757334f6d328" />
 
 
 You can also inspect the results table using the `View()` function within Rstudio.
@@ -307,11 +332,8 @@ RNA_model <- maaslin3(
 ```
 
 :::: {.callout type="purple"}
-**This model will take about 15 minutes to run if you would like to save time you can download the output here:**
-```
-wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
-tar -xvf maaslin3_pathway_raw_RNA.tar.gz
-```
+**his model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.**
+
 ::::
 
 Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.
@@ -342,16 +364,13 @@ RNA_expression_model <- maaslin3(
 ```
 
 :::: {.callout type="purple"}
-**As with the other models this will run slowly. We recommend that to save time you download the output from here:**
-```
-wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
-tar -xvf maaslin3_pathway_expression_RNA.tar.gz
-```
+**As with the other models this will run slowly so feel free to use the already downloaded results at the start of this tutorial.**
+
 ::::
 
 The summary plot will be saved in the specified output folder above and should look like below.
 
-<img width="5400" height="3300" alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" />
+<img alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" />
 
 
 :::: {.callout type="green"}
