@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>R | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="R | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -420,6 +420,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#extras"><i class="fa fa-check"></i>Extras</a></li>
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#answers-1"><i class="fa fa-check"></i>Answers</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html"><i class="fa fa-check"></i>Module 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-4"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
 <li class="divider"></li>
 <h1 id="sponsors">Sponsors</h1>
 <center>
@@ -813,13 +818,20 @@ dataset.</p>
 <li>Use <code>summary()</code> to summarize each column</li>
 </ol>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="r.html#cb163-1" tabindex="-1"></a><span class="fu">summary</span>(pg)</span></code></pre></div>
-<pre><code>##       species        island     bill_len     flipper_len     is_male       
-##  Length   :3   Length   :3   Min.   :39.1   Min.   :181.0   Mode :logical  
-##  N.unique :3   N.unique :3   1st Qu.:42.6   1st Qu.:186.5   FALSE:2        
-##  N.blank  :0   N.blank  :0   Median :46.1   Median :192.0   TRUE :1        
-##  Min.nchar:6   Min.nchar:5   Mean   :43.9   Mean   :194.7                  
-##  Max.nchar:9   Max.nchar:9   3rd Qu.:46.3   3rd Qu.:201.5                  
-##                              Max.   :46.5   Max.   :211.0</code></pre>
+<pre><code>##    species             island             bill_len     flipper_len   
+##  Length:3           Length:3           Min.   :39.1   Min.   :181.0  
+##  Class :character   Class :character   1st Qu.:42.6   1st Qu.:186.5  
+##  Mode  :character   Mode  :character   Median :46.1   Median :192.0  
+##                                        Mean   :43.9   Mean   :194.7  
+##                                        3rd Qu.:46.3   3rd Qu.:201.5  
+##                                        Max.   :46.5   Max.   :211.0  
+##   is_male       
+##  Mode :logical  
+##  FALSE:2        
+##  TRUE :1        
+##                 
+##                 
+## </code></pre>
 <p><code>summary()</code> provides a summary appropriate for the type of data in each
 column. For numeric columns, this includes statistics such as the
 minimum, median, mean, and maximum. For other data types, the
@@ -1005,7 +1017,7 @@ Photoshop, Illustrator, or Inkscape.</p></li>
 are the <em>global</em> options for the plot: they apply to all layers on the
 plot.</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="r.html#cb184-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>Here we called <code>ggplot</code> and told it what data we want to show on our
 figure. This is not enough information for <code>ggplot</code> to actually draw
 anything. It only creates a blank slate for other elements to be added
@@ -1016,7 +1028,7 @@ to.</p>
 <span id="cb185-2"><a href="r.html#cb185-2" tabindex="-1"></a>  <span class="at">data =</span> penguins, </span>
 <span id="cb185-3"><a href="r.html#cb185-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
 <span id="cb185-4"><a href="r.html#cb185-4" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/ggplot-with-aes-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/ggplot-with-aes-1.png" width="672" /></p>
 <p>Here we told <code>ggplot</code> we want to plot the <code>body_mass</code> column of the
 <code>penguins</code> data frame on the x-axis, and the <code>flipper_len</code> column on the
 y-axis. Notice that we didn’t need to explicitly pass <code>aes</code> these
@@ -1028,7 +1040,7 @@ is smart enough to know to look in the <strong>data</strong> for that column!</p
 <span id="cb186-3"><a href="r.html#cb186-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> flipper_len)</span>
 <span id="cb186-4"><a href="r.html#cb186-4" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb186-5"><a href="r.html#cb186-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>Here we used <code>geom_point</code>, which tells <code>ggplot</code> we want to visually
 represent the relationship between <strong>x</strong> and <strong>y</strong> as a scatterplot of
 points.</p>
@@ -1042,7 +1054,7 @@ points.</p>
 <span id="cb187-3"><a href="r.html#cb187-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
 <span id="cb187-4"><a href="r.html#cb187-4" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb187-5"><a href="r.html#cb187-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>After increasing the size of the points, we can see that many observations overlap with each other, forming clusters that can make the visualization more difficult to interpret.</p>
 <p>One strategy for dealing with overlapping points is to adjust <code>alpha</code>, which controls the transparency of graphical elements.</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="r.html#cb188-1" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
@@ -1050,7 +1062,7 @@ points.</p>
 <span id="cb188-3"><a href="r.html#cb188-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len)</span>
 <span id="cb188-4"><a href="r.html#cb188-4" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb188-5"><a href="r.html#cb188-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>An <code>alpha</code> value of 1 is completely opaque, while an alpha value closer to 0 is increasingly transparent. By making the points partially transparent, areas containing many overlapping observations become easier to identify.</p>
 </div>
 <div id="mapping-aesthetics-to-variables" class="section level3 hasAnchor">
@@ -1059,7 +1071,7 @@ points.</p>
 <p>Instead of assigning every point the same colour, we will colour each point according to its species</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="r.html#cb189-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
 <span id="cb189-2"><a href="r.html#cb189-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>Notice an important difference between this plot and our previous example.</p>
 <p>When we write:</p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r.html#cb190-1" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
@@ -1074,7 +1086,7 @@ points.</p>
 <span id="cb192-3"><a href="r.html#cb192-3" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> flipper_len, <span class="at">colour =</span> species, <span class="at">shape =</span> species)</span>
 <span id="cb192-4"><a href="r.html#cb192-4" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb192-5"><a href="r.html#cb192-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Now, observations belonging to different species are represented using both different colours and different shapes.</p>
 <p>Mapping the same variable to multiple aesthetics can also improve accessibility because the groups can still be distinguished when colour differences are difficult to perceive.</p>
 </div>
@@ -1093,7 +1105,7 @@ points.</p>
 <span id="cb193-10"><a href="r.html#cb193-10" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Data source: datasets R package&quot;</span>,</span>
 <span id="cb193-11"><a href="r.html#cb193-11" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb193-12"><a href="r.html#cb193-12" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># to remove the grey background</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 </div>
 <div id="saving-a-ggplot" class="section level3 hasAnchor">
 <h3>Saving a ggplot<a href="r.html#saving-a-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>

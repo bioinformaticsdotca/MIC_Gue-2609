@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 4 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
-  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 4 | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
@@ -30,7 +30,7 @@
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="module-3.html"/>
-
+<link rel="next" href="module-5.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -419,6 +419,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#run-checkm"><i class="fa fa-check"></i>4.13. Run CheckM</a></li>
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#extras"><i class="fa fa-check"></i>Extras</a></li>
 <li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#answers-1"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html"><i class="fa fa-check"></i>Module 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-4"><i class="fa fa-check"></i>Lab</a></li>
 </ul></li>
 <li class="divider"></li>
 <h1 id="sponsors">Sponsors</h1>
@@ -841,7 +846,7 @@ Once it’s run, you can create a summary of the results, as we did above:</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb429-1"><a href="module-4.html#cb429-1" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> anvio/clustering_summary/merged_dastool/bins_summary.txt</span></code></pre></div>
 <p>This doesn’t seem like very many bins :( that’s because we used a small subset of the reads from the original samples. Although this is fine, it is easier to demonstrate some of the subsequent steps using a larger dataset. I assembled all of the reads in these samples on our own lab server, so let’s copy across that output:</p>
 <div class="sourceCode" id="cb430"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb430-1"><a href="module-4.html#cb430-1" tabindex="-1"></a><span class="fu">mkdir</span> anvio_full</span>
-<span id="cb430-2"><a href="module-4.html#cb430-2" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/CourseData/metagenome/output/anvio_full/anvio_databases/ anvio_full/</span></code></pre></div>
+<span id="cb430-2"><a href="module-4.html#cb430-2" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/CourseData/metagenome/anvio_full/anvio_databases/ anvio_full/</span></code></pre></div>
 <p>First, we can get some information about what is in this database:</p>
 <div class="sourceCode" id="cb431"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb431-1"><a href="module-4.html#cb431-1" tabindex="-1"></a><span class="ex">anvi-db-info</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db</span>
 <span id="cb431-2"><a href="module-4.html#cb431-2" tabindex="-1"></a><span class="ex">anvi-show-collections-and-bins</span> <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db</span></code></pre></div>
@@ -1056,8 +1061,8 @@ Bin_9: 4.2%</p>
           </div>
         </div>
       </div>
-<a href="module-3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="module-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
