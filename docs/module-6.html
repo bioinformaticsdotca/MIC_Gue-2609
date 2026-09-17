@@ -908,7 +908,7 @@ rf_grid &lt;- data.frame(
 <pre><code>set.seed(128)
 
 rf_cv_model &lt;- train(
-  x = mgx_pathway_data,
+  x = MGX_full_data,
   y = classification_data$diagnosis,
   method = &quot;rf&quot;,
   trControl = control,

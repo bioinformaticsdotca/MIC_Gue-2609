@@ -578,7 +578,7 @@ With a larger dataset, we could evaluate several candidate `mtry` values using c
 set.seed(128)
 
 rf_cv_model <- train(
-  x = mgx_pathway_data,
+  x = MGX_full_data,
   y = classification_data$diagnosis,
   method = "rf",
   trControl = control,
