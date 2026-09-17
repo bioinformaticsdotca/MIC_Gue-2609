@@ -62,7 +62,11 @@ CSM5FZ4K_P                                     0.00899462                       
 ```
 
 
-This shows the first 5 samples along with the RNA abundances of the first two pathways. How might you determine the total number of pathways detected across all samples?
+This shows the first 5 samples along with the RNA abundances of the first two pathways. 
+
+:::: {.callout type="green"}
+How might you determine the total number of pathways detected across all samples?
+::::
 
 ### Metagenomic data (MGX)
 ```
@@ -81,7 +85,11 @@ CSM5MCW6                                      0.0153125                         
 ```
 
 Above we can see that the same pathways are listed in the DNA and RNA pathway tables. This is great as we would expect
-that pathways that are expressed in a community should be encoded. Are there cases where this might not be the case?
+that pathways that are expressed in a community should be encoded. 
+
+:::: {.callout type="green"}
+Are there cases where this might not be the case?
+::::
 
 
 ### Metadata
@@ -105,7 +113,9 @@ CSM5FZ3X_P          C3002 Cedars-Sinai        2 13160893
 
 Here we can see the first few metadata columns represent the participant's ID the site where the sample was collect, the week it was collected and the number of reads in the sample after quality filtering. 
 
+:::: {.callout type="green"}
 How can we see what other metadata is contained within this file?
+::::
 
 ```
 colnames(HMP2_metadata)
@@ -149,7 +159,9 @@ We can do the same for the variable `antibiotics` so that the base level is `No`
 HMP2_metadata$antibiotics <- factor(HMP2_metadata$antibiotics, levels=c("No", "Yes"))
 ```
 
+:::: {.callout type="green"}
 With `No` being the reference group what would a positive coefficient mean? What about a negative?
+::::
 
 ## Advanced Modeling with MaAsLin 3
 
@@ -195,15 +207,14 @@ Random effects are specified using the syntax `1|variable`, where `variable` ide
 formula=" ~ age + sex + antibiotics + (1|participant_id)
 ```
 
+:::: {.callout type="purple"}
 **Note For MaAsLin 3 specifically we also need to add the fixed effect reads to account for differences in sequencing depth between the samples**.
+::::
 
 ### Running MaAsLin 3 with both fixed effects and random effects
 
 Now that we have figured out the formula that we want to use for our model we can now run MaAsLin 3 on our DNA pathway data in a similar manner to what we did in the **module 2 lab**
 
-
-
-**This model will take about 15 minutes to run if you would like to save time the outputs are already saved in workspace**
 ```
 HMP2_diagnosis <- maaslin3(input_data = MGX_pathway, input_metadata = HMP2_metadata, 
                            formula = "~ diagnosis + age + sex + antibiotics + reads + (1|participant_id)", 
@@ -212,6 +223,14 @@ HMP2_diagnosis <- maaslin3(input_data = MGX_pathway, input_metadata = HMP2_metad
                            transform = "LOG"
                            )
 ```
+
+:::: {.callout type="purple"}
+**This model will take about 15 minutes to run if you would like to save time you can download the output here:**
+```
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
+tar -xvf maaslin3_pathway_DNA.tar.gz
+```
+::::
 
 We can now load the results from our MaAsLin3 analysis and use them to create a **volcano plot**. This plot will examine the relationship between the model coefficients and the adjusted *p*-values for DNA pathways associated with diagnosis.
 
@@ -279,8 +298,6 @@ You can view the available arguments and default settings for the function by ru
 ?maaslin3()
 ```
 
-**This model will take about 15 minutes to run if you would like to save time the outputs are already saved in workspace**
-
 ```
 RNA_model <- maaslin3(
     input_data = MTX_pathways,
@@ -288,6 +305,14 @@ RNA_model <- maaslin3(
     output = 'Module6/maaslin3_pathway_raw_RNA',
     formula = "~ diagnosis + age + sex + antibiotics + (1|participant_id)")
 ```
+
+:::: {.callout type="purple"}
+**This model will take about 15 minutes to run if you would like to save time you can download the output here:**
+```
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
+tar -xvf maaslin3_pathway_raw_RNA.tar.gz
+```
+::::
 
 Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.
 
@@ -302,7 +327,7 @@ Finally, we will run the differential expression MTX model in MaAsLin 3. We firs
 Now, we will switch the input_data to the preprocessed RNA table preprocess_out$dna_table and include the pre-processed DNA as the feature-specific covariate with `feature_specific_covariate = preprocess_out$dna_table`. We also set the name of the covariate for model fitting with `feature_specific_covariate_name = 'DNA'` and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting `feature_specific_covariate_record = FALSE.` 
 
 
-**As with the other models this will run slowly. The results are already saved on your instance so we suggest skipping this command and loading the preserved results.**
+**The results are already saved on your instance so we suggest skipping this command and loading the preserved results.**
 ```
 preprocess_out <- preprocess_dna_mtx(MGX_pathway, MTX_pathways)
 
@@ -316,12 +341,22 @@ RNA_expression_model <- maaslin3(
     feature_specific_covariate_record = FALSE)
 ```
 
+:::: {.callout type="purple"}
+**As with the other models this will run slowly. We recommend that to save time you download the output from here:**
+```
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
+tar -xvf maaslin3_pathway_expression_RNA.tar.gz
+```
+::::
+
 The summary plot will be saved in the specified output folder above and should look like below.
 
 <img width="5400" height="3300" alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" />
 
 
-**How could we improve our MTX models in the future to be more robust to differences in MTX read depth?**
+:::: {.callout type="green"}
+How could we improve our MTX models in the future to be more robust to differences in MTX read depth?
+::::
 
 For more information on MaAsLin 3 check out its GitHub page: 
 
@@ -346,7 +381,9 @@ nonIBD     CD     UC
     23      0     22 
 ```
 
-**Why might we not want to use the entire dataset to train our model? Should we be concerned about data leakage?**
+:::: {.callout type="green"}
+Why might we not want to use the entire dataset to train our model? Should we be concerned about data leakage?
+::::
 
 We will explore two different data-splitting strategies.
 

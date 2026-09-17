@@ -547,7 +547,13 @@ CSM5FZ46_P                                     0.00000000                       
 CSM5FZ4C_P                                     0.01669700                               0.00000000
 CSM5FZ4G_P                                     0.01153230                               0.00833768
 CSM5FZ4K_P                                     0.00899462                               0.01277590</code></pre>
-<p>This shows the first 5 samples along with the RNA abundances of the first two pathways. How might you determine the total number of pathways detected across all samples?</p>
+<p>This shows the first 5 samples along with the RNA abundances of the first two pathways.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>How might you determine the total number of pathways detected across all samples?</p>
+</div>
+</div>
 </div>
 <div id="metagenomic-data-mgx" class="section level3 hasAnchor">
 <h3>Metagenomic data (MGX)<a href="module-6.html#metagenomic-data-mgx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -561,7 +567,13 @@ CSM5MCVL                                      0.0167429                         
 CSM5MCVN                                      0.0180019                               0.00710437
 CSM5MCW6                                      0.0153125                               0.00257452</code></pre>
 <p>Above we can see that the same pathways are listed in the DNA and RNA pathway tables. This is great as we would expect
-that pathways that are expressed in a community should be encoded. Are there cases where this might not be the case?</p>
+that pathways that are expressed in a community should be encoded.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Are there cases where this might not be the case?</p>
+</div>
+</div>
 </div>
 <div id="metadata" class="section level3 hasAnchor">
 <h3>Metadata<a href="module-6.html#metadata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -576,7 +588,12 @@ CSM5FZ3T_P          C3002 Cedars-Sinai        0 10511448
 CSM5FZ3V_P          C3001 Cedars-Sinai        6 17808965
 CSM5FZ3X_P          C3002 Cedars-Sinai        2 13160893</code></pre>
 <p>Here we can see the first few metadata columns represent the participant’s ID the site where the sample was collect, the week it was collected and the number of reads in the sample after quality filtering.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
 <p>How can we see what other metadata is contained within this file?</p>
+</div>
+</div>
 <pre><code>colnames(HMP2_metadata)</code></pre>
 <pre><code> [1] &quot;participant_id&quot;  &quot;site_name&quot;       &quot;week_num&quot;        &quot;reads&quot;           &quot;diagnosis&quot;       &quot;dysbiosis_state&quot;
  [7] &quot;antibiotics&quot;     &quot;age&quot;             &quot;sex&quot;             &quot;race&quot;            &quot;education&quot;       &quot;probiotic&quot;      
@@ -594,7 +611,12 @@ CSM5FZ3X_P          C3002 Cedars-Sinai        2 13160893</code></pre>
 <p>Using <code>nonIBD</code> as the reference group makes the model coefficients easier to interpret. A positive coefficient indicates that a feature is more abundant or prevalent in the comparison group (<code>CD</code> or <code>UC</code>) than in the <code>nonIBD</code> group, whereas a negative coefficient indicates that it is less abundant or prevalent.</p>
 <p>We can do the same for the variable <code>antibiotics</code> so that the base level is <code>No</code>.</p>
 <pre><code>HMP2_metadata$antibiotics &lt;- factor(HMP2_metadata$antibiotics, levels=c(&quot;No&quot;, &quot;Yes&quot;))</code></pre>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
 <p>With <code>No</code> being the reference group what would a positive coefficient mean? What about a negative?</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -624,18 +646,30 @@ M2086 M2091 M2097 M2103 P6005 P6009 P6010 P6012 P6013 P6014 P6016 P6017 P6018 P6
 <p>To account for this lack of independence, we will include the individual identifier as a <strong>random effect</strong> in the MaAsLin3 model. A random effect allows the model to account for subject-specific differences while estimating the associations between our variables of interest and pathway abundance or prevalence.</p>
 <p>Random effects are specified using the syntax <code>1|variable</code>, where <code>variable</code> identifies the grouping factor. In this analysis, we will use the participant identifier:</p>
 <pre><code>formula=&quot; ~ age + sex + antibiotics + (1|participant_id)</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
 <p><strong>Note For MaAsLin 3 specifically we also need to add the fixed effect reads to account for differences in sequencing depth between the samples</strong>.</p>
+</div>
+</div>
 </div>
 <div id="running-maaslin-3-with-both-fixed-effects-and-random-effects" class="section level3 hasAnchor">
 <h3>Running MaAsLin 3 with both fixed effects and random effects<a href="module-6.html#running-maaslin-3-with-both-fixed-effects-and-random-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now that we have figured out the formula that we want to use for our model we can now run MaAsLin 3 on our DNA pathway data in a similar manner to what we did in the <strong>module 2 lab</strong></p>
-<p><strong>This model will take about 15 minutes to run if you would like to save time the outputs are already saved in workspace</strong></p>
 <pre><code>HMP2_diagnosis &lt;- maaslin3(input_data = MGX_pathway, input_metadata = HMP2_metadata, 
                            formula = &quot;~ diagnosis + age + sex + antibiotics + reads + (1|participant_id)&quot;, 
                            output = &quot;Module6/maaslin3_pathway_DNA/&quot;, 
                            normalization = &quot;TSS&quot;, 
                            transform = &quot;LOG&quot;
                            )</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>This model will take about 15 minutes to run if you would like to save time you can download the output here:</strong></p>
+<pre><code>wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
+tar -xvf maaslin3_pathway_DNA.tar.gz</code></pre>
+</div>
+</div>
 <p>We can now load the results from our MaAsLin3 analysis and use them to create a <strong>volcano plot</strong>. This plot will examine the relationship between the model coefficients and the adjusted <em>p</em>-values for DNA pathways associated with diagnosis.</p>
 <pre><code>#load in results table
 dna_pathway_res &lt;- read.table(&quot;Module6/maaslin3_pathway_DNA/all_results.tsv&quot;, sep=&quot;\t&quot;, header=T)
@@ -677,12 +711,19 @@ diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quo
 <p>In this analysis, we will use MaAsLin3’s default settings for normalization and transformation: <strong>total-sum scaling (TSS)</strong> normalization and a <strong>logarithmic (LOG)</strong> transformation. These options are not included explicitly in the function call because they are the default values used by <code>maaslin3()</code> when no alternative settings are specified.</p>
 <p>You can view the available arguments and default settings for the function by running:</p>
 <pre><code>?maaslin3()</code></pre>
-<p><strong>This model will take about 15 minutes to run if you would like to save time the outputs are already saved in workspace</strong></p>
 <pre><code>RNA_model &lt;- maaslin3(
     input_data = MTX_pathways,
     input_metadata = HMP2_metadata,
     output = &#39;Module6/maaslin3_pathway_raw_RNA&#39;,
     formula = &quot;~ diagnosis + age + sex + antibiotics + (1|participant_id)&quot;)</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>This model will take about 15 minutes to run if you would like to save time you can download the output here:</strong></p>
+<pre><code>wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
+tar -xvf maaslin3_pathway_raw_RNA.tar.gz</code></pre>
+</div>
+</div>
 <p>Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.</p>
 </div>
 <div id="dna-adjusted-mtx-model" class="section level3 hasAnchor">
@@ -694,7 +735,7 @@ diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quo
 <li>Sets the DNA abundance to NA if both are zero, which excludes the sample when fitting the model for the feature.</li>
 </ol>
 <p>Now, we will switch the input_data to the preprocessed RNA table preprocess_out<span class="math inline">\(dna_table and include the pre-processed DNA as the feature-specific covariate with `feature_specific_covariate = preprocess_out\)</span>dna_table<code>. We also set the name of the covariate for model fitting with</code>feature_specific_covariate_name = ‘DNA’<code>and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting</code>feature_specific_covariate_record = FALSE.`</p>
-<p><strong>As with the other models this will run slowly. The results are already saved on your instance so we suggest skipping this command and loading the preserved results.</strong></p>
+<p><strong>The results are already saved on your instance so we suggest skipping this command and loading the preserved results.</strong></p>
 <pre><code>preprocess_out &lt;- preprocess_dna_mtx(MGX_pathway, MTX_pathways)
 
 RNA_expression_model &lt;- maaslin3(
@@ -705,9 +746,22 @@ RNA_expression_model &lt;- maaslin3(
     feature_specific_covariate = preprocess_out$dna_table,
     feature_specific_covariate_name = &#39;DNA&#39;,
     feature_specific_covariate_record = FALSE)</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>As with the other models this will run slowly. We recommend that to save time you download the output from here:</strong></p>
+<pre><code>wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
+tar -xvf maaslin3_pathway_expression_RNA.tar.gz</code></pre>
+</div>
+</div>
 <p>The summary plot will be saved in the specified output folder above and should look like below.</p>
 <p><img width="5400" height="3300" alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" /></p>
-<p><strong>How could we improve our MTX models in the future to be more robust to differences in MTX read depth?</strong></p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>How could we improve our MTX models in the future to be more robust to differences in MTX read depth?</p>
+</div>
+</div>
 <p>For more information on MaAsLin 3 check out its GitHub page:</p>
 <p><a href="https://github.com/biobakery/maaslin3" class="uri">https://github.com/biobakery/maaslin3</a></p>
 </div>
@@ -724,7 +778,12 @@ classification_data &lt;- classification_data %&gt;% filter(Sample %in% rownames
 table(classification_data$diagnosis)</code></pre>
 <pre><code>nonIBD     CD     UC 
     23      0     22 </code></pre>
-<p><strong>Why might we not want to use the entire dataset to train our model? Should we be concerned about data leakage?</strong></p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Why might we not want to use the entire dataset to train our model? Should we be concerned about data leakage?</p>
+</div>
+</div>
 <p>We will explore two different data-splitting strategies.</p>
 <p>First, we will randomly divide the data into separate training and test sets one time. The training set will be used to fit the Random Forest model, while the test set will be held out and used to evaluate the model’s performance on previously unseen samples. This approach provides a straightforward estimate of model performance. However, because the result depends on a single random split, the estimated performance may vary depending on which samples are assigned to each set.</p>
 <p>Secondly, we will train and evaluate a second Random Forest model using <em>k</em>-fold cross-validation with the <code>caret</code> package. Cross-validation allows us to assess model performance across multiple training and validation splits, providing a more robust estimate of how well the model may perform on new data.</p>
