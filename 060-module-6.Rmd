@@ -1,6 +1,7 @@
-# Module 6
+# 6 | Visualization and finding functional significance
 
 ## Lecture
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OjfBY0U-yO0?si=cQxX7HGTzQcV7xlf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe src="https://docs.google.com/presentation/d/1MiyTc9y-tnIDqm4XBKTwjDU7EhZ2RQ4s/preview" width="640" height="480" allow="autoplay"></iframe>  
 

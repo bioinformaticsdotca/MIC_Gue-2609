@@ -1,8 +1,10 @@
-# Module 3
+# 3 | Intro to metagenomics and read-based profiling
 
 ## Lecture
-<iframe src="https://docs.google.com/presentation/d/1osqgEPfWBOSD0vsoOOldd699UTXlboCp/preview" width="640" height="480" allow="autoplay"></iframe>  
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tY_2WK7i0Jw?si=5QCbbM7ZCHZl2krJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe src="https://docs.google.com/presentation/d/1osqgEPfWBOSD0vsoOOldd699UTXlboCp/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab
 

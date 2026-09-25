@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Conda | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
+  <title>6 | Visualization and finding functional significance | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
   <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Conda | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
+  <meta property="og:title" content="6 | Visualization and finding functional significance | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://bioinformaticsdotca.github.io/MIC_Gue-2609/img/bioinformatics_logo.png" />
   <meta property="og:description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
   <meta name="github-repo" content="bioinformaticsdotca/MIC_Gue-2609" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Conda | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
+  <meta name="twitter:title" content="6 | Visualization and finding functional significance | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
   
   <meta name="twitter:description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
   <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/MIC_Gue-2609/img/bioinformatics_logo.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="awsunix.html"/>
-<link rel="next" href="r.html"/>
+<link rel="prev" href="assigning-functions.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -498,234 +498,498 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="conda" class="section level1 hasAnchor">
-<h1>Conda<a href="conda.html#conda" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This tutorial was adapted from <a href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/">Introduction to Conda for Data Scientists</a></p>
-<div id="getting-started-with-conda" class="section level2 hasAnchor">
-<h2>Getting Started with Conda<a href="conda.html#getting-started-with-conda" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="packages-and-environment" class="section level3 hasAnchor">
-<h3>Packages and Environment<a href="conda.html#packages-and-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When working with a programming language, such as Python, that can do almost anything, one has to wonder how this is possible. You download Python, it has about 25 MB, how can everything be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to doing almost anything. You can see this already when you start programming. After learning some very basics, you often learn how to import something into your script or session.</p>
+<div id="visualization-and-finding-functional-significance" class="section level1 hasAnchor">
+<h1>6 | Visualization and finding functional significance<a href="visualization-and-finding-functional-significance.html#visualization-and-finding-functional-significance" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture-5" class="section level2 hasAnchor">
+<h2>Lecture<a href="visualization-and-finding-functional-significance.html#lecture-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OjfBY0U-yO0?si=cQxX7HGTzQcV7xlf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<iframe src="https://docs.google.com/presentation/d/1MiyTc9y-tnIDqm4XBKTwjDU7EhZ2RQ4s/preview" width="640" height="480" allow="autoplay">
+</iframe>
 </div>
-<div id="modules-packages-libraries" class="section level3 hasAnchor rmdnote">
-<h3>Modules, packages, libraries<a href="conda.html#modules-packages-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lab-5" class="section level2 hasAnchor">
+<h2>Lab<a href="visualization-and-finding-functional-significance.html#lab-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://docs.google.com/presentation/d/1KcuYb3uL4Dcs0B5T1orxIf9yggF0gsDD/preview" width="640" height="480" allow="autoplay">
+</iframe>
+<p>In this lab, we will build on the concepts introduced in the Module 6 lecture to further explore differential abundance testing with MaAsLin3. In particular, we will learn how to incorporate covariates and random effects into our models to account for potential confounding factors and repeated or correlated measurements. We will also examine how MaAsLin3 can be applied to metatranscriptomic data to explore differential expression or differential abundance.</p>
+<p>In the second part of the lab, we will introduce the basic concepts of supervised machine learning in R using random forest models. We will begin by exploring how to divide data into training and testing sets, then compare this approach with k-fold cross-validation using the <code>caret</code> package. These exercises will provide a foundation for evaluating model performance and applying machine-learning methods to microbiome data.</p>
+<p><strong>Authors:</strong> Jacob T. Nearing<br></p>
+<div id="data-loading" class="section level3 hasAnchor">
+<h3>Data loading<a href="visualization-and-finding-functional-significance.html#data-loading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this tutorial we will use data from the Human Microbiome Project 2 already processed with HUMAnN 4.0. The main data components include pathway abundances at the DNA and RNA level, and sample metadata. This data has already been place in the student instances in CourseData.</p>
+<p>However, many of these MaAsLin3 models will take a while to run (15 minutes) so before we start the lab we will go ahead and download the results of them into our directory. You can then decided based on your own timing whether you run the model yourself or not!</p>
+<p><strong>Note this code chunck below should be done in your terminal/command line</strong></p>
+<pre><code>cd ~/workspace
+mkdir Module6
+
+cd Module6
+
+#download dna pathway results using wget
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_DNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_DNA.tar.gz
+
+#download RNA pathway results
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_raw_RNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_raw_RNA.tar.gz
+
+#download pathway expression results
+wget https://kronos.pharmacology.dal.ca:8080/public_files/MH2/tutorial/visualisation_functional_significance/maaslin3_pathway_expression_RNA.tar.gz
+#untar them
+tar -xvf maaslin3_pathway_expression_RNA.tar.gz</code></pre>
+<p>After you are done this step the rest of this tutorial will proceed in <strong>R</strong>.</p>
+</div>
+<div id="libraries-we-will-use" class="section level3 hasAnchor">
+<h3>Libraries we will use:<a href="visualization-and-finding-functional-significance.html#libraries-we-will-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Module:</strong> a collection of functions and variables, as in a script</li>
-<li><strong>Package:</strong> a collection of modules with an <code>__init__.py</code> file</li>
-<li><strong>Library:</strong> a collection of packages with related functionality</li>
+<li><p><strong><code>ggplot2</code></strong><br />
+A data visualization package based on the <em>Grammar of Graphics</em>. It allows you to create customizable and publication-quality plots, including scatterplots, boxplots, bar charts, and faceted visualizations.</p></li>
+<li><p><strong><code>dplyr</code></strong><br />
+A data manipulation package that provides functions for filtering, selecting, arranging, summarizing, and transforming data frames.</p></li>
+<li><p><strong><code>maaslin3</code></strong><br />
+A statistical modeling package for microbiome and other high-dimensional biological data. It can be used to identify differentially abundant or differentially expressed features while accounting for covariates, random effects, and other study-design factors.</p></li>
+<li><p><strong><code>caret</code></strong><br />
+A machine-learning framework that provides tools for data preprocessing, model training, parameter tuning, performance evaluation, and cross-validation.</p></li>
+<li><p><strong><code>randomForest</code></strong><br />
+An R package for fitting random forest models for classification. Random forests combine multiple decision trees to make predictions and evaluate the importance of predictor variables.</p></li>
 </ul>
-<p>Library/Package are often used interchangeably.</p>
+<pre><code>library(ggplot2)
+library(dplyr)
+library(maaslin3)
+library(caret)
+library(randomForest)</code></pre>
 </div>
-<div id="dependencies" class="section level3 hasAnchor">
-<h3>Dependencies<a href="conda.html#dependencies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A dependency is a package or piece of software that another package requires in order to work correctly. For instance, when you install the package <strong>pandas</strong>, it needs other dependencies to work properly. Conda’s job is not only to install the package you requested but to determine and install other required packages.</p>
-<p>###Channels
-A <strong>Conda channel</strong> A location or repository where Conda searches for and downloads packages. Different channels can provide different packages, package versions, and builds. The <code>::</code> notation lets us know which channel a package comes from.
-For example:</p>
-<pre><code>conda-forge::numpy</code></pre>
+<div id="metatranscriptomic-data-mtx" class="section level3 hasAnchor">
+<h3>Metatranscriptomic data (MTX)<a href="visualization-and-finding-functional-significance.html#metatranscriptomic-data-mtx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>#load MTX profiles
+MTX_pathways &lt;- read.table(&quot;../CourseData/Module6_lab/HMP2_pwyRNA.tsv&quot;, header=T, sep=&quot;\t&quot;,
+                           check.names = F, row.names=1, stringsAsFactors = F )
+
+MTX_pathways[1:5, 1:2]</code></pre>
+<pre><code>           X1CMET2_PWY_N10_formyl_tetrahydrofolate_biosyn ANAEROFRUCAT_PWY_homolactic_fermentation
+CSM5FZ3T_P                                     0.03156540                               0.00114574
+CSM5FZ46_P                                     0.00000000                               0.00000000
+CSM5FZ4C_P                                     0.01669700                               0.00000000
+CSM5FZ4G_P                                     0.01153230                               0.00833768
+CSM5FZ4K_P                                     0.00899462                               0.01277590</code></pre>
+<p>This shows the first 5 samples along with the RNA abundances of the first two pathways.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>How might you determine the total number of pathways detected across all samples?</p>
+</div>
+</div>
+</div>
+<div id="metagenomic-data-mgx" class="section level3 hasAnchor">
+<h3>Metagenomic data (MGX)<a href="visualization-and-finding-functional-significance.html#metagenomic-data-mgx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>MGX_pathway &lt;- read.table(&quot;../CourseData/Module6_lab/HMP2_pwyDNA.tsv&quot;, header=T, sep=&quot;\t&quot;,
+                           check.names = F, row.names=1, stringsAsFactors = F )
+MGX_pathway[1:5, 1:2]</code></pre>
+<pre><code>         X1CMET2_PWY_N10_formyl_tetrahydrofolate_biosyn ANAEROFRUCAT_PWY_homolactic_fermentation
+CSM5FZ4M                                      0.0158099                               0.00946321
+CSM5MCUO                                      0.0101701                               0.00440300
+CSM5MCVL                                      0.0167429                               0.00611800
+CSM5MCVN                                      0.0180019                               0.00710437
+CSM5MCW6                                      0.0153125                               0.00257452</code></pre>
+<p>Above we can see that the same pathways are listed in the DNA and RNA pathway tables. This is great as we would expect
+that pathways that are expressed in a community should be encoded.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Are there cases where this might not be the case?</p>
+</div>
+</div>
+</div>
+<div id="metadata" class="section level3 hasAnchor">
+<h3>Metadata<a href="visualization-and-finding-functional-significance.html#metadata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>#load metadata
+HMP2_metadata &lt;- read.table(&quot;../CourseData/Module6_lab/HMP2_metadata.tsv&quot;, sep=&quot;\t&quot;, header=T,
+                            row.names=1, stringsAsFactors = F)
+HMP2_metadata[1:5, 1:4]</code></pre>
+<pre><code>           participant_id    site_name week_num    reads
+CSM5FZ3N_P          C3001 Cedars-Sinai        0  9961743
+CSM5FZ3R_P          C3001 Cedars-Sinai        2 16456391
+CSM5FZ3T_P          C3002 Cedars-Sinai        0 10511448
+CSM5FZ3V_P          C3001 Cedars-Sinai        6 17808965
+CSM5FZ3X_P          C3002 Cedars-Sinai        2 13160893</code></pre>
+<p>Here we can see the first few metadata columns represent the participant’s ID the site where the sample was collect, the week it was collected and the number of reads in the sample after quality filtering.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>How can we see what other metadata is contained within this file?</p>
+</div>
+</div>
+<pre><code>colnames(HMP2_metadata)</code></pre>
+<pre><code> [1] &quot;participant_id&quot;  &quot;site_name&quot;       &quot;week_num&quot;        &quot;reads&quot;           &quot;diagnosis&quot;       &quot;dysbiosis_state&quot;
+ [7] &quot;antibiotics&quot;     &quot;age&quot;             &quot;sex&quot;             &quot;race&quot;            &quot;education&quot;       &quot;probiotic&quot;      
+[13] &quot;red_meat&quot;        &quot;sweets&quot;        </code></pre>
+<p>Let’s explore the diagnosis column by tabulating the number of each response.</p>
+<pre><code>table(HMP2_metadata$diagnosis)</code></pre>
+<pre><code>    CD nonIBD     UC 
+   685    405    437 </code></pre>
+<p>So we can see that we have fairly even numbers with CD being the most abundant sample type.</p>
+<div id="factors-and-levels-in-r" class="section level4 hasAnchor">
+<h4>Factors and levels in R<a href="visualization-and-finding-functional-significance.html#factors-and-levels-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In R, a <strong>factor</strong> is a data type used to represent categorical variables, such as treatment groups, disease status, or sampling locations. Factors consist of a set of possible values called <strong>levels</strong>. When a factor is included in a linear model, R typically uses one level as the <strong>reference group</strong> and compares the remaining levels against it. By default, the reference level is usually the first level of the factor, although it can be changed explicitly using functions such as <code>relevel()</code> or by specifying the factor levels in the desired order.</p>
+<p>With this in mind, we will set <code>nonIBD</code> as the <strong>reference group</strong> for the <code>diagnosis</code> variable. MaAsLin 3 will then compare the abundance and prevalence of each feature in individuals with Crohn’s disease (<code>CD</code>) or ulcerative colitis (<code>UC</code>) to those in individuals without inflammatory bowel disease (<code>nonIBD</code>).</p>
+<pre><code>HMP2_metadata$diagnosis &lt;- factor(HMP2_metadata$diagnosis, levels=c(&quot;nonIBD&quot;, &quot;CD&quot;, &quot;UC&quot;))</code></pre>
+<p>Using <code>nonIBD</code> as the reference group makes the model coefficients easier to interpret. A positive coefficient indicates that a feature is more abundant or prevalent in the comparison group (<code>CD</code> or <code>UC</code>) than in the <code>nonIBD</code> group, whereas a negative coefficient indicates that it is less abundant or prevalent.</p>
+<p>We can do the same for the variable <code>antibiotics</code> so that the base level is <code>No</code>.</p>
+<pre><code>HMP2_metadata$antibiotics &lt;- factor(HMP2_metadata$antibiotics, levels=c(&quot;No&quot;, &quot;Yes&quot;))</code></pre>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>With <code>No</code> being the reference group what would a positive coefficient mean? What about a negative?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="advanced-modeling-with-maaslin-3" class="section level2 hasAnchor">
+<h2>Advanced Modeling with MaAsLin 3<a href="visualization-and-finding-functional-significance.html#advanced-modeling-with-maaslin-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="using-formulas-in-r" class="section level3 hasAnchor">
+<h3>Using formulas in R<a href="visualization-and-finding-functional-significance.html#using-formulas-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we have explored the metadata, we can identify several variables that could potentially confound our analysis of whether pathway abundance and prevalence are associated with diagnosis. These variables include <code>antibiotics</code>, <code>age</code>, and <code>sex</code>.</p>
+<p>To address this potential confounding, we will include these variables as covariates in the MaAsLin3 model. This allows us to estimate the association between diagnosis and pathway abundance or prevalence while accounting for differences in antibiotic use, age, and sex among participants. In other words, the model will assess whether pathway features are associated with diagnosis after adjusting for the potential effects of these additional variables.</p>
+<p>Fixed effects are separated in the MaAsLin 3 formula with a <code>+</code></p>
+<pre><code>formula = &quot; ~ age + sex + antibiotics&quot;</code></pre>
+<p><strong>However, our analysis is not complete.</strong> During our inspection of the metadata, we may have noticed that several samples were collected from the same participant. This is known as <strong>repeated sampling</strong>. Because samples from the same individual are likely to be more similar to one another than samples from different individuals, they cannot be treated as completely independent observations.</p>
+<p>We can check the number of samples from each individual using the <code>table()</code> function:</p>
+<pre><code>table(HMP2_metadata$participant_id)</code></pre>
+<pre><code>C3001 C3002 C3003 C3004 C3005 C3006 C3008 C3009 C3010 C3011 C3012 C3013 C3015 C3016 C3017 C3019 C3020 C3021 C3022 C3023 
+   16    15    10    24    12    11    13    12    14    22    14    22    23    19    23     1     1     9    21    12 
+C3024 C3028 C3029 C3030 C3032 C3033 C3034 C3035 C3036 C3037 E5001 E5002 E5003 E5004 E5008 E5009 E5013 E5019 E5022 H4001 
+    1    12     9    10    12     1    10    11     1    11    13     5     1    12     3    11    13     1     1    12 
+H4004 H4006 H4007 H4008 H4009 H4010 H4011 H4012 H4013 H4014 H4015 H4016 H4017 H4018 H4019 H4020 H4022 H4023 H4024 H4027 
+   11    22    12    23    20    13     1     1    14    12    20    14    18    12    22    23    14    21    23    10 
+H4028 H4030 H4031 H4032 H4035 H4038 H4039 H4040 H4042 H4043 H4044 H4045 M2008 M2010 M2014 M2021 M2024 M2025 M2026 M2027 
+    9    13    11    13    24    13    13    11     7     8     5    13    17     2    13     8     1    10    16    13 
+M2028 M2034 M2039 M2041 M2042 M2047 M2048 M2060 M2064 M2068 M2069 M2071 M2072 M2075 M2077 M2079 M2081 M2083 M2084 M2085 
+   18    20    14    13    23    14    10    10    20    25    25    10    24    11    14    14     1    18    23    14 
+M2086 M2091 M2097 M2103 P6005 P6009 P6010 P6012 P6013 P6014 P6016 P6017 P6018 P6024 P6025 P6028 P6033 P6035 P6037 P6038 
+    1     1    11     6    15    22    22    14    20     9    14    10    25    10     7     8    11    11     7    12 </code></pre>
+<p>To account for this lack of independence, we will include the individual identifier as a <strong>random effect</strong> in the MaAsLin3 model. A random effect allows the model to account for subject-specific differences while estimating the associations between our variables of interest and pathway abundance or prevalence.</p>
+<p>Random effects are specified using the syntax <code>1|variable</code>, where <code>variable</code> identifies the grouping factor. In this analysis, we will use the participant identifier:</p>
+<pre><code>formula=&quot; ~ age + sex + antibiotics + (1|participant_id)&quot;</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Note For MaAsLin 3 specifically we also need to add the fixed effect reads to account for differences in sequencing depth between the samples</strong>.</p>
+</div>
+</div>
+</div>
+<div id="running-maaslin-3-with-both-fixed-effects-and-random-effects" class="section level3 hasAnchor">
+<h3>Running MaAsLin 3 with both fixed effects and random effects<a href="visualization-and-finding-functional-significance.html#running-maaslin-3-with-both-fixed-effects-and-random-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we have figured out the formula that we want to use for our model we can now run MaAsLin 3 on our DNA pathway data in a similar manner to what we did in the <strong>module 2 lab</strong></p>
+<pre><code>HMP2_diagnosis &lt;- maaslin3(input_data = MGX_pathway, input_metadata = HMP2_metadata, 
+                           formula = &quot;~ diagnosis + age + sex + antibiotics + reads + (1|participant_id)&quot;, 
+                           output = &quot;Module6/maaslin3_pathway_DNA/&quot;, 
+                           normalization = &quot;TSS&quot;, 
+                           transform = &quot;LOG&quot;
+                           )</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>This model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.</strong></p>
+</div>
+</div>
+<p>We can now load the results from our MaAsLin3 analysis and use them to create a <strong>volcano plot</strong>. This plot will examine the relationship between the model coefficients and the adjusted <em>p</em>-values for DNA pathways associated with diagnosis.</p>
+<pre><code>#load in results table
+dna_pathway_res &lt;- read.table(&quot;Module6/maaslin3_pathway_DNA/all_results.tsv&quot;, sep=&quot;\t&quot;, header=T)
+
+##volcano plot for abundance values
+diagnosis_dna_pathway_abundance &lt;- dna_pathway_res %&gt;% 
+  #filter to only the results for the abundance model
+  filter(model==&quot;abundance&quot;) %&gt;% 
+  #only keep models that didn&#39;t report any errors
+  filter(is.na(error)) %&gt;% 
+  #only keep coefficents that are associated with diagnosis
+  filter(metadata==&quot;diagnosis&quot;)
+
+
+diagnosis_dna_pathway_abundance[1:5, c(&quot;value&quot;, &quot;coef&quot;, &quot;qval_individual&quot;, &quot;feature&quot;)]</code></pre>
+<pre><code>  value       coef qval_individual                                      feature
+1    CD  0.9025269     0.006677512               PWY0_1297_SP_of_purine_dns_deg
+2    UC -0.8210926     0.011590329           DAPLYSINESYN_PWY_L_lysine_biosyn_I
+3    UC -0.7258358     0.017441839           PWY_5345_SP_of_L_methionine_biosyn
+4    CD -0.7788738     0.019584636         PWY_7383_anaerobic_energy_metabolism
+5    CD -0.1221061     0.024377110 PWY_7111_pyruvate_fermentation_to_isobutanol</code></pre>
+<p>The <strong>x-axis</strong> will display the model coefficient, indicating the direction and magnitude of the association. Positive coefficients represent higher pathway abundance in the diagnosis group compared with the <code>nonIBD</code> reference group, whereas negative coefficients represent lower pathway abundance. The <strong>y-axis</strong> will display the negative logarithm of the adjusted <em>p</em>-value, <code>-log10(adjusted p-value)</code>, with larger values representing stronger statistical evidence. The <strong>color</strong> will represent whether the association is comparing <code>nonIBD</code> to <code>CD</code> or <code>UC</code>.</p>
+<pre><code>diagnosis_dna_pathway_abundance %&gt;% ggplot(aes(x=coef, y=-log10(pval_individual), color=value)) + geom_point() +
+  theme_bw(base_size=12)</code></pre>
+<p><img alt="image" src="https://github.com/user-attachments/assets/73632458-412b-4524-bf8f-757334f6d328" /></p>
+<p>You can also inspect the results table using the <code>View()</code> function within Rstudio.</p>
+<pre><code>View(dna_pathway_res)</code></pre>
+<p><strong>Try building your own heat maps First, create a volcano plot showing the associations between pathway prevalence and diagnosis. Then, create a second volcano plot showing the associations between pathway abundance or prevalence and one of the control covariates, such as <code>sex</code>, <code>age</code>, or antibiotic use.</strong></p>
+</div>
+</div>
+<div id="metatranscriptomic-analysis-with-maaslin-3" class="section level2 hasAnchor">
+<h2>Metatranscriptomic analysis with MaAsLin 3<a href="visualization-and-finding-functional-significance.html#metatranscriptomic-analysis-with-maaslin-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have covered how to incorporate fixed and random effects into MaAsLin3 models, we will turn our attention to modeling metatranscriptomic data. Specifically, we will examine how MaAsLin3 can be used to analyze metatranscriptomic feature abundance and identify pathways or transcripts whose activity is associated with variables of interest, such as diagnosis.</p>
+<p>Unlike metagenomic data, which describe the genetic potential of a microbial community, metatranscriptomic data provide information about genes and pathways that are actively being transcribed. This allows us to investigate not only which functions are present, but also which functions are being expressed under specific conditions.</p>
+<p>There are two models that we can explore in this analysis. The first simple looks at transcript abundance without consideration for the abundance of the underlying DNA copy number. This allows use to identify transcripts that are highly abundant in one community compared to another but does not allow us to identify whether they are differential <strong>expressed</strong>.</p>
+<div id="unadjusted-mtx-model" class="section level3 hasAnchor">
+<h3>Unadjusted MTX model<a href="visualization-and-finding-functional-significance.html#unadjusted-mtx-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can now run the unadjusted model using the metatranscriptomic (MTX) pathway data. We will use the same model formula as before, but apply it to the MTX feature table.</p>
+<p>In this analysis, we will use MaAsLin3’s default settings for normalization and transformation: <strong>total-sum scaling (TSS)</strong> normalization and a <strong>logarithmic (LOG)</strong> transformation. These options are not included explicitly in the function call because they are the default values used by <code>maaslin3()</code> when no alternative settings are specified.</p>
+<p>You can view the available arguments and default settings for the function by running:</p>
+<pre><code>?maaslin3()</code></pre>
+<pre><code>RNA_model &lt;- maaslin3(
+    input_data = MTX_pathways,
+    input_metadata = HMP2_metadata,
+    output = &#39;Module6/maaslin3_pathway_raw_RNA&#39;,
+    formula = &quot;~ diagnosis + age + sex + antibiotics + (1|participant_id)&quot;)</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>This model will take about 15 minutes to run if you would like to save time you can simple load the data as we saved it into your directory at the start of the tutorial.</strong></p>
+</div>
+</div>
+<p>Try loading in the results of this model yourself. If you have time, try to create a volcano plot like we did for the MGX pathway results.</p>
+</div>
+<div id="dna-adjusted-mtx-model" class="section level3 hasAnchor">
+<h3>DNA adjusted MTX model<a href="visualization-and-finding-functional-significance.html#dna-adjusted-mtx-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, we will run the differential expression MTX model in MaAsLin 3. We first put the DNA and RNA abundance files into the MaAsLin 3 function preprocess_dna_mtx to total sum scale the abundances of both and apply the proper transformation to the DNA abundances. For each sample in each feature, this function:</p>
+<ol style="list-style-type: decimal">
+<li>Log 2 transforms the DNA abundance if the DNA abundance is &gt;=0.</li>
+<li>Sets the DNA abundance to log2([minimum non-zero relative abundance in the dataset] / 2) if the corresponding RNA abundance is non-zero but the DNA abundance is zero.</li>
+<li>Sets the DNA abundance to NA if both are zero, which excludes the sample when fitting the model for the feature.</li>
+</ol>
+<p>Now, we will switch the input_data to the preprocessed RNA table <code>preprocess_out$dna_table</code> and include the pre-processed DNA as the feature-specific covariate with <code>feature_specific_covariate = preprocess_out$dna_table</code>. We also set the name of the covariate for model fitting with <code>feature_specific_covariate_name = 'DNA'</code> and we specify that we do not want to record the associations with the DNA in the outputs and plots by setting <code>feature_specific_covariate_record = FALSE.</code></p>
+<p><strong>The results are already saved on your instance so we suggest skipping this command and loading the preserved results.</strong></p>
+<pre><code>preprocess_out &lt;- preprocess_dna_mtx(MGX_pathway, MTX_pathways)
+
+RNA_expression_model &lt;- maaslin3(
+    input_data = preprocess_out$rna_table,
+    input_metadata = HMP2_metadata,
+    output = &#39;Module6/maaslin3_pathway_expression_RNA&#39;,
+    formula=&quot;~ diagnosis + age + sex + antibiotics + (1|participant_id)&quot;,
+    feature_specific_covariate = preprocess_out$dna_table,
+    feature_specific_covariate_name = &#39;DNA&#39;,
+    feature_specific_covariate_record = FALSE)</code></pre>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>As with the other models this will run slowly so feel free to use the already downloaded results at the start of this tutorial.</strong></p>
+</div>
+</div>
+<p>The summary plot will be saved in the specified output folder above and should look like below.</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/51db1383-41b2-43d1-a48c-348a88f50b60" /></p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>How could we improve our MTX models in the future to be more robust to differences in MTX read depth?</p>
+</div>
+</div>
+<p>For more information on MaAsLin 3 check out its GitHub page:</p>
+<p><a href="https://github.com/biobakery/maaslin3" class="uri">https://github.com/biobakery/maaslin3</a></p>
+</div>
+</div>
+<div id="supervised-learning-with-random-forests-and-caret" class="section level2 hasAnchor">
+<h2>Supervised Learning with Random Forests and <code>caret</code><a href="visualization-and-finding-functional-significance.html#supervised-learning-with-random-forests-and-caret" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, we will introduce <strong>Random Forest</strong> models for classifying samples based on their microbiome features. We will use MGX pathway abundance data from week 0 samples to predict whether each sample belongs to the <code>nonIBD</code> or <code>CD</code> diagnosis group.</p>
+<pre><code>classification_data &lt;- HMP2_metadata %&gt;% filter(week_num==0) %&gt;% filter(diagnosis!=&quot;CD&quot;)
+
+# Remove samples that lack MGX pathway data
+classification_data$Sample &lt;- rownames(classification_data)
+
+classification_data &lt;- classification_data %&gt;% filter(Sample %in% rownames(MGX_pathway))
+table(classification_data$diagnosis)</code></pre>
+<pre><code>nonIBD     CD     UC 
+    23      0     22 </code></pre>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Why might we not want to use the entire dataset to train our model? Should we be concerned about data leakage?</p>
+</div>
+</div>
+<p>We will explore two different data-splitting strategies.</p>
+<p>First, we will randomly divide the data into separate training and test sets one time. The training set will be used to fit the Random Forest model, while the test set will be held out and used to evaluate the model’s performance on previously unseen samples. This approach provides a straightforward estimate of model performance. However, because the result depends on a single random split, the estimated performance may vary depending on which samples are assigned to each set.</p>
+<p>Secondly, we will train and evaluate a second Random Forest model using <em>k</em>-fold cross-validation with the <code>caret</code> package. Cross-validation allows us to assess model performance across multiple training and validation splits, providing a more robust estimate of how well the model may perform on new data.</p>
+<div id="data-splitting" class="section level3 hasAnchor">
+<h3>Data splitting<a href="visualization-and-finding-functional-significance.html#data-splitting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will split the data using the <code>createDataPartition()</code> function from the <code>caret</code> package. This function randomly selects samples for the training set while using the diagnosis groups to maintain similar proportions of <code>nonIBD</code> and <code>CD</code> samples in both the training and test datasets.</p>
+<p>This type of split is called a <strong>stratified split</strong>. Stratification helps ensure that both datasets contain representative samples from each diagnosis group, allowing us to train the model and evaluate its performance more fairly.</p>
+<pre><code># Set a seed so the split can be reproduced
+set.seed(123)
+
+# Create an 70/30 stratified split based on diagnosis
+training_index &lt;- createDataPartition(
+  classification_data$diagnosis,
+  p = 0.70,
+  list = FALSE
+)</code></pre>
+<p>In the above command <code>p</code> represents the proportion of data that should be included in the training dataset.</p>
+<pre><code># Create the training and test sets
+training_data &lt;- classification_data[training_index, ]
+test_data &lt;- classification_data[-training_index, ]
+
+table(training_data$diagnosis)</code></pre>
+<pre><code>nonIBD     CD     UC 
+    17      0     16 </code></pre>
+<pre><code>table(test_data$diagnosis)</code></pre>
+<pre><code>nonIBD     CD     UC 
+     6      0      6 </code></pre>
+<p>We now need to subset our MGX pathway abundance data so that it matches with the training and test metadata we created. We can do this by subsetting the table based on the <code>rownames()</code> of the test and training data.</p>
+<pre><code>MGX_training &lt;- MGX_pathway[rownames(training_data),]
+MGX_test &lt;- MGX_pathway[rownames(test_data),]</code></pre>
+</div>
+<div id="training-the-model" class="section level3 hasAnchor">
+<h3>Training the model<a href="visualization-and-finding-functional-significance.html#training-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we have divided the data into training and test sets, we can train a <strong>Random Forest</strong> classification model. The model will use the diagnosis labels in the training metadata as the response variable and the metagenomic (MGX) pathway abundances as the predictor variables.</p>
+<p>We will fit the model using the <code>randomForest()</code> function from the <code>randomForest</code> package. Before training the model, we need to ensure that the diagnosis variable is stored as a factor and that any unused factor levels have been removed. This is important because a classification model can only be trained on response classes that are actually represented in the training data.</p>
+<p>We can remove unused levels using <code>droplevels()</code>:</p>
+<pre><code>training_data$diagnosis &lt;- droplevels(training_data$diagnosis)</code></pre>
+<p>Now we can train our model.</p>
+<pre><code>model1 &lt;- randomForest(x = MGX_training, y=training_data$diagnosis,
+                       ntree=100, mtry=128)</code></pre>
+<p>In the model above, <code>x</code> represents the predictor variables—in this case, the MGX pathway abundances. The argument <code>y</code> represents the response variable, which is the diagnosis group for each sample.</p>
+<p>The <code>ntree</code> argument specifies the number of decision trees generated in the Random Forest model. Random Forest models combine the predictions from many individual decision trees to improve classification performance and reduce the influence of any single tree. In practice, <code>ntree</code> is often set between 500 and 1,000 trees, depending on the size and complexity of the dataset. To reduce computational time in this tutorial, we will use <code>ntree = 100</code>.</p>
+<p>The <code>mtry</code> argument is a <strong>hyperparameter</strong> that controls the number of predictor variables randomly considered as candidates at each split in a Random Forest decision tree. Changing <code>mtry</code> can affect both the model’s performance and the level of correlation among the individual trees.</p>
+</div>
+<div id="predicting-on-the-test-set" class="section level3 hasAnchor">
+<h3>Predicting on the test set<a href="visualization-and-finding-functional-significance.html#predicting-on-the-test-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can now apply our model to the unseen test dataset to see how well our model performs.</p>
+<pre><code>model1_predictions &lt;- predict(model1, MGX_test)</code></pre>
+<pre><code>CSM5MCTZ_P CSM6J2H9_P CSM79HQR_P HSM67VDT_P   HSM67VDT MSM6J2JH_P MSM79H94_P   MSM79HBZ MSM79HD6_P MSM79HF1_P 
+    nonIBD     nonIBD     nonIBD     nonIBD     nonIBD         UC         UC     nonIBD         UC     nonIBD 
+MSM9VZJF_P   PSM6XBW3 
+    nonIBD         UC 
+Levels: nonIBD UC</code></pre>
+<p>You can see that this returns a vector with the sample name and the diagnosis label that the model predicts.</p>
+<p>We can examine the accuracy of our model by looking at its confusion matrix.</p>
+<pre><code>test_data$diagnosis &lt;- droplevels(test_data$diagnosis)
+confusionMatrix(test_data$diagnosis, model1_predictions)</code></pre>
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction nonIBD UC
+    nonIBD      3  3
+    UC          5  1
+                                          
+               Accuracy : 0.3333          
+                 95% CI : (0.0992, 0.6511)
+    No Information Rate : 0.6667          
+    P-Value [Acc &gt; NIR] : 0.9961                       </code></pre>
+<p>Overall we can see our model did pretty poorly. This isn’t entirely surprising given the small number of trees we trained our model with along with the small number of samples we are working with.</p>
+<p>We could potentially improve our model by perform feature selection on the training data but this is outside the scope of this tutorial. For more information on randomForest feature selection I would suggest checking out this <a href="https://arxiv.org/pdf/1201.1587">paper</a>, or ask ask your favorite local AI agent.</p>
+</div>
+<div id="training-a-model-with-k-fold-cross-validation-using-caret" class="section level3 hasAnchor">
+<h3>Training a model with K-fold cross validation using <code>caret</code><a href="visualization-and-finding-functional-significance.html#training-a-model-with-k-fold-cross-validation-using-caret" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To obtain a more robust estimate of model performance, we can train and evaluate the Random Forest model using <em>k</em>-fold cross-validation. In this approach, the training data are divided into <em>k</em> approximately equal-sized subsets, called folds.</p>
+<p>The model is trained on <em>k</em> − 1 folds and evaluated on the remaining fold. This process is repeated <em>k</em> times so that each fold is used as the validation set once. The performance measurements from all folds are then combined to estimate how well the model is likely to perform on new, unseen samples.</p>
+<p>Compared with a single training–test split, <em>k</em>-fold cross-validation reduces the influence of any one random split and provides a more reliable assessment of model performance.</p>
+<pre><code>set.seed(786)
+
+# Define 3-fold cross-validation
+control &lt;- trainControl(
+  method = &quot;cv&quot;,
+  number = 3,
+  classProbs = TRUE,
+  savePredictions = &quot;final&quot;
+)</code></pre>
+<p>In <code>caret</code>, we define the training and resampling strategy using the <code>trainControl()</code> function. In the example above, we set <code>method = "cv"</code> to specify that the model should use <em>k</em>-fold cross-validation.</p>
+<p>The <code>number</code> argument specifies the number of folds. For example, <code>number = 3</code> divides the data into three folds. The model is trained on two folds and evaluated on the remaining fold, and this process is repeated until each fold has been used for validation.</p>
+<p>We also set <code>classProbs = TRUE</code> to save the predicted probability for each classification class. These probabilities indicate how confident the model is that a sample belongs to each diagnosis group. Finally, <code>savePredictions = "final"</code> tells <code>caret</code> to save the final class predictions generated during cross-validation, allowing us to examine the predictions and evaluate model performance after training.</p>
+<pre><code># Bind the previous training and test datasets into a single dataset to be used for k-fold cross validation.
+MGX_full_data &lt;- rbind(MGX_training, MGX_test)
+
+# Drop unused levels
+classification_data$diagnosis &lt;- droplevels(classification_data$diagnosis)
+
+# Here we set caret to train the model without
+fixed_mtry &lt;- 128
+
+rf_grid &lt;- data.frame(
+  mtry = fixed_mtry
+)</code></pre>
+<p>Here, we specify a fixed value for the <code>mtry</code> tuning parameter. By setting <code>fixed_mtry &lt;- 128</code>, we tell <code>caret</code> to use 128 randomly selected predictors at every tree split. We then place this value into a one-row data frame called <code>rf_grid</code>, with the column named <code>mtry</code>.</p>
+<p>Providing a tuning grid with only one value prevents <code>caret</code> from testing multiple <code>mtry</code> values. Cross-validation will therefore estimate the model’s performance while keeping <code>mtry</code> fixed, rather than optimizing this hyperparameter.</p>
+<p>With a larger dataset, we could evaluate several candidate <code>mtry</code> values using cross-validation on the training data. After selecting the value that performs best, we would train the final model using that value and evaluate it on a separate test set that was not used during model training or hyperparameter selection.</p>
+<pre><code>set.seed(128)
+
+rf_cv_model &lt;- train(
+  x = MGX_full_data,
+  y = classification_data$diagnosis,
+  method = &quot;rf&quot;,
+  trControl = control,
+  tuneGrid = rf_grid,
+  ntree = 100
+)
+</code></pre>
+<p>The command above trains a Random Forest model in <code>caret</code> using the cross-validation strategy defined with <code>trainControl()</code>.</p>
+<p>Within the <code>train()</code> function:</p>
 <ul>
-<li><strong>conda-forge</strong>: the channel</li>
-<li><strong>::</strong>: separates the channel from the package</li>
-<li><strong>numpy</strong>: the package</li>
+<li><code>x</code> specifies the predictor variables. In this analysis, these are the MGX pathway abundances.</li>
+<li><code>y</code> specifies the response variable, or class labels. Here, the response is the diagnosis of each sample.</li>
+<li><code>method = "rf"</code> specifies that <code>caret</code> should train a Random Forest model using the <code>randomForest</code> package.</li>
+<li><code>trControl = control</code> provides the cross-validation settings defined previously, including the number of folds and the predictions to save.</li>
+<li><code>tuneGrid = rf_grid</code> provides the mtry variable we want each of our training folds to use.</li>
+<li><code>ntree = 100</code> specifies the number of decision trees to grow for each Random Forest model trained during cross-validation.</li>
 </ul>
-<p>A common channel for working with Bioinformatics is the <strong>bioconda</strong> <a href="https://bioconda.github.io/">channel</a>, which lets us install thousands of software packages related to biomedical research using the conda package manager.</p>
-</div>
-<div id="environments" class="section level3 hasAnchor">
-<h3>Environments<a href="conda.html#environments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A separate workspace where you can install the packages and dependencies required for a particular project without affecting other projects or your main system. An environment management system allows to run isolated versions of the same packages on the same physical machine. Some of the common problems environment management systems can solve for data scientists:</p>
-<ul>
-<li>An application you need for a research project requires different versions of your base programming language or different versions of various third-party packages from the versions that you are currently using.</li>
-<li>An application you developed as part of a previous research project that worked fine on your system six months ago now no longer works.</li>
-<li>Code that was written for a joint research project works on your machine but not on your collaborators’ machines.</li>
-<li>An application that you are developing on your local machine doesn’t provide the same results when run on your remote cluster.</li>
-</ul>
-</div>
-<div id="environment-management-systems-for-python" class="section level3 hasAnchor rmdnote">
-<h3>Environment management systems for Python<a href="conda.html#environment-management-systems-for-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Conda is not the only way; Python for example has many more ways of working with environments:</p>
-<ul>
-<li><strong>virtualenv</strong></li>
-<li><strong>pipenv</strong></li>
-<li><strong>venv</strong></li>
-<li><strong>pyenv</strong></li>
-</ul>
-</div>
-<div id="package-management" class="section level3 hasAnchor">
-<h3>Package Management<a href="conda.html#package-management" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A system for installing, updating, configuring, and removing software on a computer. Package managers also help manage the dependencies required by that software. Some examples are:</p>
-<ul>
-<li><strong>APT (<code>apt</code>):</strong> commonly used on Debian and Ubuntu Linux.</li>
-<li><strong>YUM (<code>yum</code>):</strong> traditionally used on Red Hat–based Linux distributions such as CentOS and RHEL.</li>
-<li><strong>Homebrew (<code>brew</code>):</strong> Commonly used on macOS, and also available for Linux</li>
-</ul>
-<p>While package managers such as <code>apt</code>, <code>yum</code>, and <code>brew</code> manage software available to the entire operating system, Conda manages packages inside isolated environments.</p>
-</div>
-<div id="conda-1" class="section level3 hasAnchor">
-<h3>Conda<a href="conda.html#conda-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="https://docs.conda.io/projects/conda/en/latest/index.html">Conda</a> is an open source package and environment management system that runs on Windows, Mac OS and Linux.</p>
-<ul>
-<li>Conda can quickly install, run, and update packages and their dependencies.</li>
-<li>Conda can create, save, load, and switch between project specific software environments on your local computer.</li>
-<li>Although Conda was created for Python programs, Conda can package and distribute software for any language such as R, Ruby, Lua, Scala, Java, JavaScript, C, C++, FORTRAN.</li>
-</ul>
-<p>Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager, because Conda is also an environment manager. With just a few commands, you can set up a totally separate environment to run that different version of Python, while continuing to run your usual version of Python in your normal environment.</p>
-</div>
-<div id="why-use-conda" class="section level3 hasAnchor">
-<h3>Why use Conda?<a href="conda.html#why-use-conda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Whilst there are many different package and environment management systems that solve either the package management problem or the environment management problem, Conda solves both of these problems and explicitly targeted at (data) science use cases.</p>
-<ul>
-<li><p>Conda provides prebuilt packages, avoiding the need to deal with compilers, or trying to work out how exactly to set up a specific tool. Fields such as <a href="https://astroconda.readthedocs.io/en/latest/">Astronomy use conda to distribute some of their most difficult-to-install tools such as IRAF</a>. TensorFlow is another tool where to install it from source is near impossible, but Conda makes this a single step.</p></li>
-<li><p>Conda is cross platform, with support for Windows, MacOS, GNU/Linux, and support for multiple hardware platforms, such as x86 and Power 8 and 9. In future lessons we will show how to make your environment reproducible (<a href="https://www.nature.com/articles/533452a">reproducibility being one of the major issues facing science</a>), and Conda allows you to provide your environment to other people across these different platforms.</p></li>
-<li><p>Conda allows for using other package management tools (such as pip) inside Conda environments, where a library or tools is not already packaged for Conda (we’ll show later how to get access to more conda packages via channels).</p></li>
-</ul>
-</div>
-<div id="key-points-2" class="section level3 hasAnchor rmdnote">
-<h3>Key Points<a href="conda.html#key-points-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Conda is a platform agnostic, open source package and environment management system.</li>
-<li>Using a package and environment management tool facilitates portability and reproducibility of (data) science workflows.</li>
-<li>Conda solves both the package and environment management problems and targets multiple programming languages. Other open source tools solve either one or the other, or target only a particular programming language.</li>
-<li>Not only for Python.</li>
-</ul>
-</div>
-</div>
-<div id="working-with-environments" class="section level2 hasAnchor">
-<h2>Working with Environments<a href="conda.html#working-with-environments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="workspace-for-conda-environments" class="section level3 hasAnchor">
-<h3>Workspace for Conda environments<a href="conda.html#workspace-for-conda-environments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We are going to change your working directory into <code>introduction-conda</code> for maintaining a consistent workspace for our Conda environments.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb103-1"><a href="conda.html#cb103-1" tabindex="-1"></a><span class="ex">$</span> cd introduction-conda</span></code></pre></div>
-<p>Here, we are going to use as example a small DNA long-read sequencing dataset from Oxford Nanopore Technologies. <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR23100672&amp;display=metadata">This dataset</a> consists of whole genome sequencing of three Canadian strains of Escherichia coli from biosolid samples.
-The dataset is already available for you in your <code>introduction-conda</code> directory.</p>
-<p>For demonstration purposes, we are going to use <code>SeqKit</code>.</p>
-<p>SeqKit is a cross-platform and ultrafast toolkit for FASTA/FASTQ file manipulation. It allows us to:</p>
-<ul>
-<li>Obtain simple statistics on sequencing data.</li>
-<li>Perform format conversion</li>
-<li>Search through large files</li>
-<li>Edit</li>
-</ul>
-<p>Once you are inside your <code>introduction-conda</code> directory, we can try to obtain simple statistics (e.g. total number of reads, mean read length, min read length, max read length) using the command:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb104-1"><a href="conda.html#cb104-1" tabindex="-1"></a><span class="ex">$</span> seqkit stats SRR23100672.fastq</span></code></pre></div>
-<p>After running it, you should see an error message saying that:
-<strong>seqkit is not available</strong>. But it can be installed if you contact your system admin.
-But instead of installing this tool system-wide, we can first create a <strong>conda environment</strong> to install whichever tools we need. These tools will only exist within the environment.</p>
-</div>
-<div id="creating-a-conda-environment" class="section level3 hasAnchor">
-<h3>Creating a conda environment<a href="conda.html#creating-a-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb105"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb105-1"><a href="conda.html#cb105-1" tabindex="-1"></a><span class="ex">$</span> conda create <span class="at">--name</span> myenv</span></code></pre></div>
-<p>During the installation, we can already add software to be installed in our newly created environment.
-<strong>You do not need to create it with packages at this moment</strong>.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb106-1"><a href="conda.html#cb106-1" tabindex="-1"></a><span class="ex">$</span> conda create <span class="at">--name</span> myenv <span class="dt">\</span></span>
-<span id="cb106-2"><a href="conda.html#cb106-2" tabindex="-1"></a>  python3.6 <span class="dt">\</span></span>
-<span id="cb106-3"><a href="conda.html#cb106-3" tabindex="-1"></a>  numpy</span></code></pre></div>
-</div>
-<div id="activating-a-conda-environment" class="section level3 hasAnchor">
-<h3>Activating a Conda environment<a href="conda.html#activating-a-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>After creating a Conda environment, it is not automatically activated. If you look at your terminal, you may notice <strong><code>(base)</code></strong> at the beginning of the prompt. This indicates that Conda’s <strong>base environment</strong> is currently active.</p>
-<p>When an environment is active, commands you run in the terminal will use software available in that environment. This explains why our earlier attempt to run <strong><code>seqkit</code></strong> failed: <code>seqkit</code> was not installed in <strong><code>base</code></strong>.</p>
-<p>We can now activate our newly created environment:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb107-1"><a href="conda.html#cb107-1" tabindex="-1"></a><span class="ex">$</span> conda activate myenv</span></code></pre></div>
-<p>After activation, you should notice that <strong><code>(base)</code></strong> in your terminal prompt changes to <strong><code>(myenv)</code></strong>:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb108-1"><a href="conda.html#cb108-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">myenv</span><span class="kw">)</span> <span class="ex">$</span></span></code></pre></div>
-<p>This indicates that <strong><code>myenv</code></strong> is now the active Conda environment. Commands you run will now have access to the software and dependencies installed in this environment.</p>
-<p>At any time, you can also deactivate the current environment to return to base, or to activate another virtual environment. Note that you do not need to specify the name of the environment for deactivation.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb109-1"><a href="conda.html#cb109-1" tabindex="-1"></a><span class="ex">$</span> conda deactivate</span></code></pre></div>
-</div>
-<div id="installing-a-package-in-a-conda-environment" class="section level3 hasAnchor">
-<h3>Installing a package in a Conda environment<a href="conda.html#installing-a-package-in-a-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Make sure that your environment is activated first.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb110-1"><a href="conda.html#cb110-1" tabindex="-1"></a><span class="ex">$</span> conda activate myenv</span></code></pre></div>
-<p>The internet has extensive documentation on specific packages/software. However, we can use the <strong><code>search</code></strong> command to look for all the listed versions of a package as well as its channel of origin. Here, we want to install <strong>seqkit</strong>. Let’s investigate the available software. <strong>seqkit</strong> comes from the bioconda channel.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb111-1"><a href="conda.html#cb111-1" tabindex="-1"></a><span class="ex">$</span> conda search bioconda::seqkit</span></code></pre></div>
-<p>It listed several versions of the tool. Sometimes the functionality that we need was modified or no longer exists in the most recent version of a package. We can explore the functionalities in the <a href="https://bioinf.shenwei.me/seqkit/">official documentation</a> of the software.</p>
-<p>During installation, if you do not specify a version, it will install the latest. For our use case, it is more than enough. Let’s install it:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb112-1"><a href="conda.html#cb112-1" tabindex="-1"></a><span class="ex">$</span> conda install bioconda::seqkit</span></code></pre></div>
-<p>It will ask for your confirmation to install it:</p>
-<pre><code>The following NEW packages will be INSTALLED:
-seqkit             bioconda/linux-64::seqkit-2.13.0-he881be0_0 
-Proceed ([y]/n)?</code></pre>
-<p>You can type <strong><code>y</code></strong> and hit <strong><code>enter</code></strong>.</p>
-<p>Now, <strong>seqkit</strong> is successfully installed in your conda environment and ready for use.</p>
-</div>
-<div id="using-software-from-within-a-conda-environment" class="section level3 hasAnchor">
-<h3>Using software from within a Conda environment<a href="conda.html#using-software-from-within-a-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Once the Conda environment is activated and has the desired software installed, it is ready to be used. Let’s now try to use <strong>seqkit</strong> again:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb114-1"><a href="conda.html#cb114-1" tabindex="-1"></a><span class="ex">$</span> seqkit stats SRR23100672.fastq</span></code></pre></div>
-<pre><code>file               format  type  num_seqs     sum_len  min_len  avg_len  max_len
-SRR23100672.fastq  FASTQ   DNA     40,436  68,795,095       51  1,701.3  170,914</code></pre>
-<p>It did not return the error message from when we tried to execute <strong>seqkit</strong> from the base. Let’s interpret the results:</p>
-<ul>
-<li><strong>file</strong>: The input file we executed the <strong><code>seqkit stats</code></strong> command.</li>
-<li><strong>format</strong>: The format of the input file.</li>
-<li><strong>type</strong>: The alphabet type in the input file (DNA, RNA, Protein).</li>
-<li><strong>num_seqs</strong>: The total number of sequences.</li>
-<li><strong>sum_len</strong>: Total length of all sequences combined.</li>
-<li><strong>min_len</strong>: Shortest sequence length.</li>
-<li><strong>avg_len</strong>: Average sequence length.</li>
-<li><strong>max_length</strong>: Longest sequence length.</li>
-</ul>
-<p>Apart from the base execution of <strong><code>seqkit stats</code></strong>, there is an useful flag to get extra information:</p>
-<ul>
-<li><strong><code>-a</code>,<code>-all</code></strong>.</li>
-</ul>
-</div>
-<div id="activity" class="section level3 hasAnchor rmdnote">
-<h3>Activity<a href="conda.html#activity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s try to execute the <strong><code>seqkit stats</code></strong> with the <strong><code>-a</code>,<code>-all</code></strong> flag to see what happens.</p>
-</div>
-<div id="how-to-find-environments-that-exist-in-my-machine" class="section level3 hasAnchor">
-<h3>How to find environments that exist in my machine<a href="conda.html#how-to-find-environments-that-exist-in-my-machine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can check all the environments that were created with <code>conda</code> in your machine. By default, environments live in the <code>envs/</code> directory of your <code>miniforge3</code> directory.</p>
-<ul>
-<li>First, go to your home directory</li>
-</ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb116-1"><a href="conda.html#cb116-1" tabindex="-1"></a><span class="ex">$</span> cd /home/ubuntu</span></code></pre></div>
-<ul>
-<li>Then, you can <code>ls</code> into the <code>miniforge3/envs</code></li>
-</ul>
-<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="conda.html#cb117-1" tabindex="-1"></a><span class="ex">$</span> ls miniforge3/envs</span></code></pre></div>
-<ul>
-<li>This will list the names of all your created environments.</li>
-</ul>
-</div>
-<div id="how-to-find-out-packages-installed-in-an-environment" class="section level3 hasAnchor">
-<h3>How to find out packages installed in an environment<a href="conda.html#how-to-find-out-packages-installed-in-an-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you ever forget what exactly has been installed in a particular Conda environment, you can run the <code>conda list</code> command. The `–name`` flag looks for the installed software in the listed environment.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="conda.html#cb118-1" tabindex="-1"></a><span class="ex">$</span> conda list <span class="at">--name</span> myenv</span></code></pre></div>
-</div>
-<div id="how-to-delete-an-environment" class="section level3 hasAnchor">
-<h3>How to delete an environment<a href="conda.html#how-to-delete-an-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Occasionally, you will want to delete an entire environment. Perhaps, you were experimenting with <code>conda</code> commands and you created an environment you have no intention of using; perhaps, you no longer need an existing environment and just want to get rid of cruft on your machine. Whatever the reason, the command to delete an environment is:</p>
-<p>By default, the <code>conda remove</code> command will delete packages. You can either specify the name of the package to be deleted:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="conda.html#cb119-1" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">--name</span> myenv seqkit</span></code></pre></div>
-<p>If you add the flag <code>--all</code>, the entire environment is deleted.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb120-1"><a href="conda.html#cb120-1" tabindex="-1"></a><span class="ex">$</span> conda remove <span class="at">--name</span> myenv <span class="at">--all</span></span></code></pre></div>
-<p>However, the environment needs to be deactivated first.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb121-1"><a href="conda.html#cb121-1" tabindex="-1"></a><span class="ex">$</span> conda deactivate</span></code></pre></div>
-</div>
-</div>
-<div id="sharing-environments" class="section level2 hasAnchor">
-<h2>Sharing environments<a href="conda.html#sharing-environments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When working on a collaborative research project it is often the case that your operating system might differ from the operating systems used by your collaborators. Similarly, the operating system used on a remote cluster to which you have access will likely differ from the operating system that you use on your local machine. In these cases it is useful to create an operating system agnostic environment file which you can share with collaborators or use to re-create an environment on a remote cluster.</p>
-<div id="how-do-i-share-my-enviroment-with-others" class="section level3 hasAnchor">
-<h3>How do I share my enviroment with others?<a href="conda.html#how-do-i-share-my-enviroment-with-others" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In order to make sure that your environment is truly shareable, you need to make sure that that the contents of your environment are described in such a way that the resulting environment file can be used to re-create your environment on Linux, Mac OS, and Windows. Conda uses YAML (“YAML Ain’t Markup Language”) for writing its environment files. YAML is a human-readable data-serialization language that is commonly used for configuration files and that uses Python-style indentation to indicate nesting.</p>
-<p>Creating your project’s Conda environment from a single environment file is a Conda “best practice”. Not only do you have a file to share with collaborators but you also have a file that can be placed under version control which further enhancing the reproducibility of your research project and workflow.</p>
-<p>The structure of a <code>.yml</code> file is:</p>
-<pre><code>name: myenv
-dependencies:
-  - ipython=7.13
-  - matplotlib=3.1
-  - pandas=1.0
-  - pip=20.0
-  - python=3.6
-  - scikit-learn=0.22</code></pre>
-<p>Let’s create a <code>environment.yml</code> based on the existing software we have installed in our environment:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb123-1"><a href="conda.html#cb123-1" tabindex="-1"></a><span class="ex">$</span> conda env export <span class="at">--name</span> myenv <span class="at">--file</span> environment.yml</span></code></pre></div>
-<p>Now your entire environment is represented as <code>environment.yml</code>. This does not mean this environment has already been created.</p>
-<p>To create an environment from a <code>.yml</code> file, you can:</p>
-<pre><code>$ conda env create --file environment.yml</code></pre>
+<p>We can get some information on the models by just calling the saved <code>rf_cv_model</code> variable.</p>
+<pre><code>rf_cv_model</code></pre>
+<pre><code>Random Forest 
+
+ 45 samples
+254 predictors
+  2 classes: &#39;nonIBD&#39;, &#39;UC&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (3 fold) 
+Summary of sample sizes: 30, 29, 31 
+Resampling results:
+
+  Accuracy   Kappa    
+  0.6478175  0.3004658
+
+Tuning parameter &#39;mtry&#39; was held constant at a value of 128</code></pre>
+<p>Here we can see that across our model we achieved an accuracy of 0.605. This is better than our previous model but still fairly poor and again not surprising given the small dataset we are working with.</p>
+<p>We can extract the predictions from <code>rf_cv_model</code> using the following code:</p>
+<pre><code>cv_predictions &lt;- rf_cv_model$pred
+
+cv_predictions[1:5, 1:5]</code></pre>
+<pre><code>  mtry   pred    obs nonIBD   UC
+1  128     UC     UC   0.24 0.76
+2  128     UC     UC   0.22 0.78
+3  128 nonIBD nonIBD   0.56 0.44
+4  128 nonIBD nonIBD   0.63 0.37
+5  128     UC nonIBD   0.39 0.61</code></pre>
+<p>We can then use the <code>pred</code> column and the <code>obs</code> column to create a confusion matrix like we did previously.</p>
+<pre><code>confusionMatrix(
+  data = cv_predictions$pred,
+  reference = cv_predictions$obs,
+  positive = &quot;UC&quot;
+)</code></pre>
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction nonIBD UC
+    nonIBD     17 10
+    UC          6 12
+                                          
+               Accuracy : 0.6444          
+                 95% CI : (0.4878, 0.7813)
+    No Information Rate : 0.5111          
+    P-Value [Acc &gt; NIR] : 0.04975         
+                                          
+                  Kappa : 0.2857          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.45325         
+                                          
+            Sensitivity : 0.5455          
+            Specificity : 0.7391          
+         Pos Pred Value : 0.6667          
+         Neg Pred Value : 0.6296          
+             Prevalence : 0.4889          
+         Detection Rate : 0.2667          
+   Detection Prevalence : 0.4000          
+      Balanced Accuracy : 0.6423          
+                                          
+       &#39;Positive&#39; Class : UC   </code></pre>
+<p>The tutorial and code presented above provide an initial introduction to supervised learning with microbiome data. We covered the basic steps involved in developing and evaluating a classification model, including preparing the data, splitting samples into training and test sets, training a Random Forest model, generating predictions, and assessing model performance using cross-validation and confusion matrices.</p>
+<p>These examples are intended to establish a foundation for applying supervised learning methods to microbiome datasets. In practice, additional considerations may be necessary, including feature preprocessing, class imbalance, hyperparameter tuning, model interpretation, and independent validation using an external dataset. To get more information on these we suggest taking a look at this <a href="https://www.nature.com/articles/s41579-023-00984-1">paper</a>.</p>
 
 </div>
 </div>
@@ -735,8 +999,8 @@ dependencies:
           </div>
         </div>
       </div>
-<a href="awsunix.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="assigning-functions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -767,7 +1031,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bioinformaticsdotca/MIC_Gue-2609/blob/main/008-Carpentries-Conda.Rmd",
+    "link": "https://github.com/bioinformaticsdotca/MIC_Gue-2609/blob/main/060-module-6.Rmd",
     "text": "Edit"
   },
   "history": {

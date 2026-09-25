@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 | Assigning Functions | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</title>
+  <meta name="description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 | Assigning Functions | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/MIC_Gue-2609/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/MIC_Gue-2609" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 | Assigning Functions | (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026" />
+  
+  <meta name="twitter:description" content="Workshop website for the 2026 (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/MIC_Gue-2609/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Morgan Langille, Robyn Wright, Jacob Nearing" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="metagenomic-assembly-and-binning.html"/>
+<link rel="next" href="visualization-and-finding-functional-significance.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON",
+  "description": "The complete set of tutorials, slides, and practical exercises for the (2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026 Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/MIC_Gue-2609",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "https://bioinformatics.ca/workshops-all/cbw-cs-dcc-microbiome-analysis/"
+  }
+}
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/logo.png" width="70%" alt="(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule-microbiome-analysis"><i class="fa fa-check"></i>Schedule: Microbiome Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
+<li class="part"><span><b>II Pre-Session</b></span></li>
+<li class="chapter" data-level="" data-path="meet-your-pre-session-faculty.html"><a href="meet-your-pre-session-faculty.html"><i class="fa fa-check"></i>Meet Your Pre-Session Faculty</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html"><i class="fa fa-check"></i>AWS/UNIX</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-aws"><i class="fa fa-check"></i>1. Logging into AWS</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-into-the-amazon-cloud-during-the-workshop"><i class="fa fa-check"></i>Logging into the Amazon Cloud During the Workshop</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-ssh-maclinux"><i class="fa fa-check"></i>Logging in with ssh (Mac/Linux)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#logging-in-with-openssh-client-windows"><i class="fa fa-check"></i>Logging in with OpenSSH client (Windows)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#alternative-logging-in-to-the-terminal-with-the-browser-all-operating-systems"><i class="fa fa-check"></i>Alternative: logging in to the terminal with the browser (all operating systems)</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#file-system-layout"><i class="fa fa-check"></i>File System Layout</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#jupyter-notebook"><i class="fa fa-check"></i>Jupyter Notebook</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#introduction-to-the-command-line"><i class="fa fa-check"></i>2. Introduction to the command line</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#exercise-exploring-the-filesystem"><i class="fa fa-check"></i>Exercise: Exploring the filesystem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#file-manipulation"><i class="fa fa-check"></i>3. File manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#exercise-reading-text-files"><i class="fa fa-check"></i>Exercise: Reading text files</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#exercise-editing-text-files"><i class="fa fa-check"></i>Exercise: Editing text files</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#reference-material"><i class="fa fa-check"></i>Reference material</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#searching-and-sorting-through-files"><i class="fa fa-check"></i>4. Searching and sorting through files</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#setup"><i class="fa fa-check"></i>Setup</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#data-exploration"><i class="fa fa-check"></i>Data Exploration</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#what-does-mean"><i class="fa fa-check"></i>What Does &gt;&gt; Mean?</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#running-commands-together"><i class="fa fa-check"></i>Running Commands Together</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#piping-commands-together"><i class="fa fa-check"></i>Piping Commands Together</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#pipe-reading-comprehension"><i class="fa fa-check"></i>Pipe Reading Comprehension</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#pipe-construction"><i class="fa fa-check"></i>Pipe Construction</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#which-pipe"><i class="fa fa-check"></i>Which Pipe?</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#checking-files"><i class="fa fa-check"></i>Checking Files</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#wildcard-expressions"><i class="fa fa-check"></i>Wildcard Expressions</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#key-points"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#putting-it-all-together"><i class="fa fa-check"></i>5. Putting it all together</a>
+<ul>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#writing-your-first-script"><i class="fa fa-check"></i>Writing your first script</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#awk"><i class="fa fa-check"></i>Awk</a></li>
+<li class="chapter" data-level="" data-path="awsunix.html"><a href="awsunix.html#key-points-1"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html"><i class="fa fa-check"></i>Conda</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#getting-started-with-conda"><i class="fa fa-check"></i>Getting Started with Conda</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#packages-and-environment"><i class="fa fa-check"></i>Packages and Environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#modules-packages-libraries"><i class="fa fa-check"></i>Modules, packages, libraries</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#dependencies"><i class="fa fa-check"></i>Dependencies</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#environments"><i class="fa fa-check"></i>Environments</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#environment-management-systems-for-python"><i class="fa fa-check"></i>Environment management systems for Python</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#package-management"><i class="fa fa-check"></i>Package Management</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#conda-1"><i class="fa fa-check"></i>Conda</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#why-use-conda"><i class="fa fa-check"></i>Why use Conda?</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#key-points-2"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#working-with-environments"><i class="fa fa-check"></i>Working with Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#workspace-for-conda-environments"><i class="fa fa-check"></i>Workspace for Conda environments</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#creating-a-conda-environment"><i class="fa fa-check"></i>Creating a conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#activating-a-conda-environment"><i class="fa fa-check"></i>Activating a Conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#installing-a-package-in-a-conda-environment"><i class="fa fa-check"></i>Installing a package in a Conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#using-software-from-within-a-conda-environment"><i class="fa fa-check"></i>Using software from within a Conda environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#activity"><i class="fa fa-check"></i>Activity</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-environments-that-exist-in-my-machine"><i class="fa fa-check"></i>How to find environments that exist in my machine</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-find-out-packages-installed-in-an-environment"><i class="fa fa-check"></i>How to find out packages installed in an environment</a></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-to-delete-an-environment"><i class="fa fa-check"></i>How to delete an environment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#sharing-environments"><i class="fa fa-check"></i>Sharing environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="conda.html"><a href="conda.html#how-do-i-share-my-enviroment-with-others"><i class="fa fa-check"></i>How do I share my enviroment with others?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i>R</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#introduction-to-rrstudio"><i class="fa fa-check"></i>Introduction to R/RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#loging-in-to-rstudio-via-the-aws-instance"><i class="fa fa-check"></i>Loging in to RStudio via the AWS instance</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#rstudio-default-interface"><i class="fa fa-check"></i>RStudio default interface</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#using-r-as-a-calculator"><i class="fa fa-check"></i>Using R as a calculator</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#mathematical-functions"><i class="fa fa-check"></i>Mathematical functions</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#variables-and-assignment"><i class="fa fa-check"></i>Variables and assignment</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#r-packages"><i class="fa fa-check"></i>R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#seeking-help-with-r"><i class="fa fa-check"></i>Seeking Help with R</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#reading-help-files"><i class="fa fa-check"></i>Reading Help Files</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-objects"><i class="fa fa-check"></i>Data Objects</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#special-operators"><i class="fa fa-check"></i>Special Operators</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#getting-help-with-packages"><i class="fa fa-check"></i>Getting Help with Packages</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#when-you-remember-part-of-the-function-name"><i class="fa fa-check"></i>When You Remember Part of the Function Name</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i>When You Have No Idea Where to Begin</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#other-ways-to-get-help"><i class="fa fa-check"></i>Other Ways to Get Help</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-structures-data-types-and-data-frames"><i class="fa fa-check"></i>Data Structures, Data Types and Data frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#data-types"><i class="fa fa-check"></i>Data Types</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#manipulating-data-frames"><i class="fa fa-check"></i>Manipulating data frames</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#reading-and-writing-data-frames"><i class="fa fa-check"></i>Reading and Writing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#creating-plots-with-ggplot2"><i class="fa fa-check"></i>Creating Plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#building-a-ggplot"><i class="fa fa-check"></i>Building a ggplot</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#changing-point-aethetics"><i class="fa fa-check"></i>Changing point aethetics</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#mapping-aesthetics-to-variables"><i class="fa fa-check"></i>Mapping aesthetics to variables</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#adding-labels-and-themes"><i class="fa fa-check"></i>Adding labels and themes</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#saving-a-ggplot"><i class="fa fa-check"></i>Saving a ggplot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Modules</b></span></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html"><i class="fa fa-check"></i>1 | Marker Gene Profiling</a>
+<ul>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#lab"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#reminder-on-logging-into-the-server"><i class="fa fa-check"></i>Reminder on logging into the server</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s"><i class="fa fa-check"></i>1. 16S</a>
+<ul>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-first-steps"><i class="fa fa-check"></i>1.1. 16S First steps</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#trim-primers-with-cutadapt"><i class="fa fa-check"></i>1.1.6. Trim primers with cutadapt</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants"><i class="fa fa-check"></i>1.2. 16S Denoising the reads into amplicon sequence variants</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-assign-taxonomy-to-asvs"><i class="fa fa-check"></i>1.3. 16S Assign taxonomy to ASVs</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast"><i class="fa fa-check"></i>1.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-filtering-resultant-table"><i class="fa fa-check"></i>1.4. 16S Filtering resultant table</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#build-tree-with-sepp-qiime-2-plugin"><i class="fa fa-check"></i>1.5. Build tree with SEPP QIIME 2 plugin</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#exporting-data-from-qiime-2-for-use-in-other-software"><i class="fa fa-check"></i>1.6. Exporting data from QIIME 2 for use in other software</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-answers"><i class="fa fa-check"></i>16S Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-1"><i class="fa fa-check"></i>2. 18S</a>
+<ul>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-first-steps-1"><i class="fa fa-check"></i>2.1. 18S First steps</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#trim-primers-with-cutadapt-1"><i class="fa fa-check"></i>2.1.6. Trim primers with cutadapt</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-denoising-the-reads-into-amplicon-sequence-variants-1"><i class="fa fa-check"></i>2.2. 18S Denoising the reads into amplicon sequence variants</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-assign-taxonomy-to-asvs-1"><i class="fa fa-check"></i>2.3. 18S Assign taxonomy to ASVs</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-1"><i class="fa fa-check"></i>2.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-filtering-resultant-table-1"><i class="fa fa-check"></i>2.4. 18S Filtering resultant table</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#build-a-tree"><i class="fa fa-check"></i>2.5. Build a tree</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#exporting-data-from-qiime-2-for-use-in-other-software-1"><i class="fa fa-check"></i>2.6. Exporting data from QIIME 2 for use in other software</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#s-answers-1"><i class="fa fa-check"></i>18S Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#its"><i class="fa fa-check"></i>3. ITS</a>
+<ul>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#its-first-steps"><i class="fa fa-check"></i>2.1. ITS First steps</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#trim-primers-with-cutadapt-2"><i class="fa fa-check"></i>2.1.6. Trim primers with cutadapt</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#its-denoising-the-reads-into-amplicon-sequence-variants"><i class="fa fa-check"></i>2.2. ITS Denoising the reads into amplicon sequence variants</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#its-assign-taxonomy-to-asvs"><i class="fa fa-check"></i>2.3. ITS Assign taxonomy to ASVs</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#assess-subset-of-taxonomic-assignments-with-blast-2"><i class="fa fa-check"></i>2.3.2 Assess subset of taxonomic assignments with BLAST</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#its-filtering-resultant-table"><i class="fa fa-check"></i>2.4. ITS Filtering resultant table</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#build-a-tree-1"><i class="fa fa-check"></i>2.5. Build a tree</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#exporting-data-from-qiime-2-for-use-in-other-software-2"><i class="fa fa-check"></i>2.6. Exporting data from QIIME 2 for use in other software</a></li>
+<li class="chapter" data-level="" data-path="marker-gene-profiling.html"><a href="marker-gene-profiling.html#its-answers"><i class="fa fa-check"></i>ITS Answers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html"><i class="fa fa-check"></i>2 | Microbiome ecology, statistics, and visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#setup-1"><i class="fa fa-check"></i>Setup</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#loading-the-data"><i class="fa fa-check"></i>Loading the Data</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#alpha-diversity"><i class="fa fa-check"></i>Alpha Diversity</a>
+<ul>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#rarefaction"><i class="fa fa-check"></i>Rarefaction</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#testing-for-differences-in-alpha-diversity"><i class="fa fa-check"></i>Testing for differences in alpha diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#beta-diversity"><i class="fa fa-check"></i>Beta Diversity</a>
+<ul>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#calculating-distance-and-dissimilarity-metrics"><i class="fa fa-check"></i>Calculating Distance and Dissimilarity Metrics</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#jaccard-distance"><i class="fa fa-check"></i>Jaccard Distance</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#principal-coordinates-analysis"><i class="fa fa-check"></i>Principal Coordinates Analysis</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#permanova"><i class="fa fa-check"></i>PERMANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#braycurtis-dissimilarity"><i class="fa fa-check"></i>Bray–Curtis Dissimilarity</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#weighted-unifrac-distance"><i class="fa fa-check"></i>Weighted UniFrac Distance</a></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#differential-abundance-testing-with-maaslin3"><i class="fa fa-check"></i>Differential Abundance Testing with MaAsLin3</a>
+<ul>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#explanation-of-maaslin3-outputs"><i class="fa fa-check"></i>Explanation of MaAsLin3 Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#if-there-is-time"><i class="fa fa-check"></i>If There Is Time</a>
+<ul>
+<li class="chapter" data-level="" data-path="microbiome-ecology-statistics-and-visualization.html"><a href="microbiome-ecology-statistics-and-visualization.html#collapsing-tables-by-taxa"><i class="fa fa-check"></i>Collapsing Tables by Taxa</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html"><i class="fa fa-check"></i>3 | Intro to metagenomics and read-based profiling</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#lab-2"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#about-the-samples"><i class="fa fa-check"></i>About the samples</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#initial-setup-for-this-module"><i class="fa fa-check"></i>3.1. Initial setup for this module</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#tmux---keeping-your-commands-running-when-youre-not-logged-into-the-server"><i class="fa fa-check"></i>tmux - keeping your commands running when you’re not logged into the server</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#a-crash-course-in-gnu-parallel"><i class="fa fa-check"></i>A Crash Course in GNU Parallel</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#get-the-files"><i class="fa fa-check"></i>Get the files</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#filtering-with-kneaddata"><i class="fa fa-check"></i>3.2. Filtering with KneadData</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#generating-taxonomic-profiles-with-kraken-2"><i class="fa fa-check"></i>3.3. Generating taxonomic profiles with Kraken 2</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#confirmation-of-taxonomic-annotations-with-gecocheck"><i class="fa fa-check"></i>3.4. Confirmation of taxonomic annotations with GeCoCheck</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#annotation-with-metaphlan"><i class="fa fa-check"></i>3.5. Annotation with MetaPhlAn</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#visualisation-of-kraken-results-in-r"><i class="fa fa-check"></i>3.6. Visualisation of Kraken results in R</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#visualisation-of-metaphlan-results-in-r"><i class="fa fa-check"></i>3.7. Visualisation of MetaPhlAn results in R</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#preparing-for-module-4"><i class="fa fa-check"></i>4.1. Preparing for module 4</a></li>
+<li class="chapter" data-level="" data-path="intro-to-metagenomics-and-read-based-profiling.html"><a href="intro-to-metagenomics-and-read-based-profiling.html#answers"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html"><i class="fa fa-check"></i>4 | Metagenomic Assembly and Binning</a>
+<ul>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#lab-3"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#overview-1"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#anvio"><i class="fa fa-check"></i>Anvi’o</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#initial-setup"><i class="fa fa-check"></i>4.1. Initial setup</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#assembly-of-raw-reads-with-megahit"><i class="fa fa-check"></i>4.2. Assembly of raw reads with MEGAHIT</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#make-an-anvio-contigs-databases"><i class="fa fa-check"></i>4.3. Make an Anvi’o contigs databases</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#run-hmms-to-identify-single-copy-genes"><i class="fa fa-check"></i>4.4. Run HMMs to identify single copy genes</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#identify-taxonomy-of-single-copy-genes"><i class="fa fa-check"></i>4.5. Identify taxonomy of single-copy genes</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#map-samples-onto-contigs-with-bowtie2"><i class="fa fa-check"></i>4.6. Map samples onto contigs with Bowtie2</a>
+<ul>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#add-coverage-and-detection-statistics-to-the-anvio-profile"><i class="fa fa-check"></i>Add coverage and detection statistics to the Anvi’o profile</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#merge-sample-profiles"><i class="fa fa-check"></i>Merge sample profiles</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#cluster-contigs-into-bins"><i class="fa fa-check"></i>4.7. Cluster contigs into bins</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#interactive-viewing-of-bins"><i class="fa fa-check"></i>4.8. Interactive viewing of bins</a>
+<ul>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#if-you-are-using-putty"><i class="fa fa-check"></i>If you are using Putty</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#in-the-browser-anvio-page"><i class="fa fa-check"></i>In the browser Anvi’o page</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#running-the-other-binning-algorithms"><i class="fa fa-check"></i>4.9. Running the other binning algorithms</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#combining-the-clustering-results-with-das-tool"><i class="fa fa-check"></i>4.10. Combining the clustering results with DAS Tool</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#run-gtdb-tk"><i class="fa fa-check"></i>4.11. Run GTDB-tk</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#visualise-our-mags"><i class="fa fa-check"></i>4.12. Visualise our MAGs</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#run-checkm"><i class="fa fa-check"></i>4.13. Run CheckM</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#extras"><i class="fa fa-check"></i>Extras</a></li>
+<li class="chapter" data-level="" data-path="metagenomic-assembly-and-binning.html"><a href="metagenomic-assembly-and-binning.html#answers-1"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html"><i class="fa fa-check"></i>5 | Assigning Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#lab-4"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#functional-annotation-of-mags-using-anvio-ncbi-cogs"><i class="fa fa-check"></i>5.1. Functional annotation of MAGs using Anvi’o NCBI COGs</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#amr-annotation-of-mags-with-card-rgi"><i class="fa fa-check"></i>5.2. AMR annotation of MAGs with CARD RGI</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#visualisation-of-mag-functional-annotations"><i class="fa fa-check"></i>5.3. Visualisation of MAG functional annotations</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#mmseqs-initial-setup"><i class="fa fa-check"></i>5.4. MMSeqs initial setup</a>
+<ul>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#mmseqs"><i class="fa fa-check"></i>MMSeqs</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#humann"><i class="fa fa-check"></i>HUMAnN</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#mmseqs-setup"><i class="fa fa-check"></i>MMSeqs setup</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#run-mmseqs"><i class="fa fa-check"></i>5.5. Run MMSeqs</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#get-mmseqs-top-hits"><i class="fa fa-check"></i>5.6. Get MMSeqs top hits</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#combine-kraken-taxonomy-and-mmseqs-functions"><i class="fa fa-check"></i>5.7. Combine Kraken taxonomy and MMSeqs functions</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#visualise-mmseqs-and-kraken-in-jarrvis"><i class="fa fa-check"></i>5.8. Visualise MMSeqs and Kraken in JarrVis</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#general-functional-annotation-of-mag-fasta-files-using-bakta"><i class="fa fa-check"></i>5.9. General functional annotation of MAG fasta files using Bakta</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#extras-1"><i class="fa fa-check"></i>Extras</a></li>
+<li class="chapter" data-level="" data-path="assigning-functions.html"><a href="assigning-functions.html#answers-2"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html"><i class="fa fa-check"></i>6 | Visualization and finding functional significance</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#lecture-5"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#lab-5"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#data-loading"><i class="fa fa-check"></i>Data loading</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#libraries-we-will-use"><i class="fa fa-check"></i>Libraries we will use:</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#metatranscriptomic-data-mtx"><i class="fa fa-check"></i>Metatranscriptomic data (MTX)</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#metagenomic-data-mgx"><i class="fa fa-check"></i>Metagenomic data (MGX)</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#metadata"><i class="fa fa-check"></i>Metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#advanced-modeling-with-maaslin-3"><i class="fa fa-check"></i>Advanced Modeling with MaAsLin 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#using-formulas-in-r"><i class="fa fa-check"></i>Using formulas in R</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#running-maaslin-3-with-both-fixed-effects-and-random-effects"><i class="fa fa-check"></i>Running MaAsLin 3 with both fixed effects and random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#metatranscriptomic-analysis-with-maaslin-3"><i class="fa fa-check"></i>Metatranscriptomic analysis with MaAsLin 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#unadjusted-mtx-model"><i class="fa fa-check"></i>Unadjusted MTX model</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#dna-adjusted-mtx-model"><i class="fa fa-check"></i>DNA adjusted MTX model</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#supervised-learning-with-random-forests-and-caret"><i class="fa fa-check"></i>Supervised Learning with Random Forests and <code>caret</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#data-splitting"><i class="fa fa-check"></i>Data splitting</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#training-the-model"><i class="fa fa-check"></i>Training the model</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#predicting-on-the-test-set"><i class="fa fa-check"></i>Predicting on the test set</a></li>
+<li class="chapter" data-level="" data-path="visualization-and-finding-functional-significance.html"><a href="visualization-and-finding-functional-significance.html#training-a-model-with-k-fold-cross-validation-using-caret"><i class="fa fa-check"></i>Training a model with K-fold cross validation using <code>caret</code></a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<a href="https://www.cihr-irsc.gc.ca"><img src="img/sponsors/cihr.png" width=90% style="padding-bottom: 20px" alt="Canadian Institutes of Health Research logo."></a>
+
+<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="55" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="55" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=35% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">(2026) CBW/CS-DCC Microbiome Analysis: Guelph, ON 2026</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="assigning-functions" class="section level1 hasAnchor">
+<h1>5 | Assigning Functions<a href="assigning-functions.html#assigning-functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture-4" class="section level2 hasAnchor">
+<h2>Lecture<a href="assigning-functions.html#lecture-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HbG7n7UZp_Q?si=o4OJeeFwog6mMZJq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<iframe src="https://docs.google.com/presentation/d/1-G3QrPDxj2t7QLvPRwpdaaGKzld4b4a4/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="lab-4" class="section level2 hasAnchor">
+<h2>Lab<a href="assigning-functions.html#lab-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://docs.google.com/presentation/d/1SibH92C-IXyGG8wb29NqnROaazqesq2P/preview" width="640" height="480" allow="autoplay">
+</iframe>
+<p>This tutorial is part of the 2026 CBW Microbiome Analysis (held in Guelph, ON, September 15-17). It is based on the metagenomics workflows available on the <a href="https://microbiomehelper.ca/">Microbiome Helper</a>.</p>
+<p><strong>Author:</strong> Robyn Wright</p>
+</div>
+<div id="overview-2" class="section level2 hasAnchor">
+<h2>Overview<a href="assigning-functions.html#overview-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The goal here is to introduce students to the different types of functional annotation that we can do, as well as the different things that we can annotate. This is not comprehensive and there are many different types of functional databases out there. Many steps of this can also stand alone, so you can choose which is most applicable to you. We’ll cover:</p>
+<ul>
+<li>Functional annotation of our contigs/MAGs in Anvi’o:
+<ul>
+<li>General functional annotation of MAGs in our Anvi’o database using the NCBI Clusters of Orthologous Genes (COGs)</li>
+<li>Annotation of MAGs in our Anvi’o database using the CARD RGI to identify AMR genes</li>
+<li>Visualisation of NCBI COGs and AMR genes in Anvi’o (and combining this with our previous phylogenetic tree and taxonomy information on our MAGs)</li>
+</ul></li>
+<li>Read-based functional annotation:
+<ul>
+<li>General functional annotation of reads using MMSeqs2 with the UniRef 90 database (and linking this with the Kraken 2 taxonomy that we generated in module 3)</li>
+</ul></li>
+<li>Functional annotation of our MAGs in stand-alone programs:
+<ul>
+<li>General functional annotation of MAG fasta files using Bakta</li>
+</ul></li>
+</ul>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Each of these sections (MAGs, reads or MAGs with Bakta) can be run independently, so feel free to choose the one that is of most use/interest to you to start with! It may be a lot to get through in this lab.</p>
+</div>
+</div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Throughout this module, there are some questions aimed to help your understanding of some of the key concepts. You’ll find the answers at the bottom of this page, but no one will be marking them.</p>
+</div>
+</div>
+</div>
+<div id="functional-annotation-of-mags-using-anvio-ncbi-cogs" class="section level2 hasAnchor">
+<h2>5.1. Functional annotation of MAGs using Anvi’o NCBI COGs<a href="assigning-functions.html#functional-annotation-of-mags-using-anvio-ncbi-cogs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We are going to start off with functional annotation of the Anvi’o database so that we can see if our MAGs have any functions of interest - of course, here we don’t really have any functions that we’re particularly interested in, but in a real analysis, we’d usually have some functions that we think could be associated with a disease, a treatment, or a process of interest. We’ll choose them at random here when we visualise them, but if you already have some functions that you’re interested in then feel free to use those instead.</p>
+<p>We’ll start by reactivating the Anvi’o environment and changing back to the directory we’ve been working from:</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb454-1"><a href="assigning-functions.html#cb454-1" tabindex="-1"></a><span class="ex">conda</span> activate anvio-9</span>
+<span id="cb454-2"><a href="assigning-functions.html#cb454-2" tabindex="-1"></a><span class="bu">cd</span> ~/workspace/metagenome</span></code></pre></div>
+<p>Before we add the functional annotations, let’s look at what we already have here:</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb455-1"><a href="assigning-functions.html#cb455-1" tabindex="-1"></a><span class="ex">anvi-db-info</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db</span></code></pre></div>
+<p>If you look at the section <code>AVAILABLE FUNCTIONAL ANNOTATION SOURCES</code> then you should see that there is nothing listed, meaning we currently have no functional annotations.</p>
+<p>We’ll start by running the NCBI Clusters of Orthologous Genes (COGs) command within Anvi’o:</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb456-1"><a href="assigning-functions.html#cb456-1" tabindex="-1"></a><span class="ex">anvi-run-ncbi-cogs</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="at">-T</span> 4</span></code></pre></div>
+<p>This will take about 10 minutes.</p>
+<p>As you may have guessed, this used the <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC102395/">NCBI COGs</a> to annotate all of our contigs with general functions. The current version within Anvi’o is COG24, and it includes three different levels of annotation:</p>
+<ol style="list-style-type: decimal">
+<li>Functional categories: information storage and processing (translation, transcription, replication, etc), cellular processes and signalling (cell cycle control, division, motility, etc), and metabolism (energy production and transport)</li>
+<li>Functions: the specific functional annotation</li>
+<li>Pathways: e.g. glycolysis, photosystem I, TCA cycle</li>
+</ol>
+<p>Once this has finished, look at the functional annotations available in our database now:</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb457-1"><a href="assigning-functions.html#cb457-1" tabindex="-1"></a><span class="ex">anvi-db-info</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db</span></code></pre></div>
+<p>You should now see:</p>
+<pre><code>AVAILABLE FUNCTIONAL ANNOTATION SOURCES
+===============================================
+* COG24_CATEGORY (XX annotations)
+* COG24_FUNCTION (XX annotations)
+* COG24_PATHWAY (XX annotations)</code></pre>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 1:</strong> How many annotations in each category are there?</p>
+</div>
+</div>
+<p>Before we move on to the visualisation, we’ll also annotate the contigs with AMR genes.</p>
+</div>
+<div id="amr-annotation-of-mags-with-card-rgi" class="section level2 hasAnchor">
+<h2>5.2. AMR annotation of MAGs with CARD RGI<a href="assigning-functions.html#amr-annotation-of-mags-with-card-rgi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we can use the Comprehensive Antibiotic Resistance Database (CARD) Resistance Gene Identifier (RGI) to identify AMR genes within our contigs/MAGs. CARD RGI actually has a few different options and can be run on reads, contigs or MAGs. It doesn’t run inside Anvi’o, so we’ll export the sequences from Anvi’o to a fasta file, run CARD RGI, and then import the annotations back into Anvi’o.</p>
+<p>First, export the sequences for our genes (we already identified them in module 4, so we don’t need to do this again):</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb459-1"><a href="assigning-functions.html#cb459-1" tabindex="-1"></a><span class="ex">anvi-get-sequences-for-gene-calls</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb459-2"><a href="assigning-functions.html#cb459-2" tabindex="-1"></a>                                  <span class="at">--get-aa-sequences</span> <span class="dt">\</span></span>
+<span id="cb459-3"><a href="assigning-functions.html#cb459-3" tabindex="-1"></a>                                  <span class="at">-o</span> contigs_amino_acids.faa</span></code></pre></div>
+<p>Now activate the CARD RGI environment and make a directory for our output to go:</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb460-1"><a href="assigning-functions.html#cb460-1" tabindex="-1"></a><span class="ex">conda</span> activate card-rgi-6.0.8</span>
+<span id="cb460-2"><a href="assigning-functions.html#cb460-2" tabindex="-1"></a><span class="fu">mkdir</span> card_out_contigs</span></code></pre></div>
+<p>Now get the CARD database:</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb461-1"><a href="assigning-functions.html#cb461-1" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> ~/CourseData/databases/card_data/ .</span></code></pre></div>
+<p>Note that I followed the directions <a href="https://github.com/arpcard/rgi/blob/master/docs/rgi_load.rst">here</a> to get this. If you’d like to challenge yourself a little more, change out of and delete the <code>card_data</code> folder that you just made and follow the instructions to download and setup the database for yourself.</p>
+<p>Now we’ll run CARD RGI. Note that unlike many other tools, for this one we want to be inside the directory containing the CARD information and we’ll give the full paths to our output folders instead.</p>
+<p>Change into the <code>card_data</code> directory and set up our folder name (this is so that all of the <em>subshells</em> that parallel generates can find the <code>FOLDER</code> variable):</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb462-1"><a href="assigning-functions.html#cb462-1" tabindex="-1"></a><span class="bu">cd</span> card_data</span>
+<span id="cb462-2"><a href="assigning-functions.html#cb462-2" tabindex="-1"></a></span>
+<span id="cb462-3"><a href="assigning-functions.html#cb462-3" tabindex="-1"></a><span class="va">FOLDER</span><span class="op">=</span><span class="st">&#39;/home/ubuntu/workspace/metagenome/&#39;</span></span>
+<span id="cb462-4"><a href="assigning-functions.html#cb462-4" tabindex="-1"></a><span class="bu">export</span> <span class="va">FOLDER</span></span></code></pre></div>
+<p>And now run it:</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb463-1"><a href="assigning-functions.html#cb463-1" tabindex="-1"></a><span class="ex">rgi</span> main <span class="dt">\</span></span>
+<span id="cb463-2"><a href="assigning-functions.html#cb463-2" tabindex="-1"></a>                     <span class="at">-i</span> <span class="va">${FOLDER}</span>contigs_amino_acids.faa <span class="dt">\</span></span>
+<span id="cb463-3"><a href="assigning-functions.html#cb463-3" tabindex="-1"></a>                     <span class="at">-o</span> <span class="va">${FOLDER}</span>card_out_contigs/contigs <span class="dt">\</span></span>
+<span id="cb463-4"><a href="assigning-functions.html#cb463-4" tabindex="-1"></a>                     <span class="at">-t</span> contig <span class="dt">\</span></span>
+<span id="cb463-5"><a href="assigning-functions.html#cb463-5" tabindex="-1"></a>                     <span class="at">-a</span> DIAMOND <span class="dt">\</span></span>
+<span id="cb463-6"><a href="assigning-functions.html#cb463-6" tabindex="-1"></a>                     <span class="at">-n</span> 4 <span class="dt">\</span></span>
+<span id="cb463-7"><a href="assigning-functions.html#cb463-7" tabindex="-1"></a>                     <span class="at">--include_loose</span> <span class="dt">\</span></span>
+<span id="cb463-8"><a href="assigning-functions.html#cb463-8" tabindex="-1"></a>                     <span class="at">--local</span> <span class="dt">\</span></span>
+<span id="cb463-9"><a href="assigning-functions.html#cb463-9" tabindex="-1"></a>                     <span class="at">--clean</span> <span class="dt">\</span></span>
+<span id="cb463-10"><a href="assigning-functions.html#cb463-10" tabindex="-1"></a>                     <span class="at">--input_type</span> protein</span>
+<span id="cb463-11"><a href="assigning-functions.html#cb463-11" tabindex="-1"></a><span class="bu">cd</span> ..</span></code></pre></div>
+<p>You can see a description of them for yourself by typing <code>rgi main --help</code>, but there are some that might not be so obvious:</p>
+<ul>
+<li><code>-t</code> - whether the data input is contigs (also use this option for reads!) or proteins</li>
+<li><code>-a</code> - the alignment tool to use (DIAMOND or BLAST)</li>
+<li><code>--include-loose</code> - that we want to include loose hits in addition to strict and perfect hits</li>
+<li><code>--local</code> - that we want to use the local database (i.e., that we don’t need to download the database)</li>
+<li><code>--clean</code> - that we want to remove temporary files when we’re done</li>
+</ul>
+<p>Now that we have the annotations we just want to reformat some of these results into a format that Anvi’o can import:</p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb464-1"><a href="assigning-functions.html#cb464-1" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;gene_callers_id\tsource\taccession\tfunction\te_value&quot;</span> <span class="op">&gt;</span> contigs_card_rgi_ARO.txt</span>
+<span id="cb464-2"><a href="assigning-functions.html#cb464-2" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +2 card_out_contigs/contigs.txt <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">&#39;\t&#39;</span> <span class="st">&#39;{print $1&quot;\tCARD-ARO\t&quot;$11&quot;\t&quot;$9&quot;\t&quot;$8}&#39;</span> <span class="op">&gt;&gt;</span> contigs_card_rgi_ARO.txt</span>
+<span id="cb464-3"><a href="assigning-functions.html#cb464-3" tabindex="-1"></a></span>
+<span id="cb464-4"><a href="assigning-functions.html#cb464-4" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;gene_callers_id\tsource\taccession\tfunction\te_value&quot;</span> <span class="op">&gt;</span> contigs_card_rgi_drug-class.txt</span>
+<span id="cb464-5"><a href="assigning-functions.html#cb464-5" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +2 card_out_contigs/contigs.txt <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">&#39;\t&#39;</span> <span class="st">&#39;{print $1&quot;\tCARD-drug-class\t&quot;$11&quot;\t&quot;$15&quot;\t&quot;$8}&#39;</span> <span class="op">&gt;&gt;</span> contigs_card_rgi_drug-class.txt</span>
+<span id="cb464-6"><a href="assigning-functions.html#cb464-6" tabindex="-1"></a></span>
+<span id="cb464-7"><a href="assigning-functions.html#cb464-7" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-e</span> <span class="st">&quot;gene_callers_id\tsource\taccession\tfunction\te_value&quot;</span> <span class="op">&gt;</span> contigs_card_rgi_gene-family.txt</span>
+<span id="cb464-8"><a href="assigning-functions.html#cb464-8" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +2 card_out_contigs/contigs.txt <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">&#39;\t&#39;</span> <span class="st">&#39;{print $1&quot;\tCARD-gene-family\t&quot;$11&quot;\t&quot;$17&quot;\t&quot;$8}&#39;</span> <span class="op">&gt;&gt;</span> contigs_card_rgi_gene-family.txt</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 2:</strong> What do you think we’re doing in each of these commands?</p>
+</div>
+</div>
+<p>Now we can reactivate the Anvi’o environment and import these into Anvi’o:</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb465-1"><a href="assigning-functions.html#cb465-1" tabindex="-1"></a><span class="ex">conda</span> activate anvio-9 </span>
+<span id="cb465-2"><a href="assigning-functions.html#cb465-2" tabindex="-1"></a><span class="ex">anvi-import-functions</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb465-3"><a href="assigning-functions.html#cb465-3" tabindex="-1"></a>                      <span class="at">-i</span> contigs_card_rgi_ARO.txt</span>
+<span id="cb465-4"><a href="assigning-functions.html#cb465-4" tabindex="-1"></a></span>
+<span id="cb465-5"><a href="assigning-functions.html#cb465-5" tabindex="-1"></a><span class="ex">anvi-import-functions</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb465-6"><a href="assigning-functions.html#cb465-6" tabindex="-1"></a>                      <span class="at">-i</span> contigs_card_rgi_drug-class.txt</span>
+<span id="cb465-7"><a href="assigning-functions.html#cb465-7" tabindex="-1"></a></span>
+<span id="cb465-8"><a href="assigning-functions.html#cb465-8" tabindex="-1"></a><span class="ex">anvi-import-functions</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb465-9"><a href="assigning-functions.html#cb465-9" tabindex="-1"></a>                      <span class="at">-i</span> contigs_card_rgi_gene-family.txt</span></code></pre></div>
+<p>Check that they are showing up in our contigs database now:</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb466-1"><a href="assigning-functions.html#cb466-1" tabindex="-1"></a><span class="ex">anvi-db-info</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db</span></code></pre></div>
+<p>It should look something like this now:</p>
+<pre><code>AVAILABLE FUNCTIONAL ANNOTATION SOURCES
+===============================================
+* CARD-ARO (11,786 annotations)
+* CARD-drug-class (11,786 annotations)
+* CARD-gene-family (11,786 annotations)
+* COG24_CATEGORY (104,084 annotations)
+* COG24_FUNCTION (104,084 annotations)
+* COG24_PATHWAY (26,425 annotations)</code></pre>
+</div>
+<div id="visualisation-of-mag-functional-annotations" class="section level2 hasAnchor">
+<h2>5.3. Visualisation of MAG functional annotations<a href="assigning-functions.html#visualisation-of-mag-functional-annotations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next, we’re going to visualise the functions, and then we’ll visualise the MAGs with the functions.</p>
+<p>Anvi’o requires a list of the genomes that we’re interested in for visualising functions. In our case, this is just all MAGs, so we can create that like this:</p>
+<div class="sourceCode" id="cb468"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb468-1"><a href="assigning-functions.html#cb468-1" tabindex="-1"></a><span class="ex">anvi-script-gen-genomes-file</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb468-2"><a href="assigning-functions.html#cb468-2" tabindex="-1"></a>                             <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb468-3"><a href="assigning-functions.html#cb468-3" tabindex="-1"></a>                             <span class="at">-C</span> <span class="st">&quot;FINAL_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb468-4"><a href="assigning-functions.html#cb468-4" tabindex="-1"></a>                             <span class="at">--output-file</span> anvio_full/internal-genomes-final.txt</span></code></pre></div>
+<p>And then use this to first display the <code>COG24_PATHWAY</code>:</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb469-1"><a href="assigning-functions.html#cb469-1" tabindex="-1"></a><span class="ex">anvi-display-functions</span> <span class="at">-i</span> anvio_full/internal-genomes-final.txt <span class="dt">\</span></span>
+<span id="cb469-2"><a href="assigning-functions.html#cb469-2" tabindex="-1"></a>                       <span class="at">--annotation-source</span> COG24_PATHWAY <span class="dt">\</span></span>
+<span id="cb469-3"><a href="assigning-functions.html#cb469-3" tabindex="-1"></a>                       <span class="at">--profile-db</span> anvio_full/COG24_PATHWAY-PROFILE.db <span class="dt">\</span></span>
+<span id="cb469-4"><a href="assigning-functions.html#cb469-4" tabindex="-1"></a>                       <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb469-5"><a href="assigning-functions.html#cb469-5" tabindex="-1"></a>                       <span class="at">-P</span> 8081</span></code></pre></div>
+<p>As before, you’ll need to then go into a second terminal window and run:</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb470-1"><a href="assigning-functions.html#cb470-1" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-L</span> 8081:localhost:8081 <span class="at">-i</span> CBW.pem ubuntu@##.uhn-hpc.ca</span></code></pre></div>
+<p>And then go to <a href="http://localhost:8081/" class="uri">http://localhost:8081/</a>. Hopefully it looks something like this:
+<img src="img/CBW2026_module5_Anvio1.png" /></p>
+<p>Now let’s look at the <code>CARD-drug-class</code> annotations:</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb471-1"><a href="assigning-functions.html#cb471-1" tabindex="-1"></a><span class="ex">anvi-display-functions</span> <span class="at">-i</span> anvio_full/internal-genomes-final.txt <span class="dt">\</span></span>
+<span id="cb471-2"><a href="assigning-functions.html#cb471-2" tabindex="-1"></a>                       <span class="at">--annotation-source</span> CARD-drug-class <span class="dt">\</span></span>
+<span id="cb471-3"><a href="assigning-functions.html#cb471-3" tabindex="-1"></a>                       <span class="at">--profile-db</span> anvio_full/CARD-drug-class-PROFILE.db <span class="dt">\</span></span>
+<span id="cb471-4"><a href="assigning-functions.html#cb471-4" tabindex="-1"></a>                       <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb471-5"><a href="assigning-functions.html#cb471-5" tabindex="-1"></a>                       <span class="at">-P</span> 8081</span></code></pre></div>
+<p>You’ll see that this shows the AMR drugs that the annotated genes give resistance to, and is the way that we often like to look at AMR - what often matters the most is the resistance that the microbes in our samples have, not the specific genes that they use. This should look something like this:
+<img src="img/CBW2026_module5_Anvio2.png" /></p>
+<p>But this has a lot of information… so now we’ll look at only the drug classes in all 26 MAGs (and remember that you can switch between the circle phylogram and phylogram!):</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb472-1"><a href="assigning-functions.html#cb472-1" tabindex="-1"></a><span class="ex">anvi-display-functions</span> <span class="at">-i</span> anvio_full/internal-genomes-final.txt <span class="dt">\</span></span>
+<span id="cb472-2"><a href="assigning-functions.html#cb472-2" tabindex="-1"></a>                       <span class="at">--annotation-source</span> CARD-drug-class <span class="dt">\</span></span>
+<span id="cb472-3"><a href="assigning-functions.html#cb472-3" tabindex="-1"></a>                       <span class="at">--profile-db</span> anvio_full/CARD-drug-class-PROFILE-26.db <span class="dt">\</span></span>
+<span id="cb472-4"><a href="assigning-functions.html#cb472-4" tabindex="-1"></a>                       <span class="at">--min-occurrence</span> 26 <span class="dt">\</span></span>
+<span id="cb472-5"><a href="assigning-functions.html#cb472-5" tabindex="-1"></a>                       <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb472-6"><a href="assigning-functions.html#cb472-6" tabindex="-1"></a>                       <span class="at">-P</span> 8081</span></code></pre></div>
+<p>Which should look like this:
+<img src="img/CBW2026_module5_Anvio3.png" /></p>
+<p>Once you’ve run one of these commands once, you’ll see that you can’t rerun them because you already have a profile made. Once you’ve run them once, you can see them again like this:</p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb473-1"><a href="assigning-functions.html#cb473-1" tabindex="-1"></a><span class="ex">anvi-interactive</span> <span class="at">-p</span> anvio_full/CARD-drug-class-PROFILE.db <span class="dt">\</span></span>
+<span id="cb473-2"><a href="assigning-functions.html#cb473-2" tabindex="-1"></a>                 <span class="at">--manual</span> <span class="dt">\</span></span>
+<span id="cb473-3"><a href="assigning-functions.html#cb473-3" tabindex="-1"></a>                 <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb473-4"><a href="assigning-functions.html#cb473-4" tabindex="-1"></a>                 <span class="at">-P</span> 8081</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 3:</strong> How many drug classes are present in all of our MAGs?</p>
+</div>
+</div>
+<p>Now look at the gene families that are in all of our MAGs:</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb474-1"><a href="assigning-functions.html#cb474-1" tabindex="-1"></a><span class="ex">anvi-display-functions</span> <span class="at">-i</span> anvio_full/internal-genomes-final.txt <span class="dt">\</span></span>
+<span id="cb474-2"><a href="assigning-functions.html#cb474-2" tabindex="-1"></a>                       <span class="at">--annotation-source</span> CARD-gene-family <span class="dt">\</span></span>
+<span id="cb474-3"><a href="assigning-functions.html#cb474-3" tabindex="-1"></a>                       <span class="at">--profile-db</span> anvio_full/CARD-gene-family-PROFILE-26.db <span class="dt">\</span></span>
+<span id="cb474-4"><a href="assigning-functions.html#cb474-4" tabindex="-1"></a>                       <span class="at">--min-occurrence</span> 26 <span class="dt">\</span></span>
+<span id="cb474-5"><a href="assigning-functions.html#cb474-5" tabindex="-1"></a>                       <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb474-6"><a href="assigning-functions.html#cb474-6" tabindex="-1"></a>                       <span class="at">-P</span> 8081</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 4:</strong> How many gene families are present in all of our MAGs?</p>
+</div>
+</div>
+<p>Finally, let’s make it so we can view these with the other information about our MAGs and the phylogenetic tree. This part isn’t very intuitive, but we need to export some text files with the functions in each MAG in them:</p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb475-1"><a href="assigning-functions.html#cb475-1" tabindex="-1"></a><span class="ex">anvi-script-gen-function-matrix-across-genomes</span> <span class="at">-i</span> anvio_full/internal-genomes-final.txt <span class="dt">\</span></span>
+<span id="cb475-2"><a href="assigning-functions.html#cb475-2" tabindex="-1"></a>                                               <span class="at">--annotation-source</span> CARD-drug-class <span class="dt">\</span></span>
+<span id="cb475-3"><a href="assigning-functions.html#cb475-3" tabindex="-1"></a>                                               <span class="at">--output-file-prefix</span> anvio_full/CARD-drug-class-MAGs-final</span>
+<span id="cb475-4"><a href="assigning-functions.html#cb475-4" tabindex="-1"></a></span>
+<span id="cb475-5"><a href="assigning-functions.html#cb475-5" tabindex="-1"></a><span class="ex">anvi-script-gen-function-matrix-across-genomes</span> <span class="at">-i</span> anvio_full/internal-genomes-final.txt <span class="dt">\</span></span>
+<span id="cb475-6"><a href="assigning-functions.html#cb475-6" tabindex="-1"></a>                                               <span class="at">--annotation-source</span> COG24_PATHWAY <span class="dt">\</span></span>
+<span id="cb475-7"><a href="assigning-functions.html#cb475-7" tabindex="-1"></a>                                               <span class="at">--output-file-prefix</span> anvio_full/COG24_PATHWAY-MAGs-final</span></code></pre></div>
+<p>You can see that I’ve chosen the CARD drug classes and COG24 pathways. If you want to choose something different, then you are welcome to. Remember you can see the options like this: <code>anvi-db-info -c anvio_full/anvio_databases/CONTIGS.db</code></p>
+<p>If you look at the length of these files like this: <code>less anvio_full/CARD-drug-class-MAGs-final-PRESENCE-ABSENCE.txt | wc -l</code> and <code>anvio_full/COG24_PATHWAY-MAGs-final-PRESENCE-ABSENCE.txt</code> you’ll see that we have 102 drug classes and 76 COG pathways (the counts show the file header, too). This is obviously going to be a big much to view, so let’s just take a few. I’ve just selected a few more-or-less at random, so you can changes these if you like. Note that something like this is where in a real analysis we may do some kind of differential abundance testing before deciding to plot them!</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb476-1"><a href="assigning-functions.html#cb476-1" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-F</span><span class="st">&#39;\t&#39;</span> <span class="st">&#39;NR==1 || $28 == &quot;macrolide antibiotic&quot; || $28 == &quot;carbapenem&quot; || $28 == &quot;nucleoside antibiotic&quot;&#39;</span> anvio_full/CARD-drug-class-MAGs-final-FREQUENCY.txt <span class="op">&gt;</span> anvio_full/CARD-drug-class-MAGs-final-FREQUENCY-filtered.txt</span>
+<span id="cb476-2"><a href="assigning-functions.html#cb476-2" tabindex="-1"></a></span>
+<span id="cb476-3"><a href="assigning-functions.html#cb476-3" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-F</span><span class="st">&#39;\t&#39;</span> <span class="st">&#39;NR==1 || $28 == &quot;Type X secretion system&quot; || $28 == &quot;Lipid A biosynthesis&quot; || $28 == &quot;Type V secretion system&quot; || $28 == &quot;Asparagine biosynthesis&quot; || $28 == &quot;Pyruvate oxidation&quot; || $28 == &quot;TCA cycle&quot;&#39;</span> anvio_full/COG24_PATHWAY-MAGs-final-FREQUENCY.txt <span class="op">&gt;</span> anvio_full/COG24_PATHWAY-MAGs-final-FREQUENCY-filtered.txt</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 5:</strong> Can you figure out what this code is doing?</p>
+</div>
+</div>
+<p>Now let’s make a single file with all of the additional data that we want to show, so that we can add it with the <code>--additional-layers</code> flag. We’re going to use Python for this seeing as we have a few modifications to make. Open it up by typing in <code>python</code> and pressing enter.</p>
+<p>Now paste in:</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb477-1"><a href="assigning-functions.html#cb477-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb477-2"><a href="assigning-functions.html#cb477-2" tabindex="-1"></a></span>
+<span id="cb477-3"><a href="assigning-functions.html#cb477-3" tabindex="-1"></a>tax <span class="op">=</span> pd.read_csv(<span class="st">&#39;scg_taxonomy_FINAL_dastool_reduced_fixed.txt&#39;</span>, index_col<span class="op">=</span><span class="dv">0</span>, header<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb477-4"><a href="assigning-functions.html#cb477-4" tabindex="-1"></a>tax <span class="op">=</span> tax.loc[:, [<span class="st">&#39;t_class&#39;</span>, <span class="st">&#39;t_species&#39;</span>]]</span>
+<span id="cb477-5"><a href="assigning-functions.html#cb477-5" tabindex="-1"></a></span>
+<span id="cb477-6"><a href="assigning-functions.html#cb477-6" tabindex="-1"></a>card <span class="op">=</span> pd.read_csv(<span class="st">&#39;anvio_full/CARD-drug-class-MAGs-final-FREQUENCY-filtered.txt&#39;</span>, index_col<span class="op">=</span><span class="dv">0</span>, header<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>).transpose()</span>
+<span id="cb477-7"><a href="assigning-functions.html#cb477-7" tabindex="-1"></a>card.columns <span class="op">=</span> card.loc[<span class="st">&#39;CARD-drug-class&#39;</span>, :]</span>
+<span id="cb477-8"><a href="assigning-functions.html#cb477-8" tabindex="-1"></a>card <span class="op">=</span> card.drop(<span class="st">&#39;CARD-drug-class&#39;</span>, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb477-9"><a href="assigning-functions.html#cb477-9" tabindex="-1"></a></span>
+<span id="cb477-10"><a href="assigning-functions.html#cb477-10" tabindex="-1"></a>cog <span class="op">=</span> pd.read_csv(<span class="st">&#39;anvio_full/COG24_PATHWAY-MAGs-final-FREQUENCY-filtered.txt&#39;</span>, index_col<span class="op">=</span><span class="dv">0</span>, header<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>).transpose()</span>
+<span id="cb477-11"><a href="assigning-functions.html#cb477-11" tabindex="-1"></a>cog.columns <span class="op">=</span> cog.loc[<span class="st">&#39;COG24_PATHWAY&#39;</span>, :]</span>
+<span id="cb477-12"><a href="assigning-functions.html#cb477-12" tabindex="-1"></a>cog <span class="op">=</span> cog.drop(<span class="st">&#39;COG24_PATHWAY&#39;</span>, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb477-13"><a href="assigning-functions.html#cb477-13" tabindex="-1"></a></span>
+<span id="cb477-14"><a href="assigning-functions.html#cb477-14" tabindex="-1"></a>combined <span class="op">=</span> pd.concat([tax, card, cog], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb477-15"><a href="assigning-functions.html#cb477-15" tabindex="-1"></a></span>
+<span id="cb477-16"><a href="assigning-functions.html#cb477-16" tabindex="-1"></a>combined.index.name <span class="op">=</span> <span class="st">&quot;bin_name&quot;</span></span>
+<span id="cb477-17"><a href="assigning-functions.html#cb477-17" tabindex="-1"></a>combined.to_csv(<span class="st">&#39;anvio_taxonomy_card_cog.txt&#39;</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
+<p>Once it’s finished, type in <code>quit()</code> to go back to the regular command line.</p>
+<p>And let’s view this!</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb478-1"><a href="assigning-functions.html#cb478-1" tabindex="-1"></a><span class="ex">anvi-interactive</span> <span class="at">-c</span> anvio_full/anvio_databases/CONTIGS.db <span class="dt">\</span></span>
+<span id="cb478-2"><a href="assigning-functions.html#cb478-2" tabindex="-1"></a>                 <span class="at">-p</span> anvio_full/anvio_databases/merged_profiles/PROFILE.db <span class="dt">\</span></span>
+<span id="cb478-3"><a href="assigning-functions.html#cb478-3" tabindex="-1"></a>                 <span class="at">-C</span> <span class="st">&quot;FINAL_dastool&quot;</span> <span class="dt">\</span></span>
+<span id="cb478-4"><a href="assigning-functions.html#cb478-4" tabindex="-1"></a>                 <span class="at">--additional-layers</span> anvio_taxonomy_card_cog.txt <span class="dt">\</span></span>
+<span id="cb478-5"><a href="assigning-functions.html#cb478-5" tabindex="-1"></a>                 <span class="at">--tree</span> gtdbtk.bac120.unrooted.filtered.tree <span class="dt">\</span></span>
+<span id="cb478-6"><a href="assigning-functions.html#cb478-6" tabindex="-1"></a>                 <span class="at">--server-only</span> <span class="dt">\</span></span>
+<span id="cb478-7"><a href="assigning-functions.html#cb478-7" tabindex="-1"></a>                 <span class="at">-P</span> 8081</span></code></pre></div>
+<p>As you did previously, you can change to the GTDB tree view and change things like the class and species to text, and then sort the other layers however you would like to view them.</p>
+<p>Some other things I personally like to do:</p>
+<ul>
+<li>Change the completion/redundancy to intensity and change the minimum/maximum to reflect your data (i.e. 50-100 for completion and 0-10 for redundancy)</li>
+<li>Reorder the layers so that bin name, class and species are all next to the tree</li>
+<li>Change the colours for antibiotics and the COG groups</li>
+<li>Change the height of the layers</li>
+</ul>
+<p>At the end, I have something that looks like this (you can see how I changed things on the left side!)
+<img src="img/CBW2026_module5_Anvio4.png" /></p>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>One final note that I’ll add here is that obviously if things are present in MAGs then this is fine, but when they are not present you should consider the completeness of the genome when saying that something is “absent” - if a genome is only 50% complete then you potentially only have a 50/50 chance of a given function being present. This may actually be lower for some functions that we know don’t sequence/assemble well.</p>
+</div>
+</div>
+</div>
+<div id="mmseqs-initial-setup" class="section level2 hasAnchor">
+<h2>5.4. MMSeqs initial setup<a href="assigning-functions.html#mmseqs-initial-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As mentioned above, there are many different options for annotating functions in reads depending on what you are interested in annotating, and as with everything else, there are different tools that can achieve this. Some of the most popular for annotating reads are MMSeqs and HUMAnN. We’ve chosen MMSeqs here because this is what we typically use in our lab because it gives an output on a read-by-read basis that we can link with our Kraken output, but this does mean that there are a few more steps involved than if we used HUMAnN. We’ve given an overview of both here:</p>
+<div id="mmseqs" class="section level3 hasAnchor">
+<h3>MMSeqs<a href="assigning-functions.html#mmseqs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://github.com/soedinglab/MMseqs2">MMseqs2</a> (Many-against-Many sequence searching) is a software suite to search and cluster huge protein and nucleotide sequence sets. We’ll be using MMseqs to assign functions to our samples on a read-by-read basis by mapping them to the UniRef90 protein database, which allows us to link the function with the taxonomy that we’ve obtained from Kraken2 (although MMseqs can also be used for taxonomy assignment). MMseqs2 works by taking sequenced reads, translating them into protein and then mapping them against this protein database (in this case, <a href="https://www.uniprot.org/help/uniref">UniRef90</a>, a large protein database clustered at 90% identity).</p>
+</div>
+<div id="humann" class="section level3 hasAnchor">
+<h3>HUMAnN<a href="assigning-functions.html#humann" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://github.com/biobakery/humann">HUMAnN3</a> (HMP Unified Metabolic Analysis Network) is a tool for profiling the presence/absence and abundance of microbial pathways in a community from metagenomic (or metatranscriptomic) sequencing data. HUMAnN3 works by: (1) identifying the species in the samples using MetaPhlAn, (2) mapping these reads to pangenomes of the species using Bowtie2, and (3) aligning the reads that could not be mapped to the pangenomes to a protein database (usually UniRef50) with DIAMOND.</p>
+</div>
+<div id="mmseqs-setup" class="section level3 hasAnchor">
+<h3>MMSeqs setup<a href="assigning-functions.html#mmseqs-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As we’ve done previously, we’ll start by activating the conda environment and creating symlinks to the MMSeqs database that we’ll be using:</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb479-1"><a href="assigning-functions.html#cb479-1" tabindex="-1"></a><span class="ex">conda</span> activate mmseqs2-18.8cc5c</span>
+<span id="cb479-2"><a href="assigning-functions.html#cb479-2" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> ~/CourseData/databases/UniRef90_2026-01/ .</span></code></pre></div>
+<p>We’re going to be using the reads that we concatenated in module 3, so we don’t need to copy in any data.</p>
+</div>
+</div>
+<div id="run-mmseqs" class="section level2 hasAnchor">
+<h2>5.5. Run MMSeqs<a href="assigning-functions.html#run-mmseqs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, we’ll start running MMseqs2. Note that these commands can actually all be combined for each sample, but so that we can see and understand what’s going on, we’re going to run each of them separately.</p>
+<p>First, make a directory to store the output:</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb480-1"><a href="assigning-functions.html#cb480-1" tabindex="-1"></a><span class="fu">mkdir</span> mmseqs_U90_out</span></code></pre></div>
+<p>Now, we’ll use parallel to create databases for all of our sample files:</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb481-1"><a href="assigning-functions.html#cb481-1" tabindex="-1"></a><span class="ex">parallel</span> <span class="at">-j</span> 4 <span class="at">--progress</span> <span class="st">&#39;mmseqs createdb {} mmseqs_U90_out/mmseqs-{/.}-queryDB&#39;</span> ::: cat_reads/<span class="pp">*</span></span></code></pre></div>
+<p>This command creates an MMseqs database from the the input fastq file. The creation of this database is necessary for MMseqs as it vastly increases the speed at which translated DNA sequences can be mapped against a protein database.</p>
+<p>Next, we’ll actually run the searches with MMseqs:</p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb482-1"><a href="assigning-functions.html#cb482-1" tabindex="-1"></a><span class="ex">parallel</span> <span class="at">-j</span> 1 <span class="at">--progress</span> <span class="st">&#39;mmseqs search mmseqs_U90_out/mmseqs-{/.}-queryDB UniRef90_2026-01/UniRef90 mmseqs_U90_out/mmseqs-{/.}-resultDB tmp --db-load-mode 3 --threads 4 --max-seqs 25 -s 1 -a -e 1e-5&#39;</span> ::: cat_reads/<span class="pp">*</span></span></code></pre></div>
+<p>This command is the real meat of the job file and runs the freshly created sample database against the provided UniRef90 protien database. There are a number of parameters in this command:</p>
+<ul>
+<li><code>--db-load-mode 3</code> - This parameter tells MMseqs how to deal with loading the database into memory. For more information you can check out this page. However, setting this parameter to 3 helps when running MMseqs on a cluster environment.</li>
+<li><code>--threads</code> - The number of processors we want MMseqs to use during the search</li>
+<li><code>--max-seqs 25</code> - This indicates that we want MMseqs to output at maximum 25 hits for each sequence</li>
+<li><code>-s 1</code> - This indicates the sensitivity that we want MMseqs to run at. Increasing this number will lower the speed at which MMseqs runs but will increase its sensitivity. For well-explored environments such as the human gut, a setting of 1 should suffice.</li>
+<li><code>-a</code> - This indicates that we want our results to output backtraces for each sequence match. These are needed to convert the resulting MMseqs file into a usable file format.</li>
+<li><code>-e 1e-5</code> - This indicates that we only want to keep matches that are below an E-value of 1e-5 (E-values are a measure of how well two sequences match one another, and the closer they are to zero, the better the match is).</li>
+<li><code>&gt; /dev/null 2&gt;&amp;1</code> - We could add this part to the end of the command if we wanted to run the command without having too much text printed to our screen.</li>
+</ul>
+<div class="callout-purple">
+<span class="callout-icon"><i class="fas fa-star" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>Got an error message or it’s taking a long time??<br>
+We actually unfortunately don’t have enough memory on these servers to run this command. If you haven’t yet got an error message, you can stop this command with <code>ctrl</code>+<code>c</code>.</p>
+</div>
+</div>
+<p>We would also typically run the next command, that allows us to convert the resulting file from the MMSeqs2 format into one that is more usable:</p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb483-1"><a href="assigning-functions.html#cb483-1" tabindex="-1"></a><span class="ex">parallel</span> <span class="at">-j</span> 1 <span class="at">--progress</span> <span class="at">--eta</span> <span class="st">&#39;mmseqs convertalis mmseqs_U90_out/mmseqs-{/.}-queryDB UniRef90_2026-01/UniRef90 mmseqs_U90_out/mmseqs-{/.}-resultDB mmseqs_U90_out/mmseqs-{/.}-s1.m8 --db-load-mode 2 --threads 4&#39;</span> ::: cat_reads/<span class="pp">*</span></span></code></pre></div>
+<p>This command is similar and takes as input the query database we made from our first command, the UniRef90 database we searched against and the resulting file from our search command. It will output the files <code>mmseqs_U90_out/mmseqs-*-s1.m8</code>.</p>
+<p>Again, if we didn’t want to print the output of this then we could add <code>&gt; /dev/null 2&gt;&amp;1</code> to the end of the command.</p>
+<p>However, this takes about 4 minutes to run on each sample (so 40 mins total), so I’d suggest that you just copy across the output that we would have got:</p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb484-1"><a href="assigning-functions.html#cb484-1" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/CourseData/metagenome/mmseqs_U90_out/ .</span></code></pre></div>
+<p>Now, we’ll move these <code>*.m8</code> files to a new folder:</p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb485-1"><a href="assigning-functions.html#cb485-1" tabindex="-1"></a><span class="fu">mkdir</span> mmseqs_m8_files</span>
+<span id="cb485-2"><a href="assigning-functions.html#cb485-2" tabindex="-1"></a><span class="fu">mv</span> mmseqs_U90_out/<span class="pp">*</span>.m8 mmseqs_m8_files/</span></code></pre></div>
+<p>Let’s take a quick look at one of the files we just moved into the directory mmseqs_m8_files using the less command:</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb486-1"><a href="assigning-functions.html#cb486-1" tabindex="-1"></a><span class="fu">less</span> mmseqs_m8_files/mmseqs-CSM7KOMH-s1.m8</span></code></pre></div>
+<p>We you will see is a file in BLAST tabular format:</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Column Number</th>
+<th align="center">Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="center">query sequence ID</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="center">Subject (database) sequence ID</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="center">Percent Identity</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="center">Alignment Length</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="center">Number of gaps</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="center">Number of mismatches</td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="center">Start on the query sequence</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="center">End on the query sequence</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="center">Start on the database sequence</td>
+</tr>
+<tr class="even">
+<td align="left">9</td>
+<td align="center">End on the database sequence</td>
+</tr>
+<tr class="odd">
+<td align="left">10</td>
+<td align="center">E value - the expectation that this alignment is random given the length of the sequence and length of the database</td>
+</tr>
+<tr class="even">
+<td align="left">11</td>
+<td align="center">bit score - the score of the alignment itself</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="get-mmseqs-top-hits" class="section level2 hasAnchor">
+<h2>5.6. Get MMSeqs top hits<a href="assigning-functions.html#get-mmseqs-top-hits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The next step we need to take is to get the name of the protein sequence that had the best alignment for each sequence read in our samples. We can achieve this by running the command:</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb487-1"><a href="assigning-functions.html#cb487-1" tabindex="-1"></a><span class="fu">mkdir</span> mmseqs_U90_out_tophit</span>
+<span id="cb487-2"><a href="assigning-functions.html#cb487-2" tabindex="-1"></a><span class="ex">python</span> ~/CourseData/scripts/MMSeqs2_functional_annotation/pick_uniref_top_hit.py <span class="at">--unirefm8Dir</span> mmseqs_m8_files <span class="at">--output_path</span> mmseqs_U90_out_tophit</span></code></pre></div>
+<p>Now that we have the best protein sequence that matches best with each of the sequences in our samples we can begin creating our final data table containing the stratified abundance of each function in our samples. Because we (in the Langille lab) are continually updating some of these scripts, and the ones that we are using are ones that we have only recently developed, there are a few different steps that we’ll take to get the files in the format that we want them to be in. Often as we develop things in bioinformatics, we’ll try out a lot of different things, and as the protocols that we use things mature we can consolidate them into a single script. We have just about reached that point here, but we haven’t consolidated things yet so we’ll run these few steps.</p>
+</div>
+<div id="combine-kraken-taxonomy-and-mmseqs-functions" class="section level2 hasAnchor">
+<h2>5.7. Combine Kraken taxonomy and MMSeqs functions<a href="assigning-functions.html#combine-kraken-taxonomy-and-mmseqs-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While we don’t have that many files and could just make a file by hand, it’s good practice to make these files with scripts for when we’re working on our own data and may have hundreds of samples!</p>
+<p>We’ll be using Python for this, and we can open up Python by typing in <code>python</code> and pressing enter. You should see some information about the Python version print out, and a new command prompt with <code>&gt;&gt;&gt;</code> pop up. This shows us that we’re now using Python rather than bash.</p>
+<p>Next, we’ll import the package that we’ll use:</p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb488-1"><a href="assigning-functions.html#cb488-1" tabindex="-1"></a><span class="im">import</span> os</span></code></pre></div>
+<p><strong>Note</strong>: You’ll need to press enter after each line to make sure that it runs! Make sure that the command prompt <code>&gt;&gt;&gt;</code> has come up before you paste in the next code.</p>
+<p>Now, we’ll make a list of our samples:</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb489-1"><a href="assigning-functions.html#cb489-1" tabindex="-1"></a>samples <span class="op">=</span> os.listdir(<span class="st">&#39;cat_reads/&#39;</span>) <span class="co">#this command creates a list of the files in cat_reads/</span></span>
+<span id="cb489-2"><a href="assigning-functions.html#cb489-2" tabindex="-1"></a>samples <span class="op">=</span> [s.split(<span class="st">&#39;.&#39;</span>)[<span class="dv">0</span>] <span class="cf">for</span> s <span class="kw">in</span> samples] <span class="co">#and this command uses a for loop to get only the sample names - the part of the file names before the &#39;.&#39;</span></span></code></pre></div>
+<p>Print out the list to see what’s in it:</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb490-1"><a href="assigning-functions.html#cb490-1" tabindex="-1"></a><span class="bu">print</span>(samples)</span></code></pre></div>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 6:</strong> What’s in the list that we’ve printed?</p>
+</div>
+</div>
+<p>Now we’ll set up a few variables so that we don’t need to keep typing them out:</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb491-1"><a href="assigning-functions.html#cb491-1" tabindex="-1"></a>kraken_path <span class="op">=</span> <span class="st">&#39;kraken2_outraw_rename/&#39;</span></span>
+<span id="cb491-2"><a href="assigning-functions.html#cb491-2" tabindex="-1"></a>kraken_suffix <span class="op">=</span> <span class="st">&#39;.kraken&#39;</span></span>
+<span id="cb491-3"><a href="assigning-functions.html#cb491-3" tabindex="-1"></a>mmseqs_path <span class="op">=</span> <span class="st">&#39;mmseqs_U90_out_tophit/mmseqs-&#39;</span></span>
+<span id="cb491-4"><a href="assigning-functions.html#cb491-4" tabindex="-1"></a>mmseqs_suffix <span class="op">=</span> <span class="st">&#39;-s1.m8-parsed.txt&#39;</span></span>
+<span id="cb491-5"><a href="assigning-functions.html#cb491-5" tabindex="-1"></a>mmseqs_m8_path <span class="op">=</span> <span class="st">&#39;mmseqs_m8_files/mmseqs-&#39;</span></span>
+<span id="cb491-6"><a href="assigning-functions.html#cb491-6" tabindex="-1"></a>mmseqs_m8_suffix <span class="op">=</span> <span class="st">&#39;-s1.m8&#39;</span></span></code></pre></div>
+<p>And then we’ll create a new file (<code>multi-sample-outfiles-w-m8.txt</code>) and loop through the samples adding them to the new file:</p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb492-1"><a href="assigning-functions.html#cb492-1" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;multi-sample-outfiles-w-m8.txt&#39;</span>, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb492-2"><a href="assigning-functions.html#cb492-2" tabindex="-1"></a>  <span class="cf">for</span> sample <span class="kw">in</span> samples:</span>
+<span id="cb492-3"><a href="assigning-functions.html#cb492-3" tabindex="-1"></a>    string <span class="op">=</span> sample<span class="op">+</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span></span>
+<span id="cb492-4"><a href="assigning-functions.html#cb492-4" tabindex="-1"></a>    string <span class="op">+=</span> kraken_path<span class="op">+</span>sample<span class="op">+</span>kraken_suffix<span class="op">+</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span><span class="op">+</span><span class="st">&#39;kraken2&#39;</span><span class="op">+</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span></span>
+<span id="cb492-5"><a href="assigning-functions.html#cb492-5" tabindex="-1"></a>    string <span class="op">+=</span> mmseqs_path<span class="op">+</span>sample<span class="op">+</span>mmseqs_suffix<span class="op">+</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span><span class="op">+</span><span class="st">&#39;uniref&#39;</span><span class="op">+</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span></span>
+<span id="cb492-6"><a href="assigning-functions.html#cb492-6" tabindex="-1"></a>    string <span class="op">+=</span> mmseqs_m8_path<span class="op">+</span>sample<span class="op">+</span>mmseqs_m8_suffix<span class="op">+</span><span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb492-7"><a href="assigning-functions.html#cb492-7" tabindex="-1"></a>    s <span class="op">=</span> f.write(string)</span></code></pre></div>
+<p>Make sure that you press enter to execute this command.
+You’ll see that for each sample, we’re adding the sample name, the path to the kraken output for that file, the path to the mmseqs output for that file, and the path to the mmseqs m8 output for that file, each separated by a tab (<code>\t</code>).</p>
+<p>Now we can quit Python again by entering <code>quit()</code> (and pressing enter).</p>
+<p>If you take a look at this file that we just made, you should see all of your samples in there along with the outputs from Kraken and MMseqs.</p>
+<p>Now that we have this master file we can pass this information into the helper script to add all of it together for our samples:</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb493-1"><a href="assigning-functions.html#cb493-1" tabindex="-1"></a><span class="ex">python</span> ~/CourseData/scripts/MMSeqs2_functional_annotation/parse_TaxonomyFunction_single.py <span class="at">--multisample</span> multi-sample-outfiles-w-m8.txt <span class="at">--outputf</span> HMP2_workshop <span class="at">--database</span> UniRef90_2026-01/ <span class="at">--kraken_paired</span></span></code></pre></div>
+<p>This will create a few different output files:</p>
+<ul>
+<li><code>HMP2_workshop-unstrat-matrix-RPKM.txt</code>: this is simply a count of the functions that we have in our files as annotated by MMSeqs</li>
+<li><code>HMP2_workshop-unstrat-matrix-RPKM-withEC.txt</code>: this is the same as above, but has the UniRef ID’s mapped to EC numbers</li>
+<li><code>HMP2_workshop-strat-matrix-RPKM.txt</code>: as the first file, but with each function broken down by the taxa that contribute to it (we usually refer to this as a <code>stratified</code> output file)</li>
+<li><code>HMP2_workshop-strat-matrix-RPKM-withEC.txt</code>: as the second file, but with the functions broken down by taxa again</li>
+</ul>
+<p>This might take a while, it might say “killed”, or it might just give you an error (although it runs elsewhere). Either way, we can copy the output if we need to, and take a look at it:</p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb494-1"><a href="assigning-functions.html#cb494-1" tabindex="-1"></a><span class="fu">cp</span> ~/CourseData/metagenome/HMP2_workshop<span class="pp">*</span> .</span>
+<span id="cb494-2"><a href="assigning-functions.html#cb494-2" tabindex="-1"></a><span class="fu">less</span> HMP2_workshop-strat-matrix-RPKM.txt</span></code></pre></div>
+</div>
+<div id="visualise-mmseqs-and-kraken-in-jarrvis" class="section level2 hasAnchor">
+<h2>5.8. Visualise MMSeqs and Kraken in JarrVis<a href="assigning-functions.html#visualise-mmseqs-and-kraken-in-jarrvis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we’re finally ready to run JarrVis to visualise our taxonomy-function information from MMseqs! <a href="https://github.com/dhwanidesai/JarrVis/tree/main">JarrVis</a> is a tool made by our lab to visualise the links between taxonomy and function in different sample groups. The preprint is <a href="https://www.biorxiv.org/content/10.1101/2025.04.13.648596v1">here</a> if you’d like to see some examples of how it can be used.</p>
+<p>First, we’re going to need to manipulate the <code>HMP2_workshop-strat-matrix-RPKM-withEC.txt</code> so that we can visualise it. There are a few things that we need:
+1. A full taxonomy string, e.g.: <code>Alistipes onderdonkii (taxid 328813)</code> -&gt; <code>p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes;s__Alistipes onderdonkii</code>
+2. Descriptions for the EC numbers, e.g.: <code>EC:1.1.1.133</code> -&gt; <code>EC:1.1.1.133: dTDP-4-dehydrorhamnose reductase</code>
+3. To convert this to the format required for JarrVis, which is that each line is a sample-taxon-function-abundance, like this:</p>
+<pre><code>Sample  Genus   Gene    Contribution
+HSM7J4QT    p__Bacillota;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Mediterraneibacter;s__Unclassified   EC:1.1.1.100: 3-oxoacyl-[acyl-carrier-protein] reductase.   187.2525273941754
+HSM7J4QT    p__Bacillota;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Mediterraneibacter;s__Mediterraneibacter torques EC:1.1.1.100: 3-oxoacyl-[acyl-carrier-protein] reductase.   193.4018259453191
+HSM7J4QT    p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__Phocaeicola vulgatus    EC:1.1.1.100: 3-oxoacyl-[acyl-carrier-protein] reductase.   197.42025737789507
+HSM7J4QT    p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides caccae  EC:1.1.1.131: mannuronate reductase.    175.01671409619615
+HSM7J4QT    p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides;s__Bacteroides uniformis   EC:1.1.1.131: mannuronate reductase.    178.3637876420721</code></pre>
+<p>To do this in Python, we’ll be first:
+1. Importing the packages that we need
+2. Using the taxonomy information that comes with the Kraken database (<code>k2_pluspf_08_GB_20260626/ktaxonomy.tsv</code>) to get the parent taxonomy ID, level, and name for each taxonomy ID. For example, the taxonomy ID 853: parent 216851 (<code>**</code>), level S (<code>S</code>pecies), name <code>*Faecalibacterium prausnitzii*</code>
+3. Making lists of the full taxonomy tanks for each taxon
+4. Getting the EC descriptions from the MMSeqs UniRef database (<code>UniRef90_2026-01/EC_descriptions.txt</code>)
+5. Adding the descriptions and taxonomy information to the existing file <code>HMP2_workshop-strat-matrix-RPKM-withEC.txt</code>
+6. Converting this to the format required for JarrVis:</p>
+<p>1:</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb496-1"><a href="assigning-functions.html#cb496-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb496-2"><a href="assigning-functions.html#cb496-2" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb496-3"><a href="assigning-functions.html#cb496-3" tabindex="-1"></a><span class="im">import</span> pickle</span></code></pre></div>
+<p>2:</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb497-1"><a href="assigning-functions.html#cb497-1" tabindex="-1"></a>taxonomy <span class="op">=</span> {}</span>
+<span id="cb497-2"><a href="assigning-functions.html#cb497-2" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> <span class="bu">open</span>(<span class="st">&#39;k2_pluspf_08_GB_20260626/ktaxonomy.tsv&#39;</span>, <span class="st">&#39;r&#39;</span>):</span>
+<span id="cb497-3"><a href="assigning-functions.html#cb497-3" tabindex="-1"></a>  row <span class="op">=</span> row.replace(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, <span class="st">&#39;&#39;</span>).split(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">|</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb497-4"><a href="assigning-functions.html#cb497-4" tabindex="-1"></a>  taxid, parent, level, name <span class="op">=</span> row[<span class="dv">0</span>], row[<span class="dv">1</span>], row[<span class="dv">2</span>], row[<span class="dv">4</span>]</span>
+<span id="cb497-5"><a href="assigning-functions.html#cb497-5" tabindex="-1"></a>  taxonomy[taxid] <span class="op">=</span> [parent, level, name]</span></code></pre></div>
+<p>3:</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb498-1"><a href="assigning-functions.html#cb498-1" tabindex="-1"></a>full_taxonomy <span class="op">=</span> {}</span>
+<span id="cb498-2"><a href="assigning-functions.html#cb498-2" tabindex="-1"></a><span class="cf">for</span> taxid <span class="kw">in</span> taxonomy:</span>
+<span id="cb498-3"><a href="assigning-functions.html#cb498-3" tabindex="-1"></a>  parent_id <span class="op">=</span> taxonomy[taxid][<span class="dv">0</span>]</span>
+<span id="cb498-4"><a href="assigning-functions.html#cb498-4" tabindex="-1"></a>  tax_list <span class="op">=</span> [taxonomy[taxid][<span class="dv">2</span>]]</span>
+<span id="cb498-5"><a href="assigning-functions.html#cb498-5" tabindex="-1"></a>  nodes_list <span class="op">=</span> [taxid]</span>
+<span id="cb498-6"><a href="assigning-functions.html#cb498-6" tabindex="-1"></a>  level_list <span class="op">=</span> [taxonomy[taxid][<span class="dv">1</span>]]</span>
+<span id="cb498-7"><a href="assigning-functions.html#cb498-7" tabindex="-1"></a>  <span class="cf">while</span> parent_id <span class="kw">in</span> taxonomy:</span>
+<span id="cb498-8"><a href="assigning-functions.html#cb498-8" tabindex="-1"></a>    <span class="cf">if</span> parent_id <span class="kw">in</span> [<span class="st">&#39;1&#39;</span>, <span class="st">&#39;0&#39;</span>]:</span>
+<span id="cb498-9"><a href="assigning-functions.html#cb498-9" tabindex="-1"></a>      <span class="cf">break</span></span>
+<span id="cb498-10"><a href="assigning-functions.html#cb498-10" tabindex="-1"></a>    tax_list.append(taxonomy[parent_id][<span class="dv">2</span>])</span>
+<span id="cb498-11"><a href="assigning-functions.html#cb498-11" tabindex="-1"></a>    nodes_list.append(parent_id)</span>
+<span id="cb498-12"><a href="assigning-functions.html#cb498-12" tabindex="-1"></a>    level_list.append(taxonomy[parent_id][<span class="dv">1</span>])</span>
+<span id="cb498-13"><a href="assigning-functions.html#cb498-13" tabindex="-1"></a>    parent_id <span class="op">=</span> taxonomy[parent_id][<span class="dv">0</span>]</span>
+<span id="cb498-14"><a href="assigning-functions.html#cb498-14" tabindex="-1"></a>  full_taxonomy[taxid] <span class="op">=</span> [nodes_list, tax_list, level_list]</span></code></pre></div>
+<p>4:</p>
+<div class="sourceCode" id="cb499"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb499-1"><a href="assigning-functions.html#cb499-1" tabindex="-1"></a>descriptions <span class="op">=</span> {}</span>
+<span id="cb499-2"><a href="assigning-functions.html#cb499-2" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> <span class="bu">open</span>(<span class="st">&#39;UniRef90_2026-01/EC_descriptions.txt&#39;</span>, <span class="st">&#39;r&#39;</span>):</span>
+<span id="cb499-3"><a href="assigning-functions.html#cb499-3" tabindex="-1"></a>  row <span class="op">=</span> row.replace(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, <span class="st">&#39;&#39;</span>).split(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb499-4"><a href="assigning-functions.html#cb499-4" tabindex="-1"></a>  descriptions[row[<span class="dv">0</span>]] <span class="op">=</span> row[<span class="dv">1</span>]</span></code></pre></div>
+<p>5:</p>
+<div class="sourceCode" id="cb500"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb500-1"><a href="assigning-functions.html#cb500-1" tabindex="-1"></a>tax_levels <span class="op">=</span> {<span class="st">&#39;P&#39;</span>:<span class="st">&#39;p__&#39;</span>, <span class="st">&#39;C&#39;</span>:<span class="st">&#39;c__&#39;</span>, <span class="st">&#39;O&#39;</span>:<span class="st">&#39;o__&#39;</span>, <span class="st">&#39;F&#39;</span>:<span class="st">&#39;f__&#39;</span>, <span class="st">&#39;G&#39;</span>:<span class="st">&#39;g__&#39;</span>, <span class="st">&#39;S&#39;</span>:<span class="st">&#39;s__&#39;</span>}</span>
+<span id="cb500-2"><a href="assigning-functions.html#cb500-2" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> pd.read_csv(<span class="st">&#39;HMP2_workshop-strat-matrix-RPKM-withEC.txt&#39;</span>, index_col<span class="op">=</span><span class="dv">0</span>, header<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb500-3"><a href="assigning-functions.html#cb500-3" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.groupby(by<span class="op">=</span><span class="bu">file</span>.index).<span class="bu">sum</span>()</span>
+<span id="cb500-4"><a href="assigning-functions.html#cb500-4" tabindex="-1"></a>samples <span class="op">=</span> <span class="bu">list</span>(<span class="bu">file</span>.columns)</span>
+<span id="cb500-5"><a href="assigning-functions.html#cb500-5" tabindex="-1"></a><span class="bu">file</span>[[<span class="st">&#39;tax&#39;</span>, <span class="st">&#39;function&#39;</span>]] <span class="op">=</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb500-6"><a href="assigning-functions.html#cb500-6" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> <span class="bu">file</span>.index.values:</span>
+<span id="cb500-7"><a href="assigning-functions.html#cb500-7" tabindex="-1"></a>  function, tax <span class="op">=</span> row.split(<span class="st">&#39;|&#39;</span>)</span>
+<span id="cb500-8"><a href="assigning-functions.html#cb500-8" tabindex="-1"></a>  function <span class="op">=</span> function.replace(<span class="st">&#39;;&#39;</span>, <span class="st">&#39;&#39;</span>)</span>
+<span id="cb500-9"><a href="assigning-functions.html#cb500-9" tabindex="-1"></a>  <span class="cf">if</span> function <span class="kw">in</span> descriptions:</span>
+<span id="cb500-10"><a href="assigning-functions.html#cb500-10" tabindex="-1"></a>    function <span class="op">=</span> function<span class="op">+</span><span class="st">&#39;: &#39;</span><span class="op">+</span>descriptions[function]</span>
+<span id="cb500-11"><a href="assigning-functions.html#cb500-11" tabindex="-1"></a>  <span class="bu">file</span>.loc[row, <span class="st">&#39;function&#39;</span>] <span class="op">=</span> function</span>
+<span id="cb500-12"><a href="assigning-functions.html#cb500-12" tabindex="-1"></a>  taxid <span class="op">=</span> tax.split(<span class="st">&#39;taxid &#39;</span>)[<span class="dv">1</span>].replace(<span class="st">&#39;)&#39;</span>, <span class="st">&#39;&#39;</span>)</span>
+<span id="cb500-13"><a href="assigning-functions.html#cb500-13" tabindex="-1"></a>  full_tax <span class="op">=</span> full_taxonomy[taxid]</span>
+<span id="cb500-14"><a href="assigning-functions.html#cb500-14" tabindex="-1"></a>  this_tax <span class="op">=</span> []</span>
+<span id="cb500-15"><a href="assigning-functions.html#cb500-15" tabindex="-1"></a>  <span class="cf">for</span> level <span class="kw">in</span> tax_levels:</span>
+<span id="cb500-16"><a href="assigning-functions.html#cb500-16" tabindex="-1"></a>    <span class="cf">if</span> level <span class="kw">in</span> full_tax[<span class="dv">2</span>]:</span>
+<span id="cb500-17"><a href="assigning-functions.html#cb500-17" tabindex="-1"></a>      index <span class="op">=</span> full_tax[<span class="dv">2</span>].index(level)</span>
+<span id="cb500-18"><a href="assigning-functions.html#cb500-18" tabindex="-1"></a>      name <span class="op">=</span> full_tax[<span class="dv">1</span>][index]</span>
+<span id="cb500-19"><a href="assigning-functions.html#cb500-19" tabindex="-1"></a>      this_tax.append(tax_levels[level]<span class="op">+</span>name)</span>
+<span id="cb500-20"><a href="assigning-functions.html#cb500-20" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb500-21"><a href="assigning-functions.html#cb500-21" tabindex="-1"></a>      this_tax.append(tax_levels[level]<span class="op">+</span><span class="st">&#39;Unclassified&#39;</span>)</span>
+<span id="cb500-22"><a href="assigning-functions.html#cb500-22" tabindex="-1"></a>  this_tax <span class="op">=</span> <span class="st">&#39;;&#39;</span>.join(this_tax)</span>
+<span id="cb500-23"><a href="assigning-functions.html#cb500-23" tabindex="-1"></a>  <span class="bu">file</span>.loc[row, <span class="st">&#39;tax&#39;</span>] <span class="op">=</span> this_tax</span>
+<span id="cb500-24"><a href="assigning-functions.html#cb500-24" tabindex="-1"></a>  </span>
+<span id="cb500-25"><a href="assigning-functions.html#cb500-25" tabindex="-1"></a><span class="bu">file</span>.to_csv(<span class="st">&#39;HMP2_workshop-strat-matrix-RPKM-withEC_descriptions.txt&#39;</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
+<p>6:</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb501-1"><a href="assigning-functions.html#cb501-1" tabindex="-1"></a>new_file <span class="op">=</span> []</span>
+<span id="cb501-2"><a href="assigning-functions.html#cb501-2" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> samples:</span>
+<span id="cb501-3"><a href="assigning-functions.html#cb501-3" tabindex="-1"></a>  <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">file</span>.index.values:</span>
+<span id="cb501-4"><a href="assigning-functions.html#cb501-4" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">file</span>.loc[row, sample] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb501-5"><a href="assigning-functions.html#cb501-5" tabindex="-1"></a>      <span class="cf">if</span> <span class="bu">len</span>(<span class="bu">file</span>.loc[row, <span class="st">&#39;function&#39;</span>]) <span class="op">&gt;</span> <span class="dv">1000</span>: <span class="cf">continue</span> </span>
+<span id="cb501-6"><a href="assigning-functions.html#cb501-6" tabindex="-1"></a>      new_file.append([sample, <span class="bu">file</span>.loc[row, <span class="st">&#39;tax&#39;</span>], <span class="bu">file</span>.loc[row, <span class="st">&#39;function&#39;</span>], <span class="bu">file</span>.loc[row, sample]])</span>
+<span id="cb501-7"><a href="assigning-functions.html#cb501-7" tabindex="-1"></a></span>
+<span id="cb501-8"><a href="assigning-functions.html#cb501-8" tabindex="-1"></a>new_file <span class="op">=</span> pd.DataFrame(new_file, columns<span class="op">=</span>[<span class="st">&#39;Sample&#39;</span>, <span class="st">&#39;Genus&#39;</span>, <span class="st">&#39;Gene&#39;</span>, <span class="st">&#39;Contribution&#39;</span>]).set_index(<span class="st">&#39;Sample&#39;</span>)</span>
+<span id="cb501-9"><a href="assigning-functions.html#cb501-9" tabindex="-1"></a>new_file.to_csv(<span class="st">&#39;HMP2_workshop-strat-matrix-RPKM-withEC_descriptions_for_jarrvis.txt&#39;</span>, sep<span class="op">=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span></code></pre></div>
+<p>Take a look at this final output file to see what the format is like. Now we’re ready to visualise!</p>
+<ol style="list-style-type: decimal">
+<li>First off, download <code>HMP2_workshop-strat-matrix-RPKM-withEC_descriptions_for_jarrvis.txt</code> and <code>mgs_metadata.txt</code>. Download both of these to your laptop.</li>
+<li>If you already have RStudio (desktop) installed, go ahead and open it up. If not, download and install it from <a href="https://posit.co/download/rstudio-desktop/">here</a>, and then open it up.</li>
+<li>Open the console and type: <code>library(shiny)</code>. If this works, continue to 5. If not, do step 4.</li>
+<li>Open the console and type: <code>install.packages('shiny')</code> - it may ask you more questions, but you probably want to say yes/y to everything. Type: <code>library(shiny)</code></li>
+<li>Type: <code>runGist("943ff5fdbd94815cc27f302d9f56ff0b")</code> - you should see some things running and then a box will pop up!</li>
+<li>In <code>"Upload stratified output File (TSV)"</code>, click browse and choose the <code>HMP2_workshop-strat-matrix-RPKM-withEC_descriptions_for_jarrvis.txt</code> file</li>
+<li>In <code>"Upload Sample Metadata File (TSV)"</code>, click browse and choose the <code>mgs_metadata.txt</code> file</li>
+<li>Click <code>"Select Metadata Categories"</code> - you should see the Metadata Categories box populate itself with <code>"disease_state"</code> (if you had more metadata categories in your metadata file, these would come up here for you to choose from)</li>
+<li>Choose the taxonomy level to collapse at - you can choose whatever you’d like, but I went with genera</li>
+<li>Click <code>"Select Taxa Categories"</code> - you won’t see anything change, but the next <code>"Filter by Taxa"</code> box now has all of the taxa. Click on <code>"Select All"</code> here.</li>
+<li>Click <code>"Select Function Categories"</code> - this is the same as for taxa, so now click on <code>"Filter by Function"</code> and <code>"Select All"</code> again.</li>
+<li>Now click on <code>"Update the Gene Contribution Threshold from data"</code>. You can move up the bottom filter so that we don’t plot all of the really low abundance stuff - I’ve found that to ~500 seems to be sensible for visualising everything.</li>
+<li>Now scroll to the bottom of the window and click 1”Display plot”1.</li>
+<li>Now scroll back up and you should see the functions in each group and be able to start exploring them. Try clicking on some of the links and seeing how they go back to the sample groupings.</li>
+<li>Note: Sometimes weird things happen! If you get an error when you try to display the plot, try quitting RStudio (if it asks you if you want to save your workspace click never), re-opening it, and starting again from step 3 here.</li>
+</ol>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p><strong>Question 7:</strong> What do you see in the JarrVis output?</p>
+</div>
+</div>
+</div>
+<div id="general-functional-annotation-of-mag-fasta-files-using-bakta" class="section level2 hasAnchor">
+<h2>5.9. General functional annotation of MAG fasta files using Bakta<a href="assigning-functions.html#general-functional-annotation-of-mag-fasta-files-using-bakta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The final way that we’ll show you adding functions is annotating the MAG fasta files directly. This is the same method as we’d use for annotating individual genomes, and will annotate all of the genes within them.</p>
+<p>You may have heard of <a href="https://github.com/tseemann/prokka"><code>Prokka</code></a>, which is the predecessor to <a href="https://github.com/oschwengers/bakta"><code>Bakta</code></a> - the <code>Prokka</code> developers now recommend using <code>Bakta</code> instead, so that’s what we’re doing here. <code>Bakta</code> is “a tool for the rapid &amp; standardized annotation of bacterial genomes and plasmids from both isolates and MAGs.” We’re using the light version of the database here, but there are other options for your own research.</p>
+<p>Let’s activate the environment and tell Bakta where to find its database:</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb502-1"><a href="assigning-functions.html#cb502-1" tabindex="-1"></a><span class="ex">conda</span> activate bakta-1.12.1</span>
+<span id="cb502-2"><a href="assigning-functions.html#cb502-2" tabindex="-1"></a><span class="bu">export</span> <span class="va">BAKTA_DB</span><span class="op">=</span>/media/cbwdata/CourseData/tools/bakta/db-light</span></code></pre></div>
+<p>And now change to the correct directory (if we’re not already there) and run it:</p>
+<div class="sourceCode" id="cb503"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb503-1"><a href="assigning-functions.html#cb503-1" tabindex="-1"></a><span class="bu">cd</span> ~/workspace/metagenome</span>
+<span id="cb503-2"><a href="assigning-functions.html#cb503-2" tabindex="-1"></a><span class="fu">mkdir</span> bakta_out</span>
+<span id="cb503-3"><a href="assigning-functions.html#cb503-3" tabindex="-1"></a><span class="ex">parallel</span> <span class="at">-j</span> 1 <span class="st">&#39;bakta \</span></span>
+<span id="cb503-4"><a href="assigning-functions.html#cb503-4" tabindex="-1"></a><span class="st">               --db $BAKTA_DB \</span></span>
+<span id="cb503-5"><a href="assigning-functions.html#cb503-5" tabindex="-1"></a><span class="st">               --output bakta_out/{/.} \</span></span>
+<span id="cb503-6"><a href="assigning-functions.html#cb503-6" tabindex="-1"></a><span class="st">               --threads 4 \</span></span>
+<span id="cb503-7"><a href="assigning-functions.html#cb503-7" tabindex="-1"></a><span class="st">               {}&#39;</span> ::: MAG_fasta/<span class="pp">*</span></span></code></pre></div>
+<p>If you have any functions/genes that you’re particularly interested in, take a look for them in the Bakta output (I think you’re advanced enough in your bioinformatics knowledge by now that you can figure out how to do this for yourself :)).</p>
+<p>Bakta also gives some visualisations like this:
+<img src="img/CBW2026_module5_bakta.png" /></p>
+<p>This is created by <a href="https://github.com/moshi4/pyCirclize">pyCirclize</a> and shows genomic features across your genome. You can read more information about it <a href="https://github.com/oschwengers/bakta#description-1">here</a>.</p>
+</div>
+<div id="extras-1" class="section level2 hasAnchor">
+<h2>Extras<a href="assigning-functions.html#extras-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some other things that we can do either in Anvi’o or with MAGs/functions:</p>
+<ul>
+<li><a href="https://anvio.org/learn/">Other Anvi’o workflows and tutorials</a></li>
+<li><a href="https://anvio.org/help/main/">Programs available within Anvi’o</a></li>
+<li><a href="https://www.kegg.jp/ghostkoala/">BlastKOALA and GhostKOALA</a></li>
+<li><a href="https://www.pathogenomics.sfu.ca/islandviewer">IslandViewer</a></li>
+<li><a href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-021-01213-8">METABOLIC</a></li>
+</ul>
+</div>
+<div id="answers-2" class="section level2 hasAnchor">
+<h2>Answers<a href="assigning-functions.html#answers-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Question 1</strong>: How many annotations in each category are there?</p>
+<pre><code>* COG24_CATEGORY (104,084 annotations)
+* COG24_FUNCTION (104,084 annotations)
+* COG24_PATHWAY (26,425 annotations)</code></pre>
+<p><strong>Question 2:</strong> What do you think we’re doing in each of these commands?</p>
+<p>In the first line for each, we are creating a file and saving the header. Then, For each of the ARO, drug classes that genes give resistance to, and gene families, we’re taking the gene name, which is in the first column <code>$1</code>, telling Anvi’o what we want the functional category to be called (e.g. <code>CARD-gene-family</code>), giving the accession from the eleventh column <code>$11</code>, giving the name of the functional annotation (column varies for each), and then finally giving the e-value from the eighth column <code>$8</code> (note that CARD RGI doesn’t actually give an e-value, so we have used the <code>Best_Hit_Bitscore</code> column instead).</p>
+<p><strong>Question 3:</strong> How many drug classes are present in all of our MAGs?</p>
+<p>10</p>
+<p><strong>Question 4:</strong> How many gene families are present in all of our MAGs?</p>
+<p>8</p>
+<p><strong>Question 5:</strong> Can you figure out what this code is doing?</p>
+<p>In each of the <code>CARD-drug-class-MAGs-final-PRESENCE-ABSENCE.txt</code> and <code>COG24_PATHWAY-MAGs-final-PRESENCE-ABSENCE.txt</code> files, we’re taking the first row (<code>NR == 1</code>) and then any rows where the 28th column matches the names we’ve given, so e.g. when the 28th column is <code>$28 == "Pyruvate oxidation"</code>. The <code>||</code> indicates that we want rows where <code>$28 == "Pyruvate oxidation</code> <strong>OR</strong> <code>$28 == "TCA cycle"</code>, and then we’re saving this as a new file. Hopefully by now you’re realising that a lot of bioinformatics is just converting files into different formats!!</p>
+<p><strong>Question 6:</strong> What’s in the list that we’ve printed?</p>
+<p>We should see a list of all of our samples like this:</p>
+<pre><code>[&#39;HSM7J4QT&#39;, &#39;CSM79HR8&#39;, &#39;HSM6XRQY&#39;, &#39;MSM9VZHR&#39;, &#39;CSM7KOMH&#39;, &#39;HSMA33J3&#39;, &#39;MSMB4LXW&#39;, &#39;HSMA33KE&#39;, &#39;MSM79HA3&#39;, &#39;PSM7J18I&#39;]</code></pre>
+<p><strong>Question 7:</strong> What do you see in the JarrVis output?</p>
+<p>Hopefully you see something like this:
+<img src="img/CBW2026_module5_jarrvis.png" />
+Note that this will vary a bit depending on the filtering parameters you have used!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="metagenomic-assembly-and-binning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization-and-finding-functional-significance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/MIC_Gue-2609/blob/main/050-module-5.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

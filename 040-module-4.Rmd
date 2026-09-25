@@ -1,6 +1,8 @@
-# Module 4
+# 4 | Metagenomic Assembly and Binning
 
 ## Lecture
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0GDZANUd314?si=n297qFlsyA1sP5lj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <iframe src="https://docs.google.com/presentation/d/1cUz8P-GNA4cm7X31_TsPGMv8hxXX1ruq/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab

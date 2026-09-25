@@ -1,6 +1,9 @@
-# Module 2
+# 2 | Microbiome ecology, statistics, and visualization
 
 ## Lecture
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gJ8U658XOfo?si=CbrMa8xxe8XFrpCo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <iframe src="https://docs.google.com/presentation/d/1b7lNcO8nBaKF3CA2B9WqUTULOc7p3_an/preview" width="640" height="480" allow="autoplay"></iframe>  
 
 ## Lab
